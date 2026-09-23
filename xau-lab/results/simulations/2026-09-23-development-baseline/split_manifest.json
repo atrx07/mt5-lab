@@ -1,0 +1,43 @@
+{
+  "dataset_filename": "xau_ticks_7d.csv",
+  "dataset_sha256": "007e7ab10cc16519b544003dbe81521f46cf868bf267780932638d1e8cec86e5",
+  "raw_rows": 2337474,
+  "split_basis": "chronological raw-row count, 60/20/20",
+  "development": {
+    "row_start_inclusive": 0,
+    "row_end_exclusive": 1402484,
+    "rows": 1402484,
+    "start_utc": "2026-09-16T14:56:19.104000+00:00",
+    "end_utc": "2026-09-21T15:07:52.366000+00:00",
+    "sample_interval_ms": 500,
+    "sample_rule": "last usable quote in each 500 ms bucket; empty buckets dropped",
+    "sampled_rows": 382530
+  },
+  "validation": {
+    "row_start_inclusive": 1402484,
+    "row_end_exclusive": 1869979,
+    "rows": 467495,
+    "start_utc": "2026-09-21T15:07:52.564000+00:00",
+    "end_utc": "2026-09-22T14:38:42.915000+00:00",
+    "strategy_evaluated": false
+  },
+  "holdout": {
+    "row_start_inclusive": 1869979,
+    "row_end_exclusive": 2337474,
+    "rows": 467495,
+    "start_utc": "2026-09-22T14:38:42.963000+00:00",
+    "end_utc": "2026-09-23T14:56:18.226000+00:00",
+    "strategy_evaluated": false,
+    "caveat": "This interval overlaps the previously observed Sep 23 live-paper session, so the known-live interval must be excluded or explicitly marked contaminated before claiming a blind final holdout."
+  },
+  "simulation_assumptions": {
+    "start_balance_inr": 500.0,
+    "inr_per_usd": 95.7021,
+    "synthetic_leverage": 100.0,
+    "execution": "BUY ask->bid; SELL bid->ask",
+    "commissions": "none beyond observed bid/ask spread",
+    "added_slippage": "none",
+    "target_stop": "not triggered by either development replay",
+    "session_gap_behavior": "faithful to current local state machines; no artificial session close/reset injected"
+  }
+}
