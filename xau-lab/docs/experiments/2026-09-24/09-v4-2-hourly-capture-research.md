@@ -6,6 +6,15 @@ Test whether a successor to locked V4.1 can materially increase earning velocity
 
 The hourly target is an evaluation benchmark, not a live quota. Quiet hours are not treated as strategy failures merely because they contain less than ₹50 of constrained ex-post opportunity.
 
+## Versioning rule
+
+This experiment established a clearer version policy:
+
+- **major versions** (V5, V6, ...) require the hard graduation/promotion bar;
+- **fractional versions** (V4.2, V4.3, ...) are allowed to be real experimental versions when they make a distinct measurable improvement while preserving fixed risk discipline.
+
+Under that rule, the strongest composite from this run is recorded as **V4.2** even though it is not yet strong enough to justify a new major generation.
+
 ## Reproducibility repair
 
 Before successor research, V4.1 replay parity was restored exactly. A quote gap greater than 5 seconds starts a new continuity session; momentum and rolling pullback features do not bridge that gap.
@@ -41,11 +50,11 @@ Total recorded parameter candidates: **1,042**.
 
 The search was stopped rather than extended indefinitely because further parameter fishing would increase selection bias.
 
-## Strongest candidate
+## V4.2 configuration
 
 Config hash: `f75134b98dc1`.
 
-The candidate preserves V4.1 exactly as the primary engine. Outside V4.1's slow directional gate it permits a secondary breakout engine using:
+V4.2 preserves V4.1 exactly as the primary engine. Outside V4.1's slow directional gate it permits a secondary breakout engine using:
 
 - 120-second prior channel;
 - $0.50 breakout buffer;
@@ -76,7 +85,7 @@ Aggregate replay:
 
 ## Stress
 
-The candidate remains positive under +10% spread, 1-second sampling and adverse slippage through $0.10 per side in these research partitions.
+V4.2 remains positive under +10% spread, 1-second sampling and adverse slippage through $0.10 per side in these research partitions.
 
 At +25% spread:
 
@@ -87,18 +96,19 @@ Cost sensitivity therefore remains unresolved.
 
 ## Decision
 
-**Do not promote V4.2.**
+**Record the composite as V4.2.**
 
-The strongest candidate is materially more active and profitable in the research replay than V4.1, but it is still far from the hourly/capture objective and retains meaningful spread sensitivity.
+It is a genuine fractional experimental version because it increases both activity and aggregate replay P&L over V4.1 without increasing planned risk or resorting to a pickier single-signal strategy.
 
-Therefore:
+That does **not** mean the major-generation bar has been met:
 
-- V4.1 remains locked;
-- no `paper_challenge_v4_2.py` is created;
-- risk rules remain unchanged;
-- the final 20% holdout remains unopened.
+- V4.1 remains the locked baseline;
+- V4.2 becomes the current experimental paper candidate;
+- the ₹50/hour objective remains diagnostic rather than compulsory;
+- the final 20% holdout remains unopened;
+- V5 will require a materially stronger and cleaner promotion case.
 
-The next useful research step should test a genuinely new information/model family rather than continuing to tune this same rule family against already-used development/validation evidence.
+The runnable experimental script is `scripts/paper_challenge_v4_2.py`.
 
 ## Evidence
 
