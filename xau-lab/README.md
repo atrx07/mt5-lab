@@ -40,11 +40,20 @@ Historical tick export:
 python scripts\export_xau_ticks.py --days 7
 ```
 
+## Dataset preservation
+
+The seven-day broker-tick dataset used by the baseline and V4.1 optimization is tracked under [`data/`](data/).
+
+The raw ~220 MB CSV remains ignored. A lossless gzip archive plus a SHA-256 manifest is the canonical repository copy.
+
+See [`data/README.md`](data/README.md) for the exact archive/push workflow.
+
 ## Documentation
 
 - [Algorithm index](docs/algorithms/README.md)
 - [Experiment index](docs/experiments/README.md)
 - [V4.1 optimization evidence](docs/experiments/2026-09-23/08-v4-1-optimization.md)
+- [Dataset archive policy](data/README.md)
 - [Provenance](docs/PROVENANCE.md)
 
 ## Research discipline
