@@ -3,9 +3,12 @@ __pycache__/
 *.pyc
 *.pyo
 
-# Broker tick exports can be very large; keep raw datasets local unless
-# intentionally curating a small fixture for the repository.
+# Raw broker exports are large and stay local.
 xau_ticks_*.csv
+data/raw/*.csv
+
+# Curated compressed datasets are allowed intentionally.
+!data/raw/*.csv.gz
 
 # Generic editor / OS noise
 .vscode/
