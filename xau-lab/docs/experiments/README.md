@@ -17,3 +17,7 @@ Experiments are grouped by date so each session can grow independently without t
 - [06 — V4 research candidate](2026-09-23/06-v4-research-candidate.md)
 - [07 — seven-day development baseline comparison](2026-09-23/07-seven-day-development-baseline.md)
 - [08 — iterative optimization and V4.1 lock](2026-09-23/08-v4-1-optimization.md)
+
+### 2026-09-24
+
+- [09 — V4.2 hourly-capture research (no promotion)](2026-09-24/09-v4-2-hourly-capture-research.md)
