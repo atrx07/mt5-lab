@@ -12,18 +12,27 @@ ounces = notional_usd / XAUUSD_price
 
 At ₹500, 100x synthetic leverage, and gold around 4300, exposure was roughly 0.12 oz (~0.0012 synthetic lots).
 
-## Recorded run
+## Recovered full run
+
+The earlier live discussion stopped to inspect the run after six completed trades, at which point the balance was **₹475.48**.
+
+Recovery of the original local CSV later showed that the same V2 run continued:
 
 - starting balance: ₹500
-- final balance: **₹475.48**
-- trades: 6
-- net: **-₹24.52 (-4.9%)**
-- only one material winner: about +₹15.16
-- total entry spread handicap was about ₹21.34
+- completed trades: **14**
+- balance after trade 6: **₹475.48**
+- final recovered balance: **₹439.40**
+- final net: **-₹60.60 (-12.12%)**
+- winners: 3
+- losers: 11
+
+Notable winners in the recovered log include approximately **+₹15.16**, **+₹2.82**, and **+₹9.69**.
+
+The exact recovered CSV is [`results/paper_trades_v2.csv`](../../../results/paper_trades_v2.csv).
 
 ## Finding
 
-Dynamic sizing stopped the instant account explosion, but the strategy over-traded. Transaction friction was of the same order as the whole drawdown.
+Dynamic sizing stopped the instant account explosion, but the strategy still over-traded badly. The longer recovered run makes the problem clearer than the original six-trade checkpoint: repeated spread payment plus short-horizon momentum reversals steadily eroded the account.
 
 ## Related algorithm
 

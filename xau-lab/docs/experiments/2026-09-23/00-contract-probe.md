@@ -11,3 +11,7 @@ Observed around XAUUSD ~4315:
 - observed spread during the session varied from roughly USD 0.2 into the USD 0.5+ range.
 
 This immediately showed that the intended ₹100 or ₹500 challenge sizes could not place the broker's minimum live XAUUSD contract. All subsequent small-account tests therefore used **synthetic fractional exposure** for research only.
+
+## Recovered probe
+
+The original probe script was recovered from the old local directory and is now archived at [`scripts/xau_probe.py`](../../../scripts/xau_probe.py).

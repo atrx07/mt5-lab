@@ -26,7 +26,7 @@ This directory records the full progression of the live-paper experiments from t
 | Version | Main idea | Recorded outcome |
 | --- | --- | --- |
 | V1 | 1 oz fixed synthetic exposure on ₹100 | catastrophic sizing failure; ₹100 → -₹13.89 in ~42 s |
-| V2 | dynamic fractional synthetic exposure on ₹500 | ₹500 → ₹475.48 after 6 trades |
+| V2 | dynamic fractional synthetic exposure on ₹500 | first 6-trade checkpoint ₹475.48; recovered full 14-trade run ₹439.40 |
 | V3 | 5 s + 15 s breakout confirmation, hard stop, profit lock | ₹500 → ₹482.53 after 3 trades |
 | V3.1 | persistent armed signals, fixed breakout level, fewer false resets | ₹500 → ₹463.46 after 18 trades |
 | V4 research candidate | trend → pullback → resumption, no-chase, one trade per impulse, tighter spread/risk controls | successor for further replay and live-paper validation |
@@ -65,6 +65,7 @@ xau-lab/
 │       ├── README.md
 │       └── V4_1_PROPOSAL.md
 ├── scripts/
+│   ├── xau_probe.py
 │   ├── paper_challenge.py
 │   ├── paper_challenge_v2.py
 │   ├── paper_challenge_v3.py
@@ -73,6 +74,9 @@ xau-lab/
 │   ├── export_xau_ticks.py
 │   └── replay_lab.py
 └── results/
+    ├── README.md
+    ├── paper_trades.csv
+    ├── paper_trades_v2.csv
     ├── paper_trades_v3.csv
     └── paper_trades_v3_1.csv
 ```

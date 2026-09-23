@@ -27,6 +27,8 @@ Try ₹100 → ₹150 using live XAUUSD prices.
 - final balance: **-₹13.89**
 - elapsed from start to ruin: roughly **42 seconds**
 
+The recovered raw run log is [`results/paper_trades.csv`](../../../results/paper_trades.csv).
+
 ## Finding
 
 The dominant failure was not signal quality; it was sizing. One ounce against ₹100 was effectively thousands of times exposure relative to capital. Ordinary sub-dollar gold movement and spread were enough to destroy the account.

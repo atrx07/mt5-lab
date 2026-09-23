@@ -1,0 +1,6 @@
+timestamp,event,side,bid,ask,spread_usd,equity_inr,realized_inr,trade_pnl_inr,reason
+2026-09-23T16:44:12,START,,0.0,0.0,0.0,100.0,0.0,0.0,challenge_started
+2026-09-23T16:45:00,ENTRY,SELL,4314.45,4314.67,0.22,78.95,0.0,-21.05,downside_breakout
+2026-09-23T16:45:02,EXIT,SELL,4314.99,4315.21,0.22,27.27,-72.73,-72.73,momentum_reversal
+2026-09-23T16:45:47,ENTRY,SELL,4314.92,4315.22,0.3,-1.44,-72.73,-28.71,downside_breakout
+2026-09-23T16:45:54,EXIT,SELL,4315.03,4315.35,0.32,-13.89,-113.89,-41.15,ACCOUNT_RUINED

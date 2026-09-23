@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Broker tick exports can be very large; keep raw datasets local unless
+# intentionally curating a small fixture for the repository.
+xau_ticks_*.csv
+
+# Generic editor / OS noise
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

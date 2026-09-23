@@ -1,225 +1,1000 @@
-"""
-XAUUSD LIVE PAPER CHALLENGE V3
-Behavior-preserving reconstruction of the 2026-09-23 version.
-
-V3 adds:
-- 5s + 15s momentum agreement
-- 2s breakout confirmation
-- ₹25 hard stop
-- profit lock after ₹8
-- confirmed reversal exit
-- 20s cooldown
-
-Historical bug retained intentionally:
-a temporary spread violation / invalid signal can erase an armed setup.
-
-Research only. NO REAL ORDERS.
-"""
-
-import csv
+import MetaTrader5 as mt5
 import time
+import csv
+
 from collections import deque
 from datetime import datetime
 from pathlib import Path
 
-import MetaTrader5 as mt5
+
+# ============================================================
+# XAUUSD LIVE PAPER CHALLENGE V3
+#
+# ₹500 -> ₹550
+#
+# LIVE MT5 PRICES
+# SYNTHETIC FRACTIONAL XAU EXPOSURE
+# NO REAL ORDERS
+#
+# V3:
+# - 5s + 15s momentum agreement
+# - momentum must beat spread
+# - breakout persistence confirmation
+# - slower / confirmed reversal exits
+# - tighter hard stop
+# - profit trailing lock
+# ============================================================
+
+
+# ============================================================
+# BASIC SETTINGS
+# ============================================================
 
 SYMBOL = "XAUUSD"
-START_BALANCE_INR = 500.0
-TARGET_BALANCE_INR = 550.0
+
+START_BALANCE_INR = 500.00
+TARGET_BALANCE_INR = 550.00
+
 INR_PER_USD = 95.7021
+
 LEVERAGE = 100.0
+
 CONTRACT_SIZE = 100.0
 
+# 1.0 = use full synthetic 100x exposure
+EXPOSURE_FRACTION = 1.0
+
+
+# ============================================================
+# TIMING
+# ============================================================
+
 SAMPLE_INTERVAL = 0.50
+
 WARMUP_SECONDS = 45
+
 COOLDOWN_SECONDS = 20
+
 MAX_HOLD_SECONDS = 180
 
+
+# ============================================================
+# ENTRY FILTERS
+# ============================================================
+
 MAX_SPREAD_USD = 0.35
+
+# Absolute minimum directional movement
 MIN_5S_MOMENTUM_USD = 0.30
 MIN_15S_MOMENTUM_USD = 0.50
+
+# Momentum must also be stronger than spread.
+#
+# Example:
+# spread = $0.30
+# required 5s momentum >= $0.60
+#
 MOMENTUM_SPREAD_MULTIPLE = 2.0
+
 BREAKOUT_BUFFER_USD = 0.05
+
+# Breakout must remain valid for this long
+# before we actually enter.
 BREAKOUT_CONFIRM_SECONDS = 2.0
 
-MAX_LOSS_PER_TRADE_INR = 25.0
-PROFIT_LOCK_TRIGGER_INR = 8.0
-PROFIT_LOCK_MIN_INR = 2.0
+
+# ============================================================
+# EXIT / RISK SETTINGS
+# ============================================================
+
+MAX_LOSS_PER_TRADE_INR = 25.00
+
+# Once unrealized profit reaches this:
+PROFIT_LOCK_TRIGGER_INR = 8.00
+
+# Keep at least this much profit once lock activates
+PROFIT_LOCK_MIN_INR = 2.00
+
+# Also trail 50% of the peak profit.
+#
+# Example:
+# peak = +₹20
+# floor becomes +₹10
+#
 PROFIT_LOCK_KEEP_FRACTION = 0.50
+
+# Reversal must exist this many consecutive
+# samples before exiting.
 REVERSAL_CONFIRM_COUNT = 3
+
 REVERSAL_MOMENTUM_USD = 0.30
+
+
+# ============================================================
+# LOGGING
+# ============================================================
 
 LOG_FILE = Path("paper_trades_v3.csv")
 
 
-def at_or_before(history, target):
+# ============================================================
+# HELPERS
+# ============================================================
+
+
+def money(value):
+    return f"₹{value:.2f}"
+
+
+def calculate_ounces(balance_inr, price):
+    """
+    Synthetic fractional exposure.
+
+    This is NOT necessarily executable at the broker.
+    We are testing the strategy against live prices.
+    """
+
+    if balance_inr <= 0 or price <= 0:
+        return 0.0
+
+    capital_usd = balance_inr / INR_PER_USD
+
+    notional_usd = (
+        capital_usd
+        * LEVERAGE
+        * EXPOSURE_FRACTION
+    )
+
+    return notional_usd / price
+
+
+def calculate_lots(ounces):
+    return ounces / CONTRACT_SIZE
+
+
+def get_trade_pnl(position, bid, ask):
+    """
+    BUY:
+        enter ASK
+        exit BID
+
+    SELL:
+        enter BID
+        exit ASK
+
+    Spread is therefore naturally included.
+    """
+
+    if position is None:
+        return 0.0
+
+    ounces = position["ounces"]
+
+    if position["side"] == "BUY":
+        move_usd = bid - position["entry"]
+
+    else:
+        move_usd = position["entry"] - ask
+
+    pnl_usd = move_usd * ounces
+
+    return pnl_usd * INR_PER_USD
+
+
+def quote_at_or_before(history, target_time):
+    """
+    Return most recent quote at or before target_time.
+    """
+
     for q in reversed(history):
-        if q["time"] <= target:
+        if q["time"] <= target_time:
             return q
+
     return None
 
 
-def size_oz(balance_inr, price):
-    return (max(balance_inr, 0.0) / INR_PER_USD) * LEVERAGE / price
+def write_log(
+    event,
+    side="",
+    bid=0.0,
+    ask=0.0,
+    spread=0.0,
+    ounces=0.0,
+    lots=0.0,
+    equity=0.0,
+    realized=0.0,
+    pnl=0.0,
+    momentum_5s=0.0,
+    momentum_15s=0.0,
+    reason=""
+):
 
-
-def pnl(position, bid, ask):
-    move = bid - position["entry"] if position["side"] == "BUY" else position["entry"] - ask
-    return move * position["ounces"] * INR_PER_USD
-
-
-def log(event, side, bid, ask, spread, ounces, equity, realized, trade_pnl, m5, m15, reason):
     exists = LOG_FILE.exists()
-    with LOG_FILE.open("a", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
+
+    with LOG_FILE.open(
+        "a",
+        newline="",
+        encoding="utf-8"
+    ) as f:
+
+        writer = csv.writer(f)
+
         if not exists:
-            w.writerow([
-                "timestamp","event","side","bid","ask","spread_usd","ounces",
-                "synthetic_lots","equity_inr","realized_inr","trade_pnl_inr",
-                "momentum_5s","momentum_15s","reason",
+
+            writer.writerow([
+                "timestamp",
+                "event",
+                "side",
+                "bid",
+                "ask",
+                "spread_usd",
+                "ounces",
+                "synthetic_lots",
+                "equity_inr",
+                "realized_inr",
+                "trade_pnl_inr",
+                "momentum_5s",
+                "momentum_15s",
+                "reason"
             ])
-        w.writerow([
-            datetime.now().isoformat(timespec="seconds"), event, side,
-            round(bid,4), round(ask,4), round(spread,4), round(ounces,6),
-            round(ounces/CONTRACT_SIZE,8), round(equity,2), round(realized,2),
-            round(trade_pnl,2), round(m5,4), round(m15,4), reason,
+
+        writer.writerow([
+            datetime.now().isoformat(
+                timespec="seconds"
+            ),
+            event,
+            side,
+            round(bid, 4),
+            round(ask, 4),
+            round(spread, 4),
+            round(ounces, 6),
+            round(lots, 8),
+            round(equity, 2),
+            round(realized, 2),
+            round(pnl, 2),
+            round(momentum_5s, 4),
+            round(momentum_15s, 4),
+            reason
         ])
 
 
+# ============================================================
+# MT5 CONNECTION
+# ============================================================
+
+
+print()
+print("================================================")
+print("      XAUUSD LIVE PAPER CHALLENGE V3")
+print("================================================")
+print()
+print("             ₹500 -> ₹550")
+print()
+print(" LIVE PRICE DATA")
+print(" SYNTHETIC FRACTIONAL EXPOSURE")
+print(" NO REAL ORDERS")
+print()
+
+
 if not mt5.initialize(timeout=10000):
-    raise RuntimeError(f"MT5 init failed: {mt5.last_error()}")
+
+    raise RuntimeError(
+        f"MT5 initialization failed: "
+        f"{mt5.last_error()}"
+    )
+
+
 if not mt5.symbol_select(SYMBOL, True):
+
     mt5.shutdown()
-    raise RuntimeError(f"Could not select {SYMBOL}")
+
+    raise RuntimeError(
+        f"Could not select {SYMBOL}"
+    )
+
+
+info = mt5.symbol_info(SYMBOL)
+
+if info is None:
+
+    mt5.shutdown()
+
+    raise RuntimeError(
+        "Could not read symbol information."
+    )
+
+
+print("Waiting for live XAUUSD tick...")
+
+
+tick = None
+
+for _ in range(20):
+
+    tick = mt5.symbol_info_tick(SYMBOL)
+
+    if (
+        tick is not None
+        and tick.bid > 0
+        and tick.ask > 0
+    ):
+        break
+
+    time.sleep(0.5)
+
+
+if (
+    tick is None
+    or tick.bid <= 0
+    or tick.ask <= 0
+):
+
+    mt5.shutdown()
+
+    raise RuntimeError(
+        "No usable XAUUSD tick."
+    )
+
+
+initial_price = (
+    tick.bid + tick.ask
+) / 2
+
+
+initial_ounces = calculate_ounces(
+    START_BALANCE_INR,
+    initial_price
+)
+
+
+print()
+print("=== V3 SETTINGS ===")
+print()
+
+print(
+    f"Starting balance:        "
+    f"{money(START_BALANCE_INR)}"
+)
+
+print(
+    f"Target balance:          "
+    f"{money(TARGET_BALANCE_INR)}"
+)
+
+print(
+    f"Synthetic leverage:      "
+    f"{LEVERAGE:.0f}x"
+)
+
+print(
+    f"Initial exposure:        "
+    f"{initial_ounces:.5f} oz"
+)
+
+print(
+    f"Synthetic lots:          "
+    f"{calculate_lots(initial_ounces):.6f}"
+)
+
+print(
+    f"Broker minimum lot:      "
+    f"{info.volume_min}"
+)
+
+print(
+    f"Maximum spread:          "
+    f"${MAX_SPREAD_USD:.2f}"
+)
+
+print(
+    f"5s momentum minimum:     "
+    f"${MIN_5S_MOMENTUM_USD:.2f}"
+)
+
+print(
+    f"15s momentum minimum:    "
+    f"${MIN_15S_MOMENTUM_USD:.2f}"
+)
+
+print(
+    f"Momentum/spread ratio:   "
+    f"{MOMENTUM_SPREAD_MULTIPLE:.1f}x"
+)
+
+print(
+    f"Breakout confirmation:   "
+    f"{BREAKOUT_CONFIRM_SECONDS:.1f}s"
+)
+
+print(
+    f"Max loss / trade:        "
+    f"{money(MAX_LOSS_PER_TRADE_INR)}"
+)
+
+print(
+    f"Profit lock trigger:     "
+    f"{money(PROFIT_LOCK_TRIGGER_INR)}"
+)
+
+print(
+    f"Cooldown:                "
+    f"{COOLDOWN_SECONDS}s"
+)
+
+print()
+print(
+    f"Warming up for "
+    f"{WARMUP_SECONDS}s..."
+)
+print()
+
+
+# ============================================================
+# STATE
+# ============================================================
+
 
 history = deque(maxlen=500)
-realized = 0.0
-position = None
-armed = None
-started = time.time()
-last_exit = 0.0
-trade_no = 0
 
-log("START", "", 0,0,0,0, START_BALANCE_INR,0,0,0,0,"challenge_started")
-print("=== XAUUSD LIVE PAPER CHALLENGE V3 ===")
+realized_inr = 0.0
+
+position = None
+
+armed_signal = None
+
+start_time = time.time()
+
+last_status = 0.0
+
+last_exit_time = 0.0
+
+trade_number = 0
+
+
+write_log(
+    event="START",
+    equity=START_BALANCE_INR,
+    reason="challenge_started"
+)
+
+
+# ============================================================
+# EXIT FUNCTION
+# ============================================================
+
+
+def close_position(
+    reason,
+    position,
+    bid,
+    ask,
+    spread,
+    realized_inr,
+    pnl,
+    momentum_5s,
+    momentum_15s
+):
+
+    new_realized = (
+        realized_inr + pnl
+    )
+
+    final_balance = (
+        START_BALANCE_INR
+        + new_realized
+    )
+
+    print()
+    print(
+        f"EXIT {position['side']}"
+    )
+
+    print(
+        f"P&L:       {money(pnl)}"
+    )
+
+    print(
+        f"Reason:    {reason}"
+    )
+
+    print(
+        f"Peak P&L:  "
+        f"{money(position['peak_pnl'])}"
+    )
+
+    print(
+        f"Balance:   "
+        f"{money(final_balance)}"
+    )
+
+    print()
+
+
+    write_log(
+        event="EXIT",
+        side=position["side"],
+        bid=bid,
+        ask=ask,
+        spread=spread,
+        ounces=position["ounces"],
+        lots=calculate_lots(
+            position["ounces"]
+        ),
+        equity=final_balance,
+        realized=new_realized,
+        pnl=pnl,
+        momentum_5s=momentum_5s,
+        momentum_15s=momentum_15s,
+        reason=reason
+    )
+
+
+    return new_realized
+
+
+# ============================================================
+# MAIN LOOP
+# ============================================================
+
 
 try:
+
     while True:
+
         tick = mt5.symbol_info_tick(SYMBOL)
-        if tick is None or tick.bid <= 0 or tick.ask <= 0:
+
+        if (
+            tick is None
+            or tick.bid <= 0
+            or tick.ask <= 0
+        ):
+
             time.sleep(SAMPLE_INTERVAL)
             continue
+
 
         now = time.time()
-        bid, ask = float(tick.bid), float(tick.ask)
-        mid = (bid + ask) / 2
-        spread = ask - bid
-        history.append({"time": now, "mid": mid, "bid": bid, "ask": ask})
 
-        q5, q15 = at_or_before(history, now-5), at_or_before(history, now-15)
-        m5 = 0.0 if q5 is None else mid - q5["mid"]
-        m15 = 0.0 if q15 is None else mid - q15["mid"]
+        bid = float(tick.bid)
+        ask = float(tick.ask)
 
-        u = 0.0 if position is None else pnl(position, bid, ask)
-        equity = START_BALANCE_INR + realized + u
+        mid = (
+            bid + ask
+        ) / 2
 
-        state = position["side"] if position else f"ARMED-{armed['side']}" if armed else "NONE"
-        print(f"{datetime.now():%H:%M:%S} | B {bid:.2f} | A {ask:.2f} | S {spread:.2f} | M5 {m5:+.2f} | M15 {m15:+.2f} | {state:11} | Eq ₹{equity:.2f}")
+        spread = (
+            ask - bid
+        )
+
+
+        history.append({
+            "time": now,
+            "bid": bid,
+            "ask": ask,
+            "mid": mid
+        })
+
+
+        # ====================================================
+        # MOMENTUM
+        # ====================================================
+
+        quote_5s = quote_at_or_before(
+            history,
+            now - 5
+        )
+
+        quote_15s = quote_at_or_before(
+            history,
+            now - 15
+        )
+
+
+        momentum_5s = 0.0
+        momentum_15s = 0.0
+
+
+        if quote_5s:
+
+            momentum_5s = (
+                mid - quote_5s["mid"]
+            )
+
+
+        if quote_15s:
+
+            momentum_15s = (
+                mid - quote_15s["mid"]
+            )
+
+
+        # ====================================================
+        # ACCOUNT
+        # ====================================================
+
+        unrealized = get_trade_pnl(
+            position,
+            bid,
+            ask
+        )
+
+        equity = (
+            START_BALANCE_INR
+            + realized_inr
+            + unrealized
+        )
+
+
+        # ====================================================
+        # STATUS
+        # ====================================================
+
+        if now - last_status >= 2:
+
+            if position:
+
+                state = (
+                    f"{position['side']} "
+                    f"{position['ounces']:.4f}oz"
+                )
+
+            elif armed_signal:
+
+                state = (
+                    f"ARMED-{armed_signal['side']}"
+                )
+
+            else:
+
+                state = "NONE"
+
+
+            print(
+                f"{datetime.now().strftime('%H:%M:%S')} | "
+                f"B {bid:.2f} | "
+                f"A {ask:.2f} | "
+                f"S {spread:.2f} | "
+                f"M5 {momentum_5s:+.2f} | "
+                f"M15 {momentum_15s:+.2f} | "
+                f"{state:15} | "
+                f"Eq {money(equity)}"
+            )
+
+
+            last_status = now
+
+
+        # ====================================================
+        # CHALLENGE TARGET
+        # ====================================================
 
         if equity >= TARGET_BALANCE_INR:
+
             if position:
-                realized += u
+
+                realized_inr = close_position(
+                    "TARGET_REACHED",
+                    position,
+                    bid,
+                    ask,
+                    spread,
+                    realized_inr,
+                    unrealized,
+                    momentum_5s,
+                    momentum_15s
+                )
+
+                position = None
+
+
+            print()
+            print("🔥🔥🔥 TARGET HIT 🔥🔥🔥")
+            print()
+
+            print(
+                f"Final balance: "
+                f"{money(
+                    START_BALANCE_INR
+                    + realized_inr
+                )}"
+            )
+
+            print(
+                f"Trades: {trade_number}"
+            )
+
+            print()
+
             break
+
+
+        # ====================================================
+        # RUIN
+        # ====================================================
+
         if equity <= 0:
+
+            print()
+            print(
+                "💀 ACCOUNT SENT TO "
+                "THE SHADOW REALM"
+            )
+            print()
+
             break
+
+
+        # ====================================================
+        # MANAGE POSITION
+        # ====================================================
 
         if position:
-            position["peak_pnl"] = max(position["peak_pnl"], u)
-            reason = None
-            if u <= -MAX_LOSS_PER_TRADE_INR:
-                reason = "HARD_STOP"
-            elif position["peak_pnl"] >= PROFIT_LOCK_TRIGGER_INR:
-                floor = max(PROFIT_LOCK_MIN_INR, position["peak_pnl"] * PROFIT_LOCK_KEEP_FRACTION)
-                if u <= floor:
-                    reason = "PROFIT_LOCK"
 
-            reverse_now = (
-                position["side"] == "BUY" and m5 <= -REVERSAL_MOMENTUM_USD
-            ) or (
-                position["side"] == "SELL" and m5 >= REVERSAL_MOMENTUM_USD
+            held_for = (
+                now - position["time"]
             )
-            position["reverse_count"] = position["reverse_count"] + 1 if reverse_now else 0
-            if reason is None and position["reverse_count"] >= REVERSAL_CONFIRM_COUNT:
-                reason = "CONFIRMED_REVERSAL"
-            if reason is None and now - position["time"] >= MAX_HOLD_SECONDS:
-                reason = "MAX_HOLD"
 
-            if reason:
-                realized += u
-                print(f"EXIT {position['side']} | P&L ₹{u:.2f} | {reason} | peak ₹{position['peak_pnl']:.2f}")
-                log("EXIT", position["side"], bid, ask, spread, position["ounces"], START_BALANCE_INR+realized, realized, u, m5, m15, reason)
+
+            # ------------------------------------------------
+            # PEAK PROFIT TRACKING
+            # ------------------------------------------------
+
+            if (
+                unrealized
+                > position["peak_pnl"]
+            ):
+
+                position["peak_pnl"] = (
+                    unrealized
+                )
+
+
+            # ------------------------------------------------
+            # HARD STOP
+            # ------------------------------------------------
+
+            if (
+                unrealized
+                <= -MAX_LOSS_PER_TRADE_INR
+            ):
+
+                realized_inr = close_position(
+                    "HARD_STOP",
+                    position,
+                    bid,
+                    ask,
+                    spread,
+                    realized_inr,
+                    unrealized,
+                    momentum_5s,
+                    momentum_15s
+                )
+
                 position = None
-                last_exit = now
-            time.sleep(SAMPLE_INTERVAL)
+
+                last_exit_time = now
+
+                time.sleep(SAMPLE_INTERVAL)
+
+                continue
+
+
+            # ------------------------------------------------
+            # PROFIT LOCK
+            # ------------------------------------------------
+
+            if (
+                position["peak_pnl"]
+                >= PROFIT_LOCK_TRIGGER_INR
+            ):
+
+                trailing_floor = max(
+                    PROFIT_LOCK_MIN_INR,
+
+                    position["peak_pnl"]
+                    * PROFIT_LOCK_KEEP_FRACTION
+                )
+
+
+                if unrealized <= trailing_floor:
+
+                    realized_inr = close_position(
+                        "PROFIT_LOCK",
+                        position,
+                        bid,
+                        ask,
+                        spread,
+                        realized_inr,
+                        unrealized,
+                        momentum_5s,
+                        momentum_15s
+                    )
+
+                    position = None
+
+                    last_exit_time = now
+
+                    time.sleep(
+                        SAMPLE_INTERVAL
+                    )
+
+                    continue
+
+
+            # ------------------------------------------------
+            # REVERSAL CONFIRMATION
+            # ------------------------------------------------
+
+            reversal_now = False
+
+
+            if (
+                position["side"] == "BUY"
+                and
+                momentum_5s
+                <= -REVERSAL_MOMENTUM_USD
+            ):
+
+                reversal_now = True
+
+
+            elif (
+                position["side"] == "SELL"
+                and
+                momentum_5s
+                >= REVERSAL_MOMENTUM_USD
+            ):
+
+                reversal_now = True
+
+
+            if reversal_now:
+
+                position["reverse_count"] += 1
+
+            else:
+
+                position["reverse_count"] = 0
+
+
+            if (
+                position["reverse_count"]
+                >= REVERSAL_CONFIRM_COUNT
+            ):
+
+                realized_inr = close_position(
+                    "CONFIRMED_REVERSAL",
+                    position,
+                    bid,
+                    ask,
+                    spread,
+                    realized_inr,
+                    unrealized,
+                    momentum_5s,
+                    momentum_15s
+                )
+
+                position = None
+
+                last_exit_time = now
+
+                time.sleep(
+                    SAMPLE_INTERVAL
+                )
+
+                continue
+
+
+            # ------------------------------------------------
+            # MAX HOLD
+            # ------------------------------------------------
+
+            if held_for >= MAX_HOLD_SECONDS:
+
+                realized_inr = close_position(
+                    "MAX_HOLD",
+                    position,
+                    bid,
+                    ask,
+                    spread,
+                    realized_inr,
+                    unrealized,
+                    momentum_5s,
+                    momentum_15s
+                )
+
+                position = None
+
+                last_exit_time = now
+
+
+            time.sleep(
+                SAMPLE_INTERVAL
+            )
+
             continue
 
-        if now-started < WARMUP_SECONDS or now-last_exit < COOLDOWN_SECONDS or q5 is None or q15 is None:
-            armed = None
-            time.sleep(SAMPLE_INTERVAL)
+
+        # ====================================================
+        # NO POSITION
+        # ====================================================
+
+
+        # ----------------------------------------------------
+        # WARMUP
+        # ----------------------------------------------------
+
+        if (
+            now - start_time
+            < WARMUP_SECONDS
+        ):
+
+            time.sleep(
+                SAMPLE_INTERVAL
+            )
+
             continue
 
-        base = [q for q in history if now-30 <= q["time"] <= now-5]
-        if len(base) < 20:
-            time.sleep(SAMPLE_INTERVAL)
+
+        # ----------------------------------------------------
+        # COOLDOWN
+        # ----------------------------------------------------
+
+        if (
+            now - last_exit_time
+            < COOLDOWN_SECONDS
+        ):
+
+            armed_signal = None
+
+            time.sleep(
+                SAMPLE_INTERVAL
+            )
+
             continue
 
-        recent_high = max(q["mid"] for q in base)
-        recent_low = min(q["mid"] for q in base)
-        required_m5 = max(MIN_5S_MOMENTUM_USD, spread * MOMENTUM_SPREAD_MULTIPLE)
 
-        buy = (
-            spread <= MAX_SPREAD_USD and
-            mid > recent_high + BREAKOUT_BUFFER_USD and
-            m5 >= required_m5 and m15 >= MIN_15S_MOMENTUM_USD
-        )
-        sell = (
-            spread <= MAX_SPREAD_USD and
-            mid < recent_low - BREAKOUT_BUFFER_USD and
-            m5 <= -required_m5 and m15 <= -MIN_15S_MOMENTUM_USD
-        )
-        desired = "BUY" if buy else "SELL" if sell else None
+        # ----------------------------------------------------
+        # SPREAD FILTER
+        # ----------------------------------------------------
 
-        # Historical V3 behavior: any invalid tick cancels the arm.
-        if desired is None:
-            armed = None
-            time.sleep(SAMPLE_INTERVAL)
+        if spread > MAX_SPREAD_USD:
+
+            armed_signal = None
+
+            time.sleep(
+                SAMPLE_INTERVAL
+            )
+
             continue
 
-        if armed is None or armed["side"] != desired:
-            armed = {"side": desired, "time": now}
-            print(f"ARMED {desired} | waiting {BREAKOUT_CONFIRM_SECONDS:.1f}s")
-            time.sleep(SAMPLE_INTERVAL)
+
+        # ----------------------------------------------------
+        # NEED BOTH MOMENTUM WINDOWS
+        # ----------------------------------------------------
+
+        if (
+            quote_5s is None
+            or quote_15s is None
+        ):
+
+            time.sleep(
+                SAMPLE_INTERVAL
+            )
+
             continue
 
-        if now - armed["time"] < BREAKOUT_CONFIRM_SECONDS:
-            time.sleep(SAMPLE_INTERVAL)
-            continue
 
-        entry = ask if desired == "BUY" else bid
-        ounces = size_oz(START_BALANCE_INR + realized, entry)
-        position = {
-            "side": desired, "entry": entry, "ounces": ounces, "time": now,
-            "peak_pnl": 0.0, "reverse_count": 0,
-        }
-        trade_no += 1
-        initial = pnl(position, bid, ask)
-        print(f"PAPER {desired} #{trade_no} | entry {entry:.2f} | spread cost ₹{initial:.2f}")
-        log("ENTRY", desired, bid, ask, spread, ounces, START_BALANCE_INR+realized+initial, realized, initial, m5, m15, "confirmed_breakout")
-        armed = None
-        time.sleep(SAMPLE_INTERVAL)
+        # ----------------------------------------------------
+        # RECENT RANGE
+        # ----------------------------------------------------
 
-except KeyboardInterrupt:
-    print(f"Stopped. Final paper balance ₹{START_BALANCE_INR + realized:.2f}")
-finally:
-    mt5.shutdown()
+        previous_quotes = [
+            q
+            for q in history
+            if (
+                now - 30
+                <= q["time"]
+                <= now - 5
+            )
+        ]
