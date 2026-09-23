@@ -20,4 +20,4 @@ Experiments are grouped by date so each session can grow independently without t
 
 ### 2026-09-24
 
-- [09 — V4.2 hourly-capture research (no promotion)](2026-09-24/09-v4-2-hourly-capture-research.md)
+- [09 — V4.2 hourly-capture experiment](2026-09-24/09-v4-2-hourly-capture-research.md)
