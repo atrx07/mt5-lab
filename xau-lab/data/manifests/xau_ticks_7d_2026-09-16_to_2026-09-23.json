@@ -34,9 +34,9 @@
       "mtime": 0,
       "filename": ""
     },
-    "sha256": null,
-    "bytes": null,
-    "status": "pending_user_archive"
+    "sha256": "4cdd8344772830598bd66f2f8869f2ef63e9713a72dd81d10097c941eaf84853",
+    "bytes": 27362305,
+    "status": "archived"
   },
   "used_by": [
     "docs/experiments/2026-09-23/07-seven-day-development-baseline.md",
