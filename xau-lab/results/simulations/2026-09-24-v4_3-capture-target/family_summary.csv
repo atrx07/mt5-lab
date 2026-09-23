@@ -1,0 +1,9 @@
+family,retained_rows,best_reset_research_pnl_inr,capture_ratio_vs_ceiling,worst_segment_pnl_inr,pf_reference,trades_reference
+range_reversion_router,30,494.769758,0.066123,1.289033,1.014318,147
+normalized_momentum_router,40,394.006144,0.052656,11.401627,1.154187,117
+exit_management,50,711.934879,0.095145,-49.062298,0.000000,93
+fast_trend_router,60,352.496365,0.047109,4.327505,1.053915,140
+trend_harvest,80,439.709298,0.058764,-6.912076,0.920388,124
+donchian_breakout,100,130.612945,0.017456,-124.710296,0.576888,787
+ml_return_router,12,-168.788674,-0.022557,-79.989614,0.390960,160
+regime_adaptive_composite,100,566.586920,0.075721,-7.154873,1.055002,114
