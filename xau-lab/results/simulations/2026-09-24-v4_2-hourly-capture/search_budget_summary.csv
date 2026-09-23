@@ -1,0 +1,5 @@
+family,candidates,positive_candidates,pf_gt_1_candidates,best_development_pnl_inr,best_development_pf,max_trades_any_candidate,source_file
+trend_pullback,241,36,36,168.85967877035114,1.323289417786607,376,trend_pullback_sweep.csv
+breakout,240,31,31,128.12806861129388,1.802497775769328,1049,breakout_sweep.csv
+mean_reversion,240,23,26,52.39867465520969,999.0,1124,mean_reversion_sweep.csv
+composite_local,321,243,243,326.8966956979192,1.4611563439939232,296,composite_local_sweep.csv
