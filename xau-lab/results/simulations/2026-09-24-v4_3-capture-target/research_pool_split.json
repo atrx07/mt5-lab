@@ -1,0 +1,17 @@
+{
+  "source_dataset_sha256": "007e7ab10cc16519b544003dbe81521f46cf868bf267780932638d1e8cec86e5",
+  "full_raw_rows": 2337474,
+  "loaded_raw_rows": 1869979,
+  "research_fraction": 0.80,
+  "holdout_fraction": 0.20,
+  "holdout_evaluated": false,
+  "research_raw_boundaries": [0, 934989, 1168737, 1402484, 1636231, 1869979],
+  "research_sampled_500ms_rows": 508283,
+  "segments": [
+    {"name":"seed","full_fraction":"0-40%","start_utc":"2026-09-16T14:56:19Z","end_utc":"2026-09-18T14:10:51.5Z","opportunity_inr":3825.9375},
+    {"name":"eval_1","full_fraction":"40-50%","start_utc":"2026-09-18T14:10:52Z","end_utc":"2026-09-18T22:23:27.5Z","opportunity_inr":917.3250},
+    {"name":"eval_2","full_fraction":"50-60%","start_utc":"2026-09-18T22:23:28Z","end_utc":"2026-09-21T15:07:52Z","opportunity_inr":801.5625},
+    {"name":"eval_3","full_fraction":"60-70%","start_utc":"2026-09-21T15:07:52.5Z","end_utc":"2026-09-22T04:05:03Z","opportunity_inr":917.8500},
+    {"name":"eval_4","full_fraction":"70-80%","start_utc":"2026-09-22T04:05:03.5Z","end_utc":"2026-09-22T14:38:42.5Z","opportunity_inr":1019.9250}
+  ]
+}
