@@ -1,5 +1,12 @@
 {
+  "version": "V4.2",
+  "status": "experimental_fractional_version",
+  "baseline": "V4.1 locked",
   "config_hash": "f75134b98dc1",
+  "version_policy": {
+    "major_versions": "strict promotion/graduation required",
+    "fractional_versions": "experimental iterations may be recorded when they produce a distinct measurable improvement without violating fixed risk constraints"
+  },
   "config": {
     "primary": "V4.1 exact",
     "secondary": {
@@ -18,7 +25,17 @@
     "risk_fraction": 0.03,
     "stop_usd": 4.0,
     "max_spread": 0.3,
-    "leverage_cap": 100.0
+    "leverage_cap": 100.0,
+    "hourly_target_inr": 50.0,
+    "hourly_target_behavior": "diagnostic_only_no_forced_trade"
+  },
+  "research_result": {
+    "development_pnl_inr": 225.11043267005476,
+    "development_trades": 95,
+    "development_profit_factor": 1.385641354118134,
+    "validation_pnl_inr": 129.2680226927491,
+    "validation_trades": 19,
+    "validation_profit_factor": 1.917995279221139
   },
   "methodology_note": "Validation was used during exploratory composite comparison, so it is no longer treated as untouched after that comparison. Final holdout remains unopened at this point."
 }
