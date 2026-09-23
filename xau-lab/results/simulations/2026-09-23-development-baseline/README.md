@@ -10,6 +10,8 @@ Files:
 - `daily_reset_summary.csv` — per-UTC-day fresh-₹500 diagnostic;
 - `daily_reset_aggregate.csv` — aggregate daily-reset trade statistics including MFE/MAE;
 - `exit_reason_summary.csv` — exit reason performance;
+- `v3_1_trades_instrumented.csv` — detailed V3.1 development trade ledger;
+- `v4_trades_instrumented.csv` — detailed V4 development trade ledger;
 - `split_manifest.json` — dataset hash, exact split boundaries and simulation assumptions.
 
 Human-readable interpretation lives in [experiment 07](../../../docs/experiments/2026-09-23/07-seven-day-development-baseline.md).
