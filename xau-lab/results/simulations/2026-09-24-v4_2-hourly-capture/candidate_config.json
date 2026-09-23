@@ -1,0 +1,24 @@
+{
+  "config_hash": "f75134b98dc1",
+  "config": {
+    "primary": "V4.1 exact",
+    "secondary": {
+      "lookback": 120,
+      "breakout_buffer": 0.5,
+      "trend_horizon": 30,
+      "min_trend": 2.0,
+      "min_range": 3.0,
+      "cooldown": 450.0,
+      "take_profit": 12.0,
+      "reversal_horizon": 300,
+      "reversal_threshold": 0.0,
+      "max_hold": 900.0
+    },
+    "secondary_regime": "only when neither V4.1 slow directional gate (m1800>=8&m300>=3 or mirror) is active",
+    "risk_fraction": 0.03,
+    "stop_usd": 4.0,
+    "max_spread": 0.3,
+    "leverage_cap": 100.0
+  },
+  "methodology_note": "Validation was used during exploratory composite comparison, so it is no longer treated as untouched after that comparison. Final holdout remains unopened at this point."
+}
