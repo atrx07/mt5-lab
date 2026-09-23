@@ -40,8 +40,30 @@ xau-lab/
 ├── README.md
 ├── requirements.txt
 ├── docs/
-│   ├── ALGORITHMS.md
-│   └── EXPERIMENT_LOG.md
+│   ├── README.md
+│   ├── PROVENANCE.md
+│   ├── algorithms/
+│   │   ├── README.md
+│   │   ├── common-execution.md
+│   │   ├── v1.md
+│   │   ├── v2.md
+│   │   ├── v3.md
+│   │   ├── v3_1.md
+│   │   ├── v4.md
+│   │   └── future-jev.md
+│   ├── experiments/
+│   │   ├── README.md
+│   │   └── 2026-09-23/
+│   │       ├── 00-contract-probe.md
+│   │       ├── 01-v1-live-paper.md
+│   │       ├── 02-v2-live-paper.md
+│   │       ├── 03-v3-live-paper.md
+│   │       ├── 04-v3-1-live-paper.md
+│   │       ├── 05-offline-algorithm-comparison.md
+│   │       └── 06-v4-research-candidate.md
+│   └── plans/
+│       ├── README.md
+│       └── V4_1_PROPOSAL.md
 ├── scripts/
 │   ├── paper_challenge.py
 │   ├── paper_challenge_v2.py
@@ -54,6 +76,13 @@ xau-lab/
     ├── paper_trades_v3.csv
     └── paper_trades_v3_1.csv
 ```
+
+## Documentation
+
+- [Algorithm index](docs/algorithms/README.md) — one file per strategy generation.
+- [Experiment index](docs/experiments/README.md) — one file per run/test, grouped by date.
+- [V4.1 proposal](docs/plans/V4_1_PROPOSAL.md) — next proposed changes, documented before implementation.
+- [Provenance](docs/PROVENANCE.md) — which artifacts are exact run records versus reconstructions.
 
 ## Quick start
 
@@ -83,5 +112,3 @@ A candidate only graduates when it survives:
 4. walk-forward testing rather than tuning and scoring on the same slice;
 5. drawdown and loss-streak checks;
 6. live-paper validation before any real execution layer is considered.
-
-See [docs/EXPERIMENT_LOG.md](docs/EXPERIMENT_LOG.md) for the chronology and [docs/ALGORITHMS.md](docs/ALGORITHMS.md) for the strategy logic.
