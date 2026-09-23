@@ -1,0 +1,9 @@
+candidate,description,development_pnl_inr,development_pf,development_trades,validation_pnl_inr,validation_pf,validation_trades,status
+V4_baseline,current_short_horizon_pullback_resumption,-490.04328568299275,0.3581030083633883,591,,,,"rejected baseline"
+V4_ER_0_40,add_30s_efficiency_filter,-186.56564990570547,0.5245683863087411,99,,,,"improved but still negative"
+swing_5m,5m_trend_with_60s_pullback,-298.1817853534343,0.8507657676578082,277,,,,"improved PF but negative"
+medium_M1,30m_trend_5m_context_stop3_tp8,178.6097271169057,1.0934307664899534,141,-100.29529961519601,0.5046576819835832,13,"rejected on validation"
+medium_seed,trend1800_8_trend300_3_pullback0.8_resume0.5_stop4_tp12,238.40441502594538,1.153127513249466,69,-15.894291238272963,0.9170560810116359,8,"near miss"
+medium_rev0,seed_with_5m_zero_cross_reversal,156.40337289581691,1.1280442576601437,69,23.572804494018477,1.1506015167828259,8,"first positive development+validation"
+medium_tp21_spread030,rev0_tp21_maxspread0.30_leverage_sizing,290.3075719710341,1.209780722075594,69,90.80960996922546,1.5321478384531142,8,"profitable but excessive drawdown"
+V4_1_LOCKED,previous_candidate_plus_3pct_risk_sizing,127.52245351433746,1.3232894177866077,69,38.785594946275374,1.8107023608335064,8,"locked"
