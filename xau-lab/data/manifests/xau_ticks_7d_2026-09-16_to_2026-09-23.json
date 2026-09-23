@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "dataset_id": "xauusd-mt5-7d-2026-09-16_to_2026-09-23",
+  "instrument": "XAUUSD",
+  "source": {
+    "platform": "MetaTrader 5",
+    "exporter": "scripts/export_xau_ticks.py",
+    "description": "Broker tick export used for the seven-day xau-lab replay study"
+  },
+  "raw": {
+    "filename": "xau_ticks_7d.csv",
+    "sha256": "007e7ab10cc16519b544003dbe81521f46cf868bf267780932638d1e8cec86e5",
+    "bytes": 220449602,
+    "data_rows": 2337474,
+    "first_timestamp_utc": "2026-09-16T14:56:19.104000+00:00",
+    "last_timestamp_utc": "2026-09-23T14:56:18.226000+00:00",
+    "columns": [
+      "timestamp_utc",
+      "bid",
+      "ask",
+      "last",
+      "volume",
+      "flags",
+      "volume_real",
+      "spread",
+      "mid"
+    ]
+  },
+  "archive": {
+    "format": "gzip",
+    "relative_path": "data/raw/xau_ticks_7d_2026-09-16_to_2026-09-23.csv.gz",
+    "compression_level": 9,
+    "deterministic_header": {
+      "mtime": 0,
+      "filename": ""
+    },
+    "sha256": null,
+    "bytes": null,
+    "status": "pending_user_archive"
+  },
+  "used_by": [
+    "docs/experiments/2026-09-23/07-seven-day-development-baseline.md",
+    "docs/experiments/2026-09-23/08-v4-1-optimization.md"
+  ],
+  "notes": [
+    "The raw CSV is intentionally excluded from Git because it is approximately 220 MB.",
+    "The final 20% research holdout overlaps a previously observed live-paper period and must be treated accordingly when reporting blind-holdout claims."
+  ]
+}
