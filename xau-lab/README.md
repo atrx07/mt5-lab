@@ -66,6 +66,7 @@ See [`data/README.md`](data/README.md) for the exact archive/push workflow.
 - [V4.1 optimization evidence](docs/experiments/2026-09-23/08-v4-1-optimization.md)
 - [V4.2 algorithm](docs/algorithms/v4_2.md)
 - [V4.2 hourly-capture experiment](docs/experiments/2026-09-24/09-v4-2-hourly-capture-research.md)
+- [V4.3 >=20% capture-target research](docs/experiments/2026-09-24/10-v4-3-capture-target-research.md)
 - [Dataset archive policy](data/README.md)
 - [Provenance](docs/PROVENANCE.md)
 
