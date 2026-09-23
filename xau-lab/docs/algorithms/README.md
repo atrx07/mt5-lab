@@ -12,6 +12,7 @@ Each strategy generation lives in its own file so future versions can be added w
 - [V3 — confirmed multi-horizon breakout](v3.md)
 - [V3.1 — persistent armed breakout](v3_1.md)
 - [V4 — pullback / resumption state machine](v4.md)
+- [V4.1 — medium-horizon trend / pullback / resumption](v4_1.md)
 - [Future JEV integration](future-jev.md)
 
 The runnable implementations live in [../../scripts](../../scripts).
