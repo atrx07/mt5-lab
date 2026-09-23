@@ -10,52 +10,47 @@ The point of this repository is not to collect "winning bot" screenshots. It is 
 
 The first active experiment is an **XAUUSD paper-trading research track** built around live MT5 bid/ask data.
 
-It started as a tiny-capital momentum challenge and quickly turned into a useful lesson in why gold, leverage and transaction costs are a mildly cursed combination.
-
 | Generation | Main idea | What happened |
 | --- | --- | --- |
-| V1 | Fixed 1 oz momentum trading | Account sizing was catastrophically wrong |
-| V2 | Dynamic fractional exposure | Survived, but overtraded and paid too much spread |
-| V3 | Multi-horizon confirmed breakouts | More selective, but armed signals were too fragile |
-| V3.1 | Persistent armed breakouts | Better state handling; still vulnerable to late entries and hostile spread regimes |
-| **V4** | **Trend → pullback → resumption** | Current research candidate |
+| V1 | Fixed 1 oz momentum trading | Sizing failure |
+| V2 | Dynamic fractional exposure | Survived longer, still overtraded |
+| V3 | Multi-horizon confirmed breakouts | More selective, fragile setup state |
+| V3.1 | Persistent armed breakouts | Better state handling; full run still negative |
+| V4 | Short-horizon pullback / resumption | Failed the seven-day development baseline |
+| **V4.1** | **30m trend → 5m context → 60s pullback/resumption + risk sizing** | **Locked research candidate after positive development + validation** |
 
-The full chronology, exact paper logs, algorithm notes and runnable scripts live inside [`xau-lab/`](./xau-lab).
+V4.1 is **not** a profitability claim. Its final holdout has not been evaluated, and validation contained only eight trades.
 
-## What makes this a lab
+The full chronology, raw run logs, algorithm notes and runnable scripts live inside [`xau-lab/`](./xau-lab).
 
-A strategy does not get promoted because one run looked pretty.
-
-The workflow is moving toward:
+## Research workflow
 
 ```text
 MT5 broker ticks
       ↓
-historical export
+chronological development
       ↓
-fast deterministic replay
+candidate iteration
       ↓
-random 30-minute windows
+validation rejection / promotion
       ↓
-walk-forward / untouched holdouts
+execution stress tests
       ↓
-failure-mode analysis
+lock algorithm + parameters
+      ↓
+untouched holdout
       ↓
 live paper validation
-      ↓
-only then consider anything involving real execution
 ```
-
-The repo currently includes tooling to export historical MT5 ticks and replay the latest XAUUSD strategy over many windows without waiting for the market in real time.
 
 ## Design rules
 
 - **Paper first.** Current strategy scripts do not call `mt5.order_send()`.
-- **Use bid/ask, not fantasy mid-price fills.** BUY enters at ask and exits at bid; SELL does the opposite.
-- **Spread is part of the strategy.** On short XAUUSD trades it can dominate the expected edge.
-- **Risk exits stay deterministic.** A future AI/JEV decision layer may help with entries, but it should never sit in the emergency exit path.
-- **Keep the failures.** A bad run is research data, not something to quietly delete.
-- **Do not confuse backtest improvement with proof of profitability.** Every tuned idea still needs unseen data.
+- **Use bid/ask, not fantasy mid-price fills.**
+- **Spread is part of the strategy.**
+- **Risk exits stay deterministic.**
+- **Keep the failures.**
+- **Do not confuse backtest improvement with proof of profitability.**
 
 ## Repository layout
 
@@ -65,19 +60,18 @@ mt5-lab/
 └── xau-lab/
     ├── README.md
     ├── docs/
-    │   ├── README.md
-    │   ├── PROVENANCE.md
     │   ├── algorithms/
     │   ├── experiments/
     │   └── plans/
     ├── results/
+    │   └── simulations/
     └── scripts/
+        ├── paper_challenge_v4.py
+        └── paper_challenge_v4_1.py
 ```
-
-Within `docs/`, algorithms are split by strategy version, experiments are split by run/session date, and proposed changes are recorded separately before implementation.
 
 ## Status
 
 **Research / paper trading only.**
 
-Nothing in this repository should be treated as a claim of profitability, financial advice, or a production-ready trading system. The interesting part is the iteration process—and whether the strategy survives increasingly unfair tests.
+Nothing in this repository should be treated as a claim of profitability, financial advice, or a production-ready trading system.
