@@ -15,3 +15,4 @@ Experiments are grouped by date so each session can grow independently without t
 - [04 — V3.1 live paper](2026-09-23/04-v3-1-live-paper.md)
 - [05 — offline algorithm comparison](2026-09-23/05-offline-algorithm-comparison.md)
 - [06 — V4 research candidate](2026-09-23/06-v4-research-candidate.md)
+- [07 — seven-day development baseline comparison](2026-09-23/07-seven-day-development-baseline.md)
