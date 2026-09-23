@@ -1,0 +1,45 @@
+{
+  "status": "not_promoted",
+  "target_capture_ratio": 0.20,
+  "opportunity_ceiling_inr": 7482.60,
+  "target_pnl_inr": 1496.52,
+  "candidate": {
+    "family": "regime_adaptive_composite",
+    "continuous_research_pnl_inr": 603.601976300292,
+    "continuous_final_balance_inr": 1103.601976300292,
+    "continuous_profit_factor": 1.4563466741308007,
+    "continuous_trades": 114,
+    "continuous_max_drawdown_inr": 257.5211892499169,
+    "continuous_best_trade_inr": 173.15891803598174,
+    "continuous_worst_trade_inr": -34.57203561183232,
+    "capture_ratio": 0.08066741190231898,
+    "parameters": {
+      "high_activity_range300_min_usd": 5.0,
+      "high_activity_er60_min": 0.03,
+      "primary_cooldown_high_seconds": 450,
+      "secondary_cooldown_high_seconds": 90,
+      "allow_secondary_inside_slow_gate_high": true,
+      "secondary_channel_seconds": 120,
+      "secondary_buffer_floor_usd": 0.50,
+      "secondary_buffer_range_fraction": 0.02,
+      "secondary_min_range_usd": 4.0,
+      "secondary_min_abs_m30_usd": 1.5,
+      "primary_high_tp_cap_usd": 25.0,
+      "primary_high_max_hold_seconds": 900,
+      "primary_high_reversal_exit": false,
+      "secondary_high_trail_trigger_usd": 12.0,
+      "secondary_high_trail_giveback_usd": 3.0,
+      "secondary_high_tp_cap_usd": 8.0,
+      "secondary_high_max_hold_seconds": 1200,
+      "secondary_high_reversal_exit": false,
+      "risk_fraction": 0.03,
+      "stop_distance_usd": 4.0
+    }
+  },
+  "hindsight_profile_oracle": {
+    "pnl_inr": 1292.06361894257,
+    "capture_ratio": 0.1726757569484631,
+    "note": "Non-causal upper-bound diagnostic choosing the best tested profile separately after the fact for each of five coarse research segments."
+  },
+  "holdout_evaluated": false
+}
