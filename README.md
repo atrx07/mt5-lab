@@ -65,21 +65,16 @@ mt5-lab/
 └── xau-lab/
     ├── README.md
     ├── docs/
-    │   ├── ALGORITHMS.md
-    │   ├── EXPERIMENT_LOG.md
-    │   └── PROVENANCE.md
+    │   ├── README.md
+    │   ├── PROVENANCE.md
+    │   ├── algorithms/
+    │   ├── experiments/
+    │   └── plans/
     ├── results/
-    │   ├── paper_trades_v3.csv
-    │   └── paper_trades_v3_1.csv
     └── scripts/
-        ├── paper_challenge.py
-        ├── paper_challenge_v2.py
-        ├── paper_challenge_v3.py
-        ├── paper_challenge_v3_1.py
-        ├── paper_challenge_v4.py
-        ├── export_xau_ticks.py
-        └── replay_lab.py
 ```
+
+Within `docs/`, algorithms are split by strategy version, experiments are split by run/session date, and proposed changes are recorded separately before implementation.
 
 ## Status
 
