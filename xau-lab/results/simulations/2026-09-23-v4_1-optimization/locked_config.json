@@ -1,0 +1,28 @@
+{
+  "version": "V4.1",
+  "status": "locked_candidate",
+  "source_dataset_sha256": "007e7ab10cc16519b544003dbe81521f46cf868bf267780932638d1e8cec86e5",
+  "development_fraction": 0.60,
+  "validation_fraction": 0.20,
+  "holdout_fraction": 0.20,
+  "holdout_evaluated": false,
+  "sample_interval_seconds": 0.5,
+  "start_balance_inr": 500.0,
+  "inr_per_usd": 95.7021,
+  "parameters": {
+    "max_spread_usd": 0.30,
+    "trend_1800s_momentum_usd": 8.0,
+    "trend_300s_momentum_usd": 3.0,
+    "pullback_60s_momentum_usd": 0.80,
+    "resume_60s_momentum_usd": 0.50,
+    "pullback_lookback_seconds": 300,
+    "cooldown_seconds": 900,
+    "max_hold_seconds": 1800,
+    "stop_distance_usd": 4.0,
+    "take_profit_distance_usd": 21.0,
+    "trend_reversal_300s_usd": 0.0,
+    "risk_fraction": 0.03,
+    "synthetic_leverage_cap": 100.0
+  },
+  "promotion_reason": "Positive development and validation P&L/PF with materially lower drawdown after risk sizing; survived +10% spread, up to $0.10 adverse slippage per side, and 1-second sampling stress. +25% spread stress failed validation, so cost sensitivity remains a known weakness."
+}
