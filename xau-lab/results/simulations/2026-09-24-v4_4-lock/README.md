@@ -22,6 +22,8 @@ The archived V4.3 search row also used its $4 channel-range / $1.50 m30 / range-
 
 V4.4 headline metrics now use the same reset-segment / compounded-return convention, so the comparison is methodologically aligned.
 
+A small legacy reconstruction residual remains: with the corrected search-row geometry, the rebuilt V4.3 feature harness compounds to about +₹619.64 (8.28%) versus the archived +₹603.60 (8.07%), a difference of about ₹16.03 / 0.21 capture points. The large +₹683-vs-₹603 discrepancy is resolved; this smaller residual is preserved as a reconstruction limitation rather than hidden.
+
 ## Locked Candidate K
 
 V4.4 keeps the corrected V4.3 PRIMARY/SECONDARY engines and adds the MICRO structural engine from Candidate A.
