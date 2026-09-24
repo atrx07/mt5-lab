@@ -57,6 +57,13 @@ PROTOTYPES = {
         "trend_exit": "trigger 6, floor 3, giveback 2.5, target 10, max hold 1800 s",
         "short_exit": "trigger 3, floor 1.2, giveback 1, target 5, max hold 180 s",
     },
+    3: {
+        "short_signal": "mode 1 impulse admission and exits, without trend tickets",
+        "trend_signal": "disabled after recent seed trend losses on both sampling grids",
+        "trend_slots": 0, "short_slots": 2,
+        "short_exit": "trigger 3, floor 1.2, giveback 1, target 5, max hold 180 s",
+        "selection_scope": "recent 24h seed hypothesis; evaluation required before any promotion",
+    },
 }
 
 
@@ -197,7 +204,7 @@ def simulate_multi(
         # Horizon is chosen at each admission using only features available now.
         kind = 0
         side = 0
-        if mode == 1 and impulse_count < 2 and now - last_impulse >= 60.0:
+        if (mode == 1 or mode == 3) and impulse_count < 2 and now - last_impulse >= 60.0:
             if r60[i] >= 3.0 and er60[i] >= 0.06 and qacc[i] >= 0.85:
                 if m120[i] >= 4.0 and m30[i] >= 1.0 and m10[i] >= 0.35 and imb[i] >= 0.05:
                     kind = 2
@@ -213,7 +220,7 @@ def simulate_multi(
                 elif m60[i] <= -4.0 and m30[i] <= -2.0 and m10[i] >= 0.5 and imb[i] >= 0.1:
                     kind = 2
                     side = 1
-        trend_limit = 1 if mode > 0 else 2
+        trend_limit = 0 if mode == 3 else (1 if mode > 0 else 2)
         if kind == 0 and (
             trend_count < trend_limit and now - last_trend >= 180.0 and
             now - session_start >= 1800.0 and
@@ -347,11 +354,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("csv", type=Path)
     parser.add_argument("--output", type=Path, default=OUT)
-    parser.add_argument("--mode", type=int, choices=(0, 1, 2), default=0)
+    parser.add_argument("--mode", type=int, choices=(0, 1, 2, 3), default=0)
     parser.add_argument("--seed-only", action="store_true")
     args = parser.parse_args()
-    if args.mode in (1, 2) and not args.seed_only:
-        parser.error("rejected prototypes 1 and 2 are seed-only research; use --seed-only")
+    if args.mode in (1, 2, 3) and not args.seed_only:
+        parser.error("non-promoted prototypes are seed-only in the historical harness; use --seed-only")
     digest = canonical.verify_dataset(args.csv)
     reference = json.loads(REFERENCE_D.read_text(encoding="utf-8"))
     output = {

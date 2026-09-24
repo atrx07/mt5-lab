@@ -140,6 +140,10 @@ Current canonical manifest:
 
 `data/manifests/xau_ticks_7d_2026-09-16_to_2026-09-23.json`
 
+Additional frozen recent-snapshot manifest for Experiment 22:
+
+`data/manifests/xau_ticks_recent_24h_2026-09-24.json`
+
 ### `data/raw/`
 
 Store curated lossless compressed market-data archives only.
@@ -147,6 +151,10 @@ Store curated lossless compressed market-data archives only.
 Current canonical archive:
 
 `data/raw/xau_ticks_7d_2026-09-16_to_2026-09-23.csv.gz`
+
+Experiment 22 snapshot archive:
+
+`data/raw/xau_ticks_recent_24h_2026-09-24.csv.gz`
 
 Do not commit the ~220 MB raw CSV.
 
@@ -287,6 +295,7 @@ Examples:
 - `15-v4-5-burst-candidate-b.md`
 - `20-v4-5-exposure-velocity.md`
 - `21-v4-5-multi-ticket-horizon.md`
+- `22-recent-micro-long-validation.md`
 
 Experiment numbers are chronological across the project, not reset each day.
 
@@ -435,7 +444,8 @@ Current V4.5 research evidence directories:
 - `results/simulations/2026-09-24-v4_5-burst-path-autopsy/` — Experiment 18 diagnostic;
 - `results/simulations/2026-09-24-v4_5-confirmed-failure/` — provisional Candidate D evidence;
 - `results/simulations/2026-09-24-v4_5-exposure-velocity/` — completed Experiment 20 negative evidence;
-- `results/simulations/2026-09-24-v4_5-multi-ticket-horizon/` — latest Experiment 21 negative independent multi-position evidence.
+- `results/simulations/2026-09-24-v4_5-multi-ticket-horizon/` — Experiment 21 negative independent multi-position evidence;
+- `results/simulations/2026-09-24-recent-micro-long-validation/` — latest Experiment 22 fresh-regime synthetic replay and rejected impulse-only ablation.
 
 ### Result-directory contents
 
@@ -487,6 +497,8 @@ Current categories:
 - `xau_probe.py` — MT5 XAUUSD contract/environment probe;
 - `export_xau_ticks.py` — broker tick exporter;
 - `archive_dataset.py` — hash/manifest/deterministic gzip archive helper.
+- `restore_dataset.py` — hash-verified restoration of ignored raw CSVs from the archives;
+- `capture_recent_xau_ticks.py` — read-only MT5 tick snapshot capture with clock provenance.
 
 ### Historical/current paper strategy scripts
 
@@ -514,9 +526,10 @@ Do not create `paper_challenge_v4_5.py` until V4.5 is actually selected/locked f
 - `v4_5_burst_path_autopsy.py` — completed Experiment 18 BURST trace and Candidate D simulator foundation;
 - `v4_5_confirmed_failure.py` — provisional Candidate D replay from Experiment 19;
 - `v4_5_exposure_velocity.py` — completed Experiment 20 PRIMARY/SECONDARY diagnostic and rejected seed variants;
-- `v4_5_multi_ticket_horizon.py` — completed Experiment 21 independent multi-ticket trend/impulse/reversal research replay, not a current live or paper strategy.
+- `v4_5_multi_ticket_horizon.py` — Experiment 21 independent multi-ticket replay plus Experiment 22's rejected impulse-only mode 3;
+- `v4_5_recent_validation.py` — latest Experiment 22 historical parity-gated recent synthetic validation and ledgers.
 
-The next raw-event admission test has not been implemented. Do not describe an old search script as the active next-step harness.
+The next fair terminal-equity/forced-close diagnostic for single-slot comparators has not been implemented. Additional non-overlapping recent snapshots should follow before a new micro/long admission choice. Raw-event admission remains a research direction, not an active tested candidate.
 
 For new research harnesses, use a descriptive version-prefixed name under `scripts/`, for example:
 
@@ -635,6 +648,11 @@ scripts/v4_5_exposure_velocity.py
 docs/experiments/2026-09-24/21-v4-5-multi-ticket-horizon.md
 results/simulations/2026-09-24-v4_5-multi-ticket-horizon/
 scripts/v4_5_multi_ticket_horizon.py
+docs/experiments/2026-09-24/22-recent-micro-long-validation.md
+results/simulations/2026-09-24-recent-micro-long-validation/
+data/manifests/xau_ticks_recent_24h_2026-09-24.json
+scripts/v4_5_recent_validation.py
+scripts/capture_recent_xau_ticks.py
 ```
 
 If the latest experiment number/version changes later, follow the indexes rather than assuming the paths above remain the newest.

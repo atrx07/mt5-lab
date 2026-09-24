@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "dataset_id": "xauusd-mt5-recent-24h-2026-09-24",
+  "instrument": "XAUUSD",
+  "source": {
+    "platform": "MetaTrader 5",
+    "exporter": "scripts/capture_recent_xau_ticks.py",
+    "tick_filter": "COPY_TICKS_ALL; bid>0 and ask>bid",
+    "reported_timestamp_basis": "MT5 time_msc interpreted as UTC, per MQL5 Python API documentation",
+    "host_acquisition_utc": "2026-09-24T15:58:48.152011+00:00",
+    "latest_mt5_reported_utc": "2026-09-24T18:58:46.063000+00:00",
+    "mt5_minus_host_clock_sec": 10797.910989,
+    "requested_window_hours": 24.0
+  },
+  "raw": {
+    "filename": "xau_ticks_recent_24h_2026-09-24.csv",
+    "sha256": "9243ac73c3d180417ff634fe9371a28939713a531c9ccfa63f919c94eb9a28b1",
+    "bytes": 44977021,
+    "data_rows": 476535,
+    "first_timestamp_utc": "2026-09-23T18:58:46.459000+00:00",
+    "last_timestamp_utc": "2026-09-24T18:58:45.860000+00:00",
+    "columns": [
+      "timestamp_utc",
+      "bid",
+      "ask",
+      "last",
+      "volume",
+      "flags",
+      "volume_real",
+      "spread",
+      "mid"
+    ]
+  },
+  "archive": {
+    "format": "gzip",
+    "relative_path": "data/raw/xau_ticks_recent_24h_2026-09-24.csv.gz",
+    "compression_level": 9,
+    "deterministic_header": {
+      "mtime": 0,
+      "filename": ""
+    },
+    "status": "archived",
+    "bytes": 5603455,
+    "sha256": "2d3c963f678aa0341224efe5f6859651018e11a43c8c5797bb5685f8dce19aeb"
+  },
+  "used_by": [
+    "docs/experiments/2026-09-24/22-recent-micro-long-validation.md"
+  ],
+  "notes": [
+    "This frozen snapshot is an offline replay input, not an order or live trading log.",
+    "MT5 tick time appears about three hours ahead of host UTC; no silent clock shift was applied.",
+    "The canonical seven-day final 20% holdout was not read."
+  ]
+}

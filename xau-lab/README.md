@@ -43,7 +43,9 @@ V4.4 is the current locked fractional experimental paper version. V4.5 is the ac
 
 Experiment 20 found that simple early PRIMARY/SECONDARY releases and SECONDARY sampled-flow vetoes fail joint 500 ms / 1 s seed selection. Candidate D remains provisional. The 50% profit-velocity / 20% exposure / 20% compounded-P&L improvements are a preferred strong-lock region; a narrower Pareto improvement may remain lock-eligible pending review, never automatically locked.
 
-Experiment 21 tested a separate, bounded three-ticket trend/impulse/reversal research script. Its initial full first-80% result lost money on both grids; two seed revisions also failed joint-grid selection. No tested prototype reached ₹100 on an observed UTC quote day. The branch was not promoted, Candidate D remains provisional, and the next focused work is a common raw-event admission feature.
+Experiment 21 tested a separate, bounded three-ticket trend/impulse/reversal research script. Its initial full first-80% result lost money on both grids; two seed revisions also failed joint-grid selection. No tested prototype reached ₹100 on an observed UTC quote day.
+
+Experiment 22 froze a separate recent 24-hour MT5 quote snapshot and ran the historical V4.4 parity gate before synthetic replay. Candidate D lost heavily in realized-only recent diagnostics. A bounded impulse-only revision of the multi-ticket script improved its seed but lost on both later evaluation grids and under adverse-fill stress. Its continuous 24-hour synthetic P&L was only +₹1.89 at 500 ms / +₹6.08 at 1 s before stress. The terminal tick clock appeared about three hours ahead of host UTC. No candidate was promoted; Candidate D remains provisional, and V4.4 remains locked. Next work is a fair terminal-equity diagnostic for single-slot comparators and non-overlapping recent sessions before another micro/long admission change.
 
 Starting with V4.5 research, all candidate simulations must use the parity-gated canonical replay harness. V4.4's strategy parameters are unchanged; the 14.67% / 4.45% regression values are a reproducible measurement re-baseline used only as the future comparison oracle. The earlier 16.36% / 11.54% lock outputs remain preserved as historical research evidence.
 
@@ -80,6 +82,7 @@ python scripts\v4_5_burst_path_autopsy.py xau_ticks_7d.csv
 python scripts\v4_5_confirmed_failure.py xau_ticks_7d.csv --confirm-sec 1
 python scripts\v4_5_exposure_velocity.py xau_ticks_7d.csv
 python scripts\v4_5_multi_ticket_horizon.py xau_ticks_7d.csv --mode 0
+python scripts\v4_5_recent_validation.py
 ```
 
 Historical tick export:
@@ -90,7 +93,7 @@ python scripts\export_xau_ticks.py --days 7
 
 ## Dataset preservation
 
-The seven-day broker-tick dataset used by the research is tracked under [`data/`](data/).
+The seven-day broker-tick dataset and Experiment 22's frozen recent snapshot are tracked under [`data/`](data/).
 
 The raw ~220 MB CSV remains ignored. A lossless gzip archive plus a SHA-256 manifest is the canonical repository copy.
 
@@ -108,6 +111,7 @@ See [`data/README.md`](data/README.md) for the exact archive/push workflow.
 - [V4.5 confirmed-failure experiment](docs/experiments/2026-09-24/19-v4-5-confirmed-failure.md)
 - [V4.5 exposure-velocity experiment](docs/experiments/2026-09-24/20-v4-5-exposure-velocity.md)
 - [V4.5 independent multi-ticket experiment](docs/experiments/2026-09-24/21-v4-5-multi-ticket-horizon.md)
+- [Recent MT5 micro/long synthetic validation](docs/experiments/2026-09-24/22-recent-micro-long-validation.md)
 - [V4.1 optimization evidence](docs/experiments/2026-09-23/08-v4-1-optimization.md)
 - [V4.2 algorithm](docs/algorithms/v4_2.md)
 - [V4.3 algorithm](docs/algorithms/v4_3.md)

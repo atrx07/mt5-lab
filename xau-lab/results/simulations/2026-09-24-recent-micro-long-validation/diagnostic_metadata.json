@@ -1,0 +1,882 @@
+{
+  "schema_version": "recent-micro-long-diagnostic-v1",
+  "dataset_sha256": "9243ac73c3d180417ff634fe9371a28939713a531c9ccfa63f919c94eb9a28b1",
+  "canonical_dataset_sha256": "007e7ab10cc16519b544003dbe81521f46cf868bf267780932638d1e8cec86e5",
+  "holdout_evaluated": false,
+  "raw_rows": 476535,
+  "raw_seed_cut_row": 285921,
+  "raw_seed_cut_epoch_sec": 1790253333.013,
+  "selection_note": "Existing modes 0/1 plus one seed-derived mode 3 ablation; no evaluation-segment tuning",
+  "accounting_note": "Multi-ticket segments force close; inherited single-slot segments report realized trades only",
+  "multi_ticket_common_config": {
+    "max_tickets": 3,
+    "per_ticket_entry_risk_fraction": 0.01,
+    "aggregate_entry_risk_fraction": 0.03,
+    "emergency_stop_usd": 4.0,
+    "aggregate_leverage_cap": 100.0,
+    "absolute_spread_cap_usd": 0.25,
+    "minimum_mid_move_between_entries_usd": 0.8,
+    "trend_entry_gap_sec": 180.0,
+    "impulse_entry_gap_sec": 60.0,
+    "cost_stress_per_side_usd": 0.2,
+    "forced_liquidation": "first quote after session gap and last quote of each segment"
+  },
+  "multi_ticket_prototypes": {
+    "0": {
+      "short_signal": "impulse momentum: r60>=4, er60>=0.12, qacc>=1.2, directional m120>=6, m30>=1.5, m10>=0.6, imb10>=0.2; short evaluated after trend",
+      "trend_signal": "r300>=5, er60>=0.05, directional m1800>=8, m300>=3, m60>=0.5, m10>=0.2, recent opposite m10<=-0.4; 30min session warmup",
+      "trend_slots": 2,
+      "short_slots": 1,
+      "trend_exit": "trigger 8, floor 4, giveback 2.5, target 13, max hold 3600 s",
+      "short_exit": "trigger 5, floor 2, giveback 1.5, target 8, max hold 300 s"
+    },
+    "1": {
+      "short_signal": "impulse momentum: r60>=3, er60>=0.06, qacc>=0.85, directional m120>=4, m30>=1, m10>=0.35, imb10>=0.05; short evaluated first",
+      "trend_signal": "r300>=5, er60>=0.05, directional m1800>=10, m300>=4, m60>=0.5, m10>=0.2, recent opposite m10<=-0.4; 30min session warmup",
+      "trend_slots": 1,
+      "short_slots": 2,
+      "trend_exit": "trigger 6, floor 3, giveback 2.5, target 10, max hold 1800 s",
+      "short_exit": "trigger 3, floor 1.2, giveback 1, target 5, max hold 180 s"
+    },
+    "3": {
+      "short_signal": "mode 1 impulse admission and exits, without trend tickets",
+      "trend_signal": "disabled after recent seed trend losses on both sampling grids",
+      "trend_slots": 0,
+      "short_slots": 2,
+      "short_exit": "trigger 3, floor 1.2, giveback 1, target 5, max hold 180 s",
+      "selection_scope": "recent 24h seed hypothesis; evaluation required before any promotion"
+    }
+  },
+  "intervals": {
+    "500ms": {
+      "sampled_rows": 128563,
+      "sampled_cut_index": 86337,
+      "segments": {
+        "seed": {
+          "v4_4": {
+            "realized_pnl_inr": -91.86429711818016,
+            "profit_factor": 0.35492387465787845,
+            "trades": 17,
+            "wins": 3,
+            "drawdown_inr": 91.86429711818016
+          },
+          "v4_5_b": {
+            "realized_pnl_inr": -92.96590767264684,
+            "profit_factor": 0.35166851650791764,
+            "trades": 19,
+            "wins": 3,
+            "drawdown_inr": 92.96590767264684
+          },
+          "candidate_d": {
+            "realized_pnl_inr": -92.47632849025553,
+            "profit_factor": 0.35314786361894923,
+            "trades": 19,
+            "wins": 3,
+            "drawdown_inr": 92.47632849025553,
+            "engines": {
+              "BURST": {
+                "trades": 2,
+                "pnl_inr": -0.6800582485547013
+              },
+              "MICRO": {
+                "trades": 2,
+                "pnl_inr": -7.075477858225636
+              },
+              "PRIMARY": {
+                "trades": 12,
+                "pnl_inr": -84.06680513082547
+              },
+              "SECONDARY": {
+                "trades": 3,
+                "pnl_inr": -0.6539872526496122
+              }
+            }
+          },
+          "multi_mode_0": {
+            "realized_pnl_inr": -37.46094914862363,
+            "profit_factor": 0.0,
+            "trades": 8,
+            "wins": 0,
+            "drawdown_inr": 37.54844914862326,
+            "median_hold_sec": 449.6909999847412,
+            "mean_hold_sec": 967.9975000023842,
+            "ticket_exposure_hours": 2.1511055555608536,
+            "peak_open_tickets": 2,
+            "horizons": {
+              "trend": {
+                "trades": 8,
+                "pnl_inr": -37.460949148623655,
+                "median_hold_sec": 449.6909999847412
+              }
+            },
+            "sides": {
+              "-1": {
+                "trades": 6,
+                "pnl_inr": -29.99259446719936
+              },
+              "1": {
+                "trades": 2,
+                "pnl_inr": -7.468354681424298
+              }
+            },
+            "adverse_fill_20c_each_side_pnl_inr": -37.64278876730094,
+            "adverse_fill_20c_each_side_trades": 8
+          },
+          "multi_mode_1": {
+            "realized_pnl_inr": -10.844915547587675,
+            "profit_factor": 0.6432868923920207,
+            "trades": 17,
+            "wins": 7,
+            "drawdown_inr": 19.015419530804195,
+            "median_hold_sec": 180.09699988365173,
+            "mean_hold_sec": 276.35017647462735,
+            "ticket_exposure_hours": 1.304986944463518,
+            "peak_open_tickets": 2,
+            "horizons": {
+              "impulse": {
+                "trades": 13,
+                "pnl_inr": 3.597162061892766,
+                "median_hold_sec": 180.05400013923645
+              },
+              "trend": {
+                "trades": 4,
+                "pnl_inr": -14.442077609480535,
+                "median_hold_sec": 414.89950013160706
+              }
+            },
+            "sides": {
+              "-1": {
+                "trades": 10,
+                "pnl_inr": -15.010794080725013
+              },
+              "1": {
+                "trades": 7,
+                "pnl_inr": 4.165878533137241
+              }
+            },
+            "adverse_fill_20c_each_side_pnl_inr": -20.199421575233544,
+            "adverse_fill_20c_each_side_trades": 17
+          },
+          "multi_mode_3": {
+            "realized_pnl_inr": 3.7346264120461683,
+            "profit_factor": 1.245147894189118,
+            "trades": 13,
+            "wins": 6,
+            "drawdown_inr": 14.04061297623224,
+            "median_hold_sec": 180.05400013923645,
+            "mean_hold_sec": 157.51938460423395,
+            "ticket_exposure_hours": 0.5688199999597338,
+            "peak_open_tickets": 2,
+            "horizons": {
+              "impulse": {
+                "trades": 13,
+                "pnl_inr": 3.7346264120461083,
+                "median_hold_sec": 180.05400013923645
+              }
+            },
+            "sides": {
+              "-1": {
+                "trades": 7,
+                "pnl_inr": 0.37150048922800805
+              },
+              "1": {
+                "trades": 6,
+                "pnl_inr": 3.3631259228181
+              }
+            },
+            "adverse_fill_20c_each_side_pnl_inr": -5.3034357744481895,
+            "adverse_fill_20c_each_side_trades": 13
+          }
+        },
+        "evaluation": {
+          "v4_4": {
+            "realized_pnl_inr": -143.18023360584414,
+            "profit_factor": 0.11317014760822965,
+            "trades": 17,
+            "wins": 2,
+            "drawdown_inr": 152.14027016608725
+          },
+          "v4_5_b": {
+            "realized_pnl_inr": -148.64922488418324,
+            "profit_factor": 0.1080871985873282,
+            "trades": 19,
+            "wins": 2,
+            "drawdown_inr": 157.47193059446596
+          },
+          "candidate_d": {
+            "realized_pnl_inr": -149.92292560013215,
+            "profit_factor": 0.10696816560845236,
+            "trades": 19,
+            "wins": 2,
+            "drawdown_inr": 158.7136476423097,
+            "engines": {
+              "BURST": {
+                "trades": 2,
+                "pnl_inr": -8.681882540564938
+              },
+              "MICRO": {
+                "trades": 3,
+                "pnl_inr": -13.63306268271873
+              },
+              "PRIMARY": {
+                "trades": 12,
+                "pnl_inr": -100.30074958098739
+              },
+              "SECONDARY": {
+                "trades": 2,
+                "pnl_inr": -27.307230795861052
+              }
+            }
+          },
+          "multi_mode_0": {
+            "realized_pnl_inr": -15.135624416578366,
+            "profit_factor": 0.5915182431505075,
+            "trades": 10,
+            "wins": 3,
+            "drawdown_inr": 25.205548873302575,
+            "median_hold_sec": 746.0094999074936,
+            "mean_hold_sec": 948.4665999412537,
+            "ticket_exposure_hours": 2.63462944428126,
+            "peak_open_tickets": 2,
+            "horizons": {
+              "impulse": {
+                "trades": 1,
+                "pnl_inr": 4.692353110170936,
+                "median_hold_sec": 300.0409998893738
+              },
+              "trend": {
+                "trades": 9,
+                "pnl_inr": -19.82797752674926,
+                "median_hold_sec": 848.5159997940063
+              }
+            },
+            "sides": {
+              "-1": {
+                "trades": 6,
+                "pnl_inr": -16.373280190373833
+              },
+              "1": {
+                "trades": 4,
+                "pnl_inr": 1.2376557737955105
+              }
+            },
+            "adverse_fill_20c_each_side_pnl_inr": -16.45877532298107,
+            "adverse_fill_20c_each_side_trades": 10
+          },
+          "multi_mode_1": {
+            "realized_pnl_inr": 4.241054793280739,
+            "profit_factor": 1.1708961097486494,
+            "trades": 12,
+            "wins": 6,
+            "drawdown_inr": 14.299295868617548,
+            "median_hold_sec": 180.051500082016,
+            "mean_hold_sec": 240.69500001271567,
+            "ticket_exposure_hours": 0.8023166667090522,
+            "peak_open_tickets": 2,
+            "horizons": {
+              "impulse": {
+                "trades": 9,
+                "pnl_inr": 3.790972691053374,
+                "median_hold_sec": 180.0200002193451
+              },
+              "trend": {
+                "trades": 3,
+                "pnl_inr": 0.45008210222743017,
+                "median_hold_sec": 360.52100014686584
+              }
+            },
+            "sides": {
+              "-1": {
+                "trades": 5,
+                "pnl_inr": 8.073572698461813
+              },
+              "1": {
+                "trades": 7,
+                "pnl_inr": -3.8325179051810103
+              }
+            },
+            "adverse_fill_20c_each_side_pnl_inr": -0.3109709084504857,
+            "adverse_fill_20c_each_side_trades": 12
+          },
+          "multi_mode_3": {
+            "realized_pnl_inr": -1.8337615976988673,
+            "profit_factor": 0.9078198274112912,
+            "trades": 10,
+            "wins": 5,
+            "drawdown_inr": 10.855223411413135,
+            "median_hold_sec": 170.96200013160706,
+            "mean_hold_sec": 148.58739998340607,
+            "ticket_exposure_hours": 0.4127427777316835,
+            "peak_open_tickets": 1,
+            "horizons": {
+              "impulse": {
+                "trades": 10,
+                "pnl_inr": -1.8337615976988366,
+                "median_hold_sec": 170.96200013160706
+              }
+            },
+            "sides": {
+              "-1": {
+                "trades": 4,
+                "pnl_inr": -3.0881029054116835
+              },
+              "1": {
+                "trades": 6,
+                "pnl_inr": 1.254341307712846
+              }
+            },
+            "adverse_fill_20c_each_side_pnl_inr": -6.472813148151147,
+            "adverse_fill_20c_each_side_trades": 10
+          }
+        }
+      },
+      "full_24h_diagnostic": {
+        "multi_mode_0": {
+          "realized_pnl_inr": -54.546278588015184,
+          "profit_factor": 0.26962443339034087,
+          "trades": 19,
+          "wins": 3,
+          "drawdown_inr": 61.025690990243845,
+          "median_hold_sec": 616.9350001811981,
+          "mean_hold_sec": 950.3509999827335,
+          "ticket_exposure_hours": 5.01574138879776,
+          "peak_open_tickets": 2,
+          "horizons": {
+            "impulse": {
+              "trades": 1,
+              "pnl_inr": 4.310950155060666,
+              "median_hold_sec": 300.0409998893738
+            },
+            "trend": {
+              "trades": 18,
+              "pnl_inr": -58.857228743075964,
+              "median_hold_sec": 630.2190001010895
+            }
+          },
+          "sides": {
+            "-1": {
+              "trades": 13,
+              "pnl_inr": -48.21498077863042
+            },
+            "1": {
+              "trades": 6,
+              "pnl_inr": -6.3312978093848615
+            }
+          },
+          "adverse_fill_20c_each_side_pnl_inr": -57.71389804040081,
+          "adverse_fill_20c_each_side_trades": 19,
+          "reported_utc_exit_days": {
+            "2026-09-23": {
+              "trades": 6,
+              "pnl_inr": -27.950335917293977
+            },
+            "2026-09-24": {
+              "trades": 13,
+              "pnl_inr": -26.595942670721314
+            }
+          }
+        },
+        "multi_mode_1": {
+          "realized_pnl_inr": -11.665887842635186,
+          "profit_factor": 0.8034864099399256,
+          "trades": 30,
+          "wins": 13,
+          "drawdown_inr": 27.038639183432224,
+          "median_hold_sec": 180.0899999141693,
+          "mean_hold_sec": 261.27833333810173,
+          "ticket_exposure_hours": 2.177319444484181,
+          "peak_open_tickets": 2,
+          "horizons": {
+            "impulse": {
+              "trades": 22,
+              "pnl_inr": 7.2685435682187665,
+              "median_hold_sec": 180.04000008106232
+            },
+            "trend": {
+              "trades": 8,
+              "pnl_inr": -18.934431410853943,
+              "median_hold_sec": 306.2890000343323
+            }
+          },
+          "sides": {
+            "-1": {
+              "trades": 16,
+              "pnl_inr": -12.120150253358435
+            },
+            "1": {
+              "trades": 14,
+              "pnl_inr": 0.4542624107232589
+            }
+          },
+          "adverse_fill_20c_each_side_pnl_inr": -25.55657751625091,
+          "adverse_fill_20c_each_side_trades": 30,
+          "reported_utc_exit_days": {
+            "2026-09-23": {
+              "trades": 8,
+              "pnl_inr": -5.081298496228932
+            },
+            "2026-09-24": {
+              "trades": 22,
+              "pnl_inr": -6.584589346406246
+            }
+          }
+        },
+        "multi_mode_3": {
+          "realized_pnl_inr": 1.8871679853550063,
+          "profit_factor": 1.0534972260351567,
+          "trades": 23,
+          "wins": 11,
+          "drawdown_inr": 14.04061297623224,
+          "median_hold_sec": 180.02600002288818,
+          "mean_hold_sec": 153.63591302996096,
+          "ticket_exposure_hours": 0.9815627776914173,
+          "peak_open_tickets": 2,
+          "horizons": {
+            "impulse": {
+              "trades": 23,
+              "pnl_inr": 1.887167985354945,
+              "median_hold_sec": 180.02600002288818
+            }
+          },
+          "sides": {
+            "-1": {
+              "trades": 11,
+              "pnl_inr": -2.739668237531009
+            },
+            "1": {
+              "trades": 12,
+              "pnl_inr": 4.626836222885956
+            }
+          },
+          "adverse_fill_20c_each_side_pnl_inr": -11.707592624976826,
+          "adverse_fill_20c_each_side_trades": 23,
+          "reported_utc_exit_days": {
+            "2026-09-23": {
+              "trades": 6,
+              "pnl_inr": -0.5985376861697622
+            },
+            "2026-09-24": {
+              "trades": 17,
+              "pnl_inr": 2.485705671524708
+            }
+          }
+        }
+      }
+    },
+    "1s": {
+      "sampled_rows": 72745,
+      "sampled_cut_index": 50330,
+      "segments": {
+        "seed": {
+          "v4_4": {
+            "realized_pnl_inr": -85.51750535119885,
+            "profit_factor": 0.3704791575715554,
+            "trades": 15,
+            "wins": 3,
+            "drawdown_inr": 85.51750535119885
+          },
+          "v4_5_b": {
+            "realized_pnl_inr": -86.5433495254544,
+            "profit_factor": 0.36712647671085546,
+            "trades": 16,
+            "wins": 3,
+            "drawdown_inr": 86.5433495254544
+          },
+          "candidate_d": {
+            "realized_pnl_inr": -86.5433495254544,
+            "profit_factor": 0.36712647671085546,
+            "trades": 16,
+            "wins": 3,
+            "drawdown_inr": 86.5433495254544,
+            "engines": {
+              "BURST": {
+                "trades": 1,
+                "pnl_inr": -1.1494212644317696
+              },
+              "MICRO": {
+                "trades": 1,
+                "pnl_inr": -2.634174093344533
+              },
+              "PRIMARY": {
+                "trades": 11,
+                "pnl_inr": -82.62430852279185
+              },
+              "SECONDARY": {
+                "trades": 3,
+                "pnl_inr": -0.13544564488627486
+              }
+            }
+          },
+          "multi_mode_0": {
+            "realized_pnl_inr": -36.62433215299342,
+            "profit_factor": 0.0,
+            "trades": 8,
+            "wins": 0,
+            "drawdown_inr": 36.62433215299342,
+            "median_hold_sec": 302.8620001077652,
+            "mean_hold_sec": 689.5052500665188,
+            "ticket_exposure_hours": 1.5322338890367084,
+            "peak_open_tickets": 2,
+            "horizons": {
+              "trend": {
+                "trades": 8,
+                "pnl_inr": -36.624332152993354,
+                "median_hold_sec": 302.8620001077652
+              }
+            },
+            "sides": {
+              "-1": {
+                "trades": 6,
+                "pnl_inr": -29.680320821308733
+              },
+              "1": {
+                "trades": 2,
+                "pnl_inr": -6.944011331684619
+              }
+            },
+            "adverse_fill_20c_each_side_pnl_inr": -37.84351745241639,
+            "adverse_fill_20c_each_side_trades": 8
+          },
+          "multi_mode_1": {
+            "realized_pnl_inr": -1.5381943301958358,
+            "profit_factor": 0.920500864342745,
+            "trades": 12,
+            "wins": 6,
+            "drawdown_inr": 14.440402681348132,
+            "median_hold_sec": 180.04700005054474,
+            "mean_hold_sec": 314.0904999574025,
+            "ticket_exposure_hours": 1.0469683331913417,
+            "peak_open_tickets": 2,
+            "horizons": {
+              "impulse": {
+                "trades": 9,
+                "pnl_inr": 7.781153932484067,
+                "median_hold_sec": 180.03999996185303
+              },
+              "trend": {
+                "trades": 3,
+                "pnl_inr": -9.319348262679917,
+                "median_hold_sec": 616.9350001811981
+              }
+            },
+            "sides": {
+              "-1": {
+                "trades": 8,
+                "pnl_inr": -9.711106350207718
+              },
+              "1": {
+                "trades": 4,
+                "pnl_inr": 8.172912020011866
+              }
+            },
+            "adverse_fill_20c_each_side_pnl_inr": -9.450788359947467,
+            "adverse_fill_20c_each_side_trades": 12
+          },
+          "multi_mode_3": {
+            "realized_pnl_inr": 7.916665079948871,
+            "profit_factor": 1.856196078908363,
+            "trades": 9,
+            "wins": 5,
+            "drawdown_inr": 9.376386421616303,
+            "median_hold_sec": 180.03999996185303,
+            "mean_hold_sec": 148.08244437641568,
+            "ticket_exposure_hours": 0.37020611094103917,
+            "peak_open_tickets": 2,
+            "horizons": {
+              "impulse": {
+                "trades": 9,
+                "pnl_inr": 7.916665079948897,
+                "median_hold_sec": 180.03999996185303
+              }
+            },
+            "sides": {
+              "-1": {
+                "trades": 6,
+                "pnl_inr": 0.513068876927083
+              },
+              "1": {
+                "trades": 3,
+                "pnl_inr": 7.403596203021815
+              }
+            },
+            "adverse_fill_20c_each_side_pnl_inr": 0.9030122693593512,
+            "adverse_fill_20c_each_side_trades": 9
+          }
+        },
+        "evaluation": {
+          "v4_4": {
+            "realized_pnl_inr": -45.2057588258657,
+            "profit_factor": 0.5760076208088154,
+            "trades": 15,
+            "wins": 5,
+            "drawdown_inr": 55.17524246373108
+          },
+          "v4_5_b": {
+            "realized_pnl_inr": -51.872807329705324,
+            "profit_factor": 0.5391085189715085,
+            "trades": 17,
+            "wins": 5,
+            "drawdown_inr": 61.69614349041643
+          },
+          "candidate_d": {
+            "realized_pnl_inr": -52.31249415892705,
+            "profit_factor": 0.536875919765751,
+            "trades": 17,
+            "wins": 5,
+            "drawdown_inr": 62.12619200355397,
+            "engines": {
+              "BURST": {
+                "trades": 2,
+                "pnl_inr": -7.710048892212523
+              },
+              "MICRO": {
+                "trades": 2,
+                "pnl_inr": -9.647533954474024
+              },
+              "PRIMARY": {
+                "trades": 9,
+                "pnl_inr": -36.025119276064025
+              },
+              "SECONDARY": {
+                "trades": 4,
+                "pnl_inr": 1.070207963823476
+              }
+            }
+          },
+          "multi_mode_0": {
+            "realized_pnl_inr": -6.379353800289891,
+            "profit_factor": 0.7650253993935601,
+            "trades": 8,
+            "wins": 3,
+            "drawdown_inr": 20.60246830264782,
+            "median_hold_sec": 472.3145000934601,
+            "mean_hold_sec": 724.5838750004768,
+            "ticket_exposure_hours": 1.6101863888899486,
+            "peak_open_tickets": 2,
+            "horizons": {
+              "impulse": {
+                "trades": 1,
+                "pnl_inr": 4.390691205468748,
+                "median_hold_sec": 300.63100004196167
+              },
+              "trend": {
+                "trades": 7,
+                "pnl_inr": -10.770045005758588,
+                "median_hold_sec": 643.9980001449585
+              }
+            },
+            "sides": {
+              "-1": {
+                "trades": 5,
+                "pnl_inr": -12.563325630758305
+              },
+              "1": {
+                "trades": 3,
+                "pnl_inr": 6.183971830468465
+              }
+            },
+            "adverse_fill_20c_each_side_pnl_inr": -18.307061978723084,
+            "adverse_fill_20c_each_side_trades": 8
+          },
+          "multi_mode_1": {
+            "realized_pnl_inr": -3.994403550621257,
+            "profit_factor": 0.8592063001949222,
+            "trades": 10,
+            "wins": 4,
+            "drawdown_inr": 16.794156337992547,
+            "median_hold_sec": 166.46550011634827,
+            "mean_hold_sec": 274.07380001544954,
+            "ticket_exposure_hours": 0.7613161111540264,
+            "peak_open_tickets": 2,
+            "horizons": {
+              "impulse": {
+                "trades": 7,
+                "pnl_inr": -1.7508082467644295,
+                "median_hold_sec": 161.90400004386902
+              },
+              "trend": {
+                "trades": 3,
+                "pnl_inr": -2.2435953038568375,
+                "median_hold_sec": 636.2900002002716
+              }
+            },
+            "sides": {
+              "-1": {
+                "trades": 5,
+                "pnl_inr": -0.8074653578636299
+              },
+              "1": {
+                "trades": 5,
+                "pnl_inr": -3.1869381927576375
+              }
+            },
+            "adverse_fill_20c_each_side_pnl_inr": -6.859631859753051,
+            "adverse_fill_20c_each_side_trades": 10
+          },
+          "multi_mode_3": {
+            "realized_pnl_inr": -1.8102691984900616,
+            "profit_factor": 0.8913750315526028,
+            "trades": 7,
+            "wins": 3,
+            "drawdown_inr": 11.132630685529705,
+            "median_hold_sec": 161.90400004386902,
+            "mean_hold_sec": 143.36342859268188,
+            "ticket_exposure_hours": 0.27876222226354813,
+            "peak_open_tickets": 1,
+            "horizons": {
+              "impulse": {
+                "trades": 7,
+                "pnl_inr": -1.8102691984899444,
+                "median_hold_sec": 161.90400004386902
+              }
+            },
+            "sides": {
+              "-1": {
+                "trades": 3,
+                "pnl_inr": -3.6669910604455094
+              },
+              "1": {
+                "trades": 4,
+                "pnl_inr": 1.856721861955565
+              }
+            },
+            "adverse_fill_20c_each_side_pnl_inr": -3.373298394125186,
+            "adverse_fill_20c_each_side_trades": 7
+          }
+        }
+      },
+      "full_24h_diagnostic": {
+        "multi_mode_0": {
+          "realized_pnl_inr": -45.6814690114698,
+          "profit_factor": 0.295012354249379,
+          "trades": 17,
+          "wins": 3,
+          "drawdown_inr": 52.591358860978744,
+          "median_hold_sec": 410.9909999370575,
+          "mean_hold_sec": 714.1609412221347,
+          "ticket_exposure_hours": 3.372426666882303,
+          "peak_open_tickets": 2,
+          "horizons": {
+            "impulse": {
+              "trades": 1,
+              "pnl_inr": 4.041104021580513,
+              "median_hold_sec": 300.63100004196167
+            },
+            "trend": {
+              "trades": 16,
+              "pnl_inr": -49.722573033050246,
+              "median_hold_sec": 447.9155000448227
+            }
+          },
+          "sides": {
+            "-1": {
+              "trades": 12,
+              "pnl_inr": -44.429061180008674
+            },
+            "1": {
+              "trades": 5,
+              "pnl_inr": -1.2524078314610616
+            }
+          },
+          "adverse_fill_20c_each_side_pnl_inr": -59.595772243865554,
+          "adverse_fill_20c_each_side_trades": 17,
+          "reported_utc_exit_days": {
+            "2026-09-23": {
+              "trades": 6,
+              "pnl_inr": -27.060683350009185
+            },
+            "2026-09-24": {
+              "trades": 11,
+              "pnl_inr": -18.620785661460545
+            }
+          }
+        },
+        "multi_mode_1": {
+          "realized_pnl_inr": -10.478020886801005,
+          "profit_factor": 0.7999244869582512,
+          "trades": 23,
+          "wins": 10,
+          "drawdown_inr": 21.970644019723238,
+          "median_hold_sec": 180.02600002288818,
+          "mean_hold_sec": 293.74417389994085,
+          "ticket_exposure_hours": 1.8766988888051774,
+          "peak_open_tickets": 2,
+          "horizons": {
+            "impulse": {
+              "trades": 16,
+              "pnl_inr": 6.077597853154035,
+              "median_hold_sec": 172.6410002708435
+            },
+            "trend": {
+              "trades": 7,
+              "pnl_inr": -16.555618739955108,
+              "median_hold_sec": 616.9350001811981
+            }
+          },
+          "sides": {
+            "-1": {
+              "trades": 14,
+              "pnl_inr": -15.530019486237517
+            },
+            "1": {
+              "trades": 9,
+              "pnl_inr": 5.051998599436442
+            }
+          },
+          "adverse_fill_20c_each_side_pnl_inr": -22.879669351977896,
+          "adverse_fill_20c_each_side_trades": 23,
+          "reported_utc_exit_days": {
+            "2026-09-23": {
+              "trades": 7,
+              "pnl_inr": -0.5803520978862552
+            },
+            "2026-09-24": {
+              "trades": 16,
+              "pnl_inr": -9.897668788914817
+            }
+          }
+        },
+        "multi_mode_3": {
+          "realized_pnl_inr": 6.077733291560946,
+          "profit_factor": 1.232191644782999,
+          "trades": 16,
+          "wins": 8,
+          "drawdown_inr": 11.308897302721846,
+          "median_hold_sec": 175.5235002040863,
+          "mean_hold_sec": 146.01787497103214,
+          "ticket_exposure_hours": 0.6489683332045874,
+          "peak_open_tickets": 2,
+          "horizons": {
+            "impulse": {
+              "trades": 16,
+              "pnl_inr": 6.077733291560964,
+              "median_hold_sec": 175.5235002040863
+            }
+          },
+          "sides": {
+            "-1": {
+              "trades": 9,
+              "pnl_inr": -3.2119828636718557
+            },
+            "1": {
+              "trades": 7,
+              "pnl_inr": 9.289716155232822
+            }
+          },
+          "adverse_fill_20c_each_side_pnl_inr": -2.476378384442114,
+          "adverse_fill_20c_each_side_trades": 16,
+          "reported_utc_exit_days": {
+            "2026-09-23": {
+              "trades": 5,
+              "pnl_inr": 3.740137390874695
+            },
+            "2026-09-24": {
+              "trades": 11,
+              "pnl_inr": 2.3375959006862708
+            }
+          }
+        }
+      }
+    }
+  }
+}
