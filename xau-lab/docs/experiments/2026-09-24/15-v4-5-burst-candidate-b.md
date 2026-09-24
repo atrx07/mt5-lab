@@ -6,35 +6,55 @@ Date: 2026-09-24
 
 Tightening the existing MICRO gate reduced useful activity and capture.
 
-The next experiment therefore left all V4.4 engines untouched and added an independent BURST engine that only gets the shared slot after PRIMARY, SECONDARY and MICRO all decline the current sample.
+Candidate B therefore leaves V4.4 intact and adds an independent BURST engine only after PRIMARY, SECONDARY and MICRO all decline the sample.
 
-## Result
+## Canonical replay verification
 
-In the same reconstructed harness, Candidate B beats reconstructed V4.4 on **P&L, capture and trade count at both 500 ms and 1 s**.
+Candidate B was rerun through the permanent parity-gated replay harness:
+
+`scripts/canonical_replay.py`
+
+Before Candidate B executes, that harness automatically replays V4.4 on the same arrays and asserts the result against the frozen regression oracle.
+
+Both the 500 ms and 1 s Candidate B runs passed that baseline assertion.
+
+## Canonical result
 
 500 ms:
 
-- V4.4: +₹1,097.66, 14.67% capture, 148 trades, median segment PF 1.284.
-- Candidate B: **+₹1,299.37, 17.37% capture, 163 trades, median segment PF 1.361.**
+- V4.4: +₹1,097.66, 14.6695% capture, 148 trades, median segment PF 1.284.
+- Candidate B: **+₹1,299.37, 17.3652% capture, 163 trades, median segment PF 1.361.**
 
 1 second:
 
-- V4.4: +₹333.27, 4.45% capture, 145 trades, median segment PF 1.367.
-- Candidate B: **+₹365.25, 4.88% capture, 156 trades, median segment PF 1.382.**
+- V4.4: +₹333.27, 4.4539% capture, 145 trades, median segment PF 1.367.
+- Candidate B: **+₹365.25, 4.8814% capture, 156 trades, median segment PF 1.382.**
 
-This is the first V4.5 research candidate in this sequence that moves the desired three metrics in the same direction on both grids.
+Candidate B therefore increases P&L, capture and completed trade count on both canonical grids.
+
+## Historical V4.4 numbers
+
+The V4.4 lock originally recorded 16.36% at 500 ms and 11.54% at 1 s using an older ad-hoc replay pipeline.
+
+Those figures remain preserved as historical experiment evidence, but they are not the regression oracle for V4.5+ because that exact pipeline could not be reproduced consistently.
+
+The reproducible V4.4 canonical regression reference is now frozen in:
+
+[`results/regression/canonical_v4_4_reference.json`](../../../results/regression/canonical_v4_4_reference.json)
 
 ## Caveats
 
-The fresh V4.5 harness still fails to reproduce the official locked V4.4 1-second headline, so Candidate B's absolute capture is not promotion evidence.
+Candidate B remains provisional because:
 
-Extreme spread and adverse-slippage diagnostics also show that the extra BURST trades are not yet cost-robust enough.
+- the 50–60% research region is still negative;
+- extreme spread / adverse-slippage diagnostics can erase part of BURST's advantage;
+- the final 20% holdout remains unopened.
 
 ## Decision
 
 Keep Candidate B as the current V4.5 research leader. Do not create or lock a V4.5 paper version yet.
 
-Next work: preserve the BURST engine and improve its cost-aware admission / lifecycle handling without reducing the V4.4 engines' existing opportunity set.
+Next work: preserve the extra BURST trades and improve only their cost robustness / lifecycle behavior.
 
 Evidence:
 
