@@ -1,32 +1,25 @@
 # mt5-lab
 
-A sandbox for testing **MetaTrader 5 trading ideas with real market data before they get anywhere near real money**.
+A research workspace for testing **trading automation with real market data before it gets anywhere near real money**.
 
 The point of this repository is not to collect "winning bot" screenshots. It is to keep the ugly parts too: failed strategies, bad assumptions, spread damage, overfitting attempts, and the changes made after each run.
 
-## Current lab
+## Labs
 
 ### [xau-lab](./xau-lab)
 
-The first active experiment is an **XAUUSD paper-trading research track** built around live MT5 bid/ask data.
-
-| Generation | Main idea | What happened |
-| --- | --- | --- |
-| V1 | Fixed 1 oz momentum trading | Sizing failure |
-| V2 | Dynamic fractional exposure | Survived longer, still overtraded |
-| V3 | Multi-horizon confirmed breakouts | More selective, fragile setup state |
-| V3.1 | Persistent armed breakouts | Better state handling; full run still negative |
-| V4 | Short-horizon pullback / resumption | Failed the seven-day development baseline |
-| **V4.1** | **30m trend → 5m context → 60s pullback/resumption + risk sizing** | **Locked research candidate after positive development + validation** |
-
-V4.1 is **not** a profitability claim. Its final holdout has not been evaluated, and validation contained only eight trades.
+The XAUUSD paper-trading research track uses live MT5 bid/ask data. Its own documentation records the current version, chronological experiments, and limitations.
 
 The full chronology, raw run logs, algorithm notes and runnable scripts live inside [`xau-lab/`](./xau-lab).
+
+### [jev-lab](./jev-lab)
+
+An independent research track for testing whether Jev can improve a practical home-operated trading system after market and model costs. It currently contains the project rules and canonical file structure; no market, strategy, or result is selected yet. Start with [`jev-lab/README.md`](./jev-lab/README.md).
 
 ## Research workflow
 
 ```text
-MT5 broker ticks
+market data
       ↓
 chronological development
       ↓
@@ -45,7 +38,7 @@ live paper validation
 
 ## Design rules
 
-- **Paper first.** Current strategy scripts do not call `mt5.order_send()`.
+- **Paper first.** A new lab has no implied authorization to place live orders.
 - **Use bid/ask, not fantasy mid-price fills.**
 - **Spread is part of the strategy.**
 - **Risk exits stay deterministic.**
@@ -57,6 +50,16 @@ live paper validation
 ```text
 mt5-lab/
 ├── README.md
+├── jev-lab/
+│   ├── AGENTS.md
+│   ├── STRUCTURE.md
+│   ├── configs/
+│   ├── data/
+│   ├── docs/
+│   ├── results/
+│   ├── scripts/
+│   ├── src/
+│   └── tests/
 └── xau-lab/
     ├── README.md
     ├── docs/
