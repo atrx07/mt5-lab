@@ -6,6 +6,14 @@ This file defines where XAUUSD lab work belongs so future chats and agents can c
 
 All paths below are relative to `xau-lab/` unless otherwise stated.
 
+Repository-level GitHub Actions infrastructure may live under `/.github/workflows/`. It is execution infrastructure only; canonical XAU research code, documentation and evidence still belong inside `xau-lab/`.
+
+Current workflow:
+
+`/.github/workflows/xau-v4-5-c-full-run.yml`
+
+It restores the canonical archived dataset, runs the V4.5-C harness, uploads the result bundle and commits generated evidence back to `main`. Do not use workflow directories as research storage.
+
 ## Top-level contract
 
 ```text
