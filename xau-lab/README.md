@@ -37,7 +37,7 @@ Repository evidence on `main` is the source of truth when chat memory disagrees.
 | V4.2 experimental | V4.1 primary + secondary breakout outside slow directional gate | first-80% continuous capture ~5.51% |
 | **V4.3 locked** | **regime-adaptive V4.2 composite** | **canonical five-segment compounded result +₹603.60; ~8.07% capture** |
 | **V4.4 locked** | **V4.3 + MICRO structural engine + Candidate K management** | **historical lock: 16.36% / 11.54%; reproducible replay oracle: 14.67% / 4.45%; final holdout unopened** |
-| **V4.5 research** | **V4.4 + verified BURST research; profit-velocity/lifecycle optimization in progress** | **Candidate B: 17.3652% at 500 ms / 4.8814% at 1 s; not locked** |
+| **V4.5 research** | **V4.4 + verified BURST research; profit-velocity optimization in progress** | **Candidate B remains leader at 17.3652% / 4.8814%; C1 lifecycle grid produced no distinct improvement** |
 
 V4.4 is the current locked fractional experimental paper version. V4.5 is the active research line and is not locked.
 
@@ -63,7 +63,7 @@ python scripts\paper_challenge_v4_2.py
 python scripts\paper_challenge_v4_1.py
 ```
 
-Active V4.5-C research harness:
+Completed V4.5-C Phase C1 research harness:
 
 ```powershell
 python scripts\v4_5_profit_velocity_search.py xau_ticks_7d.csv
