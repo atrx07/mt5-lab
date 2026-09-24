@@ -6,7 +6,7 @@ Status: **canonical project instructions**. Read this file before working in `je
 
 `jev-lab` is an independent trading-automation research track. Its goal is to find out whether Jev, used within a rule-based trading system that a person can operate from home, improves **repeatable net performance after all costs** enough to justify paper and eventually live trading. Jev is a candidate decision component, not an assumed source of trading edge.
 
-As of 2026-09-24, BTC/USDT spot and Binance public market data are the first **paper-research** target. A Jev Choice API client exists, but no TypeSafe key or actual Jev response has been used. No live trading venue, account, capital amount, baseline result, or profitability claim exists. Do not borrow XAUUSD parameters or results from `xau-lab` as if they apply here.
+As of 2026-09-24, BTC/USDT spot and Binance public market data are the first **paper-research** target. The frozen Experiment 00 breakout baseline lost after predeclared costs in both development and evaluation; the final 20% remains sealed. A Jev Choice API client exists, but no TypeSafe key or actual Jev response has been used. No live trading venue, account, user capital amount, or profitability claim exists. Do not borrow XAUUSD parameters or results from `xau-lab` as if they apply here.
 
 ## Recovery sequence
 

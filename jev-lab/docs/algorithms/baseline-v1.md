@@ -1,6 +1,6 @@
 # Baseline V1 — BTC/USDT spot breakout
 
-Status: **frozen first paper baseline; no Jev calls or orders**. Protocol: [Experiment 00](../experiments/2026-09-24-00-btc-spot-baseline.md). Settings: [`configs/2026-09-24-00-btc-spot-baseline.json`](../../configs/2026-09-24-00-btc-spot-baseline.json).
+Status: **frozen, tested paper baseline; negative at the predeclared costs; no Jev calls or orders**. Protocol and outcome: [Experiment 00](../experiments/2026-09-24-00-btc-spot-baseline.md). Settings: [`configs/2026-09-24-00-btc-spot-baseline.json`](../../configs/2026-09-24-00-btc-spot-baseline.json).
 
 The market is Binance public BTC/USDT spot 30-minute candles. This is a simple comparator for later Jev admission tests, not a claim that breakouts are profitable.
 

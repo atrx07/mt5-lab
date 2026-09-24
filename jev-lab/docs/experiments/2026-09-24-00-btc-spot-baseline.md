@@ -2,7 +2,7 @@
 
 Date: 2026-09-24
 
-Status: **protocol frozen before data acquisition or outcome inspection**
+Status: **completed diagnostic; baseline lost after assumed costs; no promotion**
 
 ## Question
 
@@ -27,4 +27,13 @@ The [Binance Spot REST documentation](https://developers.binance.com/en/docs/cat
 
 ## Outcome
 
-Pending capture and replay. Record results under `results/backtests/2026-09-24-00-btc-spot-baseline/` and update this section without changing the predeclared protocol.
+The public capture contains 4,320 contiguous closed 30-minute candles. Its local raw SHA-256 is `f850f249f14afee110de865a65a6d7f9ba93629a82ff6104e3e0ed18f22f2ff5`, recorded in the [dataset manifest](../../data/manifests/2026-09-24-00-btc-spot-baseline.json). The Binance clock was 285 ms ahead of the host clock at capture. The first 2,592 rows were development, the next 864 were evaluated once, and the final 864 were not passed to the replay.
+
+| Segment | Rule at 5 bp penalty | Trades / wins | Max marked drawdown | Buy-and-hold | No trade |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Development | -16.25 USDT | 46 / 10 | 30.12 USDT | +26.25 USDT | 0.00 USDT |
+| Evaluation | -1.25 USDT | 15 / 4 | 20.66 USDT | +19.52 USDT | 0.00 USDT |
+
+At zero additional penalty the rule lost 7.17 USDT in development and gained 1.75 USDT in evaluation. At 10 bp additional penalty, it lost 25.24 and 4.24 USDT. The trade ledger sums to each segment's reported net P&L. The rule did not beat no trade or the same-allocation buy-and-hold at the frozen 5 bp assumption. No tuning or promotion followed this result.
+
+The evidence bundle is [results/backtests/2026-09-24-00-btc-spot-baseline/](../../results/backtests/2026-09-24-00-btc-spot-baseline/README.md). The raw capture is locally retained but Git-ignored; the manifest supplies acquisition metadata and hash. Historical OHLCV lacks bid/ask and actual fills, so this is a candle-based diagnostic, not executable profit evidence. The 20% holdout remains sealed. A later Jev entry-admission experiment must compare with this unchanged baseline on the same source and cost model.

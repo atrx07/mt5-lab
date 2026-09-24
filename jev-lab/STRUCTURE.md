@@ -20,7 +20,8 @@ jev-lab/
 │   ├── derived/              reproducible feature/cache files; ignored by Git
 │   │   └── .gitkeep
 │   └── manifests/            versioned source metadata and hashes
-│       └── .gitkeep
+│       ├── .gitkeep
+│       └── 2026-09-24-00-btc-spot-baseline.json
 ├── docs/
 │   ├── README.md             documentation index
 │   ├── algorithms/           versioned strategy and policy specifications
@@ -38,22 +39,33 @@ jev-lab/
 ├── results/
 │   ├── README.md             evidence-bundle contract and index
 │   ├── backtests/            historical replay outcomes
-│   │   └── .gitkeep
+│   │   ├── .gitkeep
+│   │   └── 2026-09-24-00-btc-spot-baseline/
+│   │       ├── README.md
+│   │       ├── config.json
+│   │       ├── summary.json
+│   │       └── trades.csv
 │   ├── forward/              timestamped shadow and paper observations
 │   │   └── .gitkeep
 │   └── benchmarks/           latency, cost, data and execution diagnostics
 │       └── .gitkeep
 ├── scripts/                  CLI entry points and one-off acquisition tools
 │   ├── README.md
-│   └── probe_jev.py
+│   ├── capture_binance_klines.py
+│   ├── probe_jev.py
+│   └── replay_baseline.py
 ├── src/jev_lab/              reusable Python package
 │   ├── README.md
 │   ├── __init__.py
-│   └── client.py
+│   ├── binance_spot.py
+│   ├── client.py
+│   └── paper.py
 └── tests/                    focused checks for meaningful invariants
     ├── README.md
     ├── test_client.py
-    └── fixtures/synthetic_choice.json
+    ├── test_paper.py
+    └── fixtures/
+        └── synthetic_choice.json
 ```
 
 Create modules and dependencies only when an experiment needs them. The Jev client exists, but a strategy implementation, market connector, and order executor do not yet exist. Do not create parallel top-level `research/`, `archive/`, `runs/`, or `v2/` trees. If the structure genuinely needs to change, edit this file and move the affected indexes and links together.

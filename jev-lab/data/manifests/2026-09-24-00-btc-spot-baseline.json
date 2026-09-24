@@ -1,0 +1,43 @@
+{
+  "schema_version": "jev-lab-dataset-manifest-v1",
+  "dataset_id": "2026-09-24-00-btc-spot-baseline",
+  "experiment_id": "2026-09-24-00-btc-spot-baseline",
+  "source": "https://data-api.binance.vision/api/v3/klines",
+  "acquisition_method": "public REST GET, paginated klines, no authentication",
+  "venue": "Binance Spot public market data",
+  "symbol": "BTCUSDT",
+  "interval": "30m",
+  "timezone": "UTC, source timestamps are Unix milliseconds",
+  "first_open_ms": 1782491400000,
+  "last_open_ms": 1790265600000,
+  "server_time_ms": 1790269183130,
+  "host_capture_mid_ms": 1790269182845,
+  "clock_offset_ms": 285,
+  "captured_at_utc": "2026-09-24T16:59:44.670668+00:00",
+  "row_count": 4320,
+  "fields": [
+    "open_time_ms",
+    "open",
+    "high",
+    "low",
+    "close",
+    "base_volume",
+    "close_time_ms",
+    "quote_volume",
+    "trade_count",
+    "taker_buy_base_volume",
+    "taker_buy_quote_volume",
+    "unused"
+  ],
+  "quality": {
+    "contiguous": true,
+    "duplicate_open_times": 0,
+    "missing_intervals": 0,
+    "incomplete_last_candle": false
+  },
+  "raw_path": "data/raw/2026-09-24-00-btc-spot-baseline.json",
+  "raw_sha256": "f850f249f14afee110de865a65a6d7f9ba93629a82ff6104e3e0ed18f22f2ff5",
+  "raw_bytes": 764048,
+  "licensing_note": "Local research capture; do not redistribute source rows without reviewing Binance terms.",
+  "caveat": "OHLCV does not contain historical bid/ask or execution fills."
+}
