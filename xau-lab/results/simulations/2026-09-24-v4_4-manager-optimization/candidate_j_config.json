@@ -1,0 +1,53 @@
+{
+  "status": "provisional_v4_4_manager_candidate_j",
+  "holdout_evaluated": false,
+  "base_candidate": "V4.4 Candidate A",
+  "unchanged_entry_risk_fraction": 0.03,
+  "unchanged_stop_distance_usd": 4.0,
+  "changes": {
+    "micro_stagnation_exit": {
+      "enabled": true,
+      "after_seconds": 60,
+      "exit_if_peak_favorable_move_below_usd": 0.5
+    },
+    "micro_partial_profit": {
+      "enabled": true,
+      "trigger_move_usd": 6.0,
+      "fraction_realized": 0.67,
+      "fraction_left_running": 0.33
+    },
+    "secondary_stagnation_exit": {
+      "enabled": false,
+      "reason": "Strong at 500ms but collapsed under 1-second sampling."
+    },
+    "engine_priority": "PRIMARY -> SECONDARY -> MICRO",
+    "quality_arbitration": false
+  },
+  "existing_micro_remainder_management": {
+    "take_profit_usd": 10.0,
+    "trail_trigger_usd": 4.0,
+    "trail_giveback_usd": 2.0,
+    "max_hold_seconds": 900,
+    "reversal_horizon_seconds": 300
+  },
+  "same_harness_500ms": {
+    "net_pnl_inr": 1179.805188,
+    "profit_factor": 1.661708,
+    "trades": 151,
+    "max_drawdown_inr": 197.763512,
+    "capture_ratio": 0.157673
+  },
+  "sampling_1s": {
+    "net_pnl_inr": 734.241245,
+    "profit_factor": 1.362426,
+    "trades": 155,
+    "max_drawdown_inr": 224.263698,
+    "capture_ratio": 0.098126
+  },
+  "promotion_status": "not_locked",
+  "blockers": [
+    "canonical V4.3 replay parity remains unresolved",
+    "1-second capture remains just below 10%",
+    "final 20% holdout remains unopened"
+  ]
+}
