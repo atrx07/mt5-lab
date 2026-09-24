@@ -27,9 +27,11 @@ Experimental XAUUSD research and paper-trading lab built around MetaTrader 5.
 | V4.1 locked baseline | 30m trend → 5m context → 60s pullback/resumption + 3% risk sizing | development ₹500 → ₹627.52; validation ₹500 → ₹538.79 |
 | V4.2 experimental | V4.1 primary + secondary breakout outside slow directional gate | first-80% continuous capture ~5.51% |
 | **V4.3 locked** | **regime-adaptive V4.2 composite** | **canonical five-segment compounded result +₹603.60; ~8.07% capture** |
-| **V4.4 locked** | **V4.3 + MICRO structural engine + Candidate K management** | **500 ms canonical capture 16.36%; 1 s robustness capture 11.54%; final holdout unopened** |
+| **V4.4 locked** | **V4.3 + MICRO structural engine + Candidate K management** | **historical lock: 16.36% / 11.54%; reproducible replay oracle: 14.67% / 4.45%; final holdout unopened** |
 
 V4.4 is now the current experimental paper version. It is a locked fractional research version, not a major-generation graduation and not a claim of proven future profitability.
+
+Starting with V4.5 research, all candidate simulations must use the parity-gated canonical replay harness. V4.4's strategy parameters are unchanged; the 14.67% / 4.45% regression values are a reproducible measurement re-baseline used only as the future comparison oracle. The earlier 16.36% / 11.54% lock outputs remain preserved as historical research evidence.
 
 V4.3 replay-parity documentation was corrected during the V4.4 lock: its canonical +₹603.60 figure is the compounded result of five independently reset research segments, not a literal one-pass continuous replay.
 
@@ -75,8 +77,14 @@ See [`data/README.md`](data/README.md) for the exact archive/push workflow.
 - [V4.4 algorithm](docs/algorithms/v4_4.md)
 - [V4.3 capture-target research and lock](docs/experiments/2026-09-24/10-v4-3-capture-target-research.md)
 - [V4.4 parity fix and lock](docs/experiments/2026-09-24/13-v4-4-parity-and-lock.md)
+- [Canonical replay contract](docs/replay/CANONICAL_REPLAY.md)
+- [Canonical replay freeze](docs/experiments/2026-09-24/16-canonical-replay-freeze.md)
 - [Dataset archive policy](data/README.md)
 - [Provenance](docs/PROVENANCE.md)
+
+## Canonical replay gate
+
+Every new V4.x candidate must pass the locked V4.4 regression assertion inside `scripts/canonical_replay.py` before its result is considered valid. If preprocessing, sampling, features, boundaries or accounting drift, the run fails instead of silently producing a new baseline.
 
 ## Research discipline
 
