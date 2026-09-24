@@ -83,7 +83,7 @@ The harness:
 
 ## Search command
 
-From `xau-lab/`:
+From `xau-lab/` on canonical `main`:
 
 ```powershell
 python scripts\v4_5_profit_velocity_search.py xau_ticks_7d.csv
@@ -112,10 +112,13 @@ The desirable region remains approximately:
 
 Cost stress is intentionally a later gate after lifecycle candidates are narrowed.
 
-## Implementation
+## Canonical locations
 
-`scripts/v4_5_profit_velocity_search.py`
+All V4.5-C work is maintained directly on `main`:
 
-Branch:
+- strategy/research documentation: `docs/algorithms/v4_5.md`;
+- experiment record: `docs/experiments/2026-09-24/17-v4-5-c-profit-velocity.md`;
+- runnable search harness: `scripts/v4_5_profit_velocity_search.py`;
+- generated evidence: `results/simulations/2026-09-24-v4_5-c-profit-velocity/`.
 
-`research/v4.5-c-profit-velocity`
+No separate research branch is part of the canonical workflow.
