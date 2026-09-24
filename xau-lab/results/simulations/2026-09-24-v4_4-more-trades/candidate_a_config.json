@@ -1,0 +1,43 @@
+{
+  "status": "provisional_v4_4_candidate_a",
+  "holdout_evaluated": false,
+  "risk_fraction": 0.03,
+  "stop_distance_usd": 4.0,
+  "architecture": "locked V4.3 primary/secondary plus MICRO structural pullback-resumption candidate engine",
+  "micro": {
+    "trend_120s_usd": 6.0,
+    "trend_60s_usd": 2.0,
+    "recent_10s_pullback_usd": 0.5,
+    "resume_10s_usd": 0.2,
+    "efficiency_60s_min": 0.12,
+    "raw_tick_imbalance_10s_min": 0.0,
+    "quote_rate_10s_vs_30s_min_ratio": 0.65,
+    "range_60s_min_usd": 2.0,
+    "spread_to_range_60s_max_ratio": 0.25,
+    "hard_spread_max_usd": 0.30,
+    "cooldown_seconds": 60,
+    "take_profit_usd": 10.0,
+    "max_hold_seconds": 900,
+    "reversal_horizon_seconds": 300,
+    "trail_trigger_usd": 4.0,
+    "trail_giveback_usd": 2.0,
+    "shared_single_position_slot": true
+  },
+  "same_harness_result": {
+    "net_pnl_inr": 1063.4811192493787,
+    "final_balance_inr": 1563.4811192493787,
+    "profit_factor": 1.599608935506283,
+    "trades": 151,
+    "wins": 69,
+    "max_drawdown_inr": 198.08115985397149,
+    "capture_ratio": 0.1421272177116749
+  },
+  "same_harness_v4_3_reference": {
+    "net_pnl_inr": 683.2224904284628,
+    "profit_factor": 1.485112319482367,
+    "trades": 115,
+    "max_drawdown_inr": 184.16463546683804,
+    "capture_ratio": 0.091308167004579
+  },
+  "parity_caveat": "This reconstructed harness does not exactly reproduce canonical locked V4.3 (+603.60 / 8.07%). Candidate A is not eligible for lock until parity is reconciled."
+}
