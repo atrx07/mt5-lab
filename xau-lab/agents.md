@@ -51,8 +51,9 @@ As of the current research line:
 
 - V4.4 is the latest **locked fractional research version**.
 - V4.5 is **research in progress; not locked**.
-- V4.5 Candidate B is the current verified research leader before V4.5-C lifecycle work.
-- V4.5-C is the active profit-velocity / BURST-lifecycle research direction.
+- V4.5 Candidate B is the current verified research leader.
+- Experiment 17 / V4.5-C Phase C1 is complete and produced no distinct candidate: all 48 lifecycle variants reproduced Candidate B exactly.
+- The next V4.5 step is diagnostic BURST path instrumentation before another optimization search.
 - The final 20% research holdout has not been opened by the canonical replay harness.
 - All canonical work is maintained directly on `main`.
 
@@ -325,21 +326,21 @@ Do not delete historical evidence simply to reduce clutter.
 
 ## Current active work
 
-Active experiment:
+Latest completed experiment:
 
 `docs/experiments/2026-09-24/17-v4-5-c-profit-velocity.md`
 
-Active harness:
-
-`scripts/v4_5_profit_velocity_search.py`
-
-Expected C1 evidence directory:
+Completed C1 evidence:
 
 `results/simulations/2026-09-24-v4_5-c-profit-velocity/`
 
-C1 lifecycle search currently varies BURST max hold, trail trigger, trail give-back, flow continuation, and decay exit while keeping Candidate B admission and locked V4.4 engines unchanged.
+Phase C1 tested 48 BURST lifecycle combinations and every one reproduced Candidate B exactly at both sampling grids. No Candidate C was promoted.
 
-Before continuing C1, run its built-in V4.4 parity gate and Candidate B instrumentation-parity gate. If either fails, fix parity first; do not interpret candidate results.
+Candidate B therefore remains the current V4.5 research leader.
+
+Before the next optimization pass, instrument BURST trade paths with exact exit reason, entry/exit timing, MFE/MAE, time-to-MFE, post-exit favorable excursion, and 500 ms versus 1 s opportunity matching. Use those diagnostics to define the next numbered experiment instead of running another blind lifecycle grid.
+
+The canonical replay timestamp path now explicitly normalizes datetimes to nanosecond resolution before epoch conversion so pandas 3 and earlier supported pandas runtimes use the same replay semantics. Golden V4.4 parity must still pass before any candidate evidence is accepted.
 
 ## New-chat handoff rule
 
