@@ -1,0 +1,2 @@
+strategy,research_pnl_inr,final_balance_inr,capture_pct,profit_factor,trades,max_drawdown_inr,best_trade_inr,worst_trade_inr,pnl_without_best_trade_inr,capture_without_best_trade_pct,reset_segment_pnl_sum_inr,reset_segment_capture_pct,opportunity_ceiling_inr,holdout_evaluated
+V4.3_candidate_exit_harvest,936.6915392039614,1436.6915392039614,12.518262892630386,2.1408064151211796,120,170.8934380786252,187.42278868316083,-39.078561562788686,749.2687505208005,10.013481283521775,687.9947388661402,9.194594644457009,7482.6,False
