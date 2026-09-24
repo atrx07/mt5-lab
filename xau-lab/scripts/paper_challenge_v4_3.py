@@ -212,17 +212,14 @@ def secondary_signal(now, mid, m30, m300, m1800, high_activity):
     prior_low = min(q["mid"] for q in prior)
     prior_range = prior_high - prior_low
 
-    if high_activity:
-        min_range = SECONDARY_HIGH_MIN_RANGE_USD
-        min_trend = SECONDARY_HIGH_MIN_TREND_USD
-        buffer = max(
-            SECONDARY_HIGH_BUFFER_FLOOR_USD,
-            SECONDARY_HIGH_BUFFER_RANGE_FRACTION * prior_range,
-        )
-    else:
-        min_range = SECONDARY_MIN_RANGE_USD
-        min_trend = SECONDARY_MIN_TREND_USD
-        buffer = SECONDARY_BREAKOUT_BUFFER_USD
+    # Parity correction: the locked research row applied the V4.3 breakout
+    # thresholds globally, not only while the high-activity flag was true.
+    min_range = SECONDARY_HIGH_MIN_RANGE_USD
+    min_trend = SECONDARY_HIGH_MIN_TREND_USD
+    buffer = max(
+        SECONDARY_HIGH_BUFFER_FLOOR_USD,
+        SECONDARY_HIGH_BUFFER_RANGE_FRACTION * prior_range,
+    )
 
     if prior_range < min_range:
         return None, prior_high, prior_low
