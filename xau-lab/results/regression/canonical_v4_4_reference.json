@@ -1,0 +1,26 @@
+{
+  "schema_version": "xau-canonical-replay-v1",
+  "dataset_sha256": "007e7ab10cc16519b544003dbe81521f46cf868bf267780932638d1e8cec86e5",
+  "research_rows": 1869979,
+  "raw_boundaries": [0, 934989, 1168737, 1402484, 1636231, 1869979],
+  "aggregation": "five reset-to-INR500 chronological segments compounded in order",
+  "note": "This is the reproducible canonical replay reference. Earlier V4.4 lock numbers remain historical/legacy evidence but are not the regression oracle.",
+  "intervals": {
+    "500ms": {
+      "compounded_pnl_inr": 1097.6596523751064,
+      "capture_ratio": 0.14669495260672846,
+      "trades_sum": 148,
+      "wins_sum": 68,
+      "median_segment_pf": 1.284084075712539,
+      "max_segment_drawdown_inr": 229.30686884358033
+    },
+    "1s": {
+      "compounded_pnl_inr": 333.27105856299124,
+      "capture_ratio": 0.044539472718438944,
+      "trades_sum": 145,
+      "wins_sum": 63,
+      "median_segment_pf": 1.3667416867033877,
+      "max_segment_drawdown_inr": 171.33513747353095
+    }
+  }
+}
