@@ -99,3 +99,10 @@ Instead:
 5. only then make the new schema canonical.
 
 That makes parity a test, not a recurring research task.
+
+
+## Runtime portability
+
+Canonical timestamp conversion must explicitly normalize datetime arrays to nanosecond resolution before converting them to epoch seconds.
+
+This preserves identical replay timing across supported pandas runtimes, including pandas 3 where parsed datetime storage may use microsecond resolution internally. This is an implementation portability rule, not a replay-schema change. The V4.4 golden regression oracle must still reproduce exactly after any runtime or dependency change.
