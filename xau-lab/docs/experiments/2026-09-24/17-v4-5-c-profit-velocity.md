@@ -2,25 +2,25 @@
 
 Date: 2026-09-24
 
-Status: **research in progress; no V4.5 lock**
+Status: **completed; no V4.5-C promotion. Candidate B remains the V4.5 research leader.**
 
 ## Objective
 
 The project objective is not to maximize capture in isolation. It is to maximize expected XAUUSD profit per unit time while keeping fixed risk, execution-cost sensitivity, drawdown and sampling robustness under control.
 
-Candidate B remains the current V4.5 research leader:
+Candidate B entered this experiment as the verified V4.5 research leader:
 
 - 500 ms canonical capture: 17.3652%;
 - 1 s canonical capture: 4.8814%;
 - final 20% holdout unopened.
 
-The large 500 ms -> 1 s degradation is treated as a fragility diagnostic, not as a separate trading target. A materially stronger 1 s result is still desirable because it indicates less dependence on sub-second timing.
+The large 500 ms -> 1 s degradation is treated as a fragility diagnostic, not as a separate trading target.
 
 ## Phase C1
 
-Phase C1 changes **BURST lifecycle only**.
+Phase C1 changed **BURST lifecycle only**.
 
-The following remain unchanged:
+The following remained unchanged:
 
 - V4.4 PRIMARY;
 - V4.4 SECONDARY;
@@ -31,7 +31,7 @@ The following remain unchanged:
 - one shared position slot;
 - canonical first-80% research boundaries.
 
-The search varies:
+The search varied:
 
 - BURST maximum hold: 120 / 180 s;
 - trail trigger: $5.50 / $6.50 / $7.50;
@@ -39,11 +39,26 @@ The search varies:
 - optional raw-flow continuation extension;
 - optional flow-decay early exit.
 
-Raw-flow continuation uses the already-canonicalized quote acceleration and directional tick imbalance features. It does not add a new entry engine.
+This produced 48 lifecycle combinations.
+
+## Canonical gates
+
+The successful full run used the canonical dataset SHA-256:
+
+`007e7ab10cc16519b544003dbe81521f46cf868bf267780932638d1e8cec86e5`
+
+Before any candidate comparison:
+
+- V4.4 500 ms canonical parity: **PASS**;
+- Candidate B 500 ms instrumentation parity: **PASS**;
+- V4.4 1 s canonical parity: **PASS**;
+- Candidate B 1 s instrumentation parity: **PASS**.
+
+The final 20% holdout was not read.
 
 ## Profit-velocity instrumentation
 
-The new harness records:
+The harness records:
 
 - compounded P&L and capture;
 - trade count and wins;
@@ -66,59 +81,89 @@ The ranking heuristic weights:
 
 with penalties for PF deterioration and drawdown expansion.
 
-This score is a search heuristic only. It is not a promotion criterion.
+The score is only a search heuristic, not a promotion criterion.
 
-## Anti-overfit protocol
+## Search outcome
 
-The harness:
+All **48 of 48** lifecycle variants produced exactly the same 0-40% seed outputs as Candidate B on both sampling grids.
 
-1. verifies the dataset SHA-256;
-2. rebuilds and asserts canonical V4.4 at 500 ms and 1 s;
-3. requires the instrumented simulator to reproduce Candidate B exactly;
-4. searches all lifecycle variants only on the 0-40% seed segment;
-5. evaluates only the top seed candidates on the chronological 40-80% region;
-6. performs a full first-80% summary only for the strongest evaluation candidates;
-7. never reads the final 20% holdout;
-8. never promotes or locks a candidate automatically.
+Every seed score was exactly `1.0000`.
 
-## Search command
+The top eight therefore entered the chronological 40-80% evaluation as ties. All eight again reproduced Candidate B exactly.
 
-From `xau-lab/` on canonical `main`:
+The top three full first-80% summaries were also exact Candidate B reproductions.
 
-```powershell
-python scripts\v4_5_profit_velocity_search.py xau_ticks_7d.csv
-```
+There is therefore **no distinct Candidate C from Phase C1**.
 
-Expected outputs:
+## Full first-80% result
 
-```text
-results/simulations/2026-09-24-v4_5-c-profit-velocity/
-  seed_search.csv
-  evaluation_shortlist.csv
-  full_shortlist.csv
-  run_metadata.json
-```
+| Metric | 500 ms | 1 s |
+| --- | ---: | ---: |
+| Compounded P&L | +₹1,299.37 | +₹365.25 |
+| Capture | 17.3652% | 4.8814% |
+| Trades | 163 | 156 |
+| Wins | 79 | 70 |
+| Median segment PF | 1.3614 | 1.3823 |
+| Worst segment DD | ₹218.68 | ₹172.38 |
+| Exposure | 15.823 h | 17.248 h |
+| P&L / exposure hour | ₹58.36 | ₹18.06 |
+| Mean hold | 349.47 s | 398.03 s |
+| P&L / trade | ₹5.67 | ₹2.00 |
 
-## V4.5 lock direction
+BURST-only attribution:
 
-The desirable region remains approximately:
+- 500 ms: +₹58.40 across 17 BURST trades, ₹232.98 per exposure hour;
+- 1 s: +₹10.44 across 12 BURST trades, ₹67.49 per exposure hour.
 
-- 500 ms capture around 20% or better if achieved without fragility;
-- a much smaller 500 ms -> 1 s degradation, with ~10% 1 s capture treated as an aspirational robustness level rather than a forced threshold;
-- higher profit velocity than Candidate B;
-- no material PF or drawdown deterioration;
-- improvement or at least containment of the weak 50-60% regime;
-- positive execution-cost stress before any lock.
+The weak 50-60% research region remains negative:
 
-Cost stress is intentionally a later gate after lifecycle candidates are narrowed.
+- 500 ms: -₹13.58;
+- 1 s: -₹45.95.
 
-## Canonical locations
+## Interpretation
 
-All V4.5-C work is maintained directly on `main`:
+The tested lifecycle controls are effectively inactive on the observed Candidate B BURST trade paths.
 
-- strategy/research documentation: `docs/algorithms/v4_5.md`;
-- experiment record: `docs/experiments/2026-09-24/17-v4-5-c-profit-velocity.md`;
-- runnable search harness: `scripts/v4_5_profit_velocity_search.py`;
-- generated evidence: `results/simulations/2026-09-24-v4_5-c-profit-velocity/`.
+Changing max hold, trail trigger, trail give-back, conditional flow extension and the tested decay exit did not alter a completed trade in the seed region. The later evaluation/full replays confirmed that tied variants also leave Candidate B unchanged.
 
-No separate research branch is part of the canonical workflow.
+This suggests that earlier BURST exit conditions and/or the entry path dominate before the tested lifecycle controls can affect realized trades.
+
+Phase C1 therefore does not justify more grid search around these same controls.
+
+## Runtime portability correction
+
+The first automated execution exposed a pandas-version portability bug in the canonical timestamp conversion.
+
+Pandas 3 may store parsed datetimes internally at microsecond resolution, while the previous implementation assumed nanoseconds before dividing the raw integer representation by `1e9`. On that runtime the first replay therefore produced a false baseline drift with zero trades.
+
+`scripts/canonical_replay.py` was corrected to explicitly normalize timestamps to `datetime64[ns]` before epoch conversion.
+
+This is a runtime portability fix, not a replay-schema change. After the fix, the stored V4.4 golden oracle reproduced exactly at both intervals and Candidate B instrumentation parity passed.
+
+## Decision
+
+- **Reject Phase C1 as a V4.5-C promotion.**
+- Candidate B remains the V4.5 research leader.
+- Do not create `paper_challenge_v4_5.py`.
+- Keep the final 20% holdout sealed.
+- Do not spend more search budget on these max-hold/trail/flow-decay ranges until the active BURST exit path is measured directly.
+
+## Next research implication
+
+Before another optimization pass, instrument BURST trades with:
+
+- exact exit reason;
+- entry/exit timestamps and side;
+- MFE/MAE and time-to-MFE;
+- state at exit;
+- which of zero-cross, stagnation, TP, stop, trail or max-hold actually fired;
+- short-window post-exit favorable excursion;
+- matched/missed opportunity identity between 500 ms and 1 s.
+
+The next V4.5 candidate should be designed from those diagnostics rather than another blind lifecycle grid.
+
+## Evidence
+
+- [Result bundle](../../../results/simulations/2026-09-24-v4_5-c-profit-velocity/)
+- [Result interpretation](../../../results/simulations/2026-09-24-v4_5-c-profit-velocity/README.md)
+- [Search harness](../../../scripts/v4_5_profit_velocity_search.py)
