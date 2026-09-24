@@ -26,6 +26,8 @@ A second parity issue was found in the prose/implementation description: the V4.
 
 The V4.3 script, algorithm documentation and locked config were corrected.
 
+The corrected reconstructed V4.3 harness still has a small legacy residual versus the archived row: approximately +₹619.64 / 8.28% versus +₹603.60 / 8.07%. This is about ₹16.03 (0.21 capture points), far smaller than the earlier one-pass-continuous mismatch, and is recorded as a reconstruction limitation.
+
 ## 10% robustness search
 
 Starting from V4.4 Candidate J, a tight MICRO-management search was run around:
