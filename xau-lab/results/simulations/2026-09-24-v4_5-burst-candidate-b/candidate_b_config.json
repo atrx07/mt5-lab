@@ -1,0 +1,53 @@
+{
+  "status": "provisional_v4_5_candidate_b",
+  "holdout_evaluated": false,
+  "architecture": "locked V4.4 PRIMARY/SECONDARY/MICRO plus additive BURST engine",
+  "burst": {
+    "priority": "after PRIMARY, SECONDARY and MICRO all decline",
+    "cooldown_seconds": 60,
+    "min_abs_m10_usd": 0.6,
+    "min_abs_m30_usd": 1.5,
+    "min_abs_m60_usd": 2.0,
+    "m120_directional_alignment": true,
+    "min_er60": 0.12,
+    "min_quote_rate_10s_vs_30s_ratio": 1.2,
+    "min_directional_tick_imbalance_10s": 0.2,
+    "min_range60_usd": 4.0,
+    "max_spread_to_range60_ratio": 0.18,
+    "absolute_spread_cap_usd": 0.28,
+    "take_profit_usd": 12.0,
+    "stop_distance_usd": 4.0,
+    "max_hold_seconds": 120,
+    "stagnation_seconds": 60,
+    "stagnation_peak_favorable_usd": 0.8,
+    "trail_trigger_usd": 5.5,
+    "trail_giveback_usd": 2.0,
+    "failure_exit": "30-second momentum zero-cross"
+  },
+  "same_harness_500ms": {
+    "v4_4_pnl_inr": 1097.6596523751064,
+    "v4_5_b_pnl_inr": 1299.367875231396,
+    "v4_4_capture_ratio": 0.14669495260672846,
+    "v4_5_b_capture_ratio": 0.173651922491032,
+    "v4_4_trades": 148,
+    "v4_5_b_trades": 163,
+    "v4_4_median_pf": 1.284084075712539,
+    "v4_5_b_median_pf": 1.3614098816323064
+  },
+  "same_harness_1s": {
+    "v4_4_pnl_inr": 333.27105856299124,
+    "v4_5_b_pnl_inr": 365.25390229096365,
+    "v4_4_capture_ratio": 0.044539472718438944,
+    "v4_5_b_capture_ratio": 0.04881376824779671,
+    "v4_4_trades": 145,
+    "v4_5_b_trades": 156,
+    "v4_4_median_pf": 1.3667416867033877,
+    "v4_5_b_median_pf": 1.3822875261766883
+  },
+  "promotion_status": "not_locked",
+  "blockers": [
+    "V4.4 1-second absolute replay parity is still unresolved in this research harness",
+    "extreme spread/slippage diagnostics can underperform reconstructed V4.4",
+    "50-60% regime remains weak"
+  ]
+}
