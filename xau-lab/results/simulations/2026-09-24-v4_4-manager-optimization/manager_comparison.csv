@@ -1,0 +1,11 @@
+variant,net_pnl_inr,profit_factor,trades,max_drawdown_inr,capture_ratio,decision
+candidate_a,1063.481119,1.599609,151,198.081160,0.142127,reference
+priority_primary_micro_secondary,1050.508612,1.599178,151,196.437642,0.140394,reject
+quality_arbitration,773.437427,1.502506,154,161.334831,0.103365,reject
+secondary_failure_30s,506.586058,1.391061,159,189.469893,0.067702,reject
+primary_trail_20_8,966.932849,1.567682,154,185.849229,0.129224,reject
+secondary_stagnation_60s_peak_0_5,1127.679361,1.645696,152,184.213149,0.150707,fragile_at_1s
+micro_stagnation_60s_peak_0_5,1119.311720,1.641353,151,190.940772,0.149589,keep
+both_stagnation,1185.802427,1.690745,152,176.865714,0.158475,reject_due_1s_fragility
+both_stagnation_plus_micro_partial_6_67,1248.779823,1.712035,152,183.185521,0.166891,reject_due_1s_fragility
+candidate_j_micro_stag_plus_partial_6_67,1179.805188,1.661708,151,197.763512,0.157673,provisional_robust_leader
