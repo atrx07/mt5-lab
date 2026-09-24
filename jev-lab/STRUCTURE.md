@@ -12,7 +12,8 @@ jev-lab/
 ├── .gitignore                local secrets and large generated data
 ├── configs/                  frozen, versioned experiment/policy settings
 │   ├── .gitkeep
-│   └── 2026-09-24-00-btc-spot-baseline.json
+│   ├── 2026-09-24-00-btc-spot-baseline.json
+│   └── 2026-09-24-01-jev-entry-shadow.json
 ├── data/
 │   ├── README.md             acquisition, retention and manifest rules
 │   ├── raw/                  immutable local source captures; ignored by Git
@@ -29,7 +30,8 @@ jev-lab/
 │   │   └── baseline-v1.md
 │   ├── experiments/          dated protocols, findings and decisions
 │   │   ├── README.md
-│   │   └── 2026-09-24-00-btc-spot-baseline.md
+│   │   ├── 2026-09-24-00-btc-spot-baseline.md
+│   │   └── 2026-09-24-01-jev-entry-shadow.md
 │   ├── plans/                scoped implementation or milestone plans
 │   │   └── README.md
 │   └── sources/              dated research on external APIs/bots/venues
