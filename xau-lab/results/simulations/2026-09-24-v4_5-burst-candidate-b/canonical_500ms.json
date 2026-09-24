@@ -1,0 +1,29 @@
+{
+  "schema_version": "xau-canonical-replay-v1",
+  "dataset_sha256": "007e7ab10cc16519b544003dbe81521f46cf868bf267780932638d1e8cec86e5",
+  "interval": "500ms",
+  "baseline_asserted": true,
+  "v4_4": {
+    "compounded_pnl_inr": 1097.6596523751064,
+    "capture_ratio": 0.14669495260672846,
+    "trades_sum": 148,
+    "wins_sum": 68,
+    "median_segment_pf": 1.284084075712539,
+    "max_segment_drawdown_inr": 229.30686884358033
+  },
+  "v4_5_candidate_b": {
+    "compounded_pnl_inr": 1299.367875231396,
+    "capture_ratio": 0.173651922491032,
+    "trades_sum": 163,
+    "wins_sum": 79,
+    "median_segment_pf": 1.3614098816323064,
+    "max_segment_drawdown_inr": 218.67791606541255
+  },
+  "delta": {
+    "pnl_inr": 201.7082228562897,
+    "capture_points": 0.026956969884303544,
+    "trades": 15,
+    "median_pf": 0.07732580591976745,
+    "max_segment_drawdown_inr": -10.628952778167786
+  }
+}
