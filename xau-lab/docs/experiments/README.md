@@ -22,3 +22,4 @@ Experiments are grouped by date so each session can grow independently without t
 
 - [09 — V4.2 hourly-capture experiment](2026-09-24/09-v4-2-hourly-capture-research.md)
 - [10 — V4.3 capture-target research and lock](2026-09-24/10-v4-3-capture-target-research.md)
+- [11 — V4.4 more-trades research](2026-09-24/11-v4-4-more-trades-research.md)
