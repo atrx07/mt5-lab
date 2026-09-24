@@ -24,7 +24,7 @@ Experiments are grouped by date so each session can grow independently without t
 - [10 — V4.3 capture-target research and lock](2026-09-24/10-v4-3-capture-target-research.md)
 - [11 — V4.4 more-trades research](2026-09-24/11-v4-4-more-trades-research.md)
 - [12 — V4.4 manager / exit optimization](2026-09-24/12-v4-4-manager-exit-arbitration.md)
-
 - [13 — V4.4 parity fix, >10% robustness and lock](2026-09-24/13-v4-4-parity-and-lock.md)
 - [14 — V4.5 first event-flow simulation](2026-09-24/14-v4-5-first-event-flow.md)
 - [15 — V4.5 additive BURST candidate B](2026-09-24/15-v4-5-burst-candidate-b.md)
+- [16 — canonical replay freeze](2026-09-24/16-canonical-replay-freeze.md)
