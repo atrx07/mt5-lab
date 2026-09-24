@@ -320,6 +320,10 @@ Do not create a feature/research branch unless the user explicitly asks for one.
 
 Do not require a PR for ordinary canonical xau-lab research unless the user explicitly asks for a PR workflow.
 
+GitHub Actions is not part of the normal XAU research execution path. When the canonical raw dataset is available in the active execution environment, run iterative simulations, diagnostics, validation and candidate development there. Commit the resulting algorithm/research scripts, experiment documentation and durable result artifacts back to their canonical locations on `main`.
+
+Do not commit the ~220 MB raw CSV itself. Preserve the existing compressed archive/manifest policy for repository data.
+
 Keep commits focused and descriptive.
 
 Do not delete historical evidence simply to reduce clutter.
