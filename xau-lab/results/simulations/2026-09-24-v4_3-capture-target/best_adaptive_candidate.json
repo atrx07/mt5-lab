@@ -1,6 +1,8 @@
 {
-  "status": "not_promoted",
+  "version": "V4.3",
+  "status": "locked_fractional_research_version",
   "target_capture_ratio": 0.20,
+  "target_reached": false,
   "opportunity_ceiling_inr": 7482.60,
   "target_pnl_inr": 1496.52,
   "candidate": {
@@ -24,6 +26,8 @@
       "secondary_buffer_range_fraction": 0.02,
       "secondary_min_range_usd": 4.0,
       "secondary_min_abs_m30_usd": 1.5,
+      "primary_high_trail_trigger_usd": 999.0,
+      "primary_high_trail_distance_usd": 999.0,
       "primary_high_tp_cap_usd": 25.0,
       "primary_high_max_hold_seconds": 900,
       "primary_high_reversal_exit": false,
@@ -40,6 +44,10 @@
     "pnl_inr": 1292.06361894257,
     "capture_ratio": 0.1726757569484631,
     "note": "Non-causal upper-bound diagnostic choosing the best tested profile separately after the fact for each of five coarse research segments."
+  },
+  "follow_up": {
+    "exit_harvest_30_15_status": "rejected",
+    "reason": "Underperformed the locked adaptive candidate on the internal 60-80% validation band and both subfolds."
   },
   "holdout_evaluated": false
 }
