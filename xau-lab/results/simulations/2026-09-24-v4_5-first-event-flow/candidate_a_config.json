@@ -1,0 +1,29 @@
+{
+  "status": "rejected_v4_5_first_candidate",
+  "holdout_evaluated": false,
+  "selected_on": "0-40% seed only",
+  "base": "locked V4.4 Candidate K rules",
+  "changes": {
+    "micro_min_er60": 0.16,
+    "micro_min_quote_rate_10s_vs_30s_ratio": 0.85
+  },
+  "unchanged": [
+    "PRIMARY rules",
+    "SECONDARY rules",
+    "3% planned risk",
+    "$4 stop",
+    "MICRO 45s/$0.75 stagnation exit",
+    "MICRO +$5.50 / 75% partial realization",
+    "MICRO remainder TP/trail rules"
+  ],
+  "same_harness_500ms": {
+    "v4_4_capture_ratio": 0.14669495260672846,
+    "v4_5_a_capture_ratio": 0.14456107742999547
+  },
+  "same_harness_1s": {
+    "v4_4_capture_ratio": 0.044539472718438944,
+    "v4_5_a_capture_ratio": 0.03783069347098691
+  },
+  "promotion_status": "rejected",
+  "reason": "Lower capture at both 500ms and 1s in the same reconstructed harness; the harness also fails to reproduce locked V4.4 1s parity."
+}
