@@ -1,0 +1,64 @@
+{
+  "version": "V4.4",
+  "status": "locked_fractional_research_version",
+  "locked_candidate": "Candidate K",
+  "holdout_evaluated": false,
+  "aggregation_method": "five chronological first-80% research segments reset to INR 500, then returns compounded in order",
+  "risk_fraction": 0.03,
+  "stop_distance_usd": 4.0,
+  "synthetic_leverage_cap": 100.0,
+  "shared_position_slot": true,
+  "priority": ["PRIMARY", "SECONDARY", "MICRO"],
+  "v4_3_parity_base": {
+    "secondary_channel_seconds": 120,
+    "secondary_min_range_usd": 4.0,
+    "secondary_min_abs_m30_usd": 1.5,
+    "secondary_buffer_floor_usd": 0.5,
+    "secondary_buffer_range_fraction": 0.02,
+    "geometry_scope": "global",
+    "high_activity_range300_min_usd": 5.0,
+    "high_activity_er60_min": 0.03
+  },
+  "micro_entry": {
+    "cooldown_seconds": 60,
+    "min_abs_m120_usd": 6.0,
+    "min_abs_m60_usd": 2.0,
+    "pullback_10s_usd": 0.5,
+    "resume_10s_usd": 0.2,
+    "pullback_lookback_seconds": 30,
+    "min_er60": 0.12,
+    "min_range60_usd": 2.0,
+    "min_tick_imbalance_10s": 0.0,
+    "min_quote_rate_10s_vs_30s_ratio": 0.65,
+    "max_spread_to_range60_ratio": 0.25,
+    "hard_spread_max_usd": 0.30
+  },
+  "micro_exit": {
+    "take_profit_usd": 10.0,
+    "max_hold_seconds": 900,
+    "reversal_horizon_seconds": 300,
+    "trail_trigger_usd": 4.0,
+    "trail_giveback_usd": 2.0,
+    "stagnation_seconds": 45,
+    "stagnation_peak_favorable_usd": 0.75,
+    "partial_trigger_usd": 5.5,
+    "partial_fraction_realized": 0.75,
+    "fraction_left_running": 0.25
+  },
+  "canonical_500ms": {
+    "segment_pnl_inr": [653.4275363290221, 82.25214364166163, -19.08513092029392, 27.411491674483386, 132.56013100771986],
+    "compounded_net_pnl_inr": 1224.0148529646074,
+    "capture_ratio": 0.16358148945080683,
+    "trades_sum": 148,
+    "median_segment_profit_factor": 1.7340956409781536,
+    "max_segment_drawdown_inr": 201.24660774637528
+  },
+  "robustness_1s": {
+    "segment_pnl_inr": [580.9988091800881, 45.47251845326218, -62.870702160902056, 93.40237744975173, 57.04209731553556],
+    "compounded_net_pnl_inr": 863.217924993297,
+    "capture_ratio": 0.11536336634235385,
+    "trades_sum": 152,
+    "median_segment_profit_factor": 1.507690039909405,
+    "max_segment_drawdown_inr": 224.18295423599068
+  }
+}
