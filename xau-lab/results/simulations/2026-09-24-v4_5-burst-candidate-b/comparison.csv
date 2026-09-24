@@ -1,0 +1,11 @@
+sampling,metric,reconstructed_v4_4,v4_5_candidate_b
+500ms,pnl_inr,1097.659652,1299.367875
+500ms,capture_ratio,0.146694953,0.173651922
+500ms,trades,148,163
+500ms,median_segment_pf,1.284084,1.361410
+500ms,worst_segment_dd_inr,229.306869,218.677916
+1s,pnl_inr,333.271059,365.253902
+1s,capture_ratio,0.044539473,0.048813768
+1s,trades,145,156
+1s,median_segment_pf,1.366742,1.382288
+1s,worst_segment_dd_inr,171.335137,172.375998
