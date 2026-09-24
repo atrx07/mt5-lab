@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import math
-from typing import Any, Sequence
+from typing import Any, Callable, Sequence
 
 from .binance_spot import INTERVAL_MS, MarketDataError, _validate_kline
 
@@ -16,6 +16,7 @@ class Bar:
     high: float
     low: float
     close: float
+    volume: float = 0.0
 
 
 def parse_bars(rows: Sequence[list], interval: str) -> list[Bar]:
@@ -26,7 +27,7 @@ def parse_bars(rows: Sequence[list], interval: str) -> list[Bar]:
     parsed: list[Bar] = []
     for index, row in enumerate(rows):
         _validate_kline(row, first_open_ms + index * INTERVAL_MS[interval], INTERVAL_MS[interval])
-        parsed.append(Bar(row[0], *(float(row[field]) for field in (1, 2, 3, 4))))
+        parsed.append(Bar(row[0], *(float(row[field]) for field in (1, 2, 3, 4, 5))))
     return parsed
 
 
@@ -41,6 +42,7 @@ def run_paper(
     breakout_bars: int,
     sma_bars: int,
     max_hold_bars: int,
+    on_candidate: Callable[[int, Sequence[Bar]], None] | None = None,
 ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     """Replay a frozen rule, buy-and-hold comparator, or no-trade comparator."""
     if mode not in {"rule", "buy_hold", "no_trade"} or not bars:
@@ -123,6 +125,8 @@ def run_paper(
             elif index - entry_index + 1 >= max_hold_bars:
                 pending, pending_reason = "sell", "max_hold"
         elif bar.close > max(item.high for item in bars[index - breakout_bars : index]) and bar.close > sma:
+            if on_candidate is not None:
+                on_candidate(index, bars[: index + 1])
             pending = "buy"
 
     if qty > 0:

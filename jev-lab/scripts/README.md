@@ -22,7 +22,10 @@ Put future small CLI entry points and acquisition tools here. Reusable trading, 
 
 `capture_binance_klines.py` reads public BTC/USDT 30-minute candles into ignored `data/raw/` and writes a versioned SHA-256 manifest. `replay_baseline.py` verifies that manifest, evaluates only the first 80% with the frozen paper rule and comparators, and writes one durable backtest bundle. Neither script has an order endpoint.
 
+`export_jev_shadow.py` verifies the same capture and frozen splits, then exports only development-row baseline entry candidates as local Jev Choice request payloads to ignored `data/derived/`. It checks the entire development baseline summary against Experiment 00. It makes no Jev call and preserves existing output by default.
+
 ```powershell
 python scripts/capture_binance_klines.py
 python scripts/replay_baseline.py
+python scripts/export_jev_shadow.py
 ```

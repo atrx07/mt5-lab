@@ -50,10 +50,15 @@ jev-lab/
 │   ├── forward/              timestamped shadow and paper observations
 │   │   └── .gitkeep
 │   └── benchmarks/           latency, cost, data and execution diagnostics
-│       └── .gitkeep
+│       ├── .gitkeep
+│       └── 2026-09-24-01-jev-entry-shadow/
+│           ├── README.md
+│           ├── config.json
+│           └── summary.json
 ├── scripts/                  CLI entry points and one-off acquisition tools
 │   ├── README.md
 │   ├── capture_binance_klines.py
+│   ├── export_jev_shadow.py
 │   ├── probe_jev.py
 │   └── replay_baseline.py
 ├── src/jev_lab/              reusable Python package
@@ -61,11 +66,13 @@ jev-lab/
 │   ├── __init__.py
 │   ├── binance_spot.py
 │   ├── client.py
-│   └── paper.py
+│   ├── paper.py
+│   └── shadow.py
 └── tests/                    focused checks for meaningful invariants
     ├── README.md
     ├── test_client.py
     ├── test_paper.py
+    ├── test_shadow.py
     └── fixtures/
         └── synthetic_choice.json
 ```

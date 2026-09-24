@@ -2,7 +2,7 @@
 
 Date: 2026-09-24
 
-Status: **protocol frozen; no model key or inference yet**
+Status: **development export complete; no model key or inference yet**
 
 ## Question
 
@@ -22,4 +22,6 @@ Only causal request construction and baseline parity can pass here. No `take` th
 
 ## Outcome
 
-Pending export and parity check.
+The [result bundle](../../results/benchmarks/2026-09-24-01-jev-entry-shadow/README.md) records 46 baseline entry candidates and 46 full Choice request payloads in the local, ignored JSONL. Its SHA-256 is `b21b21da9a5ecee870d2271797241a7019b86c0272c25636633f112c3c7a0e0a`. The full development rule summary matched Experiment 00, including 46 trades and −16.25 USDT net P&L at the frozen 5 bp penalty. No model calls occurred; evaluation and final holdout rows were not passed to bar parsing, feature construction, or replay. The request's decision timestamp denotes theoretical candle close, not measured feed availability.
+
+**Decision:** request construction passed its narrow acceptance check. The Jev candidate remains untested and unpromoted. A future model-response experiment needs a key and a separately frozen policy before evaluation.
