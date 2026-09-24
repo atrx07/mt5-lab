@@ -29,7 +29,8 @@ jev-lab/
 │   ├── plans/                scoped implementation or milestone plans
 │   │   └── README.md
 │   └── sources/              dated research on external APIs/bots/venues
-│       └── README.md
+│       ├── README.md
+│       └── 2026-09-24-typesafe-api.md
 ├── results/
 │   ├── README.md             evidence-bundle contract and index
 │   ├── backtests/            historical replay outcomes
@@ -39,14 +40,19 @@ jev-lab/
 │   └── benchmarks/           latency, cost, data and execution diagnostics
 │       └── .gitkeep
 ├── scripts/                  CLI entry points and one-off acquisition tools
-│   └── README.md
-├── src/jev_lab/              reusable Python package when code is added
-│   └── README.md
+│   ├── README.md
+│   └── probe_jev.py
+├── src/jev_lab/              reusable Python package
+│   ├── README.md
+│   ├── __init__.py
+│   └── client.py
 └── tests/                    focused checks for meaningful invariants
-    └── README.md
+    ├── README.md
+    ├── test_client.py
+    └── fixtures/synthetic_choice.json
 ```
 
-Create modules and dependencies only when an experiment needs them. The directories are reserved now; a strategy implementation, market connector, or Jev client does **not** yet exist. Do not create parallel top-level `research/`, `archive/`, `runs/`, or `v2/` trees. If the structure genuinely needs to change, edit this file and move the affected indexes and links together.
+Create modules and dependencies only when an experiment needs them. The Jev client exists, but a strategy implementation, market connector, and order executor do not yet exist. Do not create parallel top-level `research/`, `archive/`, `runs/`, or `v2/` trees. If the structure genuinely needs to change, edit this file and move the affected indexes and links together.
 
 ## Ownership of root files
 

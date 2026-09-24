@@ -1,0 +1,12 @@
+{
+  "model": "jev-1.13.0",
+  "state": {
+    "market": "synthetic",
+    "candidate": "buy"
+  },
+  "instructions": "Should this synthetic setup be reviewed?",
+  "criteria": {
+    "review": "Review the setup",
+    "skip": "Do nothing"
+  }
+}

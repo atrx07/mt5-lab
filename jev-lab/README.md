@@ -4,9 +4,9 @@ An independent research workspace for testing whether Jev can improve a practica
 
 ## Current stage
 
-**Scaffold only (2026-09-24).** No market, venue, data feed, strategy, Jev integration, or trading account is configured. There are no experiments or results yet. The first research milestone is to choose a tradeable market/venue and establish a deterministic baseline with realistic costs. Jev can then be tested as a bounded decision layer against that baseline.
+**Initial build (2026-09-24).** The first paper-research target is liquid BTC/USDT spot using Binance public market data. No live trading venue or account is selected. A pinned-model Jev Choice client and a local validation probe exist; no TypeSafe key is configured and no real Jev decision has been measured. A baseline and paper simulator are the next components. There are no trading results yet.
 
-No script in this directory places an order. Research and paper trading are the default. A real-order path requires its own explicit milestone and controls described in [AGENTS.md](AGENTS.md).
+No script in this directory places an order. `scripts/probe_jev.py` validates a proposed Choice request locally by default; `--send` explicitly makes one TypeSafe API call when `TYPESAFE_API_KEY` is present. Research and paper trading are the default. A real-order path requires its own explicit milestone and controls described in [AGENTS.md](AGENTS.md).
 
 ## Start here
 
