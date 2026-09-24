@@ -37,7 +37,7 @@ Repository evidence on `main` is the source of truth when chat memory disagrees.
 | V4.2 experimental | V4.1 primary + secondary breakout outside slow directional gate | first-80% continuous capture ~5.51% |
 | **V4.3 locked** | **regime-adaptive V4.2 composite** | **canonical five-segment compounded result +₹603.60; ~8.07% capture** |
 | **V4.4 locked** | **V4.3 + MICRO structural engine + Candidate K management** | **historical lock: 16.36% / 11.54%; reproducible replay oracle: 14.67% / 4.45%; final holdout unopened** |
-| **V4.5 research** | **V4.4 + verified BURST research; profit-velocity optimization in progress** | **Candidate B remains leader at 17.3652% / 4.8814%; C1 lifecycle grid produced no distinct improvement** |
+| **V4.5 research** | **V4.4 + BURST with confirmed-failure exit under study** | **Provisional Candidate D: 19.1152% / 5.1487% capture; not locked; 50–60% and 1 s robustness remain weak** |
 
 V4.4 is the current locked fractional experimental paper version. V4.5 is the active research line and is not locked.
 
@@ -69,6 +69,13 @@ Completed V4.5-C Phase C1 research harness:
 python scripts\v4_5_profit_velocity_search.py xau_ticks_7d.csv
 ```
 
+Latest V4.5 diagnostics and candidate replay:
+
+```powershell
+python scripts\v4_5_burst_path_autopsy.py xau_ticks_7d.csv
+python scripts\v4_5_confirmed_failure.py xau_ticks_7d.csv --confirm-sec 1
+```
+
 Historical tick export:
 
 ```powershell
@@ -91,6 +98,8 @@ See [`data/README.md`](data/README.md) for the exact archive/push workflow.
 - [Experiment index](docs/experiments/README.md)
 - [V4.5 research line](docs/algorithms/v4_5.md)
 - [V4.5-C profit-velocity experiment](docs/experiments/2026-09-24/17-v4-5-c-profit-velocity.md)
+- [V4.5 BURST-path autopsy](docs/experiments/2026-09-24/18-v4-5-burst-path-autopsy.md)
+- [V4.5 confirmed-failure experiment](docs/experiments/2026-09-24/19-v4-5-confirmed-failure.md)
 - [V4.1 optimization evidence](docs/experiments/2026-09-23/08-v4-1-optimization.md)
 - [V4.2 algorithm](docs/algorithms/v4_2.md)
 - [V4.3 algorithm](docs/algorithms/v4_3.md)

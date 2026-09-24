@@ -1,0 +1,310 @@
+{
+  "dataset_sha256": "007e7ab10cc16519b544003dbe81521f46cf868bf267780932638d1e8cec86e5",
+  "research_rows": 1869979,
+  "raw_boundaries": [
+    0,
+    934989,
+    1168737,
+    1402484,
+    1636231,
+    1869979
+  ],
+  "holdout_evaluated": false,
+  "canonical_schema": "xau-canonical-replay-v1",
+  "intervals": {
+    "500ms": {
+      "interval": "500ms",
+      "feature_rows": 508283,
+      "v4_4": {
+        "strategy": "v4_4",
+        "segments": [
+          {
+            "pnl_inr": 638.5722230533572,
+            "profit_factor": 1.6664358614236419,
+            "trades": 92,
+            "wins": 41,
+            "max_drawdown_inr": 229.30686884358033
+          },
+          {
+            "pnl_inr": 33.11148902879711,
+            "profit_factor": 1.284084075712539,
+            "trades": 22,
+            "wins": 11,
+            "max_drawdown_inr": 45.98362319375434
+          },
+          {
+            "pnl_inr": -16.11901349929775,
+            "profit_factor": 0.5506708442987357,
+            "trades": 7,
+            "wins": 2,
+            "max_drawdown_inr": 32.048508973931916
+          },
+          {
+            "pnl_inr": 24.515913261470132,
+            "profit_factor": 1.2494980408471128,
+            "trades": 13,
+            "wins": 5,
+            "max_drawdown_inr": 42.507473814583136
+          },
+          {
+            "pnl_inr": 148.16926282034217,
+            "profit_factor": 3.6307963907741545,
+            "trades": 14,
+            "wins": 9,
+            "max_drawdown_inr": 20.460057192389172
+          }
+        ],
+        "compounded_pnl_inr": 1097.6596523751064,
+        "capture_ratio": 0.14669495260672846,
+        "trades_sum": 148,
+        "wins_sum": 68,
+        "median_segment_pf": 1.284084075712539,
+        "max_segment_drawdown_inr": 229.30686884358033
+      },
+      "candidate_b": {
+        "strategy": "v4_5_b",
+        "segments": [
+          {
+            "pnl_inr": 690.2222861824041,
+            "profit_factor": 1.7333092949229225,
+            "trades": 98,
+            "wins": 46,
+            "max_drawdown_inr": 218.67791606541255
+          },
+          {
+            "pnl_inr": 42.31161651094817,
+            "profit_factor": 1.3614098816323064,
+            "trades": 23,
+            "wins": 12,
+            "max_drawdown_inr": 37.390566940324675
+          },
+          {
+            "pnl_inr": -13.57863832016642,
+            "profit_factor": 0.6221002242035942,
+            "trades": 8,
+            "wins": 3,
+            "max_drawdown_inr": 29.53955840072996
+          },
+          {
+            "pnl_inr": 34.91338564303544,
+            "profit_factor": 1.3554054454366498,
+            "trades": 16,
+            "wins": 7,
+            "max_drawdown_inr": 46.133734473857544
+          },
+          {
+            "pnl_inr": 169.61764598140905,
+            "profit_factor": 3.8279494879404856,
+            "trades": 18,
+            "wins": 11,
+            "max_drawdown_inr": 21.137095076367586
+          }
+        ],
+        "compounded_pnl_inr": 1299.367875231396,
+        "capture_ratio": 0.173651922491032,
+        "trades_sum": 163,
+        "wins_sum": 79,
+        "median_segment_pf": 1.3614098816323064,
+        "max_segment_drawdown_inr": 218.67791606541255
+      },
+      "instrumented_segments": [
+        {
+          "segment_id": 0,
+          "pnl_inr": 690.2222861824041,
+          "profit_factor": 1.7333092949229225,
+          "trades": 98.0,
+          "wins": 46.0,
+          "max_drawdown_inr": 218.67791606541255
+        },
+        {
+          "segment_id": 1,
+          "pnl_inr": 42.31161651094817,
+          "profit_factor": 1.3614098816323064,
+          "trades": 23.0,
+          "wins": 12.0,
+          "max_drawdown_inr": 37.390566940324675
+        },
+        {
+          "segment_id": 2,
+          "pnl_inr": -13.57863832016642,
+          "profit_factor": 0.6221002242035942,
+          "trades": 8.0,
+          "wins": 3.0,
+          "max_drawdown_inr": 29.53955840072996
+        },
+        {
+          "segment_id": 3,
+          "pnl_inr": 34.91338564303544,
+          "profit_factor": 1.3554054454366498,
+          "trades": 16.0,
+          "wins": 7.0,
+          "max_drawdown_inr": 46.133734473857544
+        },
+        {
+          "segment_id": 4,
+          "pnl_inr": 169.61764598140905,
+          "profit_factor": 3.8279494879404856,
+          "trades": 18.0,
+          "wins": 11.0,
+          "max_drawdown_inr": 21.137095076367586
+        }
+      ],
+      "instrumentation_parity": true
+    },
+    "1s": {
+      "interval": "1s",
+      "feature_rows": 291390,
+      "v4_4": {
+        "strategy": "v4_4",
+        "segments": [
+          {
+            "pnl_inr": 163.48391828732008,
+            "profit_factor": 1.1868460748900047,
+            "trades": 93,
+            "wins": 39,
+            "max_drawdown_inr": 171.33513747353095
+          },
+          {
+            "pnl_inr": 40.554538284406476,
+            "profit_factor": 1.3667416867033877,
+            "trades": 20,
+            "wins": 10,
+            "max_drawdown_inr": 52.213396197676786
+          },
+          {
+            "pnl_inr": -45.95461543615477,
+            "profit_factor": 0.23840252009619664,
+            "trades": 8,
+            "wins": 1,
+            "max_drawdown_inr": 55.95226824865756
+          },
+          {
+            "pnl_inr": 74.2718450132844,
+            "profit_factor": 2.2171355638004178,
+            "trades": 8,
+            "wins": 4,
+            "max_drawdown_inr": 38.20065636161257
+          },
+          {
+            "pnl_inr": 56.903063384355164,
+            "profit_factor": 1.5040458273167552,
+            "trades": 16,
+            "wins": 9,
+            "max_drawdown_inr": 50.54131594253204
+          }
+        ],
+        "compounded_pnl_inr": 333.27105856299124,
+        "capture_ratio": 0.044539472718438944,
+        "trades_sum": 145,
+        "wins_sum": 63,
+        "median_segment_pf": 1.3667416867033877,
+        "max_segment_drawdown_inr": 171.33513747353095
+      },
+      "candidate_b": {
+        "strategy": "v4_5_b",
+        "segments": [
+          {
+            "pnl_inr": 169.469069596115,
+            "profit_factor": 1.191227296391133,
+            "trades": 98,
+            "wins": 42,
+            "max_drawdown_inr": 172.37599843368207
+          },
+          {
+            "pnl_inr": 42.419451441487695,
+            "profit_factor": 1.3822875261766883,
+            "trades": 21,
+            "wins": 11,
+            "max_drawdown_inr": 52.39353241455893
+          },
+          {
+            "pnl_inr": -45.95461543615477,
+            "profit_factor": 0.23840252009619664,
+            "trades": 8,
+            "wins": 1,
+            "max_drawdown_inr": 55.95226824865756
+          },
+          {
+            "pnl_inr": 80.58358721953914,
+            "profit_factor": 2.2558180941997903,
+            "trades": 11,
+            "wins": 6,
+            "max_drawdown_inr": 45.68445953941114
+          },
+          {
+            "pnl_inr": 64.92889972747696,
+            "profit_factor": 1.5624204249044462,
+            "trades": 18,
+            "wins": 10,
+            "max_drawdown_inr": 52.19558499133228
+          }
+        ],
+        "compounded_pnl_inr": 365.25390229096365,
+        "capture_ratio": 0.04881376824779671,
+        "trades_sum": 156,
+        "wins_sum": 70,
+        "median_segment_pf": 1.3822875261766883,
+        "max_segment_drawdown_inr": 172.37599843368207
+      },
+      "instrumented_segments": [
+        {
+          "segment_id": 0,
+          "pnl_inr": 169.469069596115,
+          "profit_factor": 1.191227296391133,
+          "trades": 98.0,
+          "wins": 42.0,
+          "max_drawdown_inr": 172.37599843368207
+        },
+        {
+          "segment_id": 1,
+          "pnl_inr": 42.419451441487695,
+          "profit_factor": 1.3822875261766883,
+          "trades": 21.0,
+          "wins": 11.0,
+          "max_drawdown_inr": 52.39353241455893
+        },
+        {
+          "segment_id": 2,
+          "pnl_inr": -45.95461543615477,
+          "profit_factor": 0.23840252009619664,
+          "trades": 8.0,
+          "wins": 1.0,
+          "max_drawdown_inr": 55.95226824865756
+        },
+        {
+          "segment_id": 3,
+          "pnl_inr": 80.58358721953914,
+          "profit_factor": 2.2558180941997903,
+          "trades": 11.0,
+          "wins": 6.0,
+          "max_drawdown_inr": 45.68445953941114
+        },
+        {
+          "segment_id": 4,
+          "pnl_inr": 64.92889972747696,
+          "profit_factor": 1.5624204249044462,
+          "trades": 18.0,
+          "wins": 10.0,
+          "max_drawdown_inr": 52.19558499133228
+        }
+      ],
+      "instrumentation_parity": true
+    }
+  },
+  "burst_trade_matches": {
+    "500ms_trades": 17,
+    "1s_trades": 12,
+    "matched": 10,
+    "unmatched": 7,
+    "unmatched_classification": {
+      "sampled_signal_absent_near_entry": 5,
+      "shared_slot_occupied": 1,
+      "signal_present_no_burst_admission": 1
+    }
+  },
+  "burst_episode_matches": {
+    "500ms_episodes": 28,
+    "1s_episodes": 25,
+    "matched": 22
+  }
+}

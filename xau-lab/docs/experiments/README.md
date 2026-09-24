@@ -29,3 +29,5 @@ Experiments are grouped by date so each session can grow independently without t
 - [15 — V4.5 additive BURST candidate B](2026-09-24/15-v4-5-burst-candidate-b.md)
 - [16 — canonical replay freeze](2026-09-24/16-canonical-replay-freeze.md)
 - [17 — V4.5-C profit-velocity lifecycle search](2026-09-24/17-v4-5-c-profit-velocity.md)
+- [18 — V4.5 BURST-path autopsy](2026-09-24/18-v4-5-burst-path-autopsy.md)
+- [19 — V4.5 confirmed BURST failure exit](2026-09-24/19-v4-5-confirmed-failure.md)

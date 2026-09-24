@@ -1,0 +1,45 @@
+{
+  "candidate": "V4.5-D",
+  "status": "provisional_research_leader_not_locked",
+  "canonical_replay_schema": "xau-canonical-replay-v1",
+  "candidate_b_burst_config": {
+    "enabled": 1.0,
+    "cooldown_sec": 60.0,
+    "min_abs_m10_usd": 0.6,
+    "min_abs_m30_usd": 1.5,
+    "min_abs_m60_usd": 2.0,
+    "min_er60": 0.12,
+    "min_qacc": 1.2,
+    "min_directional_imb10": 0.2,
+    "min_range60_usd": 4.0,
+    "max_spread_range_ratio": 0.18,
+    "max_spread_usd": 0.28,
+    "take_profit_usd": 12.0,
+    "max_hold_sec": 120.0,
+    "stagnation_after_sec": 60.0,
+    "stagnation_peak_below_usd": 0.8,
+    "trail_trigger_usd": 5.5,
+    "trail_giveback_usd": 2.0
+  },
+  "changed_rule": {
+    "burst_30s_momentum_zero_cross_confirmation_sec": 1.0,
+    "confirmation_resets_when_momentum_recovers_or_is_unavailable": true
+  },
+  "unchanged": {
+    "primary_secondary_micro": "canonical V4.4",
+    "planned_entry_risk_ratio": 0.03,
+    "emergency_stop_usd": 4.0,
+    "shared_position_slots": 1,
+    "buy_fill": "ask entry, bid exit",
+    "sell_fill": "bid entry, ask exit"
+  },
+  "research_raw_boundaries": [
+    0,
+    934989,
+    1168737,
+    1402484,
+    1636231,
+    1869979
+  ],
+  "holdout_evaluated": false
+}

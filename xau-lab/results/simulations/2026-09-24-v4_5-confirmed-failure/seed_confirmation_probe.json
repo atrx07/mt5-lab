@@ -1,0 +1,86 @@
+{
+  "500ms": {
+    "0.0": {
+      "pnl_inr": 690.2222861824041,
+      "profit_factor": 1.7333092949229225,
+      "trades": 98,
+      "wins": 46,
+      "max_drawdown_inr": 218.67791606541255,
+      "burst_pnl_inr": 28.317714541375864
+    },
+    "1.0": {
+      "pnl_inr": 696.8428619834062,
+      "profit_factor": 1.7428577443389235,
+      "trades": 98,
+      "wins": 46,
+      "max_drawdown_inr": 218.9381795572965,
+      "burst_pnl_inr": 34.51984902123387
+    },
+    "2.0": {
+      "pnl_inr": 698.9258946102048,
+      "profit_factor": 1.7501249126101845,
+      "trades": 98,
+      "wins": 47,
+      "max_drawdown_inr": 218.02665828459885,
+      "burst_pnl_inr": 37.755362719428504
+    },
+    "3.0": {
+      "pnl_inr": 692.7098728761721,
+      "profit_factor": 1.7395007250357855,
+      "trades": 98,
+      "wins": 46,
+      "max_drawdown_inr": 218.10618049370828,
+      "burst_pnl_inr": 32.16218067301322
+    },
+    "5.0": {
+      "pnl_inr": 648.3560363430147,
+      "profit_factor": 1.6949435323752997,
+      "trades": 97,
+      "wins": 44,
+      "max_drawdown_inr": 215.7004490825327,
+      "burst_pnl_inr": 36.43145110793903
+    }
+  },
+  "1s": {
+    "0.0": {
+      "pnl_inr": 169.469069596115,
+      "profit_factor": 1.191227296391133,
+      "trades": 98,
+      "wins": 42,
+      "max_drawdown_inr": 172.37599843368207,
+      "burst_pnl_inr": 4.316799423244993
+    },
+    "1.0": {
+      "pnl_inr": 169.91793307493617,
+      "profit_factor": 1.1919652394865075,
+      "trades": 98,
+      "wins": 42,
+      "max_drawdown_inr": 172.14469599809354,
+      "burst_pnl_inr": 4.808139795896165
+    },
+    "2.0": {
+      "pnl_inr": 169.13015670742334,
+      "profit_factor": 1.1915831460846962,
+      "trades": 98,
+      "wins": 42,
+      "max_drawdown_inr": 172.14469599809354,
+      "burst_pnl_inr": 4.389159006784576
+    },
+    "3.0": {
+      "pnl_inr": 167.113566668467,
+      "profit_factor": 1.1890603122594234,
+      "trades": 98,
+      "wins": 42,
+      "max_drawdown_inr": 172.18324640402489,
+      "burst_pnl_inr": 2.5706712792217252
+    },
+    "5.0": {
+      "pnl_inr": 165.86990898873876,
+      "profit_factor": 1.18788727904985,
+      "trades": 98,
+      "wins": 41,
+      "max_drawdown_inr": 172.1960965393356,
+      "burst_pnl_inr": 1.61744690875926
+    }
+  }
+}

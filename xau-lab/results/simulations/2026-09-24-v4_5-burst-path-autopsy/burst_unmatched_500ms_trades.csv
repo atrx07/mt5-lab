@@ -1,0 +1,8 @@
+trade_id_500ms,segment_id,side,entry_utc_500ms,pnl_500ms_inr,classification,near_1s_episode_count,occupying_1s_trade_id
+500ms-s0-t65,0,BUY,2026-09-17T15:48:34.463000+00:00,13.979713200630561,sampled_signal_absent_near_entry,0,
+500ms-s0-t82,0,BUY,2026-09-18T03:22:58.447000+00:00,8.774401890538677,sampled_signal_absent_near_entry,0,
+500ms-s0-t89,0,SELL,2026-09-18T08:30:03.473000+00:00,-6.1039135073073965,sampled_signal_absent_near_entry,0,
+500ms-s1-t11,1,SELL,2026-09-18T17:19:47.461000+00:00,8.807283382069762,sampled_signal_absent_near_entry,0,1s-s1-t11
+500ms-s2-t5,2,BUY,2026-09-21T10:03:17.647000+00:00,2.567292290503662,shared_slot_occupied,1,1s-s2-t5
+500ms-s4-t4,4,BUY,2026-09-22T09:13:41.339000+00:00,-1.0004312297426932,sampled_signal_absent_near_entry,0,
+500ms-s4-t9,4,BUY,2026-09-22T11:34:56.465000+00:00,10.820264085542073,signal_present_no_burst_admission,1,

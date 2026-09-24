@@ -51,9 +51,10 @@ As of the current research line:
 
 - V4.4 is the latest **locked fractional research version**.
 - V4.5 is **research in progress; not locked**.
-- V4.5 Candidate B is the current verified research leader.
+- V4.5 Candidate D (one-second confirmed BURST failure exit) is the provisional research leader; Candidate B remains the verified comparator.
 - Experiment 17 / V4.5-C Phase C1 is complete and produced no distinct candidate: all 48 lifecycle variants reproduced Candidate B exactly.
-- The next V4.5 step is diagnostic BURST path instrumentation before another optimization search.
+- Experiment 18 diagnosed every Candidate B BURST exit as an immediate 30 s momentum zero-cross. Experiment 19 selected Candidate D after seed and chronological evaluation.
+- The next V4.5 step is diagnosis of non-BURST sampling fragility and the weak 50–60% segment.
 - The final 20% research holdout has not been opened by the canonical replay harness.
 - All canonical work is maintained directly on `main`.
 
@@ -61,6 +62,13 @@ Current Candidate B canonical results:
 
 - 500 ms: +₹1,299.37, 17.3652% capture, 163 trades, median segment PF 1.361;
 - 1 s: +₹365.25, 4.8814% capture, 156 trades, median segment PF 1.382.
+
+Current provisional Candidate D canonical first-80% results:
+
+- 500 ms: +₹1,430.31, 19.1152% capture, 163 trades, 81 wins, median segment PF 1.376;
+- 1 s: +₹385.25, 5.1487% capture, 156 trades, 71 wins, median segment PF 1.378.
+
+Candidate D is not locked. The 50–60% segment remains negative and the 1 s result remains fragile under cost stress. Do not create `paper_challenge_v4_5.py` from this evidence alone.
 
 Current V4.5 direction:
 
@@ -332,17 +340,19 @@ Do not delete historical evidence simply to reduce clutter.
 
 Latest completed experiment:
 
-`docs/experiments/2026-09-24/17-v4-5-c-profit-velocity.md`
+`docs/experiments/2026-09-24/19-v4-5-confirmed-failure.md`
 
-Completed C1 evidence:
+Latest evidence:
 
-`results/simulations/2026-09-24-v4_5-c-profit-velocity/`
+`results/simulations/2026-09-24-v4_5-burst-path-autopsy/`
+
+`results/simulations/2026-09-24-v4_5-confirmed-failure/`
 
 Phase C1 tested 48 BURST lifecycle combinations and every one reproduced Candidate B exactly at both sampling grids. No Candidate C was promoted.
 
-Candidate B therefore remains the current V4.5 research leader.
+Experiment 18 found that immediate 30 s momentum zero-cross exits dominate every observed BURST trade. Experiment 19 tested 0/1/2/3/5 s confirmation on the seed, evaluated 1/2/3 s on the first-80% pool and promoted one second as provisional Candidate D.
 
-Before the next optimization pass, instrument BURST trade paths with exact exit reason, entry/exit timing, MFE/MAE, time-to-MFE, post-exit favorable excursion, and 500 ms versus 1 s opportunity matching. Use those diagnostics to define the next numbered experiment instead of running another blind lifecycle grid.
+Before another candidate, diagnose PRIMARY/SECONDARY sampling loss and the hostile 50–60% segment with first-80% evidence. Retain Candidate B as the comparator and Candidate D as the provisional leader. Do not reopen the final 20% holdout without a user milestone decision.
 
 The canonical replay timestamp path now explicitly normalizes datetimes to nanosecond resolution before epoch conversion so pandas 3 and earlier supported pandas runtimes use the same replay semantics. Golden V4.4 parity must still pass before any candidate evidence is accepted.
 
