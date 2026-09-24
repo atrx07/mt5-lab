@@ -41,6 +41,8 @@ Repository evidence on `main` is the source of truth when chat memory disagrees.
 
 V4.4 is the current locked fractional experimental paper version. V4.5 is the active research line and is not locked.
 
+Experiment 20 found that simple early PRIMARY/SECONDARY releases and SECONDARY sampled-flow vetoes fail joint 500 ms / 1 s seed selection. Candidate D remains provisional. The 50% profit-velocity / 20% exposure / 20% compounded-P&L improvements are a preferred strong-lock region; a narrower Pareto improvement may remain lock-eligible pending review, never automatically locked.
+
 Starting with V4.5 research, all candidate simulations must use the parity-gated canonical replay harness. V4.4's strategy parameters are unchanged; the 14.67% / 4.45% regression values are a reproducible measurement re-baseline used only as the future comparison oracle. The earlier 16.36% / 11.54% lock outputs remain preserved as historical research evidence.
 
 V4.3 replay-parity documentation was corrected during the V4.4 lock: its canonical +₹603.60 figure is the compounded result of five independently reset research segments, not a literal one-pass continuous replay.
@@ -74,6 +76,7 @@ Latest V4.5 diagnostics and candidate replay:
 ```powershell
 python scripts\v4_5_burst_path_autopsy.py xau_ticks_7d.csv
 python scripts\v4_5_confirmed_failure.py xau_ticks_7d.csv --confirm-sec 1
+python scripts\v4_5_exposure_velocity.py xau_ticks_7d.csv
 ```
 
 Historical tick export:
@@ -100,6 +103,7 @@ See [`data/README.md`](data/README.md) for the exact archive/push workflow.
 - [V4.5-C profit-velocity experiment](docs/experiments/2026-09-24/17-v4-5-c-profit-velocity.md)
 - [V4.5 BURST-path autopsy](docs/experiments/2026-09-24/18-v4-5-burst-path-autopsy.md)
 - [V4.5 confirmed-failure experiment](docs/experiments/2026-09-24/19-v4-5-confirmed-failure.md)
+- [V4.5 exposure-velocity experiment](docs/experiments/2026-09-24/20-v4-5-exposure-velocity.md)
 - [V4.1 optimization evidence](docs/experiments/2026-09-23/08-v4-1-optimization.md)
 - [V4.2 algorithm](docs/algorithms/v4_2.md)
 - [V4.3 algorithm](docs/algorithms/v4_3.md)

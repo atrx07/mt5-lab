@@ -31,3 +31,4 @@ Experiments are grouped by date so each session can grow independently without t
 - [17 — V4.5-C profit-velocity lifecycle search](2026-09-24/17-v4-5-c-profit-velocity.md)
 - [18 — V4.5 BURST-path autopsy](2026-09-24/18-v4-5-burst-path-autopsy.md)
 - [19 — V4.5 confirmed BURST failure exit](2026-09-24/19-v4-5-confirmed-failure.md)
+- [20 — V4.5 PRIMARY/SECONDARY exposure velocity](2026-09-24/20-v4-5-exposure-velocity.md)

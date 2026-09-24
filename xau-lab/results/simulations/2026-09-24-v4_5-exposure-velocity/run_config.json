@@ -1,0 +1,51 @@
+{
+  "dataset_sha256": "007e7ab10cc16519b544003dbe81521f46cf868bf267780932638d1e8cec86e5",
+  "research_rows": 1869979,
+  "raw_boundaries": [
+    0,
+    934989,
+    1168737,
+    1402484,
+    1636231,
+    1869979
+  ],
+  "baseline": "Candidate D; BURST zero-cross confirmation 1 second",
+  "seed_segment_id": 0,
+  "evaluation_segment_ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "holdout_evaluated": false,
+  "variants": {
+    "release_120s": {
+      "checkpoint_sec": 120,
+      "rule": "PRIMARY/SECONDARY move <= 0, directional m60 <= 0, directional imb10 <= 0"
+    },
+    "release_300s": {
+      "checkpoint_sec": 300,
+      "rule": "PRIMARY/SECONDARY move <= 0, directional m60 <= 0, directional imb10 <= 0"
+    },
+    "secondary_persistence_2s": {
+      "breakout_persistence_sec": 2
+    },
+    "secondary_flow_require_both": {
+      "directional_m10_min_usd": 2,
+      "qacc_min": 1.0,
+      "combine": "AND"
+    },
+    "secondary_flow_veto_both_weak": {
+      "directional_m10_min_usd": 2,
+      "qacc_min": 1.0,
+      "combine": "OR"
+    },
+    "secondary_flow_require_m10": {
+      "directional_m10_min_usd": 2
+    },
+    "secondary_flow_require_qacc": {
+      "qacc_min": 1.0
+    }
+  },
+  "unchanged": "Candidate D risk, other admission, exits, priority and bid/ask accounting"
+}
