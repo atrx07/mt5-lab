@@ -26,23 +26,27 @@ Experimental XAUUSD research and paper-trading lab built around MetaTrader 5.
 | V4 | short-horizon pullback / resumption | seven-day development baseline remained strongly negative |
 | V4.1 locked baseline | 30m trend → 5m context → 60s pullback/resumption + 3% risk sizing | development ₹500 → ₹627.52; validation ₹500 → ₹538.79 |
 | V4.2 experimental | V4.1 primary + secondary breakout outside slow directional gate | first-80% continuous capture ~5.51% |
-| **V4.3 locked** | **regime-adaptive V4.2 composite** | **first-80% continuous +₹603.60; PF 1.456; 114 trades; ~8.07% capture; final holdout unopened** |
+| **V4.3 locked** | **regime-adaptive V4.2 composite** | **canonical five-segment compounded result +₹603.60; ~8.07% capture** |
+| **V4.4 locked** | **V4.3 + MICRO structural engine + Candidate K management** | **500 ms canonical capture 16.36%; 1 s robustness capture 11.54%; final holdout unopened** |
 
-V4.3 is now the current experimental paper version. It is a locked fractional research version, not a major-generation graduation and not a claim of proven future profitability.
+V4.4 is now the current experimental paper version. It is a locked fractional research version, not a major-generation graduation and not a claim of proven future profitability.
 
-The later $30/$15 exit-harvest tweak was rejected after internal validation. Any change to the locked V4.3 parameters becomes V4.4.
+V4.3 replay-parity documentation was corrected during the V4.4 lock: its canonical +₹603.60 figure is the compounded result of five independently reset research segments, not a literal one-pass continuous replay.
+
+Any change to the locked V4.4 configuration becomes V4.5.
 
 The final 20% research holdout remains unopened.
 
 ## Current experimental paper version
 
 ```powershell
-python scripts\paper_challenge_v4_3.py
+python scripts\paper_challenge_v4_4.py
 ```
 
 Previous versions remain available:
 
 ```powershell
+python scripts\paper_challenge_v4_3.py
 python scripts\paper_challenge_v4_2.py
 python scripts\paper_challenge_v4_1.py
 ```
@@ -68,7 +72,9 @@ See [`data/README.md`](data/README.md) for the exact archive/push workflow.
 - [V4.1 optimization evidence](docs/experiments/2026-09-23/08-v4-1-optimization.md)
 - [V4.2 algorithm](docs/algorithms/v4_2.md)
 - [V4.3 algorithm](docs/algorithms/v4_3.md)
+- [V4.4 algorithm](docs/algorithms/v4_4.md)
 - [V4.3 capture-target research and lock](docs/experiments/2026-09-24/10-v4-3-capture-target-research.md)
+- [V4.4 parity fix and lock](docs/experiments/2026-09-24/13-v4-4-parity-and-lock.md)
 - [Dataset archive policy](data/README.md)
 - [Provenance](docs/PROVENANCE.md)
 
