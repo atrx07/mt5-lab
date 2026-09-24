@@ -47,7 +47,7 @@ Contains:
 - Git workflow;
 - new-chat recovery instructions.
 
-Update this file only when a project-wide instruction changes.
+Update this file when a project-wide instruction or the current canonical research state changes, including leader, latest completed experiment, next step, replay/risk/holdout status, or workflow. Review it before every push.
 
 Do not use it as an experiment log.
 
@@ -55,7 +55,7 @@ Do not use it as an experiment log.
 
 Purpose: this file-placement contract.
 
-Update it when the canonical repository structure or naming convention changes.
+Update it when the canonical repository structure or naming convention changes, **and** when its current-script examples, result-directory examples, experiment references, or new-chat recovery path become stale. Review it before every push; leave it untouched only after verifying it already matches the state being pushed.
 
 Do not put strategy results here.
 
@@ -240,7 +240,7 @@ Candidate-specific detail normally belongs in experiment/result evidence, not a 
 
 Example:
 
-- V4.5 Candidate B and V4.5-C remain documented under `v4_5.md` plus their experiment records until V4.5 is locked.
+- V4.5 Candidate B and provisional Candidate D are documented under `v4_5.md` plus their experiment records; the negative C1 search remains historical evidence. V4.5 is not locked.
 
 ### `docs/algorithms/README.md`
 
@@ -285,7 +285,7 @@ Examples:
 
 - `13-v4-4-parity-and-lock.md`
 - `15-v4-5-burst-candidate-b.md`
-- `17-v4-5-c-profit-velocity.md`
+- `20-v4-5-exposure-velocity.md`
 
 Experiment numbers are chronological across the project, not reset each day.
 
@@ -428,9 +428,12 @@ Existing examples:
 - `2026-09-24-v4_5-first-event-flow/`
 - `2026-09-24-v4_5-burst-candidate-b/`
 
-Expected current V4.5-C directory:
+Current V4.5 research evidence directories:
 
-`results/simulations/2026-09-24-v4_5-c-profit-velocity/`
+- `results/simulations/2026-09-24-v4_5-c-profit-velocity/` — completed negative C1 lifecycle search;
+- `results/simulations/2026-09-24-v4_5-burst-path-autopsy/` — Experiment 18 diagnostic;
+- `results/simulations/2026-09-24-v4_5-confirmed-failure/` — provisional Candidate D evidence;
+- `results/simulations/2026-09-24-v4_5-exposure-velocity/` — latest Experiment 20 negative evidence.
 
 ### Result-directory contents
 
@@ -505,7 +508,12 @@ Do not create `paper_challenge_v4_5.py` until V4.5 is actually selected/locked f
 
 - `replay_lab.py` — older/general replay utility;
 - `canonical_replay.py` — mandatory V4.x parity-gated replay source of truth;
-- `v4_5_profit_velocity_search.py` — active V4.5-C search harness.
+- `v4_5_profit_velocity_search.py` — completed Experiment 17 C1 lifecycle search;
+- `v4_5_burst_path_autopsy.py` — completed Experiment 18 BURST trace and Candidate D simulator foundation;
+- `v4_5_confirmed_failure.py` — provisional Candidate D replay from Experiment 19;
+- `v4_5_exposure_velocity.py` — latest Experiment 20 PRIMARY/SECONDARY diagnostic and rejected seed variants.
+
+The next raw-event admission test has not been implemented. Do not describe an old search script as the active next-step harness.
 
 For new research harnesses, use a descriptive version-prefixed name under `scripts/`, for example:
 
@@ -526,6 +534,8 @@ Avoid writing new permanent artifacts into `scripts/`.
 ## Canonical cross-linking rules
 
 Every accepted/current research line should be discoverable through links, not memory.
+
+Before every push, compare this file and `agents.md` with the experiment index, latest numbered document, current V4.5 algorithm document, latest evidence bundle, research scripts and candidate status. Update stale recovery references in the same commit as the research; if no text changes are needed, verify both files are already current rather than making a timestamp-only edit.
 
 When adding a new experiment:
 
@@ -613,9 +623,12 @@ results/regression/canonical_v4_4_reference.json
 docs/algorithms/README.md
 docs/algorithms/v4_5.md
 docs/experiments/README.md
-docs/experiments/2026-09-24/17-v4-5-c-profit-velocity.md
-results/simulations/2026-09-24-v4_5-burst-candidate-b/
-results/simulations/2026-09-24-v4_5-c-profit-velocity/   (when generated)
+docs/experiments/2026-09-24/19-v4-5-confirmed-failure.md
+results/simulations/2026-09-24-v4_5-confirmed-failure/
+docs/experiments/2026-09-24/20-v4-5-exposure-velocity.md
+results/simulations/2026-09-24-v4_5-exposure-velocity/
+scripts/v4_5_confirmed_failure.py
+scripts/v4_5_exposure_velocity.py
 ```
 
 If the latest experiment number/version changes later, follow the indexes rather than assuming the paths above remain the newest.

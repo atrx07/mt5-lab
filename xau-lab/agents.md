@@ -339,6 +339,12 @@ Keep commits focused and descriptive.
 
 Do not delete historical evidence simply to reduce clutter.
 
+### Mandatory reference synchronization before every push
+
+Before pushing completed XAU-lab research to `main`, review **both** this file and `structure.md` against the exact state being pushed. Update this file whenever the research state, provisional or locked leader, latest completed experiment, next step, workflow, replay or risk rule, holdout status, or other project-wide instruction changes. Update `structure.md` when layout/naming changes **or** its current script examples, result-directory examples, experiment references, or new-chat recovery path become stale.
+
+Verify both references against `docs/experiments/README.md`, the latest experiment document, `docs/algorithms/v4_5.md`, the latest `results/simulations/` bundle, active research scripts, and actual candidate status. If either file needs no textual change, explicitly verify that it is already current; do not edit merely to change its timestamp. Inspect the final Git diff and staged paths, commit useful code, evidence, documentation and necessary reference updates together, then push. A push is incomplete if either reference would send a fresh agent to an obsolete experiment or research direction.
+
 ## Current active work
 
 Latest completed experiment:
@@ -352,6 +358,14 @@ Latest evidence:
 `results/simulations/2026-09-24-v4_5-confirmed-failure/`
 
 `results/simulations/2026-09-24-v4_5-exposure-velocity/`
+
+Current research scripts:
+
+- `scripts/canonical_replay.py` — mandatory V4.4 parity and feature source;
+- `scripts/v4_5_confirmed_failure.py` — Candidate D research replay;
+- `scripts/v4_5_exposure_velocity.py` — latest completed Experiment 20 diagnostic and rejected seed variants.
+
+No raw-event admission script for the next experiment exists yet.
 
 Phase C1 tested 48 BURST lifecycle combinations and every one reproduced Candidate B exactly at both sampling grids. No Candidate C was promoted.
 
