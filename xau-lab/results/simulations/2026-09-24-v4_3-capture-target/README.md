@@ -108,3 +108,36 @@ Therefore:
 - no `paper_challenge_v4_3.py` is created;
 - the final 20% holdout remains sealed;
 - the next attempt needs genuinely new predictive information or a materially different execution/position-management architecture, not more threshold search over the same features.
+
+
+## Focused exit-harvest follow-up
+
+A subsequent focused pass tested whether the current adaptive candidate could reach 10%+ capture mainly by harvesting winners longer instead of adding more entry engines.
+
+The strongest provisional whole-research configuration in that reconstructed harness changed only the high-activity profit caps:
+
+- primary high-regime TP: $25 -> $30;
+- secondary high-regime TP: $8 -> $15.
+
+On the same reconstructed first-80% harness it looked materially stronger in aggregate (+₹926.84 versus +₹683.22 for the previous adaptive configuration), but this harness does not exactly reproduce the archived +₹603.60 adaptive total, so that whole-pool improvement remains provisional.
+
+A direct internal validation comparison was then run over the original 60–80% validation band, with the final 20% holdout still sealed.
+
+| Metric | Previous adaptive | New exit-harvest |
+| --- | ---: | ---: |
+| Net P&L | **+₹56.71** | +₹29.79 |
+| PF | **1.335** | 1.186 |
+| Trades | 18 | 17 |
+| Max DD | **₹89.59** | ₹133.43 |
+| Avg trade | **+₹3.15** | +₹1.75 |
+| Capture vs ₹1,916.8875 ceiling | **2.96%** | 1.55% |
+
+The new exit-harvest candidate also underperformed the previous adaptive candidate in both 60–70% and 70–80% subfolds.
+
+### Follow-up decision
+
+**Reject the new $30/$15 exit-harvest configuration as the next V4.3 candidate.**
+
+Its apparent whole-research gain does not survive this internal validation comparison. The previous adaptive candidate remains the stronger V4.3 research reference.
+
+This is still not pristine out-of-sample evidence: both configurations were developed using the first-80% research pool. The final 20% holdout remains unopened.
