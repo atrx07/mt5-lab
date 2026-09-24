@@ -14,6 +14,7 @@ Each strategy generation lives in its own file so future versions can be added w
 - [V4 — pullback / resumption state machine](v4.md)
 - [V4.1 — medium-horizon trend / pullback / resumption](v4_1.md)
 - [V4.2 — V4.1 primary + secondary breakout](v4_2.md)
+- [V4.3 — locked regime-adaptive composite](v4_3.md)
 - [Future JEV integration](future-jev.md)
 
 The runnable implementations live in [../../scripts](../../scripts).
