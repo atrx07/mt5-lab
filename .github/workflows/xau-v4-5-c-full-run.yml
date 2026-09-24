@@ -7,8 +7,7 @@ on:
     paths:
       - ".github/workflows/xau-v4-5-c-full-run.yml"
       - "xau-lab/scripts/v4_5_profit_velocity_search.py"
-  schedule:
-    - cron: "*/5 * * * *"
+      - "xau-lab/scripts/canonical_replay.py"
 
 permissions:
   contents: write
