@@ -24,24 +24,26 @@ Experimental XAUUSD research and paper-trading lab built around MetaTrader 5.
 | V3 | confirmed 5 s + 15 s breakouts | ₹500 → ₹482.53 |
 | V3.1 | persistent armed breakouts | ₹500 → ₹463.46 |
 | V4 | short-horizon pullback / resumption | seven-day development baseline remained strongly negative |
-| **V4.1 locked baseline** | **30m trend → 5m context → 60s pullback/resumption + 3% risk sizing** | **development ₹500 → ₹627.52; validation ₹500 → ₹538.79; holdout unopened** |
-| **V4.2 experimental** | **V4.1 primary + secondary breakout outside slow directional gate** | **development +₹225.11 / 95 trades; validation* +₹129.27 / 19 trades; current experimental paper version** |
+| V4.1 locked baseline | 30m trend → 5m context → 60s pullback/resumption + 3% risk sizing | development ₹500 → ₹627.52; validation ₹500 → ₹538.79 |
+| V4.2 experimental | V4.1 primary + secondary breakout outside slow directional gate | first-80% continuous capture ~5.51% |
+| **V4.3 locked** | **regime-adaptive V4.2 composite** | **first-80% continuous +₹603.60; PF 1.456; 114 trades; ~8.07% capture; final holdout unopened** |
 
-\* V4.2 validation was used during composite selection and is therefore not pristine out-of-sample evidence.
+V4.3 is now the current experimental paper version. It is a locked fractional research version, not a major-generation graduation and not a claim of proven future profitability.
 
-V4.1 remains the locked baseline. V4.2 is a real fractional experimental version because it improved aggregate activity and replay P&L without increasing planned risk. Fractional versions are allowed to be experimental; the strict graduation bar is reserved for new major generations such as V5.
+The later $30/$15 exit-harvest tweak was rejected after internal validation. Any change to the locked V4.3 parameters becomes V4.4.
 
-The final holdout remains unopened.
+The final 20% research holdout remains unopened.
 
 ## Current experimental paper version
 
 ```powershell
-python scripts\paper_challenge_v4_2.py
+python scripts\paper_challenge_v4_3.py
 ```
 
-V4.1 remains available as the locked baseline:
+Previous versions remain available:
 
 ```powershell
+python scripts\paper_challenge_v4_2.py
 python scripts\paper_challenge_v4_1.py
 ```
 
@@ -53,7 +55,7 @@ python scripts\export_xau_ticks.py --days 7
 
 ## Dataset preservation
 
-The seven-day broker-tick dataset used by the baseline and V4.1/V4.2 research is tracked under [`data/`](data/).
+The seven-day broker-tick dataset used by the research is tracked under [`data/`](data/).
 
 The raw ~220 MB CSV remains ignored. A lossless gzip archive plus a SHA-256 manifest is the canonical repository copy.
 
@@ -65,11 +67,11 @@ See [`data/README.md`](data/README.md) for the exact archive/push workflow.
 - [Experiment index](docs/experiments/README.md)
 - [V4.1 optimization evidence](docs/experiments/2026-09-23/08-v4-1-optimization.md)
 - [V4.2 algorithm](docs/algorithms/v4_2.md)
-- [V4.2 hourly-capture experiment](docs/experiments/2026-09-24/09-v4-2-hourly-capture-research.md)
-- [V4.3 >=20% capture-target research](docs/experiments/2026-09-24/10-v4-3-capture-target-research.md)
+- [V4.3 algorithm](docs/algorithms/v4_3.md)
+- [V4.3 capture-target research and lock](docs/experiments/2026-09-24/10-v4-3-capture-target-research.md)
 - [Dataset archive policy](data/README.md)
 - [Provenance](docs/PROVENANCE.md)
 
 ## Research discipline
 
-Major-version graduation requires realistic bid/ask execution, untouched holdout evidence, multiple regimes, drawdown checks, stress tests and live-paper validation. Fractional versions may be recorded as experimental iterations when they show a distinct measurable improvement while preserving fixed risk discipline. Hourly earning targets are evaluation benchmarks, not instructions to force trades or increase risk.
+Major-version graduation requires realistic bid/ask execution, untouched holdout evidence, multiple regimes, drawdown checks, stress tests and live-paper validation. Fractional versions may be locked as experimental iterations when they show a distinct measurable improvement while preserving fixed risk discipline. Hourly earning targets are evaluation benchmarks, not instructions to force trades or increase risk.
