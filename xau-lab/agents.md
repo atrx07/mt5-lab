@@ -55,6 +55,7 @@ As of the current research line:
 - Experiment 17 / V4.5-C Phase C1 is complete and produced no distinct candidate: all 48 lifecycle variants reproduced Candidate B exactly.
 - Experiment 18 diagnosed every Candidate B BURST exit as an immediate 30 s momentum zero-cross. Experiment 19 selected Candidate D after seed and chronological evaluation.
 - Experiment 20 diagnosed non-BURST exposure and sampling fragility. Seven seed variants failed joint 500 ms / 1 s selection; Candidate D remains provisional.
+- Experiment 21 tested an independent three-ticket trend/impulse/reversal architecture. Its full initial prototype lost on both grids, and two bounded seed revisions failed joint-grid selection. No multi-ticket candidate was promoted or reached ₹100 on an observed UTC quote day.
 - The next V4.5 step is a narrowly scoped raw-event admission test built identically before 500 ms and 1 s execution sampling, without changing canonical replay semantics.
 - The final 20% research holdout has not been opened by the canonical replay harness.
 - All canonical work is maintained directly on `main`.
@@ -219,6 +220,7 @@ Unless a documented experiment explicitly changes these rules:
 - emergency stop remains $4 for the current V4.4/V4.5 line;
 - synthetic leverage cap remains 100x where the locked strategy uses it;
 - one shared open-position slot remains in force for the current composite architecture.
+- Experiment 21's separate multi-ticket research branch used at most three same-direction synthetic tickets, at most 1% planned risk each and at most 3% aggregate planned entry risk; it did not change Candidate D's one-slot architecture or authorize paper/live execution.
 
 The INR/USD constant used by the historical/current research scripts is 95.7021 unless a future version explicitly documents a change.
 
@@ -349,7 +351,7 @@ Verify both references against `docs/experiments/README.md`, the latest experime
 
 Latest completed experiment:
 
-`docs/experiments/2026-09-24/20-v4-5-exposure-velocity.md`
+`docs/experiments/2026-09-24/21-v4-5-multi-ticket-horizon.md`
 
 Latest evidence:
 
@@ -359,11 +361,14 @@ Latest evidence:
 
 `results/simulations/2026-09-24-v4_5-exposure-velocity/`
 
+`results/simulations/2026-09-24-v4_5-multi-ticket-horizon/`
+
 Current research scripts:
 
 - `scripts/canonical_replay.py` — mandatory V4.4 parity and feature source;
 - `scripts/v4_5_confirmed_failure.py` — Candidate D research replay;
-- `scripts/v4_5_exposure_velocity.py` — latest completed Experiment 20 diagnostic and rejected seed variants.
+- `scripts/v4_5_exposure_velocity.py` — completed Experiment 20 diagnostic and rejected seed variants.
+- `scripts/v4_5_multi_ticket_horizon.py` — completed negative Experiment 21 independent multi-ticket replay; exploratory research only.
 
 No raw-event admission script for the next experiment exists yet.
 
@@ -372,6 +377,8 @@ Phase C1 tested 48 BURST lifecycle combinations and every one reproduced Candida
 Experiment 18 found that immediate 30 s momentum zero-cross exits dominate every observed BURST trade. Experiment 19 tested 0/1/2/3/5 s confirmation on the seed, evaluated 1/2/3 s on the first-80% pool and promoted one second as provisional Candidate D.
 
 Experiment 20 found that simple 120/300 s conditional exits, two-second SECONDARY persistence and short-horizon flow vetoes do not improve both grids on the seed. The 1 s matched-trade diagnostic identifies loss-making admissions absent at 500 ms, but simple sampled-grid filters also remove valuable 500 ms trades. Retain Candidate B as comparator and D as provisional leader. Test a truly common raw-event admission feature next, preserving the V4.4 oracle and final-20% holdout boundary.
+
+Experiment 21 followed the user's separate multi-position direction under the unchanged 3% basket-risk ceiling. Three prototypes were preserved: the initial full-run design lost on both grids, and impulse-first and reversal seed revisions failed joint 500 ms / 1 s selection. None met the ₹100-per-observed-UTC-day research target. Do not promote or deploy this branch; Candidate D remains provisional. The next focused V4.5 step remains a common raw-event admission feature, not more threshold tuning on Experiment 21.
 
 The canonical replay timestamp path now explicitly normalizes datetimes to nanosecond resolution before epoch conversion so pandas 3 and earlier supported pandas runtimes use the same replay semantics. Golden V4.4 parity must still pass before any candidate evidence is accepted.
 

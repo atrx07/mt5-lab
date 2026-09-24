@@ -32,3 +32,4 @@ Experiments are grouped by date so each session can grow independently without t
 - [18 — V4.5 BURST-path autopsy](2026-09-24/18-v4-5-burst-path-autopsy.md)
 - [19 — V4.5 confirmed BURST failure exit](2026-09-24/19-v4-5-confirmed-failure.md)
 - [20 — V4.5 PRIMARY/SECONDARY exposure velocity](2026-09-24/20-v4-5-exposure-velocity.md)
+- [21 — V4.5 autonomous multi-ticket horizon research](2026-09-24/21-v4-5-multi-ticket-horizon.md)

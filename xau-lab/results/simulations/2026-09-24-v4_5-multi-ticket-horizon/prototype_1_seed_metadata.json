@@ -1,0 +1,365 @@
+{
+  "schema_version": "xau-canonical-replay-v1",
+  "dataset_sha256": "007e7ab10cc16519b544003dbe81521f46cf868bf267780932638d1e8cec86e5",
+  "research_rows": 1869979,
+  "raw_boundaries": [
+    0,
+    934989,
+    1168737,
+    1402484,
+    1636231,
+    1869979
+  ],
+  "holdout_evaluated": false,
+  "config": {
+    "common": {
+      "max_tickets": 3,
+      "per_ticket_entry_risk_fraction": 0.01,
+      "aggregate_entry_risk_fraction": 0.03,
+      "emergency_stop_usd": 4.0,
+      "aggregate_leverage_cap": 100.0,
+      "absolute_spread_cap_usd": 0.25,
+      "minimum_mid_move_between_entries_usd": 0.8,
+      "trend_entry_gap_sec": 180.0,
+      "impulse_entry_gap_sec": 60.0,
+      "cost_stress_per_side_usd": 0.2,
+      "forced_liquidation": "first quote after session gap and last quote of each segment"
+    },
+    "prototype": {
+      "short_signal": "impulse momentum: r60>=3, er60>=0.06, qacc>=0.85, directional m120>=4, m30>=1, m10>=0.35, imb10>=0.05; short evaluated first",
+      "trend_signal": "r300>=5, er60>=0.05, directional m1800>=10, m300>=4, m60>=0.5, m10>=0.2, recent opposite m10<=-0.4; 30min session warmup",
+      "trend_slots": 1,
+      "short_slots": 2,
+      "trend_exit": "trigger 6, floor 3, giveback 2.5, target 10, max hold 1800 s",
+      "short_exit": "trigger 3, floor 1.2, giveback 1, target 5, max hold 180 s"
+    }
+  },
+  "mode": 1,
+  "segment_ids": [
+    0
+  ],
+  "intervals": {
+    "500ms": {
+      "v4_4": {
+        "strategy": "v4_4",
+        "segments": [
+          {
+            "pnl_inr": 638.5722230533572,
+            "profit_factor": 1.6664358614236419,
+            "trades": 92,
+            "wins": 41,
+            "max_drawdown_inr": 229.30686884358033
+          },
+          {
+            "pnl_inr": 33.11148902879711,
+            "profit_factor": 1.284084075712539,
+            "trades": 22,
+            "wins": 11,
+            "max_drawdown_inr": 45.98362319375434
+          },
+          {
+            "pnl_inr": -16.11901349929775,
+            "profit_factor": 0.5506708442987357,
+            "trades": 7,
+            "wins": 2,
+            "max_drawdown_inr": 32.048508973931916
+          },
+          {
+            "pnl_inr": 24.515913261470132,
+            "profit_factor": 1.2494980408471128,
+            "trades": 13,
+            "wins": 5,
+            "max_drawdown_inr": 42.507473814583136
+          },
+          {
+            "pnl_inr": 148.16926282034217,
+            "profit_factor": 3.6307963907741545,
+            "trades": 14,
+            "wins": 9,
+            "max_drawdown_inr": 20.460057192389172
+          }
+        ],
+        "compounded_pnl_inr": 1097.6596523751064,
+        "capture_ratio": 0.14669495260672846,
+        "trades_sum": 148,
+        "wins_sum": 68,
+        "median_segment_pf": 1.284084075712539,
+        "max_segment_drawdown_inr": 229.30686884358033
+      },
+      "candidate_d_reference": {
+        "segments": [
+          {
+            "segment_id": 0,
+            "pnl_inr": 696.8428619834062,
+            "profit_factor": 1.7428577443389235,
+            "trades": 98,
+            "wins": 46,
+            "max_drawdown_inr": 218.9381795572965
+          },
+          {
+            "segment_id": 1,
+            "pnl_inr": 44.100517926115,
+            "profit_factor": 1.3756640618094829,
+            "trades": 23,
+            "wins": 12,
+            "max_drawdown_inr": 35.71970634386099
+          },
+          {
+            "segment_id": 2,
+            "pnl_inr": -13.57863832016642,
+            "profit_factor": 0.6221002242035942,
+            "trades": 8,
+            "wins": 3,
+            "max_drawdown_inr": 29.53955840072996
+          },
+          {
+            "segment_id": 3,
+            "pnl_inr": 34.31993370500095,
+            "profit_factor": 1.3509959326539795,
+            "trades": 16,
+            "wins": 7,
+            "max_drawdown_inr": 45.342126358477344
+          },
+          {
+            "segment_id": 4,
+            "pnl_inr": 212.81535096220955,
+            "profit_factor": 4.594076885025599,
+            "trades": 18,
+            "wins": 13,
+            "max_drawdown_inr": 22.50067024906457
+          }
+        ],
+        "compounded_pnl_inr": 1430.311133793068,
+        "capture_ratio": 0.19115162293762433,
+        "sum_segment_pnl_inr": 974.5000262565653,
+        "trades_sum": 163,
+        "wins_sum": 81,
+        "median_segment_pf": 1.3756640618094829,
+        "max_segment_drawdown_inr": 218.9381795572965,
+        "exposure_hours": 15.875371388792992,
+        "pnl_per_exposure_hour": 61.384392364168605,
+        "pnl_per_trade_inr": 5.978527768445186,
+        "mean_hold_sec": 350.62169938438507,
+        "burst_trades": 17,
+        "burst_pnl_inr": 100.84866556910197,
+        "burst_exposure_hours": 0.3045036109950807,
+        "burst_pnl_per_exposure_hour": 331.19037649353584
+      },
+      "multi_ticket": {
+        "compounded_pnl_inr": 29.151505110706964,
+        "capture_ratio": 0.0038959058496654854,
+        "trades_sum": 147,
+        "wins_sum": 80,
+        "median_segment_pf": 1.0931093645569672,
+        "max_segment_marked_drawdown_inr": 66.94859620859609,
+        "ticket_exposure_hours": 11.710303333070543,
+        "pnl_per_ticket_exposure_hour_inr": 2.4893894104674046,
+        "peak_open_tickets": 3,
+        "mean_hold_sec": 286.7829387690745,
+        "days_at_or_above_100_inr": 0,
+        "observed_quote_utc_days": 3,
+        "mean_realized_pnl_per_observed_quote_day_inr": 9.717168370235576,
+        "segments": [
+          {
+            "segment_id": 0,
+            "pnl_inr": 29.15150511070692,
+            "profit_factor": 1.0931093645569672,
+            "trades": 147,
+            "wins": 80,
+            "max_marked_drawdown_inr": 66.94859620859609,
+            "ticket_exposure_hours": 11.710303333070543,
+            "peak_open_tickets": 3
+          }
+        ]
+      },
+      "multi_ticket_cost_stress": {
+        "compounded_pnl_inr": 14.718890922538307,
+        "capture_ratio": 0.001967082420888235,
+        "trades_sum": 147,
+        "wins_sum": 72,
+        "median_segment_pf": 1.0433228755753325,
+        "max_segment_marked_drawdown_inr": 71.6145620617059,
+        "ticket_exposure_hours": 11.74969361073441,
+        "pnl_per_ticket_exposure_hour_inr": 1.2527042329930431,
+        "peak_open_tickets": 3,
+        "mean_hold_sec": 287.74759863023047,
+        "days_at_or_above_100_inr": 0,
+        "observed_quote_utc_days": 3,
+        "mean_realized_pnl_per_observed_quote_day_inr": 4.906296974179459,
+        "segments": [
+          {
+            "segment_id": 0,
+            "pnl_inr": 14.718890922538321,
+            "profit_factor": 1.0433228755753325,
+            "trades": 147,
+            "wins": 72,
+            "max_marked_drawdown_inr": 71.6145620617059,
+            "ticket_exposure_hours": 11.74969361073441,
+            "peak_open_tickets": 3
+          }
+        ]
+      }
+    },
+    "1s": {
+      "v4_4": {
+        "strategy": "v4_4",
+        "segments": [
+          {
+            "pnl_inr": 163.48391828732008,
+            "profit_factor": 1.1868460748900047,
+            "trades": 93,
+            "wins": 39,
+            "max_drawdown_inr": 171.33513747353095
+          },
+          {
+            "pnl_inr": 40.554538284406476,
+            "profit_factor": 1.3667416867033877,
+            "trades": 20,
+            "wins": 10,
+            "max_drawdown_inr": 52.213396197676786
+          },
+          {
+            "pnl_inr": -45.95461543615477,
+            "profit_factor": 0.23840252009619664,
+            "trades": 8,
+            "wins": 1,
+            "max_drawdown_inr": 55.95226824865756
+          },
+          {
+            "pnl_inr": 74.2718450132844,
+            "profit_factor": 2.2171355638004178,
+            "trades": 8,
+            "wins": 4,
+            "max_drawdown_inr": 38.20065636161257
+          },
+          {
+            "pnl_inr": 56.903063384355164,
+            "profit_factor": 1.5040458273167552,
+            "trades": 16,
+            "wins": 9,
+            "max_drawdown_inr": 50.54131594253204
+          }
+        ],
+        "compounded_pnl_inr": 333.27105856299124,
+        "capture_ratio": 0.044539472718438944,
+        "trades_sum": 145,
+        "wins_sum": 63,
+        "median_segment_pf": 1.3667416867033877,
+        "max_segment_drawdown_inr": 171.33513747353095
+      },
+      "candidate_d_reference": {
+        "segments": [
+          {
+            "segment_id": 0,
+            "pnl_inr": 169.91793307493617,
+            "profit_factor": 1.1919652394865075,
+            "trades": 98,
+            "wins": 42,
+            "max_drawdown_inr": 172.14469599809354
+          },
+          {
+            "segment_id": 1,
+            "pnl_inr": 41.93295235703238,
+            "profit_factor": 1.3782424048517317,
+            "trades": 21,
+            "wins": 11,
+            "max_drawdown_inr": 52.346540357980984
+          },
+          {
+            "segment_id": 2,
+            "pnl_inr": -45.95461543615477,
+            "profit_factor": 0.23840252009619664,
+            "trades": 8,
+            "wins": 1,
+            "max_drawdown_inr": 55.95226824865756
+          },
+          {
+            "segment_id": 3,
+            "pnl_inr": 80.42284290821033,
+            "profit_factor": 2.2676857449932504,
+            "trades": 11,
+            "wins": 6,
+            "max_drawdown_inr": 45.0062855503611
+          },
+          {
+            "segment_id": 4,
+            "pnl_inr": 78.27872866041719,
+            "profit_factor": 1.6772007246054033,
+            "trades": 18,
+            "wins": 11,
+            "max_drawdown_inr": 40.75649050493149
+          }
+        ],
+        "compounded_pnl_inr": 385.2544619534224,
+        "capture_ratio": 0.05148671076275925,
+        "sum_segment_pnl_inr": 324.5978415644413,
+        "trades_sum": 156,
+        "wins_sum": 71,
+        "median_segment_pf": 1.3782424048517317,
+        "max_segment_drawdown_inr": 172.14469599809354,
+        "exposure_hours": 17.279049722221163,
+        "pnl_per_exposure_hour": 18.785630389557983,
+        "pnl_per_trade_inr": 2.0807553946438544,
+        "mean_hold_sec": 398.74730128202685,
+        "burst_trades": 12,
+        "burst_pnl_inr": 22.039973634764795,
+        "burst_exposure_hours": 0.18580249985059102,
+        "burst_pnl_per_exposure_hour": 118.62043649836656
+      },
+      "multi_ticket": {
+        "compounded_pnl_inr": -23.12654033547712,
+        "capture_ratio": -0.003090709156640355,
+        "trades_sum": 117,
+        "wins_sum": 58,
+        "median_segment_pf": 0.9153108475421691,
+        "max_segment_marked_drawdown_inr": 86.07160752096439,
+        "ticket_exposure_hours": 9.985878611538146,
+        "pnl_per_ticket_exposure_hour_inr": -2.315924440414852,
+        "peak_open_tickets": 3,
+        "mean_hold_sec": 307.25780343194293,
+        "days_at_or_above_100_inr": 0,
+        "observed_quote_utc_days": 3,
+        "mean_realized_pnl_per_observed_quote_day_inr": -7.708846778492325,
+        "segments": [
+          {
+            "segment_id": 0,
+            "pnl_inr": -23.126540335477102,
+            "profit_factor": 0.9153108475421691,
+            "trades": 117,
+            "wins": 58,
+            "max_marked_drawdown_inr": 86.07160752096439,
+            "ticket_exposure_hours": 9.985878611538146,
+            "peak_open_tickets": 3
+          }
+        ]
+      },
+      "multi_ticket_cost_stress": {
+        "compounded_pnl_inr": -62.80623974358629,
+        "capture_ratio": -0.008393638540558935,
+        "trades_sum": 117,
+        "wins_sum": 50,
+        "median_segment_pf": 0.7771449733634517,
+        "max_segment_marked_drawdown_inr": 95.53111742841003,
+        "ticket_exposure_hours": 10.231867222454813,
+        "pnl_per_ticket_exposure_hour_inr": -6.138296987059408,
+        "peak_open_tickets": 3,
+        "mean_hold_sec": 314.8266837678404,
+        "days_at_or_above_100_inr": 0,
+        "observed_quote_utc_days": 3,
+        "mean_realized_pnl_per_observed_quote_day_inr": -20.93541324786214,
+        "segments": [
+          {
+            "segment_id": 0,
+            "pnl_inr": -62.806239743586275,
+            "profit_factor": 0.7771449733634517,
+            "trades": 117,
+            "wins": 50,
+            "max_marked_drawdown_inr": 95.53111742841003,
+            "ticket_exposure_hours": 10.231867222454813,
+            "peak_open_tickets": 3
+          }
+        ]
+      }
+    }
+  }
+}

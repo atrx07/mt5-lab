@@ -286,6 +286,7 @@ Examples:
 - `13-v4-4-parity-and-lock.md`
 - `15-v4-5-burst-candidate-b.md`
 - `20-v4-5-exposure-velocity.md`
+- `21-v4-5-multi-ticket-horizon.md`
 
 Experiment numbers are chronological across the project, not reset each day.
 
@@ -433,7 +434,8 @@ Current V4.5 research evidence directories:
 - `results/simulations/2026-09-24-v4_5-c-profit-velocity/` — completed negative C1 lifecycle search;
 - `results/simulations/2026-09-24-v4_5-burst-path-autopsy/` — Experiment 18 diagnostic;
 - `results/simulations/2026-09-24-v4_5-confirmed-failure/` — provisional Candidate D evidence;
-- `results/simulations/2026-09-24-v4_5-exposure-velocity/` — latest Experiment 20 negative evidence.
+- `results/simulations/2026-09-24-v4_5-exposure-velocity/` — completed Experiment 20 negative evidence;
+- `results/simulations/2026-09-24-v4_5-multi-ticket-horizon/` — latest Experiment 21 negative independent multi-position evidence.
 
 ### Result-directory contents
 
@@ -511,7 +513,8 @@ Do not create `paper_challenge_v4_5.py` until V4.5 is actually selected/locked f
 - `v4_5_profit_velocity_search.py` — completed Experiment 17 C1 lifecycle search;
 - `v4_5_burst_path_autopsy.py` — completed Experiment 18 BURST trace and Candidate D simulator foundation;
 - `v4_5_confirmed_failure.py` — provisional Candidate D replay from Experiment 19;
-- `v4_5_exposure_velocity.py` — latest Experiment 20 PRIMARY/SECONDARY diagnostic and rejected seed variants.
+- `v4_5_exposure_velocity.py` — completed Experiment 20 PRIMARY/SECONDARY diagnostic and rejected seed variants;
+- `v4_5_multi_ticket_horizon.py` — completed Experiment 21 independent multi-ticket trend/impulse/reversal research replay, not a current live or paper strategy.
 
 The next raw-event admission test has not been implemented. Do not describe an old search script as the active next-step harness.
 
@@ -629,6 +632,9 @@ docs/experiments/2026-09-24/20-v4-5-exposure-velocity.md
 results/simulations/2026-09-24-v4_5-exposure-velocity/
 scripts/v4_5_confirmed_failure.py
 scripts/v4_5_exposure_velocity.py
+docs/experiments/2026-09-24/21-v4-5-multi-ticket-horizon.md
+results/simulations/2026-09-24-v4_5-multi-ticket-horizon/
+scripts/v4_5_multi_ticket_horizon.py
 ```
 
 If the latest experiment number/version changes later, follow the indexes rather than assuming the paths above remain the newest.
