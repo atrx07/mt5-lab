@@ -11,7 +11,8 @@ jev-lab/
 ├── README.md                 human-facing status and entry points
 ├── .gitignore                local secrets and large generated data
 ├── configs/                  frozen, versioned experiment/policy settings
-│   └── .gitkeep
+│   ├── .gitkeep
+│   └── 2026-09-24-00-btc-spot-baseline.json
 ├── data/
 │   ├── README.md             acquisition, retention and manifest rules
 │   ├── raw/                  immutable local source captures; ignored by Git
@@ -23,13 +24,16 @@ jev-lab/
 ├── docs/
 │   ├── README.md             documentation index
 │   ├── algorithms/           versioned strategy and policy specifications
-│   │   └── README.md
+│   │   ├── README.md
+│   │   └── baseline-v1.md
 │   ├── experiments/          dated protocols, findings and decisions
-│   │   └── README.md
+│   │   ├── README.md
+│   │   └── 2026-09-24-00-btc-spot-baseline.md
 │   ├── plans/                scoped implementation or milestone plans
 │   │   └── README.md
 │   └── sources/              dated research on external APIs/bots/venues
 │       ├── README.md
+│       ├── 2026-09-24-binance-spot-data.md
 │       └── 2026-09-24-typesafe-api.md
 ├── results/
 │   ├── README.md             evidence-bundle contract and index
