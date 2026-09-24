@@ -44,6 +44,17 @@ def verify_dataset(path: Path):
     return digest
 
 
+def _epoch_seconds_ns(series):
+    """Return epoch seconds after explicitly normalizing datetime resolution to ns.
+
+    Pandas 3 may store parsed datetimes at microsecond resolution, so dividing a
+    bare astype("int64") result by 1e9 is not portable across pandas versions.
+    The canonical replay contract is nanosecond-based regardless of dataframe
+    internal resolution.
+    """
+    return series.to_numpy(dtype="datetime64[ns]").astype(np.int64) / 1e9
+
+
 def build_features(path: Path, interval: str):
     raw = pd.read_csv(path, nrows=RESEARCH_ROWS, usecols=["timestamp_utc", "bid", "ask"])
     raw["t"] = pd.to_datetime(raw.timestamp_utc, utc=True, format="mixed")
@@ -57,12 +68,13 @@ def build_features(path: Path, interval: str):
     raw["up"] = (md > 0).astype("int8")
     raw["down"] = (md < 0).astype("int8")
 
+    raw_t_seconds = _epoch_seconds_ns(raw["t"])
     bounds = []
     for b in BOUND_RAW:
         if b >= len(raw):
-            bounds.append(raw.t.iloc[-1].value / 1e9 + 1e-6)
+            bounds.append(raw_t_seconds[-1] + 1e-6)
         else:
-            bounds.append(raw.t.iloc[b].value / 1e9)
+            bounds.append(raw_t_seconds[b])
 
     # Canonical sampling: floor raw event timestamps to interval, keep the LAST quote in each
     # (raw continuity session, interval bucket). Empty buckets are not synthesized.
@@ -103,7 +115,7 @@ def build_features(path: Path, interval: str):
     for _, ids in df.groupby("ss", sort=False).groups.items():
         ii = np.asarray(list(ids), dtype=np.int64)
         z = df.loc[ii]
-        ts = z.t.astype("int64").to_numpy() / 1e9
+        ts = _epoch_seconds_ns(z["t"])
         mids = z.mid.to_numpy()
 
         for h in [10, 30, 60, 120, 300, 1800]:
@@ -134,7 +146,7 @@ def build_features(path: Path, interval: str):
         df.loc[ii, "ch_low120"] = zz.mid.rolling("120s").min().shift(1).to_numpy()
 
     arrays = {
-        c: (df[c].astype("int64").to_numpy() / 1e9 if c == "t" else df[c].to_numpy())
+        c: (_epoch_seconds_ns(df[c]) if c == "t" else df[c].to_numpy())
         for c in FEATURE_NAMES
     }
     return arrays, bounds
