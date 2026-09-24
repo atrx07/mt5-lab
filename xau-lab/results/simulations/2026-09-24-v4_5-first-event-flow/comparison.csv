@@ -1,0 +1,5 @@
+sampling,configuration,compounded_pnl_inr,capture_ratio,median_segment_pf,trades_sum,worst_segment_drawdown_inr
+500ms,reconstructed_v4_4,1097.659652,0.146694953,1.284084,148,229.306869
+500ms,v4_5_a_micro_er016_qacc085,1081.692718,0.144561077,1.362358,143,246.981462
+1s,reconstructed_v4_4,333.271059,0.044539473,1.366742,145,171.335137
+1s,v4_5_a_micro_er016_qacc085,283.071947,0.037830693,1.366742,145,159.769817
