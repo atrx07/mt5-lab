@@ -4,6 +4,15 @@ Experimental XAUUSD research and paper-trading lab built around MetaTrader 5.
 
 > **Safety / scope:** every script in this lab is paper-only by default. None of the live-paper scripts call `mt5.order_send()`. The synthetic position sizes used in the ₹500 experiments are below the broker's observed minimum live size and are not directly executable on that account.
 
+## Agent / new-chat continuation
+
+For any new chat or coding-agent session, read these first:
+
+1. [`agents.md`](agents.md) — canonical project instructions, research discipline, current state and continuation rules.
+2. [`structure.md`](structure.md) — canonical file/directory placement and naming contract.
+
+Repository evidence on `main` is the source of truth when chat memory disagrees.
+
 ## Environment observed during the experiments
 
 - Instrument: `XAUUSD`
@@ -28,16 +37,17 @@ Experimental XAUUSD research and paper-trading lab built around MetaTrader 5.
 | V4.2 experimental | V4.1 primary + secondary breakout outside slow directional gate | first-80% continuous capture ~5.51% |
 | **V4.3 locked** | **regime-adaptive V4.2 composite** | **canonical five-segment compounded result +₹603.60; ~8.07% capture** |
 | **V4.4 locked** | **V4.3 + MICRO structural engine + Candidate K management** | **historical lock: 16.36% / 11.54%; reproducible replay oracle: 14.67% / 4.45%; final holdout unopened** |
+| **V4.5 research** | **V4.4 + verified BURST research; profit-velocity/lifecycle optimization in progress** | **Candidate B: 17.3652% at 500 ms / 4.8814% at 1 s; not locked** |
 
-V4.4 is now the current experimental paper version. It is a locked fractional research version, not a major-generation graduation and not a claim of proven future profitability.
+V4.4 is the current locked fractional experimental paper version. V4.5 is the active research line and is not locked.
 
 Starting with V4.5 research, all candidate simulations must use the parity-gated canonical replay harness. V4.4's strategy parameters are unchanged; the 14.67% / 4.45% regression values are a reproducible measurement re-baseline used only as the future comparison oracle. The earlier 16.36% / 11.54% lock outputs remain preserved as historical research evidence.
 
 V4.3 replay-parity documentation was corrected during the V4.4 lock: its canonical +₹603.60 figure is the compounded result of five independently reset research segments, not a literal one-pass continuous replay.
 
-Any change to the locked V4.4 configuration becomes V4.5.
+Any change to the locked V4.4 configuration belongs to V4.5 research.
 
-The final 20% research holdout remains unopened.
+The final 20% research holdout remains unopened by the canonical replay workflow.
 
 ## Current experimental paper version
 
@@ -51,6 +61,12 @@ Previous versions remain available:
 python scripts\paper_challenge_v4_3.py
 python scripts\paper_challenge_v4_2.py
 python scripts\paper_challenge_v4_1.py
+```
+
+Active V4.5-C research harness:
+
+```powershell
+python scripts\v4_5_profit_velocity_search.py xau_ticks_7d.csv
 ```
 
 Historical tick export:
@@ -69,8 +85,12 @@ See [`data/README.md`](data/README.md) for the exact archive/push workflow.
 
 ## Documentation
 
+- [Canonical agent instructions](agents.md)
+- [Canonical repository structure](structure.md)
 - [Algorithm index](docs/algorithms/README.md)
 - [Experiment index](docs/experiments/README.md)
+- [V4.5 research line](docs/algorithms/v4_5.md)
+- [V4.5-C profit-velocity experiment](docs/experiments/2026-09-24/17-v4-5-c-profit-velocity.md)
 - [V4.1 optimization evidence](docs/experiments/2026-09-23/08-v4-1-optimization.md)
 - [V4.2 algorithm](docs/algorithms/v4_2.md)
 - [V4.3 algorithm](docs/algorithms/v4_3.md)
@@ -88,4 +108,4 @@ Every new V4.x candidate must pass the locked V4.4 regression assertion inside `
 
 ## Research discipline
 
-Major-version graduation requires realistic bid/ask execution, untouched holdout evidence, multiple regimes, drawdown checks, stress tests and live-paper validation. Fractional versions may be locked as experimental iterations when they show a distinct measurable improvement while preserving fixed risk discipline. Hourly earning targets are evaluation benchmarks, not instructions to force trades or increase risk.
+Major-version graduation requires realistic bid/ask execution, holdout evidence with its provenance caveat, multiple regimes, drawdown checks, stress tests and live-paper validation. Fractional versions may be locked as experimental iterations when they show a distinct measurable improvement while preserving fixed risk discipline. Hourly earning/capture targets are evaluation benchmarks, not instructions to force trades or increase risk.
