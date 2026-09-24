@@ -16,6 +16,7 @@ Each strategy generation lives in its own file so future versions can be added w
 - [V4.2 — V4.1 primary + secondary breakout](v4_2.md)
 - [V4.3 — locked regime-adaptive composite](v4_3.md)
 - [V4.4 — MICRO structural engine + Candidate K management](v4_4.md)
+- [V4.5 — profit-velocity research line](v4_5.md)
 - [Future JEV integration](future-jev.md)
 
 The runnable implementations live in [../../scripts](../../scripts).
