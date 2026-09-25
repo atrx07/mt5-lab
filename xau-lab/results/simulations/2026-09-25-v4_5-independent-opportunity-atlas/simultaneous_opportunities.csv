@@ -1,0 +1,5 @@
+window,interval,entry_events,simultaneous_multi_engine_events,simultaneous_fraction,combinations
+historical7d,1s,219,8,0.0365296803652968,"{""BURST|MICRO"":1,""BURST|SECONDARY"":2,""MICRO|PRIMARY"":1,""MICRO|SECONDARY"":3,""PRIMARY|SECONDARY"":1}"
+historical7d,500ms,226,8,0.035398230088495575,"{""BURST|MICRO"":1,""BURST|SECONDARY"":1,""MICRO|PRIMARY"":2,""MICRO|SECONDARY"":4}"
+recent24h,1s,42,1,0.023809523809523808,"{""MICRO|PRIMARY|SECONDARY"":1}"
+recent24h,500ms,45,1,0.022222222222222223,"{""MICRO|SECONDARY"":1}"
