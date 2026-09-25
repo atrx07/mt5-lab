@@ -304,6 +304,7 @@ Examples:
 - `26-v4-5-regime-portability.md`
 - `27-v4-5-state-v2-freeze.md`
 - `28-v4-5-router-v2-implementation.md`
+- `29-v4-5-router-v2-preflight.md`
 
 Experiment numbers are chronological across the project, not reset each day.
 
@@ -460,6 +461,7 @@ Current V4.5 research evidence directories:
 - `results/simulations/2026-09-25-v4_5-regime-portability/` — Experiment 26 frozen raw-event regime replay on the recent 24-hour snapshot, transfer matrix and PRIMARY outcome diagnostics.
 - `results/simulations/2026-09-25-v4_5-state-v2-freeze/` — Experiment 27 frozen 20-feature continuous state-v2 catalog, coverage/stability diagnostics and descriptive PRIMARY outcome profiles.
 - `results/simulations/2026-09-25-v4_5-router-v2-implementation/` — Experiment 28 frozen Router v2 structural config; unseen validation pending.
+- `results/simulations/2026-09-25-v4_5-router-v2-preflight/` — Experiment 29 known-ledger gate proxy, recent-window comparison and seeded variable-regime bootstrap; not promotion evidence.
 
 ### Result-directory contents
 
@@ -524,7 +526,7 @@ Do not place replay harnesses, diagnostics, searches, feature/model experiments,
 
 All non-final strategy-development code belongs here. This includes canonical replay, diagnostics, feature/model experiments, candidate searches and intermediate research harnesses.
 
-Current important files include `canonical_replay.py`, `replay_lab.py`, and the `v4_5_*.py` research line through Experiment 28, including `v4_5_router_v2.py`.
+Current important files include `canonical_replay.py`, `replay_lab.py`, and the `v4_5_*.py` research line through Experiment 29, including `v4_5_router_v2.py` and `v4_5_router_v2_preflight.py`.
 
 For new intermediate work use descriptive version-prefixed names such as `research/v4_5_<purpose>.py`.
 
@@ -670,6 +672,9 @@ research/v4_5_state_v2_freeze.py
 docs/experiments/2026-09-25/28-v4-5-router-v2-implementation.md
 results/simulations/2026-09-25-v4_5-router-v2-implementation/
 research/v4_5_router_v2.py
+docs/experiments/2026-09-25/29-v4-5-router-v2-preflight.md
+results/simulations/2026-09-25-v4_5-router-v2-preflight/
+research/v4_5_router_v2_preflight.py
 ```
 
 If the latest experiment number/version changes later, follow the indexes rather than assuming the paths above remain the newest.

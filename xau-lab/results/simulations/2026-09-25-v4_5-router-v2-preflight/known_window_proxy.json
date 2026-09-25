@@ -1,0 +1,89 @@
+{
+  "schema": "xau-router-v2-preflight-v1",
+  "full_raw_tick_replay": false,
+  "fall_through_modeled": false,
+  "promotion_evidence": false,
+  "historical": {
+    "500ms": {
+      "candidate_d": {
+        "compounded_pnl_inr": 1430.3111337930673,
+        "trades": 163,
+        "wins": 81,
+        "win_rate": 0.49693251533742333
+      },
+      "proxy": {
+        "compounded_pnl_inr": 1181.5814988891145,
+        "trades": 159,
+        "wins": 79,
+        "win_rate": 0.4968553459119497,
+        "retention": 0.9754601226993865
+      },
+      "rejected": {
+        "trades": 4,
+        "wins": 2,
+        "raw_pnl_inr": 163.99461097513714
+      }
+    },
+    "1s": {
+      "candidate_d": {
+        "compounded_pnl_inr": 385.2544619534219,
+        "trades": 156,
+        "wins": 71,
+        "win_rate": 0.4551282051282051
+      },
+      "proxy": {
+        "compounded_pnl_inr": 219.73456617380748,
+        "trades": 151,
+        "wins": 69,
+        "win_rate": 0.45695364238410596,
+        "retention": 0.967948717948718
+      },
+      "rejected": {
+        "trades": 5,
+        "wins": 2,
+        "raw_pnl_inr": 124.99331116265712
+      }
+    }
+  },
+  "recent_realized_only": {
+    "500ms": {
+      "seed": {
+        "candidate_pnl": -92.47632849025543,
+        "proxy_pnl": -92.47632849025543,
+        "candidate_trades": 19,
+        "proxy_trades": 19,
+        "candidate_wins": 3,
+        "proxy_wins": 3
+      },
+      "evaluation": {
+        "candidate_pnl": -149.92292560013212,
+        "proxy_pnl": -135.51782611350552,
+        "candidate_trades": 19,
+        "proxy_trades": 18,
+        "candidate_wins": 2,
+        "proxy_wins": 2
+      },
+      "combined_retention": 0.9736842105263158
+    },
+    "1s": {
+      "seed": {
+        "candidate_pnl": -86.54334952545445,
+        "proxy_pnl": -86.54334952545445,
+        "candidate_trades": 16,
+        "proxy_trades": 16,
+        "candidate_wins": 3,
+        "proxy_wins": 3
+      },
+      "evaluation": {
+        "candidate_pnl": -52.3124941589271,
+        "proxy_pnl": -37.9033884156756,
+        "candidate_trades": 17,
+        "proxy_trades": 16,
+        "candidate_wins": 5,
+        "proxy_wins": 5
+      },
+      "combined_retention": 0.9696969696969697
+    }
+  },
+  "decision": "Candidate D remains current winner; do not tune Router v2 from this known-data proxy."
+}
