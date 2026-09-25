@@ -69,6 +69,8 @@ Experiment 33 stopped tuning routers around the same fixed data and measured eac
 
 Experiments 34-36 deliberately stop treating the known windows as a tuning scoreboard. Frozen SNAPBACK was rejected unchanged (-₹153.04 / -₹44.78 historical fixed-size P&L at 500 ms / 1 s and zero recent realized opportunities). The separately frozen state-v2 ridge transfer test was weak/anti-correlated historically and essentially uncorrelated on recent transfer. Experiment 36 then added outcome-blind `xau-microstate-v1`: 23 new raw-event features with 100% coverage and strict cross-grid median Spearman 0.869 historical / 0.935 recent. It is a representation foundation, not a candidate. Candidate D remains the V4.5 leader, and the next strategy-changing hypothesis must be frozen before genuinely new non-overlapping raw data is evaluated.
 
+Experiment 37 froze the first actual `xau-microstate-v1` strategy use before reading its outcomes: Candidate E preserved Candidate D and deferred a PRIMARY entry only when both immediate direction-normalized raw mid movement and raw event imbalance contradicted the trade. Candidate D parity passed. Candidate E reduced canonical first80 P&L to **₹1,163.47 / ₹374.58** versus D's **₹1,430.31 / ₹385.25** at 500 ms / 1 s. It improved the already-known recent 24-hour diagnostic to **-₹216.77 / -₹94.08** from **-₹223.27 / -₹135.91**, but both grids remained negative and deterministic four-hour stress-window mean expectancy was slightly worse than D on both grids. **Candidate E is rejected unchanged; Candidate D remains the V4.5 leader.** `xau-microstate-v1` remains a causal feature foundation; do not tune this two-feature veto on the same known windows.
+
 Starting with V4.5 research, all candidate simulations must use the parity-gated canonical replay harness. V4.4's strategy parameters are unchanged; the 14.67% / 4.45% regression values are a reproducible measurement re-baseline used only as the future comparison oracle. The earlier 16.36% / 11.54% lock outputs remain preserved as historical research evidence.
 
 V4.3 replay-parity documentation was corrected during the V4.4 lock: its canonical +₹603.60 figure is the compounded result of five independently reset research segments, not a literal one-pass continuous replay.
@@ -119,6 +121,7 @@ python research\v4_5_independent_opportunity_atlas.py xau_ticks_7d.csv xau_ticks
 python research\v4_5_snapback_foundation.py xau_ticks_7d.csv xau_ticks_recent_24h_2026-09-24.csv.gz
 python research\v4_5_state_v2_walkforward_predictability.py
 python research\v4_5_microstate_v1_freeze.py xau_ticks_7d.csv xau_ticks_recent_24h_2026-09-24.csv.gz
+python research\v4_5_candidate_e_microstate_confirmation.py xau_ticks_7d.csv data/raw/xau_ticks_recent_24h_2026-09-24.csv.gz
 ```
 
 Historical tick export:
