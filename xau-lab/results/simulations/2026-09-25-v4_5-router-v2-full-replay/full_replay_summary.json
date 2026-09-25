@@ -1,0 +1,556 @@
+{
+  "schema": "xau-router-v2-full-replay-v1",
+  "promotion_evidence": false,
+  "score_tuned": false,
+  "final20_opened": false,
+  "random_window_method": "real contiguous four-hour windows sampled from canonical first80 and recent24h; no fabricated price paths",
+  "random_seed": 20260925,
+  "random_windows_per_grid": 40,
+  "random_hours": 4.0,
+  "intervals": {
+    "500ms": {
+      "canonical_first80": {
+        "candidate_d": {
+          "compounded_pnl_inr": 1430.311133793068,
+          "trades": 163,
+          "wins": 81,
+          "win_rate": 0.49693251533742333,
+          "max_segment_drawdown_inr": 218.9381795572965
+        },
+        "router_v2": {
+          "compounded_pnl_inr": 851.2651000196032,
+          "trades": 163,
+          "wins": 78,
+          "win_rate": 0.4785276073619632,
+          "max_segment_drawdown_inr": 163.44363094263338
+        },
+        "pnl_delta_inr": -579.0460337734647,
+        "trade_retention": 1.0,
+        "win_rate_delta": -0.018404907975460127,
+        "candidate_d_segments": [
+          {
+            "pnl_inr": 696.8428619834062,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 696.8428619834062,
+            "open_position_at_end": false,
+            "profit_factor": 1.7428577443389235,
+            "trades": 98,
+            "wins": 46,
+            "win_rate": 0.46938775510204084,
+            "max_drawdown_inr": 218.9381795572965,
+            "routed_entries": 0,
+            "hold_decisions": 0
+          },
+          {
+            "pnl_inr": 44.100517926115,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 44.100517926115,
+            "open_position_at_end": false,
+            "profit_factor": 1.3756640618094829,
+            "trades": 23,
+            "wins": 12,
+            "win_rate": 0.5217391304347826,
+            "max_drawdown_inr": 35.71970634386099,
+            "routed_entries": 0,
+            "hold_decisions": 0
+          },
+          {
+            "pnl_inr": -13.57863832016642,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -13.57863832016642,
+            "open_position_at_end": false,
+            "profit_factor": 0.6221002242035942,
+            "trades": 8,
+            "wins": 3,
+            "win_rate": 0.375,
+            "max_drawdown_inr": 29.53955840072996,
+            "routed_entries": 0,
+            "hold_decisions": 0
+          },
+          {
+            "pnl_inr": 34.31993370500095,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 34.31993370500095,
+            "open_position_at_end": false,
+            "profit_factor": 1.3509959326539795,
+            "trades": 16,
+            "wins": 7,
+            "win_rate": 0.4375,
+            "max_drawdown_inr": 45.342126358477344,
+            "routed_entries": 0,
+            "hold_decisions": 0
+          },
+          {
+            "pnl_inr": 212.81535096220955,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 212.81535096220955,
+            "open_position_at_end": false,
+            "profit_factor": 4.594076885025599,
+            "trades": 18,
+            "wins": 13,
+            "win_rate": 0.7222222222222222,
+            "max_drawdown_inr": 22.50067024906457,
+            "routed_entries": 0,
+            "hold_decisions": 0
+          }
+        ],
+        "router_v2_segments": [
+          {
+            "pnl_inr": 342.8760116610654,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 342.8760116610654,
+            "open_position_at_end": false,
+            "profit_factor": 1.413728225411061,
+            "trades": 98,
+            "wins": 43,
+            "win_rate": 0.4387755102040816,
+            "max_drawdown_inr": 163.44363094263338,
+            "routed_entries": 98,
+            "hold_decisions": 18
+          },
+          {
+            "pnl_inr": 43.26730715876124,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 43.26730715876124,
+            "open_position_at_end": false,
+            "profit_factor": 1.3663701830223098,
+            "trades": 23,
+            "wins": 12,
+            "win_rate": 0.5217391304347826,
+            "max_drawdown_inr": 36.497937624756275,
+            "routed_entries": 23,
+            "hold_decisions": 4
+          },
+          {
+            "pnl_inr": -13.57863832016642,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -13.57863832016642,
+            "open_position_at_end": false,
+            "profit_factor": 0.6221002242035942,
+            "trades": 8,
+            "wins": 3,
+            "win_rate": 0.375,
+            "max_drawdown_inr": 29.53955840072996,
+            "routed_entries": 8,
+            "hold_decisions": 0
+          },
+          {
+            "pnl_inr": 34.31993370500095,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 34.31993370500095,
+            "open_position_at_end": false,
+            "profit_factor": 1.3509959326539795,
+            "trades": 16,
+            "wins": 7,
+            "win_rate": 0.4375,
+            "max_drawdown_inr": 45.342126358477344,
+            "routed_entries": 16,
+            "hold_decisions": 0
+          },
+          {
+            "pnl_inr": 209.62563688630507,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 209.62563688630507,
+            "open_position_at_end": false,
+            "profit_factor": 4.546238297688078,
+            "trades": 18,
+            "wins": 13,
+            "win_rate": 0.7222222222222222,
+            "max_drawdown_inr": 22.399983999092797,
+            "routed_entries": 18,
+            "hold_decisions": 0
+          }
+        ]
+      },
+      "recent24h_whole": {
+        "candidate_d": {
+          "pnl_inr": -223.27329174700338,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -223.27329174700338,
+          "open_position_at_end": false,
+          "profit_factor": 0.22462663024633286,
+          "trades": 39,
+          "wins": 5,
+          "win_rate": 0.1282051282051282,
+          "max_drawdown_inr": 230.22212602319553,
+          "routed_entries": 0,
+          "hold_decisions": 0
+        },
+        "router_v2": {
+          "pnl_inr": -210.63065213691834,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -210.63065213691834,
+          "open_position_at_end": false,
+          "profit_factor": 0.23673963598532818,
+          "trades": 38,
+          "wins": 5,
+          "win_rate": 0.13157894736842105,
+          "max_drawdown_inr": 217.8969534477119,
+          "routed_entries": 38,
+          "hold_decisions": 1
+        },
+        "terminal_equity_pnl_delta_inr": 12.642639610085041,
+        "trade_retention": 0.9743589743589743,
+        "win_rate_delta": 0.0033738191632928516
+      },
+      "recent24h_split": [
+        {
+          "split": "seed",
+          "candidate_d": {
+            "pnl_inr": -92.47632849025553,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -92.47632849025553,
+            "open_position_at_end": false,
+            "profit_factor": 0.35314786361894923,
+            "trades": 19,
+            "wins": 3,
+            "win_rate": 0.15789473684210525,
+            "max_drawdown_inr": 92.47632849025553,
+            "routed_entries": 0,
+            "hold_decisions": 0
+          },
+          "router_v2": {
+            "pnl_inr": -92.47632849025553,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -92.47632849025553,
+            "open_position_at_end": false,
+            "profit_factor": 0.35314786361894923,
+            "trades": 19,
+            "wins": 3,
+            "win_rate": 0.15789473684210525,
+            "max_drawdown_inr": 92.47632849025553,
+            "routed_entries": 19,
+            "hold_decisions": 0
+          }
+        },
+        {
+          "split": "evaluation",
+          "candidate_d": {
+            "pnl_inr": -149.92292560013215,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -149.92292560013215,
+            "open_position_at_end": false,
+            "profit_factor": 0.10696816560845236,
+            "trades": 19,
+            "wins": 2,
+            "win_rate": 0.10526315789473684,
+            "max_drawdown_inr": 158.7136476423097,
+            "routed_entries": 0,
+            "hold_decisions": 0
+          },
+          "router_v2": {
+            "pnl_inr": -133.92917380316396,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -133.92917380316396,
+            "open_position_at_end": false,
+            "profit_factor": 0.12296930242283398,
+            "trades": 18,
+            "wins": 2,
+            "win_rate": 0.1111111111111111,
+            "max_drawdown_inr": 143.12151205142914,
+            "routed_entries": 18,
+            "hold_decisions": 1
+          }
+        }
+      ],
+      "random_real_windows": {
+        "candidate_d": {
+          "windows": 40,
+          "median_terminal_equity_pnl_inr": 0.0,
+          "mean_terminal_equity_pnl_inr": -10.104912182455475,
+          "p05_terminal_equity_pnl_inr": -104.00290639915636,
+          "p95_terminal_equity_pnl_inr": 42.48443335717415,
+          "positive_window_fraction": 0.275,
+          "total_trades": 184,
+          "total_wins": 57,
+          "aggregate_win_rate": 0.30978260869565216
+        },
+        "router_v2": {
+          "windows": 40,
+          "median_terminal_equity_pnl_inr": 0.0,
+          "mean_terminal_equity_pnl_inr": -11.029512630950261,
+          "p05_terminal_equity_pnl_inr": -96.34214903760125,
+          "p95_terminal_equity_pnl_inr": 42.48443335717415,
+          "positive_window_fraction": 0.275,
+          "total_trades": 183,
+          "total_wins": 56,
+          "aggregate_win_rate": 0.30601092896174864
+        },
+        "router_better_window_fraction": 0.025,
+        "trade_retention": 0.9945652173913043
+      }
+    },
+    "1s": {
+      "canonical_first80": {
+        "candidate_d": {
+          "compounded_pnl_inr": 385.2544619534224,
+          "trades": 156,
+          "wins": 71,
+          "win_rate": 0.4551282051282051,
+          "max_segment_drawdown_inr": 172.14469599809354
+        },
+        "router_v2": {
+          "compounded_pnl_inr": 297.6666981590078,
+          "trades": 156,
+          "wins": 70,
+          "win_rate": 0.44871794871794873,
+          "max_segment_drawdown_inr": 180.8123568954008
+        },
+        "pnl_delta_inr": -87.58776379441457,
+        "trade_retention": 1.0,
+        "win_rate_delta": -0.0064102564102563875,
+        "candidate_d_segments": [
+          {
+            "pnl_inr": 169.91793307493617,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 169.91793307493617,
+            "open_position_at_end": false,
+            "profit_factor": 1.1919652394865075,
+            "trades": 98,
+            "wins": 42,
+            "win_rate": 0.42857142857142855,
+            "max_drawdown_inr": 172.14469599809354,
+            "routed_entries": 0,
+            "hold_decisions": 0
+          },
+          {
+            "pnl_inr": 41.93295235703238,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 41.93295235703238,
+            "open_position_at_end": false,
+            "profit_factor": 1.3782424048517317,
+            "trades": 21,
+            "wins": 11,
+            "win_rate": 0.5238095238095238,
+            "max_drawdown_inr": 52.346540357980984,
+            "routed_entries": 0,
+            "hold_decisions": 0
+          },
+          {
+            "pnl_inr": -45.95461543615477,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -45.95461543615477,
+            "open_position_at_end": false,
+            "profit_factor": 0.23840252009619664,
+            "trades": 8,
+            "wins": 1,
+            "win_rate": 0.125,
+            "max_drawdown_inr": 55.95226824865756,
+            "routed_entries": 0,
+            "hold_decisions": 0
+          },
+          {
+            "pnl_inr": 80.42284290821033,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 80.42284290821033,
+            "open_position_at_end": false,
+            "profit_factor": 2.2676857449932504,
+            "trades": 11,
+            "wins": 6,
+            "win_rate": 0.5454545454545454,
+            "max_drawdown_inr": 45.0062855503611,
+            "routed_entries": 0,
+            "hold_decisions": 0
+          },
+          {
+            "pnl_inr": 78.27872866041719,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 78.27872866041719,
+            "open_position_at_end": false,
+            "profit_factor": 1.6772007246054033,
+            "trades": 18,
+            "wins": 11,
+            "win_rate": 0.6111111111111112,
+            "max_drawdown_inr": 40.75649050493149,
+            "routed_entries": 0,
+            "hold_decisions": 0
+          }
+        ],
+        "router_v2_segments": [
+          {
+            "pnl_inr": 107.89276462516796,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 107.89276462516796,
+            "open_position_at_end": false,
+            "profit_factor": 1.1304713370547312,
+            "trades": 98,
+            "wins": 41,
+            "win_rate": 0.41836734693877553,
+            "max_drawdown_inr": 180.8123568954008,
+            "routed_entries": 98,
+            "hold_decisions": 10
+          },
+          {
+            "pnl_inr": 43.09908622997193,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 43.09908622997193,
+            "open_position_at_end": false,
+            "profit_factor": 1.3923336517576026,
+            "trades": 21,
+            "wins": 11,
+            "win_rate": 0.5238095238095238,
+            "max_drawdown_inr": 51.247726346920615,
+            "routed_entries": 21,
+            "hold_decisions": 1
+          },
+          {
+            "pnl_inr": -45.95461543615477,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -45.95461543615477,
+            "open_position_at_end": false,
+            "profit_factor": 0.23840252009619664,
+            "trades": 8,
+            "wins": 1,
+            "win_rate": 0.125,
+            "max_drawdown_inr": 55.95226824865756,
+            "routed_entries": 8,
+            "hold_decisions": 0
+          },
+          {
+            "pnl_inr": 80.42284290821033,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 80.42284290821033,
+            "open_position_at_end": false,
+            "profit_factor": 2.2676857449932504,
+            "trades": 11,
+            "wins": 6,
+            "win_rate": 0.5454545454545454,
+            "max_drawdown_inr": 45.0062855503611,
+            "routed_entries": 11,
+            "hold_decisions": 0
+          },
+          {
+            "pnl_inr": 72.99610605579267,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 72.99610605579267,
+            "open_position_at_end": false,
+            "profit_factor": 1.632409983428852,
+            "trades": 18,
+            "wins": 11,
+            "win_rate": 0.6111111111111112,
+            "max_drawdown_inr": 40.75649050493149,
+            "routed_entries": 18,
+            "hold_decisions": 0
+          }
+        ]
+      },
+      "recent24h_whole": {
+        "candidate_d": {
+          "pnl_inr": -135.9095261798986,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -135.9095261798986,
+          "open_position_at_end": false,
+          "profit_factor": 0.42272300867364804,
+          "trades": 34,
+          "wins": 8,
+          "win_rate": 0.23529411764705882,
+          "max_drawdown_inr": 143.89070468400888,
+          "routed_entries": 0,
+          "hold_decisions": 0
+        },
+        "router_v2": {
+          "pnl_inr": -144.21850017990067,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -144.21850017990067,
+          "open_position_at_end": false,
+          "profit_factor": 0.4004371006923247,
+          "trades": 36,
+          "wins": 8,
+          "win_rate": 0.2222222222222222,
+          "max_drawdown_inr": 152.01753877800286,
+          "routed_entries": 36,
+          "hold_decisions": 14
+        },
+        "terminal_equity_pnl_delta_inr": -8.308974000002081,
+        "trade_retention": 1.0588235294117647,
+        "win_rate_delta": -0.01307189542483661
+      },
+      "recent24h_split": [
+        {
+          "split": "seed",
+          "candidate_d": {
+            "pnl_inr": -86.5433495254544,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -86.5433495254544,
+            "open_position_at_end": false,
+            "profit_factor": 0.36712647671085546,
+            "trades": 16,
+            "wins": 3,
+            "win_rate": 0.1875,
+            "max_drawdown_inr": 86.5433495254544,
+            "routed_entries": 0,
+            "hold_decisions": 0
+          },
+          "router_v2": {
+            "pnl_inr": -103.64166854316892,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -103.64166854316892,
+            "open_position_at_end": false,
+            "profit_factor": 0.3171084583049175,
+            "trades": 18,
+            "wins": 3,
+            "win_rate": 0.16666666666666666,
+            "max_drawdown_inr": 103.64166854316892,
+            "routed_entries": 18,
+            "hold_decisions": 13
+          }
+        },
+        {
+          "split": "evaluation",
+          "candidate_d": {
+            "pnl_inr": -52.31249415892705,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -52.31249415892705,
+            "open_position_at_end": false,
+            "profit_factor": 0.536875919765751,
+            "trades": 17,
+            "wins": 5,
+            "win_rate": 0.29411764705882354,
+            "max_drawdown_inr": 62.12619200355397,
+            "routed_entries": 0,
+            "hold_decisions": 0
+          },
+          "router_v2": {
+            "pnl_inr": -43.657402408116866,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -43.657402408116866,
+            "open_position_at_end": false,
+            "profit_factor": 0.5860798008208971,
+            "trades": 17,
+            "wins": 5,
+            "win_rate": 0.29411764705882354,
+            "max_drawdown_inr": 53.66082735960242,
+            "routed_entries": 17,
+            "hold_decisions": 1
+          }
+        }
+      ],
+      "random_real_windows": {
+        "candidate_d": {
+          "windows": 40,
+          "median_terminal_equity_pnl_inr": -7.764537501051555,
+          "mean_terminal_equity_pnl_inr": -13.369314810621976,
+          "p05_terminal_equity_pnl_inr": -70.09945105407792,
+          "p95_terminal_equity_pnl_inr": 25.41334315603027,
+          "positive_window_fraction": 0.125,
+          "total_trades": 149,
+          "total_wins": 33,
+          "aggregate_win_rate": 0.2214765100671141
+        },
+        "router_v2": {
+          "windows": 40,
+          "median_terminal_equity_pnl_inr": -7.764537501051555,
+          "mean_terminal_equity_pnl_inr": -13.84275493547687,
+          "p05_terminal_equity_pnl_inr": -69.70086863497099,
+          "p95_terminal_equity_pnl_inr": 18.697068959705312,
+          "positive_window_fraction": 0.125,
+          "total_trades": 148,
+          "total_wins": 32,
+          "aggregate_win_rate": 0.21621621621621623
+        },
+        "router_better_window_fraction": 0.075,
+        "trade_retention": 0.9932885906040269
+      }
+    }
+  }
+}
