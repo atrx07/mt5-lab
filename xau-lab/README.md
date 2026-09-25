@@ -183,3 +183,5 @@ Major-version graduation requires realistic bid/ask execution, holdout evidence 
 
 
 Experiments 34–35 deliberately avoid tuning the known windows. Frozen SNAPBACK was negative on the historical research pool and produced no recent opportunities; the separately frozen state-v2 ridge learner was weak/anti-correlated historically and essentially uncorrelated on recent transfer. These are rejections, not invitations to tweak thresholds/models until they pass. Candidate D remains the research leader; the next candidate must add genuinely new causal information or a structurally new opportunity family and be frozen before genuinely new validation.
+
+Experiment 36 now freezes a new outcome-blind `xau-microstate-v1` representation from raw quote-event timing, bid/ask update sidedness, short event-path efficiency and spread shock/compression. This deliberately adds causal information not present in state-v2 instead of retuning the known score/model. Its first check is representation stability only.

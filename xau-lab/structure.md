@@ -696,3 +696,6 @@ research/v4_5_router_v2_arbitration_audit.py
 ```
 
 If the latest experiment number/version changes later, follow the indexes rather than assuming the paths above remain the newest.
+
+- `research/v4_5_microstate_v1_freeze.py` — Experiment 36 representation-only raw-event microstructure overlay.
+- `results/simulations/2026-09-25-v4_5-microstate-v1-freeze/` — Experiment 36 coverage/stability/drift evidence; no outcome labels.
