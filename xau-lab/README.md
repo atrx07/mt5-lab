@@ -65,7 +65,9 @@ Experiment 30 then ran the **full raw-tick fall-through router** on a user-autho
 
 Experiment 32 froze Router v3 before measuring its P&L. It recovered some Router-v2 canonical damage but remained below Candidate D: +₹1,162.46 / +₹214.06 at 500 ms / 1 s versus +₹1,430.31 / +₹385.25. Recent results improved slightly versus D but stayed negative (-₹210.63 / -₹128.87). Most importantly, **fallback entries were zero on canonical first80**; every veto was a PRIMARY-only opportunity. Router v3 is not promoted.
 
-Experiment 33 therefore stops tuning routers around the same fixed data. It replays PRIMARY, SECONDARY, MICRO and BURST as independent fixed-₹500 shadow lanes with their own cooldown/lifecycle, no shared slot, no cross-engine cooldown interference and no compounding. The goal is to measure whether the current engine family contains genuinely complementary cross-regime edge before we spend another experiment on routing.
+Experiment 33 stopped tuning routers around the same fixed data and measured each existing engine independently. Historical edge exists in all four lanes, but on recent 500 ms **PRIMARY, SECONDARY, MICRO and BURST all lose independently**; at recent 1 s only SECONDARY stays positive. Exact simultaneous entries occur on only ~2–4% of events. The engine family itself therefore lacks enough cross-regime complementarity.
+
+Experiment 34 now adds SNAPBACK as a structurally different failed-continuation/countertrend lane. The rules are frozen before P&L evaluation: existing MICRO/global thresholds are reused with the natural low-efficiency/reversal complement, and the short lifecycle reuses BURST constants. We will reject it if it fails; we will not slide thresholds around the known 24-hour day until it looks pretty.
 
 Starting with V4.5 research, all candidate simulations must use the parity-gated canonical replay harness. V4.4's strategy parameters are unchanged; the 14.67% / 4.45% regression values are a reproducible measurement re-baseline used only as the future comparison oracle. The earlier 16.36% / 11.54% lock outputs remain preserved as historical research evidence.
 
@@ -152,6 +154,7 @@ See [`data/README.md`](data/README.md) for the exact archive/push workflow.
 - [V4.5 Router v2 arbitration divergence audit](docs/experiments/2026-09-25/31-v4-5-router-v2-arbitration-audit.md)
 - [V4.5 Router v3 priority-latched](docs/experiments/2026-09-25/32-v4-5-router-v3-priority-latched.md)
 - [V4.5 independent engine opportunity atlas](docs/experiments/2026-09-25/33-v4-5-independent-opportunity-atlas.md)
+- [V4.5 SNAPBACK complementary-engine foundation](docs/experiments/2026-09-25/34-v4-5-snapback-foundation.md)
 - [V4.1 optimization evidence](docs/experiments/2026-09-23/08-v4-1-optimization.md)
 - [V4.2 algorithm](docs/algorithms/v4_2.md)
 - [V4.3 algorithm](docs/algorithms/v4_3.md)

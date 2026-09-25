@@ -310,6 +310,7 @@ Examples:
 - `31-v4-5-router-v2-arbitration-audit.md`
 - `32-v4-5-router-v3-priority-latched.md`
 - `33-v4-5-independent-opportunity-atlas.md`
+- `34-v4-5-snapback-foundation.md`
 
 Experiment numbers are chronological across the project, not reset each day.
 
@@ -470,7 +471,8 @@ Current V4.5 research evidence directories:
 - `results/simulations/2026-09-25-v4_5-router-v2-full-replay/` — Experiment 30 completed full raw-tick Candidate D versus Router-v2 replay plus corrected contiguous-session random-window stress; Router v2 not promoted.
 - `results/simulations/2026-09-25-v4_5-router-v2-arbitration-audit/` — Experiment 31 completed decision-level divergence, counterfactual arbitration and trade-pair diagnostics; path-dependent cooldown/slot/timing cascades identified; strategy unchanged.
 - `results/simulations/2026-09-25-v4_5-router-v3-priority-latched/` — Experiment 32 completed; Router v3 not promoted; fallback never fired on canonical first80 and recent remained negative.
-- `results/simulations/2026-09-25-v4_5-independent-opportunity-atlas/` — Experiment 33 independent fixed-size engine shadow-lane atlas; execution pending.
+- `results/simulations/2026-09-25-v4_5-independent-opportunity-atlas/` — Experiment 33 completed; all existing engines negative on recent 500 ms and simultaneous opportunities rare.
+- `results/simulations/2026-09-25-v4_5-snapback-foundation/` — Experiment 34 pre-registered complementary SNAPBACK engine; execution pending.
 
 ### Result-directory contents
 
