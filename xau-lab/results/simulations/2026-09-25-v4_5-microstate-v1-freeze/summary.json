@@ -1,0 +1,42 @@
+{
+  "schema": "xau-microstate-v1",
+  "strategy_changed": false,
+  "outcome_labels_used": false,
+  "selection_performed": false,
+  "features": [
+    "raw_count2",
+    "raw_count10",
+    "event_rate_accel_2_10",
+    "median_iat2_ms",
+    "median_iat10_ms",
+    "iat_ratio_2_10",
+    "mid_move2",
+    "mid_move10",
+    "dir_mid_move2",
+    "dir_mid_move10",
+    "event_eff2",
+    "event_eff10",
+    "event_imb2",
+    "event_imb10",
+    "dir_event_imb2",
+    "dir_event_imb10",
+    "dir_imbalance_delta_2_10",
+    "quote_sidedness2",
+    "two_sided_update_frac2",
+    "spread_rel10",
+    "spread_change_rel2",
+    "spread_compression10",
+    "dir_range_position10"
+  ],
+  "final20_opened": false,
+  "rows": 551,
+  "historical_rows": 461,
+  "recent_rows": 90,
+  "strict_matches": 196,
+  "broad_matches": 217,
+  "strict_median_spearman_by_window": {
+    "historical7d": 0.8688318528308858,
+    "recent24h": 0.9346863495506913
+  },
+  "decision": "Representation-only. Do not select an admission/signal rule from known outcomes."
+}
