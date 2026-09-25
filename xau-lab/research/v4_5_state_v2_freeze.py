@@ -87,8 +87,7 @@ def overlay(path,rows,window):
         u60,d60=csum(cup,a60,i),csum(cdn,a60,i); flow60=(u60-d60)/(u60+d60) if u60+d60 else 0.0
         count10=i-a10+1
         dt=pd.Timestamp(t[i],unit="s",tz="UTC")
-        k10=dt.floor("10s")-pd.Timedelta("1ns"); k30=dt.floor("30s")-pd.Timedelta("1ns")
-        k60=dt.floor("min")-pd.Timedelta("1ns"); k300=dt.floor("5min")-pd.Timedelta("1ns")
+        # Completed-bucket lookup uses a microsecond-aligned epsilon so pandas 3\n        # datetime64[us] indexes do not reject a nanosecond-only Timestamp.\n        # Resample bucket labels are whole-second aligned, so 1 us and 1 ns\n        # select the same previous completed bucket.\n        k10=dt.floor("10s")-pd.Timedelta("1us"); k30=dt.floor("30s")-pd.Timedelta("1us")\n        k60=dt.floor("min")-pd.Timedelta("1us"); k300=dt.floor("5min")-pd.Timedelta("1us")
         d10r=safe_ratio(side*m10,before(ten.m_base,k10)); d30r=safe_ratio(side*m30,before(thirty.m_base,k30))
         d60r=safe_ratio(side*m60,before(minute.m_base,k60)); d300r=safe_ratio(side*m300,before(five.m_base,k300))
         rr=safe_ratio(range60,before(minute.range_base,k60)); sr=safe_ratio(spr[i],before(minute.spread_base,k60)); ar=safe_ratio(count10,before(ten.activity_base,k10))

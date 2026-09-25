@@ -6,6 +6,9 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/xau-router-v2-full-replay.yml"
+      - "xau-lab/research/v4_5_state_v2_freeze.py"
+      - "xau-lab/research/v4_5_router_v2.py"
+      - "xau-lab/research/v4_5_router_v2_full_eval.py"
 
 permissions:
   contents: read
