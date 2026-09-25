@@ -298,6 +298,7 @@ Examples:
 - `22-recent-micro-long-validation.md`
 - `23-v4-5-regime-normalization.md`
 - `24-v4-5-regime-router-probe.md`
+- `25-v4-5-cross-window-engine-robustness.md`
 
 Experiment numbers are chronological across the project, not reset each day.
 
@@ -450,6 +451,7 @@ Current V4.5 research evidence directories:
 - `results/simulations/2026-09-24-recent-micro-long-validation/` — Experiment 22 fresh-regime synthetic replay and rejected impulse-only ablation;
 - `results/simulations/2026-09-25-v4_5-regime-normalization/` — Experiment 23 raw-event regime-normalization diagnostic, cross-grid agreement and 4-hour engine robustness evidence;
 - `results/simulations/2026-09-25-v4_5-regime-router-probe/` — Experiment 24 bounded single-category regime-router search and rejected seed-selected probe.
+- `results/simulations/2026-09-25-v4_5-cross-window-engine-robustness/` — Experiment 25 historical-versus-recent per-engine robustness comparison using preserved Candidate D ledgers.
 
 ### Result-directory contents
 
@@ -534,6 +536,7 @@ Do not create `paper_challenge_v4_5.py` until V4.5 is actually selected/locked f
 - `v4_5_recent_validation.py` — Experiment 22 historical parity-gated recent synthetic validation and ledgers;
 - `v4_5_regime_normalization.py` — Experiment 23 raw-event, pre-sampling normalized regime diagnostic and engine/window robustness audit;
 - `v4_5_regime_router_probe.py` — Experiment 24 bounded regime-veto search and chronological evaluation.
+- `v4_5_cross_window_engine_robustness.py` — Experiment 25 no-tuning engine comparison across historical and recent preserved ledgers.
 
 Experiment 23 changes no trading rule. Its frozen regime schema should be replayed unchanged on non-overlapping recent/future snapshots before any regime router or engine gate is selected. Fair terminal-equity/forced-close diagnostics remain required for like-for-like recent single-slot comparison.
 
@@ -665,6 +668,9 @@ scripts/v4_5_regime_normalization.py
 docs/experiments/2026-09-25/24-v4-5-regime-router-probe.md
 results/simulations/2026-09-25-v4_5-regime-router-probe/
 scripts/v4_5_regime_router_probe.py
+docs/experiments/2026-09-25/25-v4-5-cross-window-engine-robustness.md
+results/simulations/2026-09-25-v4_5-cross-window-engine-robustness/
+scripts/v4_5_cross_window_engine_robustness.py
 ```
 
 If the latest experiment number/version changes later, follow the indexes rather than assuming the paths above remain the newest.

@@ -1,0 +1,8 @@
+{
+  "schema_version": "xau-cross-window-engine-robustness-v1",
+  "experiment_id": "2026-09-25-v4_5-cross-window-engine-robustness",
+  "strategy_changed": false,
+  "router_selected": false,
+  "recent_accounting_caveat": "Experiment 22 single-slot seed/evaluation ledgers are realized-only and may omit an open boundary position; combined values are descriptive engine attribution.",
+  "decision": "No global engine allow/deny rule. Validate the frozen raw-event regime state on independent raw snapshots before another router search."
+}

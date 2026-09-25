@@ -59,7 +59,8 @@ As of the current research line:
 - Experiment 22 froze a separate recent 24-hour MT5 snapshot. Candidate D lost heavily in realized-only recent diagnostics. A seed-derived impulse-only multi-ticket ablation improved its seed but lost on both later evaluation grids and under adverse-fill stress. No candidate was promoted or reached ₹100 on a reported quote day; the MT5 tick clock was about three hours ahead of host UTC.
 - Experiment 23 established a raw-event, pre-sampling regime-normalization diagnostic without changing strategy rules. V4.4/B/D parity passed; 119 matched Candidate D entries showed 92.44% volatility, 89.92% spread, 92.44% efficiency, 95.80% activity and 76.47% full-key agreement between 500 ms and 1 s. BURST and MICRO were the most consistently positive by 4-hour windows; PRIMARY remained regime-dependent and SECONDARY was negative at 1 s.
 - Experiment 24 tested a bounded first regime-router family: 48 single-category engine vetoes selected only on the 0-40% seed under joint-grid P&L, win-rate, trade-retention and drawdown criteria. Two seed variants qualified. The preselected MICRO-low-volatility veto improved both seed grids but reduced full first-80% 500 ms compounded P&L from ₹1,430.31 to ₹1,407.86 while improving 1 s from ₹385.25 to ₹398.05. It is rejected; Candidate D remains provisional.
-- The next V4.5 step is to replay the exact frozen Experiment 23 regime schema on non-overlapping recent/future snapshots without retuning it. Do not test the second Experiment 24 seed qualifier merely because the first failed on later evaluation; that would adapt to the evaluation pool. Only after independent cross-window evidence should a stronger router family be selected.
+- Experiment 25 compared Candidate D engine attribution between the canonical seven-day history and Experiment 22's non-overlapping recent split ledgers with no tuning. PRIMARY reversed from strongly positive historical aggregate P&L to -₹184.37 / -₹118.65 recent realized attribution at 500 ms / 1 s. MICRO and BURST also lost in the fresh split on very small counts; SECONDARY remained unstable and near flat only at 1 s. No engine receives a global permission rule.
+- The next V4.5 step is to replay the exact frozen Experiment 23 raw-event regime schema on the non-overlapping 24-hour raw snapshot and additional future snapshots without retuning it. Engine identity alone is not enough; routing must condition on market state, preserve opportunity, and allow explicit HOLD/no-trade states. Do not test the second Experiment 24 seed qualifier merely because the first failed later evaluation.
 - The final 20% research holdout has not been opened by the canonical replay harness.
 - All canonical work is maintained directly on `main`.
 
@@ -354,7 +355,7 @@ Verify both references against `docs/experiments/README.md`, the latest experime
 
 Latest completed experiment:
 
-`docs/experiments/2026-09-25/24-v4-5-regime-router-probe.md`
+`docs/experiments/2026-09-25/25-v4-5-cross-window-engine-robustness.md`
 
 Latest evidence:
 
@@ -372,6 +373,8 @@ Latest evidence:
 
 `results/simulations/2026-09-25-v4_5-regime-router-probe/`
 
+`results/simulations/2026-09-25-v4_5-cross-window-engine-robustness/`
+
 Current research scripts:
 
 - `scripts/canonical_replay.py` — mandatory V4.4 parity and feature source;
@@ -382,9 +385,10 @@ Current research scripts:
 - `scripts/v4_5_recent_validation.py` — Experiment 22 historical parity-gated recent synthetic validation and ledgers.
 - `scripts/v4_5_regime_normalization.py` — Experiment 23 raw-event, pre-sampling normalized regime diagnostic and engine/window robustness audit.
 - `scripts/v4_5_regime_router_probe.py` — Experiment 24 bounded single-category regime-veto search and one-time chronological evaluation; selected probe rejected.
+- `scripts/v4_5_cross_window_engine_robustness.py` — Experiment 25 no-tuning comparison of Candidate D engine behavior across historical and recent preserved ledgers.
 - `scripts/restore_dataset.py` — hash-verified restoration of ignored raw CSVs from committed archives.
 
-No regime router is promoted. Experiment 24's seed-selected MICRO low-volatility veto is rejected after chronological evaluation; Candidate D remains the provisional leader.
+No regime router is promoted. Experiment 24's selected veto is rejected. Experiment 25 confirms that no engine can be treated as universally safe across windows; Candidate D remains the provisional historical leader.
 
 Phase C1 tested 48 BURST lifecycle combinations and every one reproduced Candidate B exactly at both sampling grids. No Candidate C was promoted.
 
