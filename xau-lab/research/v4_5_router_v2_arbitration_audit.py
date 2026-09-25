@@ -483,6 +483,36 @@ def substitution_matrix(events):
     ]
 
 
+def aggregate_trade_pairs(rows,by_segment=False):
+    groups={}
+    for r in rows:
+        key=(r["window"],r["interval"],r["segment_id"],r["pair_type"]) if by_segment else (r["window"],r["interval"],r["pair_type"])
+        g=groups.setdefault(key,{"count":0,"candidate_d_pnl_sum":0.0,"router_pnl_sum":0.0,"paired_delta_sum":0.0,"paired_delta_count":0})
+        g["count"]+=1
+        for field,out in (("candidate_d_pnl_inr","candidate_d_pnl_sum"),("router_pnl_inr","router_pnl_sum")):
+            try:
+                v=float(r[field])
+            except (TypeError,ValueError):
+                v=math.nan
+            if np.isfinite(v):
+                g[out]+=v
+        try:
+            d=float(r["paired_pnl_delta_router_minus_d"])
+        except (TypeError,ValueError):
+            d=math.nan
+        if np.isfinite(d):
+            g["paired_delta_sum"]+=d; g["paired_delta_count"]+=1
+    out=[]
+    for key,g in sorted(groups.items()):
+        if by_segment:
+            window,interval,segment_id,pair_type=key
+            out.append({"window":window,"interval":interval,"segment_id":segment_id,"pair_type":pair_type,**g})
+        else:
+            window,interval,pair_type=key
+            out.append({"window":window,"interval":interval,"pair_type":pair_type,**g})
+    return out
+
+
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("canonical_csv",type=Path)
@@ -583,6 +613,8 @@ def main():
     write_csv(a.output/"decision_category_summary.csv",event_summary)
     write_csv(a.output/"substitution_matrix.csv",subs)
     write_csv(a.output/"top_damage_events.csv",top_damage)
+    write_csv(a.output/"trade_pair_summary.csv",aggregate_trade_pairs(all_pairs,False))
+    write_csv(a.output/"segment_pair_damage.csv",aggregate_trade_pairs(all_pairs,True))
     (a.output/"summary.json").write_text(json.dumps(summary,indent=2)+"\n",encoding="utf-8")
     print(json.dumps(summary,indent=2))
 

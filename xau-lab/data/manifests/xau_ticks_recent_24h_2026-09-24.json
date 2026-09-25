@@ -49,7 +49,8 @@
     "docs/experiments/2026-09-25/26-v4-5-regime-portability.md",
     "docs/experiments/2026-09-25/27-v4-5-state-v2-freeze.md",
     "docs/experiments/2026-09-25/29-v4-5-router-v2-preflight.md",
-    "docs/experiments/2026-09-25/30-v4-5-router-v2-full-replay.md"
+    "docs/experiments/2026-09-25/30-v4-5-router-v2-full-replay.md",
+    "docs/experiments/2026-09-25/31-v4-5-router-v2-arbitration-audit.md"
   ],
   "notes": [
     "This frozen snapshot is an offline replay input, not an order or live trading log.",
