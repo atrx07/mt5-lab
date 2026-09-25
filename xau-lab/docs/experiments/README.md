@@ -53,3 +53,4 @@ Experiments are grouped by date so each session can grow independently without t
 - [35 — V4.5 state-v2 walk-forward predictability](2026-09-25/35-v4-5-state-v2-walkforward-predictability.md)
 - [36 — V4.5 raw-event microstate-v1 foundation](2026-09-25/36-v4-5-microstate-v1-freeze.md)
 - [37 — V4.5 Candidate E PRIMARY microstate confirmation](2026-09-25/37-v4-5-candidate-e-microstate-confirmation.md)
+- [38 — V4.5 Decision Policy v1: entry ownership + continuation controller](2026-09-25/38-v4-5-decision-policy-v1.md)
