@@ -103,6 +103,7 @@ python research\v4_5_cross_window_engine_robustness.py
 python research\v4_5_regime_portability.py xau_ticks_7d.csv xau_ticks_recent_24h_2026-09-24.csv.gz
 python research\v4_5_state_v2_freeze.py xau_ticks_7d.csv xau_ticks_recent_24h_2026-09-24.csv.gz
 python research\v4_5_router_v2.py xau_ticks_7d.csv
+python research\v4_5_router_v2_full_eval.py xau_ticks_7d.csv xau_ticks_recent_24h_2026-09-24.csv.gz
 python research\v4_5_router_v2_preflight.py
 ```
 
@@ -139,6 +140,7 @@ See [`data/README.md`](data/README.md) for the exact archive/push workflow.
 - [V4.5 frozen regime portability](docs/experiments/2026-09-25/26-v4-5-regime-portability.md)
 - [V4.5 state-v2 feature freeze](docs/experiments/2026-09-25/27-v4-5-state-v2-freeze.md)
 - [V4.5 Router v2 implementation freeze](docs/experiments/2026-09-25/28-v4-5-router-v2-implementation.md)
+- [V4.5 full raw-tick Router v2 replay](docs/experiments/2026-09-25/30-v4-5-router-v2-full-replay.md)
 - [V4.5 Router v2 gate-proxy preflight](docs/experiments/2026-09-25/29-v4-5-router-v2-preflight.md)
 - [V4.1 optimization evidence](docs/experiments/2026-09-23/08-v4-1-optimization.md)
 - [V4.2 algorithm](docs/algorithms/v4_2.md)

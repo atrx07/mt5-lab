@@ -64,7 +64,7 @@ As of the current research line:
 - Experiment 27 froze `xau-state-v2`, a richer causal continuous state layer with 20 features covering normalized volatility/spread/activity, direction-normalized 10/30/60/300 s momentum, acceleration/exhaustion, raw flow alignment, pullback/extension context, market/execution heat and session age. No feature threshold or router was selected from P&L. Coverage was 100% for all short-horizon features on both known windows; the 300 s-derived features covered 96.9% historical and 95.8% recent trades because of causal warm-up. Cross-grid rank stability remained strong: median Spearman 0.916 on 119 historical matched pairs and 0.940 on 27 recent matched pairs.
 - Experiment 28 starts Router v2 implementation without using another P&L threshold search. The router now has a frozen structural stronghold-score definition per engine, evaluates simultaneous engine candidates instead of fixed priority, falls through to the next candidate when a higher-scoring setup does not clear neutral score, and preserves HOLD when none clears it. Score components are equal-weight and use only `xau-state-v2`; the neutral score floor is 0.0 because all components are centered on causal baseline/neutral values. No Router v2 performance claim or promotion exists yet.
 - Experiment 29 ran a **trade-ledger gate proxy**, not the full raw-tick fall-through router. Applying the frozen Router-v2 score to Candidate D's realized entry ledger retained 97.5% / 96.8% of canonical 500 ms / 1 s trades but reduced canonical compounded P&L to ₹1,181.58 / ₹219.73 because the score rejected a few historically large winning PRIMARY trades. On the recent 24-hour ledger it rejected one losing PRIMARY trade on each grid, improving the combined realized split attribution by about ₹14.4 while remaining deeply negative. A 10,000-scenario empirical regime-mixture bootstrap likewise showed no general profitability improvement. This proxy is diagnostic only and does not model simultaneous-candidate fall-through.
-- Candidate D therefore remains the current winning candidate. Do not tune Router v2 against Experiment 29. The next V4.5 step is a full raw-tick Router-v2 replay on a genuinely new non-overlapping XAU snapshot, with Candidate D parity and the pre-registered P&L/win-rate/trade-retention requirements.
+- Candidate D therefore remains the current winning candidate. Do not tune Router v2 against Experiment 29. Experiment 30 now provides the full raw-tick fall-through evaluation harness for the canonical first80, recent24h, and deterministic random real four-hour windows. Its known-data output is diagnostic only; promotion still requires a genuinely new non-overlapping XAU snapshot with the pre-registered P&L/win-rate/trade-retention requirements.
 - The final 20% research holdout has not been opened by the canonical replay harness.
 - All canonical work is maintained directly on `main`.
 
@@ -369,9 +369,13 @@ Verify both references against `docs/experiments/README.md`, the latest experime
 
 ## Current active work
 
-Latest completed experiment:
+Latest completed diagnostic experiment:
 
-`docs/experiments/2026-09-25/27-v4-5-state-v2-freeze.md`
+`docs/experiments/2026-09-25/29-v4-5-router-v2-preflight.md`
+
+Current in-progress experiment:
+
+`docs/experiments/2026-09-25/30-v4-5-router-v2-full-replay.md`
 
 Latest evidence:
 
@@ -410,6 +414,7 @@ Current research scripts:
 - `research/v4_5_state_v2_freeze.py` — Experiment 27 frozen continuous raw-event state-v2 extraction, coverage, cross-grid stability and descriptive outcome profiling; no router selection.
 - `research/v4_5_router_v2.py` — Experiment 28 stronghold-aware Router v2 implementation with dynamic engine arbitration, fall-through and HOLD; frozen before unseen validation.
 - `research/v4_5_router_v2_preflight.py` — Experiment 29 reproducible trade-ledger gate proxy and seeded regime-mixture bootstrap; diagnostic only, not a full fall-through replay.
+- `research/v4_5_router_v2_full_eval.py` — Experiment 30 full raw-tick Candidate D vs Router v2 replay across canonical/recent data and deterministic random real four-hour windows.
 - `tools/restore_dataset.py` — hash-verified restoration of ignored raw CSVs from committed archives.
 
 No regime router is promoted. Experiment 24's selected veto is rejected. Experiments 25-26 show that neither engine identity nor the four-part historical regime key is sufficient as a portable permission rule. Experiment 27 freezes `xau-state-v2`; Experiment 28 freezes the Router v2 mechanics and structural score but has no unseen performance evidence yet. Candidate D remains the provisional historical leader.

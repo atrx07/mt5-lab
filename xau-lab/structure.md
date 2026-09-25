@@ -672,6 +672,9 @@ research/v4_5_state_v2_freeze.py
 docs/experiments/2026-09-25/28-v4-5-router-v2-implementation.md
 results/simulations/2026-09-25-v4_5-router-v2-implementation/
 research/v4_5_router_v2.py
+docs/experiments/2026-09-25/30-v4-5-router-v2-full-replay.md
+results/simulations/2026-09-25-v4_5-router-v2-full-replay/
+research/v4_5_router_v2_full_eval.py
 docs/experiments/2026-09-25/29-v4-5-router-v2-preflight.md
 results/simulations/2026-09-25-v4_5-router-v2-preflight/
 research/v4_5_router_v2_preflight.py

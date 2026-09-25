@@ -45,3 +45,4 @@ Experiments are grouped by date so each session can grow independently without t
 - [27 — V4.5 state-v2 continuous feature freeze](2026-09-25/27-v4-5-state-v2-freeze.md)
 - [28 — V4.5 stronghold-aware Router v2 implementation](2026-09-25/28-v4-5-router-v2-implementation.md)
 - [29 — V4.5 Router v2 gate-proxy and variable-regime preflight](2026-09-25/29-v4-5-router-v2-preflight.md)
+- [30 — V4.5 full raw-tick Router v2 replay](2026-09-25/30-v4-5-router-v2-full-replay.md)

@@ -307,8 +307,16 @@ def simulate(arr: Dict[str, np.ndarray], start: int, end: int, cache=None, legac
         highopen=1 if high else 0; failure_since=-1e30
 
     pf=gp/gl if gl>0 else 999.0
+    terminal_unrealized=0.0
+    if pos and end>start:
+        j=end-1
+        terminal_move=(bid[j]-entry) if side==1 else (entry-ask[j])
+        terminal_unrealized=terminal_move*oz*canonical.INR_PER_USD
     return {
         "pnl_inr":bal-500.0,
+        "terminal_unrealized_inr":terminal_unrealized,
+        "terminal_equity_pnl_inr":bal-500.0+terminal_unrealized,
+        "open_position_at_end":bool(pos),
         "profit_factor":pf,
         "trades":ntr,
         "wins":wins,
