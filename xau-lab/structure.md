@@ -733,6 +733,9 @@ research/v4_5_signal_fingerprint_entry_quality.py
 docs/experiments/2026-09-26/43-v4-5-candidate-h-flow-confirmed-ghost-exit.md
 results/simulations/2026-09-26-v4_5-candidate-h-flow-confirmed-ghost-exit/
 research/v4_5_candidate_h_flow_confirmed_ghost_exit.py
+docs/experiments/2026-09-26/44-v4-5-tick-tape-field-audit.md
+results/simulations/2026-09-26-v4_5-tick-tape-field-audit/
+research/v4_5_tick_tape_field_audit.py
 ```
 
 If the latest experiment number/version changes later, follow the indexes rather than assuming the paths above remain the newest.
