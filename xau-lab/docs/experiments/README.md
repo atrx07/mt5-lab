@@ -54,3 +54,4 @@ Experiments are grouped by date so each session can grow independently without t
 - [36 — V4.5 raw-event microstate-v1 foundation](2026-09-25/36-v4-5-microstate-v1-freeze.md)
 - [37 — V4.5 Candidate E PRIMARY microstate confirmation](2026-09-25/37-v4-5-candidate-e-microstate-confirmation.md)
 - [38 — V4.5 Decision Policy v1: entry ownership + continuation controller](2026-09-25/38-v4-5-decision-policy-v1.md)
+- [39 — V4.5 Decision Policy v2: signal episodes + short-horizon exit](2026-09-25/39-v4-5-decision-policy-v2.md)
