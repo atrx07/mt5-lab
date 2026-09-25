@@ -122,6 +122,12 @@ python research\v4_5_snapback_foundation.py xau_ticks_7d.csv xau_ticks_recent_24
 python research\v4_5_state_v2_walkforward_predictability.py
 python research\v4_5_microstate_v1_freeze.py xau_ticks_7d.csv xau_ticks_recent_24h_2026-09-24.csv.gz
 python research\v4_5_candidate_e_microstate_confirmation.py xau_ticks_7d.csv data/raw/xau_ticks_recent_24h_2026-09-24.csv.gz
+python research\v4_5_decision_policy_v1.py xau_ticks_7d.csv data/raw/xau_ticks_recent_24h_2026-09-24.csv.gz
+python research\v4_5_decision_policy_v2.py xau_ticks_7d.csv data/raw/xau_ticks_recent_24h_2026-09-24.csv.gz
+python research\v4_5_candidate_f_primary_ratchet.py xau_ticks_7d.csv data/raw/xau_ticks_recent_24h_2026-09-24.csv.gz
+python research\v4_5_candidate_g_ghost_ratchet.py xau_ticks_7d.csv data/raw/xau_ticks_recent_24h_2026-09-24.csv.gz
+python research\v4_5_signal_fingerprint_entry_quality.py xau_ticks_7d.csv data/raw/xau_ticks_recent_24h_2026-09-24.csv.gz
+python research\v4_5_candidate_h_flow_confirmed_ghost_exit.py xau_ticks_7d.csv data/raw/xau_ticks_recent_24h_2026-09-24.csv.gz
 ```
 
 Historical tick export:
@@ -165,6 +171,13 @@ See [`data/README.md`](data/README.md) for the exact archive/push workflow.
 - [V4.5 SNAPBACK complementary-engine foundation](docs/experiments/2026-09-25/34-v4-5-snapback-foundation.md)
 - [V4.5 state-v2 walk-forward predictability](docs/experiments/2026-09-25/35-v4-5-state-v2-walkforward-predictability.md)
 - [V4.5 microstate-v1 causal feature foundation](docs/experiments/2026-09-25/36-v4-5-microstate-v1-freeze.md)
+- [V4.5 Candidate E microstate confirmation](docs/experiments/2026-09-25/37-v4-5-candidate-e-microstate-confirmation.md)
+- [V4.5 Decision Policy v1](docs/experiments/2026-09-25/38-v4-5-decision-policy-v1.md)
+- [V4.5 Decision Policy v2](docs/experiments/2026-09-25/39-v4-5-decision-policy-v2.md)
+- [V4.5 Candidate F PRIMARY ratchet](docs/experiments/2026-09-25/40-v4-5-candidate-f-primary-ratchet.md)
+- [V4.5 Candidate G ghost ratchet](docs/experiments/2026-09-25/41-v4-5-candidate-g-ghost-ratchet.md)
+- [V4.5 signal-fingerprint entry quality](docs/experiments/2026-09-26/42-v4-5-signal-fingerprint-entry-quality.md)
+- [V4.5 Candidate H flow-confirmed ghost exit](docs/experiments/2026-09-26/43-v4-5-candidate-h-flow-confirmed-ghost-exit.md)
 - [V4.1 optimization evidence](docs/experiments/2026-09-23/08-v4-1-optimization.md)
 - [V4.2 algorithm](docs/algorithms/v4_2.md)
 - [V4.3 algorithm](docs/algorithms/v4_3.md)
@@ -190,4 +203,4 @@ Every new V4.x candidate must pass the locked V4.4 regression assertion inside `
 
 Major-version graduation requires realistic bid/ask execution, holdout evidence with its provenance caveat, multiple regimes, drawdown checks, stress tests and live-paper validation. Fractional versions may be locked as experimental iterations when they show a distinct measurable improvement while preserving fixed risk discipline. Hourly earning/capture targets are evaluation benchmarks, not instructions to force trades or increase risk.
 
-The seven-day and recent-24h windows are now heavily observed. Their role is parity, diagnostics and rejection of already-frozen ideas—not repeated strategy selection. Candidate D remains the V4.5 research leader; `xau-microstate-v1` is retained only as new causal information. The next strategy-changing hypothesis must be specified and frozen before outcome evaluation and must ultimately be tested on genuinely new non-overlapping raw data. Final20 remains sealed.
+The seven-day and recent-24h windows are now heavily observed. Their role is parity, diagnostics and rejection of already-frozen ideas—not repeated strategy selection. Candidate D remains the V4.5 research leader. Experiments 38-42 rejected two learned exit controllers and three increasingly informed entry-selection formulations, including the full signal-fingerprint "encyclopedia"; the known causal state still does not rank individual trades portably enough. Experiment 43's Candidate H is the strongest exit-management branch so far: path-preserving ghost occupancy plus confirmed raw-flow deterioration retained +₹1,287.09 / +₹360.79 canonical first80 P&L, improved recent losses on both grids, reduced 500 ms max segment drawdown to ₹148.66, and improved random four-hour mean P&L to -₹3.36 / -₹7.21, but variable-window mean expectancy remains negative and Candidate D still owns the canonical P&L lead. Final20 remains sealed; promotion still requires genuinely new non-overlapping raw data.
