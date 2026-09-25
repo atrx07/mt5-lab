@@ -84,7 +84,8 @@ Current dependencies:
 - MetaTrader5;
 - pandas;
 - numpy;
-- numba.
+- numba;
+- scikit-learn.
 
 Add a dependency here when a committed script requires it.
 
@@ -714,6 +715,24 @@ research/v4_5_microstate_v1_freeze.py
 docs/experiments/2026-09-25/37-v4-5-candidate-e-microstate-confirmation.md
 results/simulations/2026-09-25-v4_5-candidate-e-microstate-confirmation/
 research/v4_5_candidate_e_microstate_confirmation.py
+docs/experiments/2026-09-25/38-v4-5-decision-policy-v1.md
+results/simulations/2026-09-25-v4_5-decision-policy-v1/
+research/v4_5_decision_policy_v1.py
+docs/experiments/2026-09-25/39-v4-5-decision-policy-v2.md
+results/simulations/2026-09-25-v4_5-decision-policy-v2/
+research/v4_5_decision_policy_v2.py
+docs/experiments/2026-09-25/40-v4-5-candidate-f-primary-ratchet.md
+results/simulations/2026-09-25-v4_5-candidate-f-primary-ratchet/
+research/v4_5_candidate_f_primary_ratchet.py
+docs/experiments/2026-09-25/41-v4-5-candidate-g-ghost-ratchet.md
+results/simulations/2026-09-25-v4_5-candidate-g-ghost-ratchet/
+research/v4_5_candidate_g_ghost_ratchet.py
+docs/experiments/2026-09-26/42-v4-5-signal-fingerprint-entry-quality.md
+results/simulations/2026-09-26-v4_5-signal-fingerprint-entry-quality/
+research/v4_5_signal_fingerprint_entry_quality.py
+docs/experiments/2026-09-26/43-v4-5-candidate-h-flow-confirmed-ghost-exit.md
+results/simulations/2026-09-26-v4_5-candidate-h-flow-confirmed-ghost-exit/
+research/v4_5_candidate_h_flow_confirmed_ghost_exit.py
 ```
 
 If the latest experiment number/version changes later, follow the indexes rather than assuming the paths above remain the newest.
