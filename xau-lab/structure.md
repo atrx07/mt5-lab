@@ -476,6 +476,7 @@ Current V4.5 research evidence directories:
 - `results/simulations/2026-09-25-v4_5-snapback-foundation/` — Experiment 34 completed SNAPBACK diagnostic; negative historical result, zero recent opportunities, rejected unchanged.
 - `results/simulations/2026-09-25-v4_5-state-v2-walkforward-predictability/` — Experiment 35 completed no-search state-v2 ridge walk-forward/transfer diagnostic; transferable predictability not demonstrated.
 - `results/simulations/2026-09-25-v4_5-microstate-v1-freeze/` — Experiment 36 completed outcome-blind microstate-v1 representation evidence; retained as feature foundation only.
+- `results/simulations/2026-09-25-v4_5-candidate-e-microstate-confirmation/` — Experiment 37 completed frozen Candidate E full diagnostic; rejected unchanged; Candidate D remains leader.
 
 ### Result-directory contents
 
@@ -540,7 +541,7 @@ Do not place replay harnesses, diagnostics, searches, feature/model experiments,
 
 All non-final strategy-development code belongs here. This includes canonical replay, diagnostics, feature/model experiments, candidate searches and intermediate research harnesses.
 
-Current important files include `canonical_replay.py`, `replay_lab.py`, and the V4.5 research line through Experiment 36: Router-v2/v3 diagnostics, independent opportunity atlas, SNAPBACK evaluation, state-v2 walk-forward predictability, and the outcome-blind `v4_5_microstate_v1_freeze.py` representation foundation.
+Current important files include `canonical_replay.py`, `replay_lab.py`, and the V4.5 research line through Experiment 37: Router-v2/v3 diagnostics, independent opportunity atlas, SNAPBACK evaluation, state-v2 walk-forward predictability, the outcome-blind `v4_5_microstate_v1_freeze.py` representation foundation, and the rejected frozen `v4_5_candidate_e_microstate_confirmation.py` strategy diagnostic.
 
 For new intermediate work use descriptive version-prefixed names such as `research/v4_5_<purpose>.py`.
 
@@ -710,6 +711,9 @@ research/v4_5_state_v2_walkforward_predictability.py
 docs/experiments/2026-09-25/36-v4-5-microstate-v1-freeze.md
 results/simulations/2026-09-25-v4_5-microstate-v1-freeze/
 research/v4_5_microstate_v1_freeze.py
+docs/experiments/2026-09-25/37-v4-5-candidate-e-microstate-confirmation.md
+results/simulations/2026-09-25-v4_5-candidate-e-microstate-confirmation/
+research/v4_5_candidate_e_microstate_confirmation.py
 ```
 
 If the latest experiment number/version changes later, follow the indexes rather than assuming the paths above remain the newest.
