@@ -1,0 +1,51 @@
+name: Ingest XAU Router v2 Replay Evidence
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/xau-router-v2-ingest.yml"
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Download successful replay artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/xau-router-v2
+          gh run download 36135850359 \
+            --repo "$GITHUB_REPOSITORY" \
+            --name xau-router-v2-full-replay \
+            --dir /tmp/xau-router-v2
+          ls -lah /tmp/xau-router-v2
+
+      - name: Install durable evidence
+        run: |
+          target="xau-lab/results/simulations/2026-09-25-v4_5-router-v2-full-replay"
+          mkdir -p "$target"
+          cp /tmp/xau-router-v2/full_replay_summary.json "$target/full_replay_summary.json"
+          cp /tmp/xau-router-v2/random_real_windows.csv "$target/random_real_windows.csv"
+          git status --short
+
+      - name: Commit replay evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add xau-lab/results/simulations/2026-09-25-v4_5-router-v2-full-replay/full_replay_summary.json
+          git add xau-lab/results/simulations/2026-09-25-v4_5-router-v2-full-replay/random_real_windows.csv
+          if git diff --cached --quiet; then
+            echo "No evidence changes to commit."
+          else
+            git commit -m "Store full XAU Router v2 replay evidence"
+            git push origin HEAD:main
+          fi
