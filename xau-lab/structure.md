@@ -308,6 +308,7 @@ Examples:
 - `29-v4-5-router-v2-preflight.md`
 - `30-v4-5-router-v2-full-replay.md`
 - `31-v4-5-router-v2-arbitration-audit.md`
+- `32-v4-5-router-v3-priority-latched.md`
 
 Experiment numbers are chronological across the project, not reset each day.
 
@@ -467,6 +468,7 @@ Current V4.5 research evidence directories:
 - `results/simulations/2026-09-25-v4_5-router-v2-preflight/` — Experiment 29 known-ledger gate proxy, recent-window comparison and seeded variable-regime bootstrap; not promotion evidence.
 - `results/simulations/2026-09-25-v4_5-router-v2-full-replay/` — Experiment 30 completed full raw-tick Candidate D versus Router-v2 replay plus corrected contiguous-session random-window stress; Router v2 not promoted.
 - `results/simulations/2026-09-25-v4_5-router-v2-arbitration-audit/` — Experiment 31 completed decision-level divergence, counterfactual arbitration and trade-pair diagnostics; path-dependent cooldown/slot/timing cascades identified; strategy unchanged.
+- `results/simulations/2026-09-25-v4_5-router-v3-priority-latched/` — Experiment 32 pre-registered priority-preserving/rejection-latched Router v3; known-data execution pending.
 
 ### Result-directory contents
 

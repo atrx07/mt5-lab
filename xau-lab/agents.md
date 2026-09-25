@@ -385,9 +385,11 @@ Latest completed diagnostic experiment:
 
 `docs/experiments/2026-09-25/31-v4-5-router-v2-arbitration-audit.md`
 
-Current next step:
+Current frozen candidate experiment:
 
-Specify Experiment 32 as a **path-aware, priority-preserving** Router architecture before implementation. Do not sweep the known score floor. Experiment 31 shows that global score re-ranking and per-tick HOLD/re-entry alter cooldown history and shared-slot occupancy, causing missed high-value Candidate-D opportunities, delayed same-engine entries, extra losing follow-ons and balance-sizing amplification. A new design should preserve Candidate D priority, define causal signal episodes for rejection latching, and explicitly control fallback opportunity cost before validation on genuinely new data.
+`docs/experiments/2026-09-25/32-v4-5-router-v3-priority-latched.md`
+
+Router v3 is structurally frozen **before** performance evaluation: preserve Candidate D engine priority; use the unchanged Router-v2 score only as a veto; latch rejected engines for their already-existing Candidate-D cooldown horizon; then fall through in legacy priority. No threshold, weight or cooldown search is allowed from known P&L. Known seven-day/recent runs are diagnostic only; promotion still requires genuinely new non-overlapping data.
 
 Latest evidence:
 
@@ -436,6 +438,7 @@ Current research scripts:
 - `research/v4_5_router_v2_preflight.py` — Experiment 29 reproducible trade-ledger gate proxy and seeded regime-mixture bootstrap; diagnostic only, not a full fall-through replay.
 - `research/v4_5_router_v2_full_eval.py` — Experiment 30 full raw-tick Candidate D vs Router v2 replay across canonical/recent data and deterministic random real four-hour windows.
 - `research/v4_5_router_v2_arbitration_audit.py` — Experiment 31 decision-level Router-v2/Candidate-D divergence and counterfactual arbitration audit; no strategy changes.
+- `research/v4_5_router_v3_priority_latched.py` — Experiment 32 priority-preserving, rejection-latched Router v3 candidate; structurally frozen before known-data evaluation.
 - `tools/restore_dataset.py` — hash-verified restoration of ignored raw CSVs from committed archives.
 
 No regime router is promoted. Experiment 24's selected veto is rejected. Experiments 25-26 show that neither engine identity nor the four-part historical regime key is sufficient as a portable permission rule. Experiment 27 freezes `xau-state-v2`; Experiment 28 freezes Router v2; Experiment 29's proxy is negative; Experiment 30's full raw-tick replay confirms the frozen Router-v2 score does not beat Candidate D; Experiment 31 shows the dominant failure is path-dependent cooldown/slot/timing cascade rather than direct score substitution alone. Candidate D remains the provisional historical leader. Next specify a path-aware, priority-preserving architecture without tuning the known score floor.
