@@ -57,6 +57,8 @@ Experiment 26 applied the frozen `xau-raw-event-regime-v1` schema unchanged to t
 
 Experiment 27 now freezes `xau-state-v2`: 20 causal continuous raw-event features designed to distinguish whether an engine is entering inside its stronghold or after the opportunity is already exhausted. No threshold was fitted from either known dataset. The feature layer had full short-horizon coverage and strong 500 ms/1 s rank stability on both the seven-day benchmark and recent 24-hour window. The next profit-seeking router must be evaluated on a **new** snapshot, with a pre-registered goal of improving P&L and win rate while retaining at least 95% of Candidate D's system-level trade count through engine fall-through rather than simply deleting opportunities.
 
+Experiment 28 has now started the actual Router v2 implementation. Instead of a fixed PRIMARY → SECONDARY → MICRO → BURST priority, the flat-state router gathers every engine that is simultaneously eligible, computes an engine-specific stronghold score from `xau-state-v2`, takes the highest qualifying score, falls through when a candidate is rejected, and can HOLD when no candidate clears neutral. The score is structurally specified with equal component weights and no P&L-fitted threshold. It is implementation-ready but **not yet a promoted candidate**; the first valid performance decision waits for a new non-overlapping snapshot.
+
 Starting with V4.5 research, all candidate simulations must use the parity-gated canonical replay harness. V4.4's strategy parameters are unchanged; the 14.67% / 4.45% regression values are a reproducible measurement re-baseline used only as the future comparison oracle. The earlier 16.36% / 11.54% lock outputs remain preserved as historical research evidence.
 
 V4.3 replay-parity documentation was corrected during the V4.4 lock: its canonical +₹603.60 figure is the compounded result of five independently reset research segments, not a literal one-pass continuous replay.
@@ -98,6 +100,7 @@ python research\v4_5_regime_router_probe.py xau_ticks_7d.csv
 python research\v4_5_cross_window_engine_robustness.py
 python research\v4_5_regime_portability.py xau_ticks_7d.csv xau_ticks_recent_24h_2026-09-24.csv.gz
 python research\v4_5_state_v2_freeze.py xau_ticks_7d.csv xau_ticks_recent_24h_2026-09-24.csv.gz
+python research\v4_5_router_v2.py xau_ticks_7d.csv
 ```
 
 Historical tick export:
@@ -132,6 +135,7 @@ See [`data/README.md`](data/README.md) for the exact archive/push workflow.
 - [V4.5 cross-window engine robustness](docs/experiments/2026-09-25/25-v4-5-cross-window-engine-robustness.md)
 - [V4.5 frozen regime portability](docs/experiments/2026-09-25/26-v4-5-regime-portability.md)
 - [V4.5 state-v2 feature freeze](docs/experiments/2026-09-25/27-v4-5-state-v2-freeze.md)
+- [V4.5 Router v2 implementation freeze](docs/experiments/2026-09-25/28-v4-5-router-v2-implementation.md)
 - [V4.1 optimization evidence](docs/experiments/2026-09-23/08-v4-1-optimization.md)
 - [V4.2 algorithm](docs/algorithms/v4_2.md)
 - [V4.3 algorithm](docs/algorithms/v4_3.md)

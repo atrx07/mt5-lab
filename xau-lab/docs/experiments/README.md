@@ -43,3 +43,4 @@ Experiments are grouped by date so each session can grow independently without t
 - [25 — V4.5 cross-window engine robustness baseline](2026-09-25/25-v4-5-cross-window-engine-robustness.md)
 - [26 — V4.5 frozen regime portability on recent raw data](2026-09-25/26-v4-5-regime-portability.md)
 - [27 — V4.5 state-v2 continuous feature freeze](2026-09-25/27-v4-5-state-v2-freeze.md)
+- [28 — V4.5 stronghold-aware Router v2 implementation](2026-09-25/28-v4-5-router-v2-implementation.md)

@@ -62,7 +62,8 @@ As of the current research line:
 - Experiment 25 compared Candidate D engine attribution between the canonical seven-day history and Experiment 22's non-overlapping recent split ledgers with no tuning. PRIMARY reversed from strongly positive historical aggregate P&L to -₹184.37 / -₹118.65 recent realized attribution at 500 ms / 1 s. MICRO and BURST also lost in the fresh split on very small counts; SECONDARY remained unstable and near flat only at 1 s. No engine receives a global permission rule.
 - Experiment 26 replayed the exact frozen Experiment 23 raw-event regime schema on the non-overlapping recent 24-hour raw snapshot. Dataset archive and decompressed raw hashes matched the committed manifest. The state representation itself remained sampling-stable across 27 same-engine/same-side matched entries (92.59% volatility, 92.59% spread, 96.30% efficiency, 100% activity, 85.19% full-key agreement), but historical positive engine+grid+four-part regime keys did not transfer: those keys lost ₹90.74 on 23 recent 500 ms trades and ₹123.88 on 21 recent 1 s trades. No router is promoted.
 - Experiment 27 froze `xau-state-v2`, a richer causal continuous state layer with 20 features covering normalized volatility/spread/activity, direction-normalized 10/30/60/300 s momentum, acceleration/exhaustion, raw flow alignment, pullback/extension context, market/execution heat and session age. No feature threshold or router was selected from P&L. Coverage was 100% for all short-horizon features on both known windows; the 300 s-derived features covered 96.9% historical and 95.8% recent trades because of causal warm-up. Cross-grid rank stability remained strong: median Spearman 0.916 on 119 historical matched pairs and 0.940 on 27 recent matched pairs.
-- The next V4.5 step is **not** another threshold search on the known seven-day or 24-hour windows. Capture a genuinely new non-overlapping XAU snapshot, replay `xau-state-v2` unchanged, and only then build/test Router v2. Router v2 must score each engine's own stronghold, fall through to lower-priority engines when a higher-priority setup is rejected, preserve an explicit HOLD state, and target at least 95% system-level trade retention while improving net P&L and win rate.
+- Experiment 28 starts Router v2 implementation without using another P&L threshold search. The router now has a frozen structural stronghold-score definition per engine, evaluates simultaneous engine candidates instead of fixed priority, falls through to the next candidate when a higher-scoring setup does not clear neutral score, and preserves HOLD when none clears it. Score components are equal-weight and use only `xau-state-v2`; the neutral score floor is 0.0 because all components are centered on causal baseline/neutral values. No Router v2 performance claim or promotion exists yet.
+- The next V4.5 step is to capture a genuinely new non-overlapping XAU snapshot and run the frozen Router v2 implementation unchanged against Candidate D at both 500 ms and 1 s. Promotion requires higher net P&L and win rate on both grids, at least 95% system-level trade retention, no material drawdown deterioration, and later cost stress. The known seven-day and 24-hour windows may be used only for implementation/parity diagnostics, not to tune Router v2.
 - The final 20% research holdout has not been opened by the canonical replay harness.
 - All canonical work is maintained directly on `main`.
 
@@ -291,7 +292,7 @@ For each material experiment:
 1. determine the next chronological experiment number from `docs/experiments/README.md`;
 2. create/update `docs/experiments/YYYY-MM-DD/NN-slug.md`;
 3. state objective, baseline, allowed changes, data discipline, and status before treating results as canonical;
-4. implement the research harness in `scripts/`;
+4. implement the research harness in `research/`;
 5. write generated evidence to `results/simulations/YYYY-MM-DD-slug/`;
 6. include a result-directory `README.md` when the experiment produces a durable evidence bundle;
 7. save machine-readable configs/metrics as JSON/CSV;
@@ -406,9 +407,10 @@ Current research scripts:
 - `research/v4_5_cross_window_engine_robustness.py` — Experiment 25 no-tuning comparison of Candidate D engine behavior across historical and recent preserved ledgers.
 - `research/v4_5_regime_portability.py` — Experiment 26 exact frozen Experiment 23 regime replay on the recent raw snapshot plus historical-key portability and PRIMARY exit-state diagnostics.
 - `research/v4_5_state_v2_freeze.py` — Experiment 27 frozen continuous raw-event state-v2 extraction, coverage, cross-grid stability and descriptive outcome profiling; no router selection.
+- `research/v4_5_router_v2.py` — Experiment 28 stronghold-aware Router v2 implementation with dynamic engine arbitration, fall-through and HOLD; frozen before unseen validation.
 - `tools/restore_dataset.py` — hash-verified restoration of ignored raw CSVs from committed archives.
 
-No regime router is promoted. Experiment 24's selected veto is rejected. Experiments 25-26 show that neither engine identity nor the four-part historical regime key is sufficient as a portable permission rule. Experiment 27 freezes the richer `xau-state-v2` representation for the next unseen-window test; Candidate D remains the provisional historical leader.
+No regime router is promoted. Experiment 24's selected veto is rejected. Experiments 25-26 show that neither engine identity nor the four-part historical regime key is sufficient as a portable permission rule. Experiment 27 freezes `xau-state-v2`; Experiment 28 freezes the Router v2 mechanics and structural score but has no unseen performance evidence yet. Candidate D remains the provisional historical leader.
 
 Phase C1 tested 48 BURST lifecycle combinations and every one reproduced Candidate B exactly at both sampling grids. No Candidate C was promoted.
 

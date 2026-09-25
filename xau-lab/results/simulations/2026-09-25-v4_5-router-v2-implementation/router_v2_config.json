@@ -1,0 +1,24 @@
+{
+  "schema": "xau-router-v2-structural-v1",
+  "state_schema": "xau-state-v2",
+  "strategy_base": "V4.5 Candidate D",
+  "strategy_changed": true,
+  "risk_changed": false,
+  "lifecycle_changed": false,
+  "signal_thresholds_changed": false,
+  "score_floor": 0.0,
+  "momentum_squash_scale": 3.0,
+  "weights": "equal within each engine; no P&L weight search",
+  "tie_break_priority": ["PRIMARY", "SECONDARY", "MICRO", "BURST"],
+  "fall_through": true,
+  "hold_allowed": true,
+  "trade_retention_target": 0.95,
+  "known_data_use": "implementation and parity diagnostics only",
+  "promotion_requires_new_unseen_snapshot": true,
+  "engine_components": {
+    "PRIMARY": ["dir_m300_rel", "dir_m60_rel", "flow_align60", "pullback60_edge", "short_long_balance_stability", "market_heat_penalty", "execution_heat_penalty"],
+    "SECONDARY": ["dir_m30_rel", "dir_m60_rel", "flow_align10", "accel_10_60", "pullback60_edge", "range_expansion", "execution_heat_penalty"],
+    "MICRO": ["dir_m10_rel", "dir_m60_rel", "flow_align10", "flow_align60", "accel_10_60", "pullback60_edge", "execution_heat_penalty"],
+    "BURST": ["dir_m10_rel", "dir_m30_rel", "flow_align10", "accel_10_60", "activity_expansion", "range_expansion", "execution_heat_penalty"]
+  }
+}
