@@ -2,101 +2,105 @@
 
 Date: 2026-09-25
 
-Status: **completed diagnostic; current engine family is not cross-window robust**
+Status: **completed diagnostic; no strategy change**
 
 ## Question
 
-Do PRIMARY, SECONDARY, MICRO and BURST contain genuinely different profitable opportunities when conditions change, or are we asking a router to choose among mostly correlated trend-following edges?
+Do PRIMARY, SECONDARY, MICRO and BURST actually contain **different profitable opportunities** when market conditions change, or are we asking a router to choose among four versions of the same failing edge?
 
-Experiment 33 removes shared-slot competition, cross-engine cooldown cascades and compounding. Each engine runs in its own one-position shadow lane with fixed ₹500 sizing, its own original signal/cooldown/lifecycle, and executable bid/ask prices.
+Experiment 32 showed that router fall-through almost never fired. The shared-slot path therefore hid whether the engine family itself had enough independent cross-regime edge.
 
-No strategy rule or router was selected.
+## Method
 
-Final20 remained sealed.
+Each engine was replayed in its own independent one-position shadow lane with:
 
-## Historical seven-day opportunity streams
+- its original signal, cooldown and lifecycle;
+- executable bid/ask fills;
+- fixed ₹500 sizing;
+- no shared cross-engine slot;
+- no cross-engine cooldown interference;
+- no compounding between shadow trades.
 
-All four engines are positive independently on the known historical development window.
+Censored range-end positions were excluded from realized summaries.
 
-500 ms:
+Every opportunity was enriched with frozen `xau-state-v2`.
 
-| Engine | Trades | Wins | Win rate | Fixed-size P&L | PF |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| PRIMARY | 84 | 35 | 41.7% | +₹297.86 | 1.47 |
-| SECONDARY | 45 | 18 | 40.0% | +₹42.30 | 1.10 |
-| MICRO | 77 | 35 | 45.5% | +₹222.27 | 1.71 |
-| BURST | 28 | 15 | 53.6% | +₹74.21 | 3.17 |
+The final20 holdout remained sealed.
 
-1 s:
+## Main result
 
-| Engine | Trades | Wins | Win rate | Fixed-size P&L | PF |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| PRIMARY | 79 | 28 | 35.4% | +₹36.26 | 1.06 |
-| SECONDARY | 62 | 24 | 38.7% | +₹46.69 | 1.08 |
-| MICRO | 62 | 30 | 48.4% | +₹183.24 | 1.71 |
-| BURST | 24 | 12 | 50.0% | +₹48.23 | 2.32 |
+The historical first80 shadow lanes were positive for every engine on both grids, but the recent 24-hour window showed a broad regime failure.
 
-This explains why Candidate D can perform strongly on the historical benchmark: the opportunity family genuinely contains edge there.
+### Historical fixed-size P&L
 
-## Recent 24-hour opportunity streams
+| Engine | 500 ms | 1 s |
+| --- | ---: | ---: |
+| PRIMARY | +₹297.86 | +₹36.26 |
+| SECONDARY | +₹42.30 | +₹46.69 |
+| MICRO | +₹222.27 | +₹183.24 |
+| BURST | +₹74.21 | +₹48.23 |
 
-The picture changes sharply when the engines are isolated from router/path effects.
+### Recent fixed-size P&L
 
-500 ms:
+| Engine | 500 ms | 1 s |
+| --- | ---: | ---: |
+| PRIMARY | **-₹255.11** | **-₹148.99** |
+| SECONDARY | **-₹45.49** | **+₹18.82** |
+| MICRO | **-₹34.46** | **-₹45.60** |
+| BURST | **-₹17.44** | **-₹15.94** |
 
-| Engine | Trades | Wins | Win rate | Fixed-size P&L | PF |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| PRIMARY | 27 | 4 | 14.8% | **-₹255.11** | 0.16 |
-| SECONDARY | 6 | 1 | 16.7% | **-₹45.49** | 0.41 |
-| MICRO | 8 | 1 | 12.5% | **-₹34.46** | 0.25 |
-| BURST | 5 | 0 | 0% | **-₹17.44** | 0.00 |
+At 500 ms **all four engines independently lost** on the recent window.
 
-At 500 ms **every existing engine is independently negative**.
+At 1 s only SECONDARY stayed positive, on just nine trades. PRIMARY, MICRO and BURST all flipped from positive historical P&L to negative recent P&L.
 
-At 1 s, PRIMARY (-₹148.99), MICRO (-₹45.60) and BURST (-₹15.94) are negative. SECONDARY is the lone positive stream at **+₹18.82 / 9 trades / 4 wins / PF 1.24**, but that sign does not survive to 500 ms.
+The recent four-hour block results tell the same story:
 
-## Chronological robustness
+- BURST: 0% positive blocks on both grids;
+- MICRO: 0% positive blocks on both grids;
+- PRIMARY: 16.7% positive blocks on both grids;
+- SECONDARY: 25% positive at 500 ms and 50% positive at 1 s.
 
-The recent four-hour block picture confirms this is not just a shared-slot artifact:
+## Engines are also rarely simultaneous
 
-- BURST: 0% positive recent blocks at both grids;
-- MICRO: 0% positive recent blocks at both grids;
-- PRIMARY: 1/6 positive blocks at each grid;
-- SECONDARY: 1/4 positive blocks at 500 ms and 2/4 at 1 s.
+Independent entry overlap was sparse:
 
-Historical MICRO and BURST were much more consistent: at 500 ms, 70.6% and 62.5% of their observed four-hour blocks were positive respectively.
+- historical 500 ms: 8 multi-engine events out of 226 entry events (**3.54%**);
+- historical 1 s: 8 / 219 (**3.65%**);
+- recent 500 ms: 1 / 45 (**2.22%**);
+- recent 1 s: 1 / 42 (**2.38%**).
 
-## Simultaneous opportunities are rare
+That explains why Router-v3 fall-through was nearly irrelevant. Most opportunities are not simultaneous choices at all.
 
-Exact simultaneous independent entry events:
+## Interpretation
 
-- historical 500 ms: 8 / 226 = **3.54%**;
-- historical 1 s: 8 / 219 = **3.65%**;
-- recent 500 ms: 1 / 45 = **2.22%**;
-- recent 1 s: 1 / 42 = **2.38%**.
+The current problem is **not just routing**.
 
-This independently explains why Router-v3 fallback had nothing useful to do. Most of the time there is no second engine waiting at the same decision point.
+The existing engine family is mostly momentum/trend-family exposure. When the hostile recent regime arrives, there often is no alternate profitable engine for a router to choose.
+
+This means another hand-built priority rule or score threshold is unlikely to solve the cross-window problem by itself.
+
+The next valid direction is one of:
+
+1. prove that frozen state-v2 contains transferable predictive information and use a pre-registered adaptive admission layer; or
+2. add a genuinely complementary opportunity generator, such as a structurally different reversal/mean-reversion family, then validate it independently.
+
+To avoid designing yet another fixed rule around the same two windows, Experiment 34 takes option 1 first: a **no-search chronological walk-forward predictability test**.
 
 ## Decision
 
-**The main variable-environment problem is upstream of the router.**
+No router or threshold is selected from this atlas.
 
-Three of four engines flip from positive historical P&L to negative recent P&L on both grids. SECONDARY is positive only on recent 1 s and negative recent 500 ms. The existing family does not contain enough cross-window complementarity for a router to manufacture robust positive performance.
+Candidate D remains the V4.5 research leader.
 
-Therefore we stop modifying the routing score around these two known datasets.
-
-The next experiment adds a structurally different opportunity generator: a short-horizon **SNAPBACK** lane aimed at failed continuation / countertrend mean reversion. Its rules are defined from existing Candidate-D invariants and natural complements before any P&L is measured. No threshold search is allowed.
-
-If SNAPBACK also fails to transfer, the next route should be a pre-registered walk-forward adaptive meta-labeler rather than hand-tuned state gates.
+Experiment 34 must train only on past shadow opportunities and predict later opportunities using a fixed regularized model and natural zero expected-P&L threshold. Even if known-data walk-forward looks good, that result can only justify freezing a future adaptive candidate before a new unseen snapshot.
 
 ## Evidence
 
 - `research/v4_5_independent_opportunity_atlas.py`
-- `results/simulations/2026-09-25-v4_5-independent-opportunity-atlas/summary.json`
-- `.../shadow_opportunities.csv`
+- `results/simulations/2026-09-25-v4_5-independent-opportunity-atlas/shadow_opportunities.csv`
 - `.../engine_summary.csv`
-- `.../four_hour_blocks.csv`
 - `.../engine_block_robustness.csv`
 - `.../simultaneous_opportunities.csv`
 - `.../cross_window_engine_summary.csv`
 - `.../state_outcome_profiles.csv`
+- `.../summary.json`

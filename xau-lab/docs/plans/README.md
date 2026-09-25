@@ -9,5 +9,6 @@ Plans are historical specifications once their corresponding experiment line mov
 - [V4.1 proposal](V4_1_PROPOSAL.md) — historical proposal preceding the V4.1 research/lock line.
 - [V4.4 run specification](V4_4_RUN_SPEC.md) — historical pre-run specification for the V4.4 research line.
 - [V4.5 run specification](V4_5_RUN_SPEC.md) — preserved pre-run specification for the current V4.5 research generation.
+- [V4.5 adaptive admission feasibility](V4_5_ADAPTIVE_ADMISSION_FEASIBILITY.md) — frozen no-search walk-forward model specification for Experiment 34.
 
 Current strategy status and next actions belong in `../../agents.md`, the experiment index, and the current algorithm document rather than in this plans index.

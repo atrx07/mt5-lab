@@ -1,16 +1,11 @@
 # Experiment 33 — independent engine opportunity atlas
 
-Status: **completed diagnostic**.
+Status: **completed diagnostic; no strategy change**.
 
-The shared slot, cross-engine cooldown path and compounding were removed so each existing engine could be measured as a fixed-₹500 independent opportunity stream.
+The shadow-lane atlas removes shared-slot competition, cross-engine cooldown cascades and compounding.
 
-The result is decisive for architecture direction:
+Historical first80 fixed-size P&L was positive for every engine on both grids. The separate recent 24-hour window was not: at 500 ms all four engines lost independently; at 1 s only SECONDARY stayed positive (+₹18.82 on nine trades).
 
-- historical seven-day: all four engines are positive independently on both grids;
-- recent 500 ms: **all four engines are negative independently**;
-- recent 1 s: only SECONDARY is positive (+₹18.82 across 9 trades), while PRIMARY/MICRO/BURST remain negative;
-- exact simultaneous multi-engine entries occur on only about 2.2–3.7% of entry events.
+Independent engine entries were rarely simultaneous: about 3.5% of historical entry events and about 2.2–2.4% of recent events. That explains why another fall-through router cannot manufacture much complementary opportunity from the existing family.
 
-This means the hostile recent result is not primarily a routing failure. The current engine family itself lacks enough cross-regime complementarity.
-
-Candidate D remains the strategy leader. Further router-threshold tuning is paused. The next research branch adds a genuinely different short-horizon SNAPBACK/reversion opportunity generator, frozen before performance evaluation.
+The current engine set therefore does not provide enough portable cross-regime complementarity by itself. Next: test whether frozen `xau-state-v2` contains transferable predictive information using a fixed chronological walk-forward model. Do not select a hand-tuned router threshold from this atlas.

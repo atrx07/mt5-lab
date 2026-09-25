@@ -310,6 +310,7 @@ Examples:
 - `31-v4-5-router-v2-arbitration-audit.md`
 - `32-v4-5-router-v3-priority-latched.md`
 - `33-v4-5-independent-opportunity-atlas.md`
+- `34-v4-5-state-v2-walkforward-predictability.md`
 - `34-v4-5-snapback-foundation.md`
 
 Experiment numbers are chronological across the project, not reset each day.

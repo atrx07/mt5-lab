@@ -1,0 +1,20 @@
+{
+  "schema": "xau-state-v2-walkforward-predictability-v1",
+  "frozen_before_execution": true,
+  "strategy_changed": false,
+  "continuous_features": 20,
+  "engine_one_hot": ["PRIMARY", "SECONDARY", "MICRO", "BURST"],
+  "side_feature": false,
+  "target": "Experiment-33 fixed-size pnl_inr",
+  "model": "ridge_regression",
+  "alpha": 1.0,
+  "imputation": "training median",
+  "scaling": "training z-score",
+  "diagnostic_threshold": "predicted_pnl_inr > 0",
+  "threshold_search": false,
+  "hyperparameter_search": false,
+  "historical_folds": ["0->1", "0-1->2", "0-2->3", "0-3->4"],
+  "recent_training": "all historical first80 -> recent24h",
+  "final20_opened": false,
+  "known_data_can_promote": false
+}

@@ -49,4 +49,5 @@ Experiments are grouped by date so each session can grow independently without t
 - [31 — V4.5 Router v2 arbitration divergence audit](2026-09-25/31-v4-5-router-v2-arbitration-audit.md)
 - [32 — V4.5 path-aware priority-preserving Router v3](2026-09-25/32-v4-5-router-v3-priority-latched.md)
 - [33 — V4.5 independent engine opportunity atlas](2026-09-25/33-v4-5-independent-opportunity-atlas.md)
+- [34 — V4.5 state-v2 walk-forward predictability](2026-09-25/34-v4-5-state-v2-walkforward-predictability.md)
 - [34 — V4.5 SNAPBACK complementary-engine foundation](2026-09-25/34-v4-5-snapback-foundation.md)
