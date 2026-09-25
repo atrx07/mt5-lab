@@ -2,7 +2,7 @@
 Export recent XAUUSD MT5 ticks for offline replay.
 
 Example:
-    python export_xau_ticks.py --days 7
+    python tools/export_xau_ticks.py --days 7
 """
 
 import argparse

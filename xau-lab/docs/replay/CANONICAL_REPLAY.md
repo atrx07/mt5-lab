@@ -10,7 +10,7 @@ That is now intentionally stopped.
 
 Every new candidate must be evaluated through:
 
-`scripts/canonical_replay.py`
+`research/canonical_replay.py`
 
 Before the candidate result is accepted, the harness automatically replays the locked V4.4 baseline on the **same feature build** and compares it against:
 
@@ -72,8 +72,8 @@ The earlier V4.4 lock record (16.36% at 500 ms / 11.54% at 1 s) is preserved as 
 Example:
 
 ```powershell
-python scripts\canonical_replay.py data\raw\xau_ticks_7d.csv --interval 500ms --strategy v4_5_b
-python scripts\canonical_replay.py data\raw\xau_ticks_7d.csv --interval 1s --strategy v4_5_b
+python research\canonical_replay.py data\raw\xau_ticks_7d.csv --interval 500ms --strategy v4_5_b
+python research\canonical_replay.py data\raw\xau_ticks_7d.csv --interval 1s --strategy v4_5_b
 ```
 
 For any non-baseline strategy, the harness automatically:

@@ -21,11 +21,13 @@ xau-lab/
 ├── .gitignore
 ├── data/
 ├── docs/
+├── research/
 ├── results/
-└── scripts/
+├── scripts/
+└── tools/
 ```
 
-Use these existing directories. Do not create parallel structures such as `research/`, `experiments-v2/`, `new-results/`, `archive2/`, or version-specific top-level folders unless the user explicitly changes the project structure.
+Use these canonical directories. `scripts/` is reserved for final paper-challenge executors, `research/` owns intermediate replay/feature/model/experiment code, and `tools/` owns broker/data utilities. Do not create additional parallel structures such as `experiments-v2/`, `new-results/`, `archive2/`, or version-specific top-level folders unless the user explicitly changes the project structure.
 
 Canonical work lives on `main`.
 
@@ -498,19 +500,9 @@ For important durable evidence, prefer:
 
 Do not make a chat transcript the only record of a result.
 
-## `scripts/` — runnable project code
+## `scripts/` — final paper-challenge executors only
 
-Current categories:
-
-### Data/broker utilities
-
-- `xau_probe.py` — MT5 XAUUSD contract/environment probe;
-- `export_xau_ticks.py` — broker tick exporter;
-- `archive_dataset.py` — hash/manifest/deterministic gzip archive helper.
-- `restore_dataset.py` — hash-verified restoration of ignored raw CSVs from the archives;
-- `capture_recent_xau_ticks.py` — read-only MT5 tick snapshot capture with clock provenance.
-
-### Historical/current paper strategy scripts
+This directory is intentionally reserved for final/historical paper-challenge strategy executors:
 
 - `paper_challenge.py` — V1;
 - `paper_challenge_v2.py` — V2;
@@ -520,47 +512,37 @@ Current categories:
 - `paper_challenge_v4_1.py` — V4.1;
 - `paper_challenge_v4_2.py` — V4.2;
 - `paper_challenge_v4_3.py` — V4.3;
-- `paper_challenge_v4_4.py` — locked V4.4 current experimental paper version.
+- `paper_challenge_v4_4.py` — locked V4.4 paper version.
 
-Naming rule:
+Naming rule: `paper_challenge_v<major>_<minor>.py`.
 
-`paper_challenge_v<major>_<minor>.py`
+Do not place replay harnesses, diagnostics, searches, feature/model experiments, probes, or dataset helpers in `scripts/`. Do not create `paper_challenge_v4_5.py` until V4.5 is selected and locked for paper execution.
 
-Do not create `paper_challenge_v4_5.py` until V4.5 is actually selected/locked for paper execution.
+## `research/` — replay and intermediate strategy/model work
 
-### Replay/research scripts
+All non-final strategy-development code belongs here. This includes canonical replay, diagnostics, feature/model experiments, candidate searches and intermediate research harnesses.
 
-- `replay_lab.py` — older/general replay utility;
-- `canonical_replay.py` — mandatory V4.x parity-gated replay source of truth;
-- `v4_5_profit_velocity_search.py` — completed Experiment 17 C1 lifecycle search;
-- `v4_5_burst_path_autopsy.py` — completed Experiment 18 BURST trace and Candidate D simulator foundation;
-- `v4_5_confirmed_failure.py` — provisional Candidate D replay from Experiment 19;
-- `v4_5_exposure_velocity.py` — completed Experiment 20 PRIMARY/SECONDARY diagnostic and rejected seed variants;
-- `v4_5_multi_ticket_horizon.py` — Experiment 21 independent multi-ticket replay plus Experiment 22's rejected impulse-only mode 3;
-- `v4_5_recent_validation.py` — Experiment 22 historical parity-gated recent synthetic validation and ledgers;
-- `v4_5_regime_normalization.py` — Experiment 23 raw-event, pre-sampling normalized regime diagnostic and engine/window robustness audit;
-- `v4_5_regime_router_probe.py` — Experiment 24 bounded regime-veto search and chronological evaluation.
-- `v4_5_cross_window_engine_robustness.py` — Experiment 25 no-tuning engine comparison across historical and recent preserved ledgers.
-- `v4_5_regime_portability.py` — Experiment 26 frozen raw-event regime portability replay and transfer diagnostics.
-- `v4_5_state_v2_freeze.py` — Experiment 27 state-v2 feature freeze and cross-grid stability harness.
+Current important files include `canonical_replay.py`, `replay_lab.py`, and the `v4_5_*.py` research line through Experiment 27.
 
-Experiment 23 changes no trading rule. Its frozen regime schema should be replayed unchanged on non-overlapping recent/future snapshots before any regime router or engine gate is selected. Fair terminal-equity/forced-close diagnostics remain required for like-for-like recent single-slot comparison.
+For new intermediate work use descriptive version-prefixed names such as `research/v4_5_<purpose>.py`.
 
-For new research harnesses, use a descriptive version-prefixed name under `scripts/`, for example:
+Research harnesses write durable evidence to `results/simulations/<experiment>/`; do not store experiment code inside result directories.
 
-`v4_5_<purpose>.py`
+## `tools/` — broker/data utilities
 
-Do not put research scripts inside result directories.
+Non-strategy utilities belong here:
 
-### Script output placement
+- `xau_probe.py` — MT5 XAUUSD contract/environment probe;
+- `export_xau_ticks.py` — broker tick exporter;
+- `capture_recent_xau_ticks.py` — read-only, clock-audited recent tick capture;
+- `archive_dataset.py` — deterministic archive/manifest helper;
+- `restore_dataset.py` — hash-verified raw-dataset restoration.
 
-Research scripts should write durable generated evidence to their matching `results/simulations/<experiment>/` directory.
+These are utilities, not strategy versions.
 
-Temporary console-only diagnostics need not be committed.
+### Output placement
 
-Historical paper scripts currently write some log files relative to the working directory. When preserving those outputs as canonical evidence, place/archive the evidence under the appropriate `results/` location and document provenance.
-
-Avoid writing new permanent artifacts into `scripts/`.
+Durable experiment evidence belongs under `results/simulations/`. Temporary console-only diagnostics need not be committed. Historical paper executors may write local logs; canonical evidence belongs under `results/`.
 
 ## Canonical cross-linking rules
 
@@ -658,31 +640,31 @@ docs/experiments/2026-09-24/19-v4-5-confirmed-failure.md
 results/simulations/2026-09-24-v4_5-confirmed-failure/
 docs/experiments/2026-09-24/20-v4-5-exposure-velocity.md
 results/simulations/2026-09-24-v4_5-exposure-velocity/
-scripts/v4_5_confirmed_failure.py
-scripts/v4_5_exposure_velocity.py
+research/v4_5_confirmed_failure.py
+research/v4_5_exposure_velocity.py
 docs/experiments/2026-09-24/21-v4-5-multi-ticket-horizon.md
 results/simulations/2026-09-24-v4_5-multi-ticket-horizon/
-scripts/v4_5_multi_ticket_horizon.py
+research/v4_5_multi_ticket_horizon.py
 docs/experiments/2026-09-24/22-recent-micro-long-validation.md
 results/simulations/2026-09-24-recent-micro-long-validation/
 data/manifests/xau_ticks_recent_24h_2026-09-24.json
-scripts/v4_5_recent_validation.py
-scripts/capture_recent_xau_ticks.py
+research/v4_5_recent_validation.py
+tools/capture_recent_xau_ticks.py
 docs/experiments/2026-09-25/23-v4-5-regime-normalization.md
 results/simulations/2026-09-25-v4_5-regime-normalization/
-scripts/v4_5_regime_normalization.py
+research/v4_5_regime_normalization.py
 docs/experiments/2026-09-25/24-v4-5-regime-router-probe.md
 results/simulations/2026-09-25-v4_5-regime-router-probe/
-scripts/v4_5_regime_router_probe.py
+research/v4_5_regime_router_probe.py
 docs/experiments/2026-09-25/25-v4-5-cross-window-engine-robustness.md
 results/simulations/2026-09-25-v4_5-cross-window-engine-robustness/
-scripts/v4_5_cross_window_engine_robustness.py
+research/v4_5_cross_window_engine_robustness.py
 docs/experiments/2026-09-25/26-v4-5-regime-portability.md
 results/simulations/2026-09-25-v4_5-regime-portability/
-scripts/v4_5_regime_portability.py
+research/v4_5_regime_portability.py
 docs/experiments/2026-09-25/27-v4-5-state-v2-freeze.md
 results/simulations/2026-09-25-v4_5-state-v2-freeze/
-scripts/v4_5_state_v2_freeze.py
+research/v4_5_state_v2_freeze.py
 ```
 
 If the latest experiment number/version changes later, follow the indexes rather than assuming the paths above remain the newest.

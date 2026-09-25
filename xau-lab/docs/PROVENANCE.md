@@ -6,7 +6,7 @@ This repository was assembled from the live-paper session, uploaded runtime outp
 
 On 2026-09-23 the original local files were recovered and promoted into the canonical repository:
 
-- `scripts/xau_probe.py`
+- `tools/xau_probe.py`
 - `scripts/paper_challenge.py`
 - `scripts/paper_challenge_v2.py`
 - `scripts/paper_challenge_v3.py`
@@ -30,3 +30,8 @@ These raw logs are the strongest historical evidence for the corresponding runs.
 A useful correction came from this recovery: the V2 log did not actually end at the six-trade checkpoint previously discussed in chat. The recovered file contains **14 completed trades** and finishes at **₹439.40**. The earlier **₹475.48** figure is preserved as the balance after trade 6, not the final V2 run balance.
 
 No historical or current script in this lab sends real MT5 orders.
+
+
+## Repository layout note (2026-09-25)
+
+The repository was reorganized so `scripts/` contains only final paper-challenge executors. Replay/research harnesses moved to `research/`, and broker/data helpers moved to `tools/`. This was a path/layout refactor only; historical strategy logic and preserved experiment evidence were not reinterpreted.

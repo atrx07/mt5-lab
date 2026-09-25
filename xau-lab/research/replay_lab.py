@@ -5,8 +5,8 @@ Input should be produced by export_xau_ticks.py and contain:
     timestamp_utc,bid,ask,...
 
 Examples:
-    python replay_lab.py xau_ticks_7d.csv
-    python replay_lab.py xau_ticks_7d.csv --windows 100 --window-minutes 30 --seed 42
+    python research/replay_lab.py xau_ticks_7d.csv
+    python research/replay_lab.py xau_ticks_7d.csv --windows 100 --window-minutes 30 --seed 42
 
 The replay implements the V4 pullback/resumption state machine using historical
 bid/ask prices. It is intentionally deterministic and never touches MT5 orders.

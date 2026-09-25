@@ -82,28 +82,28 @@ python scripts\paper_challenge_v4_1.py
 Completed V4.5-C Phase C1 research harness:
 
 ```powershell
-python scripts\v4_5_profit_velocity_search.py xau_ticks_7d.csv
+python research\v4_5_profit_velocity_search.py xau_ticks_7d.csv
 ```
 
 Latest V4.5 diagnostics and candidate replay:
 
 ```powershell
-python scripts\v4_5_burst_path_autopsy.py xau_ticks_7d.csv
-python scripts\v4_5_confirmed_failure.py xau_ticks_7d.csv --confirm-sec 1
-python scripts\v4_5_exposure_velocity.py xau_ticks_7d.csv
-python scripts\v4_5_multi_ticket_horizon.py xau_ticks_7d.csv --mode 0
-python scripts\v4_5_recent_validation.py
-python scripts\v4_5_regime_normalization.py xau_ticks_7d.csv
-python scripts\v4_5_regime_router_probe.py xau_ticks_7d.csv
-python scripts\v4_5_cross_window_engine_robustness.py
-python scripts\v4_5_regime_portability.py xau_ticks_7d.csv xau_ticks_recent_24h_2026-09-24.csv.gz
-python scripts\v4_5_state_v2_freeze.py xau_ticks_7d.csv xau_ticks_recent_24h_2026-09-24.csv.gz
+python research\v4_5_burst_path_autopsy.py xau_ticks_7d.csv
+python research\v4_5_confirmed_failure.py xau_ticks_7d.csv --confirm-sec 1
+python research\v4_5_exposure_velocity.py xau_ticks_7d.csv
+python research\v4_5_multi_ticket_horizon.py xau_ticks_7d.csv --mode 0
+python research\v4_5_recent_validation.py
+python research\v4_5_regime_normalization.py xau_ticks_7d.csv
+python research\v4_5_regime_router_probe.py xau_ticks_7d.csv
+python research\v4_5_cross_window_engine_robustness.py
+python research\v4_5_regime_portability.py xau_ticks_7d.csv xau_ticks_recent_24h_2026-09-24.csv.gz
+python research\v4_5_state_v2_freeze.py xau_ticks_7d.csv xau_ticks_recent_24h_2026-09-24.csv.gz
 ```
 
 Historical tick export:
 
 ```powershell
-python scripts\export_xau_ticks.py --days 7
+python tools\export_xau_ticks.py --days 7
 ```
 
 ## Dataset preservation
@@ -143,9 +143,15 @@ See [`data/README.md`](data/README.md) for the exact archive/push workflow.
 - [Dataset archive policy](data/README.md)
 - [Provenance](docs/PROVENANCE.md)
 
+## Code layout
+
+- `scripts/` — final paper-challenge executors only;
+- `research/` — canonical replay and intermediate strategy/feature/model experiments;
+- `tools/` — MT5/data capture, archive, restore and probe utilities.
+
 ## Canonical replay gate
 
-Every new V4.x candidate must pass the locked V4.4 regression assertion inside `scripts/canonical_replay.py` before its result is considered valid. If preprocessing, sampling, features, boundaries or accounting drift, the run fails instead of silently producing a new baseline.
+Every new V4.x candidate must pass the locked V4.4 regression assertion inside `research/canonical_replay.py` before its result is considered valid. If preprocessing, sampling, features, boundaries or accounting drift, the run fails instead of silently producing a new baseline.
 
 ## Research discipline
 

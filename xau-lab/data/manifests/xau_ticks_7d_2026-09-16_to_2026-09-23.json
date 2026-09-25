@@ -4,7 +4,7 @@
   "instrument": "XAUUSD",
   "source": {
     "platform": "MetaTrader 5",
-    "exporter": "scripts/export_xau_ticks.py",
+    "exporter": "tools/export_xau_ticks.py",
     "description": "Broker tick export used for the seven-day xau-lab replay study"
   },
   "raw": {

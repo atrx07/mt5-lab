@@ -28,8 +28,8 @@ Its archive is `raw/xau_ticks_recent_24h_2026-09-24.csv.gz`. The terminal-report
 To restore either ignored raw CSV for replay, run from `xau-lab/`:
 
 ```powershell
-python scripts\restore_dataset.py data\manifests\xau_ticks_7d_2026-09-16_to_2026-09-23.json
-python scripts\restore_dataset.py data\manifests\xau_ticks_recent_24h_2026-09-24.json
+python tools\restore_dataset.py data\manifests\xau_ticks_7d_2026-09-16_to_2026-09-23.json
+python tools\restore_dataset.py data\manifests\xau_ticks_recent_24h_2026-09-24.json
 ```
 
 The restore helper refuses to overwrite an existing raw CSV and checks both archive and restored raw SHA-256 hashes.
@@ -39,7 +39,7 @@ The restore helper refuses to overwrite an existing raw CSV and checks both arch
 From `xau-lab/`, with the original `xau_ticks_7d.csv` present:
 
 ```powershell
-python scripts\archive_dataset.py xau_ticks_7d.csv data\manifests\xau_ticks_7d_2026-09-16_to_2026-09-23.json
+python tools\archive_dataset.py xau_ticks_7d.csv data\manifests\xau_ticks_7d_2026-09-16_to_2026-09-23.json
 ```
 
 The helper will:

@@ -110,7 +110,7 @@ All new V4.x candidate research must use the canonical replay path or explicitly
 
 Canonical harness:
 
-`scripts/canonical_replay.py`
+`research/canonical_replay.py`
 
 Canonical replay schema:
 
@@ -272,6 +272,18 @@ For fractional research:
 
 A major-version graduation requires stronger evidence than a fractional lock: realistic execution modeling, multiple regimes, drawdown checks, cost stress, holdout evidence, and live-paper validation.
 
+## Code placement contract
+
+Code placement is strict:
+
+- `scripts/` contains **only final paper-challenge executors** (`paper_challenge*.py`) for historical/locked versions;
+- `research/` contains canonical replay, diagnostics, feature/model experiments, candidate searches and all intermediate research harnesses;
+- `tools/` contains broker probes, tick capture/export and dataset archive/restore helpers;
+- never put a new intermediate experiment in `scripts/`;
+- do not create `paper_challenge_v4_5.py` until V4.5 is actually selected and locked for paper execution.
+
+When an experiment needs a helper, feature implementation or model harness, add it under `research/` and link it from the experiment/evidence docs.
+
 ## Experiment workflow
 
 For each material experiment:
@@ -383,18 +395,18 @@ Latest evidence:
 
 Current research scripts:
 
-- `scripts/canonical_replay.py` — mandatory V4.4 parity and feature source;
-- `scripts/v4_5_confirmed_failure.py` — Candidate D research replay;
-- `scripts/v4_5_exposure_velocity.py` — completed Experiment 20 diagnostic and rejected seed variants.
-- `scripts/v4_5_multi_ticket_horizon.py` — completed negative Experiment 21 independent multi-ticket replay; exploratory research only.
-- `scripts/capture_recent_xau_ticks.py` — read-only, clock-audited MT5 quote snapshot capture.
-- `scripts/v4_5_recent_validation.py` — Experiment 22 historical parity-gated recent synthetic validation and ledgers.
-- `scripts/v4_5_regime_normalization.py` — Experiment 23 raw-event, pre-sampling normalized regime diagnostic and engine/window robustness audit.
-- `scripts/v4_5_regime_router_probe.py` — Experiment 24 bounded single-category regime-veto search and one-time chronological evaluation; selected probe rejected.
-- `scripts/v4_5_cross_window_engine_robustness.py` — Experiment 25 no-tuning comparison of Candidate D engine behavior across historical and recent preserved ledgers.
-- `scripts/v4_5_regime_portability.py` — Experiment 26 exact frozen Experiment 23 regime replay on the recent raw snapshot plus historical-key portability and PRIMARY exit-state diagnostics.
-- `scripts/v4_5_state_v2_freeze.py` — Experiment 27 frozen continuous raw-event state-v2 extraction, coverage, cross-grid stability and descriptive outcome profiling; no router selection.
-- `scripts/restore_dataset.py` — hash-verified restoration of ignored raw CSVs from committed archives.
+- `research/canonical_replay.py` — mandatory V4.4 parity and feature source;
+- `research/v4_5_confirmed_failure.py` — Candidate D research replay;
+- `research/v4_5_exposure_velocity.py` — completed Experiment 20 diagnostic and rejected seed variants.
+- `research/v4_5_multi_ticket_horizon.py` — completed negative Experiment 21 independent multi-ticket replay; exploratory research only.
+- `tools/capture_recent_xau_ticks.py` — read-only, clock-audited MT5 quote snapshot capture.
+- `research/v4_5_recent_validation.py` — Experiment 22 historical parity-gated recent synthetic validation and ledgers.
+- `research/v4_5_regime_normalization.py` — Experiment 23 raw-event, pre-sampling normalized regime diagnostic and engine/window robustness audit.
+- `research/v4_5_regime_router_probe.py` — Experiment 24 bounded single-category regime-veto search and one-time chronological evaluation; selected probe rejected.
+- `research/v4_5_cross_window_engine_robustness.py` — Experiment 25 no-tuning comparison of Candidate D engine behavior across historical and recent preserved ledgers.
+- `research/v4_5_regime_portability.py` — Experiment 26 exact frozen Experiment 23 regime replay on the recent raw snapshot plus historical-key portability and PRIMARY exit-state diagnostics.
+- `research/v4_5_state_v2_freeze.py` — Experiment 27 frozen continuous raw-event state-v2 extraction, coverage, cross-grid stability and descriptive outcome profiling; no router selection.
+- `tools/restore_dataset.py` — hash-verified restoration of ignored raw CSVs from committed archives.
 
 No regime router is promoted. Experiment 24's selected veto is rejected. Experiments 25-26 show that neither engine identity nor the four-part historical regime key is sufficient as a portable permission rule. Experiment 27 freezes the richer `xau-state-v2` representation for the next unseen-window test; Candidate D remains the provisional historical leader.
 

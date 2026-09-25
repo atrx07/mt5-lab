@@ -68,7 +68,7 @@ def main() -> None:
             "instrument": args.symbol,
             "source": {
                 "platform": "MetaTrader 5",
-                "exporter": "scripts/capture_recent_xau_ticks.py",
+                "exporter": "tools/capture_recent_xau_ticks.py",
                 "tick_filter": "COPY_TICKS_ALL; bid>0 and ask>bid",
                 "reported_timestamp_basis": "MT5 time_msc interpreted as UTC, per MQL5 Python API documentation",
                 "host_acquisition_utc": host_now.isoformat(),
