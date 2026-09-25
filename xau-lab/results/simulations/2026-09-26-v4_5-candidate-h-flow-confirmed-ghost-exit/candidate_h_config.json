@@ -1,0 +1,17 @@
+{
+  "schema": "xau-candidate-h-flow-confirmed-ghost-exit-v1",
+  "base_strategy": "Candidate D from Experiment 19",
+  "entry_changed": false,
+  "changed_exit_engine": "PRIMARY only",
+  "trigger_mfe_usd": 4.0,
+  "min_giveback_usd": 4.0,
+  "check_sec": 5.0,
+  "negative_confirmations": 2,
+  "decay_condition": "dir_mid_move2 < 0 AND dir_event_imb2 < 0",
+  "post_real_exit_slot_policy": "capital-free ghost preserves Candidate-D occupancy until legacy exit",
+  "primary_cooldown_anchor": "ghost legacy-exit timestamp",
+  "same_entry_path_required": true,
+  "threshold_search": false,
+  "known_data_promotion_allowed": false,
+  "final20_opened": false
+}

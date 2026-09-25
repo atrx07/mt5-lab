@@ -1,0 +1,753 @@
+{
+  "schema": "xau-candidate-h-flow-confirmed-ghost-exit-eval-v1",
+  "candidate_config": {
+    "schema": "xau-candidate-h-flow-confirmed-ghost-exit-v1",
+    "base_strategy": "Candidate D from Experiment 19",
+    "entry_changed": false,
+    "changed_exit_engine": "PRIMARY only",
+    "trigger_mfe_usd": 4.0,
+    "min_giveback_usd": 4.0,
+    "check_sec": 5.0,
+    "negative_confirmations": 2,
+    "decay_condition": "dir_mid_move2 < 0 AND dir_event_imb2 < 0",
+    "post_real_exit_slot_policy": "capital-free ghost preserves Candidate-D occupancy until legacy exit",
+    "primary_cooldown_anchor": "ghost legacy-exit timestamp",
+    "same_entry_path_required": true,
+    "threshold_search": false,
+    "known_data_promotion_allowed": false,
+    "final20_opened": false
+  },
+  "known_data_promotion_allowed": false,
+  "final20_opened": false,
+  "random_window_method": "40 deterministic contiguous four-hour windows per grid alternating known historical-first80 and recent24h sources",
+  "slippage_stress_usd_per_side": [
+    0.0,
+    0.05,
+    0.1,
+    0.2
+  ],
+  "intervals": {
+    "500ms": {
+      "canonical_first80": {
+        "entry_path_parity": true,
+        "candidate_d": {
+          "compounded_pnl_inr": 1430.311133793068,
+          "trades": 163,
+          "wins": 81,
+          "win_rate": 0.49693251533742333,
+          "max_segment_drawdown_inr": 218.9381795572965,
+          "primary_entries": 74,
+          "primary_flow_exits": 0,
+          "ghost_releases": 0
+        },
+        "candidate_h": {
+          "compounded_pnl_inr": 1287.0890835318237,
+          "trades": 163,
+          "wins": 83,
+          "win_rate": 0.50920245398773,
+          "max_segment_drawdown_inr": 148.65905483517383,
+          "primary_entries": 74,
+          "primary_flow_exits": 18,
+          "ghost_releases": 18
+        },
+        "delta_h_vs_d_inr": -143.22205026124425,
+        "candidate_d_segments": [
+          {
+            "pnl_inr": 696.8428619834062,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 696.8428619834062,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 1.7428577443389235,
+            "trades": 98,
+            "wins": 46,
+            "win_rate": 0.46938775510204084,
+            "max_drawdown_inr": 218.9381795572965,
+            "primary_entries": 53,
+            "primary_flow_exits": 0,
+            "ghost_releases": 0
+          },
+          {
+            "pnl_inr": 44.100517926115,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 44.100517926115,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 1.3756640618094829,
+            "trades": 23,
+            "wins": 12,
+            "win_rate": 0.5217391304347826,
+            "max_drawdown_inr": 35.71970634386099,
+            "primary_entries": 12,
+            "primary_flow_exits": 0,
+            "ghost_releases": 0
+          },
+          {
+            "pnl_inr": -13.57863832016642,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -13.57863832016642,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 0.6221002242035942,
+            "trades": 8,
+            "wins": 3,
+            "win_rate": 0.375,
+            "max_drawdown_inr": 29.53955840072996,
+            "primary_entries": 1,
+            "primary_flow_exits": 0,
+            "ghost_releases": 0
+          },
+          {
+            "pnl_inr": 34.31993370500095,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 34.31993370500095,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 1.3509959326539795,
+            "trades": 16,
+            "wins": 7,
+            "win_rate": 0.4375,
+            "max_drawdown_inr": 45.342126358477344,
+            "primary_entries": 5,
+            "primary_flow_exits": 0,
+            "ghost_releases": 0
+          },
+          {
+            "pnl_inr": 212.81535096220955,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 212.81535096220955,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 4.594076885025599,
+            "trades": 18,
+            "wins": 13,
+            "win_rate": 0.7222222222222222,
+            "max_drawdown_inr": 22.50067024906457,
+            "primary_entries": 3,
+            "primary_flow_exits": 0,
+            "ghost_releases": 0
+          }
+        ],
+        "candidate_h_segments": [
+          {
+            "pnl_inr": 594.3818321275041,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 594.3818321275041,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 1.7503665095437912,
+            "trades": 98,
+            "wins": 48,
+            "win_rate": 0.4897959183673469,
+            "max_drawdown_inr": 148.65905483517383,
+            "primary_entries": 53,
+            "primary_flow_exits": 15,
+            "ghost_releases": 15
+          },
+          {
+            "pnl_inr": 47.416322896859924,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 47.416322896859924,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 1.4035322944361643,
+            "trades": 23,
+            "wins": 12,
+            "win_rate": 0.5217391304347826,
+            "max_drawdown_inr": 35.71970634386099,
+            "primary_entries": 12,
+            "primary_flow_exits": 2,
+            "ghost_releases": 2
+          },
+          {
+            "pnl_inr": -10.490436534748028,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -10.490436534748028,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 0.709693210422047,
+            "trades": 8,
+            "wins": 3,
+            "win_rate": 0.375,
+            "max_drawdown_inr": 29.727099746937654,
+            "primary_entries": 1,
+            "primary_flow_exits": 1,
+            "ghost_releases": 1
+          },
+          {
+            "pnl_inr": 34.31993370500095,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 34.31993370500095,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 1.3509959326539795,
+            "trades": 16,
+            "wins": 7,
+            "win_rate": 0.4375,
+            "max_drawdown_inr": 45.342126358477344,
+            "primary_entries": 5,
+            "primary_flow_exits": 0,
+            "ghost_releases": 0
+          },
+          {
+            "pnl_inr": 212.81535096220955,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 212.81535096220955,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 4.594076885025599,
+            "trades": 18,
+            "wins": 13,
+            "win_rate": 0.7222222222222222,
+            "max_drawdown_inr": 22.50067024906457,
+            "primary_entries": 3,
+            "primary_flow_exits": 0,
+            "ghost_releases": 0
+          }
+        ]
+      },
+      "recent24h_whole": {
+        "entry_path_parity": {
+          "match": true,
+          "candidate_d_entries": 39,
+          "candidate_g_entries": 39,
+          "first_mismatch": null
+        },
+        "candidate_d": {
+          "pnl_inr": -223.27329174700338,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -223.27329174700338,
+          "open_position_at_end": false,
+          "ghost_active_at_end": false,
+          "profit_factor": 0.22462663024633286,
+          "trades": 39,
+          "wins": 5,
+          "win_rate": 0.1282051282051282,
+          "max_drawdown_inr": 230.22212602319553,
+          "primary_entries": 25,
+          "primary_flow_exits": 0,
+          "ghost_releases": 0
+        },
+        "candidate_h": {
+          "pnl_inr": -208.4689762103303,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -208.4689762103303,
+          "open_position_at_end": false,
+          "ghost_active_at_end": false,
+          "profit_factor": 0.23863872120660795,
+          "trades": 39,
+          "wins": 5,
+          "win_rate": 0.1282051282051282,
+          "max_drawdown_inr": 215.78955897399675,
+          "primary_entries": 25,
+          "primary_flow_exits": 2,
+          "ghost_releases": 2
+        },
+        "delta_h_vs_d_inr": 14.804315536673073
+      },
+      "recent24h_split": [
+        {
+          "split": "seed",
+          "candidate_d": {
+            "pnl_inr": -92.47632849025553,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -92.47632849025553,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 0.35314786361894923,
+            "trades": 19,
+            "wins": 3,
+            "win_rate": 0.15789473684210525,
+            "max_drawdown_inr": 92.47632849025553,
+            "primary_entries": 12,
+            "primary_flow_exits": 0,
+            "ghost_releases": 0
+          },
+          "candidate_h": {
+            "pnl_inr": -80.57790392259221,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -80.57790392259221,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 0.38520750333953896,
+            "trades": 19,
+            "wins": 3,
+            "win_rate": 0.15789473684210525,
+            "max_drawdown_inr": 80.57790392259221,
+            "primary_entries": 12,
+            "primary_flow_exits": 1,
+            "ghost_releases": 1
+          },
+          "delta_h_vs_d_inr": 11.898424567663312
+        },
+        {
+          "split": "evaluation",
+          "candidate_d": {
+            "pnl_inr": -149.92292560013215,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -149.92292560013215,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 0.10696816560845236,
+            "trades": 19,
+            "wins": 2,
+            "win_rate": 0.10526315789473684,
+            "max_drawdown_inr": 158.7136476423097,
+            "primary_entries": 12,
+            "primary_flow_exits": 0,
+            "ghost_releases": 0
+          },
+          "candidate_h": {
+            "pnl_inr": -141.65701614833876,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -141.65701614833876,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 0.1141780377364877,
+            "trades": 19,
+            "wins": 2,
+            "win_rate": 0.10526315789473684,
+            "max_drawdown_inr": 150.6553019464152,
+            "primary_entries": 12,
+            "primary_flow_exits": 1,
+            "ghost_releases": 1
+          },
+          "delta_h_vs_d_inr": 8.26590945179339
+        }
+      ],
+      "random_real_windows": {
+        "candidate_d": {
+          "windows": 40,
+          "median_terminal_equity_pnl_inr": -23.586061895657508,
+          "mean_terminal_equity_pnl_inr": -6.260094042109164,
+          "p05_terminal_equity_pnl_inr": -27.100950513536418,
+          "p95_terminal_equity_pnl_inr": 49.57687903560627,
+          "positive_window_fraction": 0.3,
+          "total_trades": 417,
+          "total_wins": 157,
+          "aggregate_win_rate": 0.3764988009592326
+        },
+        "candidate_h": {
+          "windows": 40,
+          "median_terminal_equity_pnl_inr": -20.841951979198388,
+          "mean_terminal_equity_pnl_inr": -3.3565093224781988,
+          "p05_terminal_equity_pnl_inr": -27.100950513536418,
+          "p95_terminal_equity_pnl_inr": 53.862566446534686,
+          "positive_window_fraction": 0.35,
+          "total_trades": 417,
+          "total_wins": 160,
+          "aggregate_win_rate": 0.38369304556354916
+        },
+        "candidate_h_better_than_d_fraction": 0.325,
+        "candidate_h_equal_to_d_fraction": 0.6
+      },
+      "cost_stress": [
+        {
+          "extra_slippage_usd_per_side": 0.0,
+          "historical_candidate_d_compounded_pnl_inr": 1430.311133793068,
+          "historical_candidate_h_compounded_pnl_inr": 1287.0890835318237,
+          "historical_delta_h_vs_d_inr": -143.22205026124425,
+          "recent_candidate_d_terminal_equity_pnl_inr": -223.27329174700338,
+          "recent_candidate_h_terminal_equity_pnl_inr": -208.4689762103303,
+          "recent_delta_h_vs_d_inr": 14.804315536673073,
+          "historical_candidate_h_flow_exits": 18,
+          "recent_candidate_h_flow_exits": 2
+        },
+        {
+          "extra_slippage_usd_per_side": 0.05,
+          "historical_candidate_d_compounded_pnl_inr": 1164.8109181225905,
+          "historical_candidate_h_compounded_pnl_inr": 1063.7079344681954,
+          "historical_delta_h_vs_d_inr": -101.10298365439508,
+          "recent_candidate_d_terminal_equity_pnl_inr": -228.5917885979548,
+          "recent_candidate_h_terminal_equity_pnl_inr": -214.0606050534518,
+          "recent_delta_h_vs_d_inr": 14.531183544502994,
+          "historical_candidate_h_flow_exits": 16,
+          "recent_candidate_h_flow_exits": 2
+        },
+        {
+          "extra_slippage_usd_per_side": 0.1,
+          "historical_candidate_d_compounded_pnl_inr": 964.1613580745292,
+          "historical_candidate_h_compounded_pnl_inr": 875.1940743033928,
+          "historical_delta_h_vs_d_inr": -88.96728377113641,
+          "recent_candidate_d_terminal_equity_pnl_inr": -232.58559413921654,
+          "recent_candidate_h_terminal_equity_pnl_inr": -219.15014645031755,
+          "recent_delta_h_vs_d_inr": 13.43544768889899,
+          "historical_candidate_h_flow_exits": 16,
+          "recent_candidate_h_flow_exits": 2
+        },
+        {
+          "extra_slippage_usd_per_side": 0.2,
+          "historical_candidate_d_compounded_pnl_inr": 335.0871578930338,
+          "historical_candidate_h_compounded_pnl_inr": 287.88770606255974,
+          "historical_delta_h_vs_d_inr": -47.19945183047406,
+          "recent_candidate_d_terminal_equity_pnl_inr": -240.88778913584088,
+          "recent_candidate_h_terminal_equity_pnl_inr": -229.17428569149047,
+          "recent_delta_h_vs_d_inr": 11.713503444350408,
+          "historical_candidate_h_flow_exits": 16,
+          "recent_candidate_h_flow_exits": 2
+        }
+      ]
+    },
+    "1s": {
+      "canonical_first80": {
+        "entry_path_parity": true,
+        "candidate_d": {
+          "compounded_pnl_inr": 385.2544619534224,
+          "trades": 156,
+          "wins": 71,
+          "win_rate": 0.4551282051282051,
+          "max_segment_drawdown_inr": 172.14469599809354,
+          "primary_entries": 69,
+          "primary_flow_exits": 0,
+          "ghost_releases": 0
+        },
+        "candidate_h": {
+          "compounded_pnl_inr": 360.79357527974355,
+          "trades": 156,
+          "wins": 75,
+          "win_rate": 0.4807692307692308,
+          "max_segment_drawdown_inr": 170.81692375289958,
+          "primary_entries": 69,
+          "primary_flow_exits": 17,
+          "ghost_releases": 16
+        },
+        "delta_h_vs_d_inr": -24.46088667367883,
+        "candidate_d_segments": [
+          {
+            "pnl_inr": 169.91793307493617,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 169.91793307493617,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 1.1919652394865075,
+            "trades": 98,
+            "wins": 42,
+            "win_rate": 0.42857142857142855,
+            "max_drawdown_inr": 172.14469599809354,
+            "primary_entries": 50,
+            "primary_flow_exits": 0,
+            "ghost_releases": 0
+          },
+          {
+            "pnl_inr": 41.93295235703238,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 41.93295235703238,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 1.3782424048517317,
+            "trades": 21,
+            "wins": 11,
+            "win_rate": 0.5238095238095238,
+            "max_drawdown_inr": 52.346540357980984,
+            "primary_entries": 11,
+            "primary_flow_exits": 0,
+            "ghost_releases": 0
+          },
+          {
+            "pnl_inr": -45.95461543615477,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -45.95461543615477,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 0.23840252009619664,
+            "trades": 8,
+            "wins": 1,
+            "win_rate": 0.125,
+            "max_drawdown_inr": 55.95226824865756,
+            "primary_entries": 2,
+            "primary_flow_exits": 0,
+            "ghost_releases": 0
+          },
+          {
+            "pnl_inr": 80.42284290821033,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 80.42284290821033,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 2.2676857449932504,
+            "trades": 11,
+            "wins": 6,
+            "win_rate": 0.5454545454545454,
+            "max_drawdown_inr": 45.0062855503611,
+            "primary_entries": 4,
+            "primary_flow_exits": 0,
+            "ghost_releases": 0
+          },
+          {
+            "pnl_inr": 78.27872866041719,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 78.27872866041719,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 1.6772007246054033,
+            "trades": 18,
+            "wins": 11,
+            "win_rate": 0.6111111111111112,
+            "max_drawdown_inr": 40.75649050493149,
+            "primary_entries": 2,
+            "primary_flow_exits": 0,
+            "ghost_releases": 0
+          }
+        ],
+        "candidate_h_segments": [
+          {
+            "pnl_inr": 174.47609491734272,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 174.47609491734272,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 1.2086393068946697,
+            "trades": 98,
+            "wins": 45,
+            "win_rate": 0.45918367346938777,
+            "max_drawdown_inr": 170.81692375289958,
+            "primary_entries": 50,
+            "primary_flow_exits": 12,
+            "ghost_releases": 11
+          },
+          {
+            "pnl_inr": 33.59478576044296,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 33.59478576044296,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 1.3055903041259014,
+            "trades": 21,
+            "wins": 11,
+            "win_rate": 0.5238095238095238,
+            "max_drawdown_inr": 62.08868432560547,
+            "primary_entries": 11,
+            "primary_flow_exits": 2,
+            "ghost_releases": 2
+          },
+          {
+            "pnl_inr": -33.484590853137775,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -33.484590853137775,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 0.353113606824112,
+            "trades": 8,
+            "wins": 2,
+            "win_rate": 0.25,
+            "max_drawdown_inr": 47.37520703229245,
+            "primary_entries": 2,
+            "primary_flow_exits": 2,
+            "ghost_releases": 2
+          },
+          {
+            "pnl_inr": 54.11216477309654,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 54.11216477309654,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 1.8831647762905035,
+            "trades": 11,
+            "wins": 6,
+            "win_rate": 0.5454545454545454,
+            "max_drawdown_inr": 42.966142045258266,
+            "primary_entries": 4,
+            "primary_flow_exits": 1,
+            "ghost_releases": 1
+          },
+          {
+            "pnl_inr": 78.27872866041719,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 78.27872866041719,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 1.6772007246054033,
+            "trades": 18,
+            "wins": 11,
+            "win_rate": 0.6111111111111112,
+            "max_drawdown_inr": 40.75649050493149,
+            "primary_entries": 2,
+            "primary_flow_exits": 0,
+            "ghost_releases": 0
+          }
+        ]
+      },
+      "recent24h_whole": {
+        "entry_path_parity": {
+          "match": true,
+          "candidate_d_entries": 34,
+          "candidate_g_entries": 34,
+          "first_mismatch": null
+        },
+        "candidate_d": {
+          "pnl_inr": -135.9095261798986,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -135.9095261798986,
+          "open_position_at_end": false,
+          "ghost_active_at_end": false,
+          "profit_factor": 0.42272300867364804,
+          "trades": 34,
+          "wins": 8,
+          "win_rate": 0.23529411764705882,
+          "max_drawdown_inr": 143.89070468400888,
+          "primary_entries": 21,
+          "primary_flow_exits": 0,
+          "ghost_releases": 0
+        },
+        "candidate_h": {
+          "pnl_inr": -128.62645713776266,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -128.62645713776266,
+          "open_position_at_end": false,
+          "ghost_active_at_end": false,
+          "profit_factor": 0.4288453818022915,
+          "trades": 34,
+          "wins": 8,
+          "win_rate": 0.23529411764705882,
+          "max_drawdown_inr": 136.76728682272687,
+          "primary_entries": 21,
+          "primary_flow_exits": 2,
+          "ghost_releases": 2
+        },
+        "delta_h_vs_d_inr": 7.283069042135935
+      },
+      "recent24h_split": [
+        {
+          "split": "seed",
+          "candidate_d": {
+            "pnl_inr": -86.5433495254544,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -86.5433495254544,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 0.36712647671085546,
+            "trades": 16,
+            "wins": 3,
+            "win_rate": 0.1875,
+            "max_drawdown_inr": 86.5433495254544,
+            "primary_entries": 11,
+            "primary_flow_exits": 0,
+            "ghost_releases": 0
+          },
+          "candidate_h": {
+            "pnl_inr": -73.58004601823319,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -73.58004601823319,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 0.40557406393439305,
+            "trades": 16,
+            "wins": 3,
+            "win_rate": 0.1875,
+            "max_drawdown_inr": 73.58004601823319,
+            "primary_entries": 11,
+            "primary_flow_exits": 1,
+            "ghost_releases": 1
+          },
+          "delta_h_vs_d_inr": 12.963303507221212
+        },
+        {
+          "split": "evaluation",
+          "candidate_d": {
+            "pnl_inr": -52.31249415892705,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -52.31249415892705,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 0.536875919765751,
+            "trades": 17,
+            "wins": 5,
+            "win_rate": 0.29411764705882354,
+            "max_drawdown_inr": 62.12619200355397,
+            "primary_entries": 9,
+            "primary_flow_exits": 0,
+            "ghost_releases": 0
+          },
+          "candidate_h": {
+            "pnl_inr": -57.23928314683707,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -57.23928314683707,
+            "open_position_at_end": false,
+            "ghost_active_at_end": false,
+            "profit_factor": 0.4913333829563645,
+            "trades": 17,
+            "wins": 5,
+            "win_rate": 0.29411764705882354,
+            "max_drawdown_inr": 66.94498151003836,
+            "primary_entries": 9,
+            "primary_flow_exits": 1,
+            "ghost_releases": 1
+          },
+          "delta_h_vs_d_inr": -4.926788987910015
+        }
+      ],
+      "random_real_windows": {
+        "candidate_d": {
+          "windows": 40,
+          "median_terminal_equity_pnl_inr": -27.861680295516123,
+          "mean_terminal_equity_pnl_inr": -8.250865715963963,
+          "p05_terminal_equity_pnl_inr": -34.78181461314048,
+          "p95_terminal_equity_pnl_inr": 83.90268597611308,
+          "positive_window_fraction": 0.275,
+          "total_trades": 420,
+          "total_wins": 150,
+          "aggregate_win_rate": 0.35714285714285715
+        },
+        "candidate_h": {
+          "windows": 40,
+          "median_terminal_equity_pnl_inr": -27.861680295516123,
+          "mean_terminal_equity_pnl_inr": -7.206262651336758,
+          "p05_terminal_equity_pnl_inr": -28.649129295535005,
+          "p95_terminal_equity_pnl_inr": 80.98897719370802,
+          "positive_window_fraction": 0.3,
+          "total_trades": 420,
+          "total_wins": 155,
+          "aggregate_win_rate": 0.36904761904761907
+        },
+        "candidate_h_better_than_d_fraction": 0.275,
+        "candidate_h_equal_to_d_fraction": 0.5
+      },
+      "cost_stress": [
+        {
+          "extra_slippage_usd_per_side": 0.0,
+          "historical_candidate_d_compounded_pnl_inr": 385.2544619534224,
+          "historical_candidate_h_compounded_pnl_inr": 360.79357527974355,
+          "historical_delta_h_vs_d_inr": -24.46088667367883,
+          "recent_candidate_d_terminal_equity_pnl_inr": -135.9095261798986,
+          "recent_candidate_h_terminal_equity_pnl_inr": -128.62645713776266,
+          "recent_delta_h_vs_d_inr": 7.283069042135935,
+          "historical_candidate_h_flow_exits": 17,
+          "recent_candidate_h_flow_exits": 2
+        },
+        {
+          "extra_slippage_usd_per_side": 0.05,
+          "historical_candidate_d_compounded_pnl_inr": 281.9016479168638,
+          "historical_candidate_h_compounded_pnl_inr": 274.43278309175156,
+          "historical_delta_h_vs_d_inr": -7.4688648251122345,
+          "recent_candidate_d_terminal_equity_pnl_inr": -140.26333968522584,
+          "recent_candidate_h_terminal_equity_pnl_inr": -133.06171619388073,
+          "recent_delta_h_vs_d_inr": 7.201623491345117,
+          "historical_candidate_h_flow_exits": 14,
+          "recent_candidate_h_flow_exits": 2
+        },
+        {
+          "extra_slippage_usd_per_side": 0.1,
+          "historical_candidate_d_compounded_pnl_inr": 248.12032921993654,
+          "historical_candidate_h_compounded_pnl_inr": 240.97302084265993,
+          "historical_delta_h_vs_d_inr": -7.147308377276602,
+          "recent_candidate_d_terminal_equity_pnl_inr": -143.91095503479,
+          "recent_candidate_h_terminal_equity_pnl_inr": -138.60265758541567,
+          "recent_delta_h_vs_d_inr": 5.308297449374322,
+          "historical_candidate_h_flow_exits": 14,
+          "recent_candidate_h_flow_exits": 2
+        },
+        {
+          "extra_slippage_usd_per_side": 0.2,
+          "historical_candidate_d_compounded_pnl_inr": 35.88449127824222,
+          "historical_candidate_h_compounded_pnl_inr": 27.98417774859041,
+          "historical_delta_h_vs_d_inr": -7.900313529651811,
+          "recent_candidate_d_terminal_equity_pnl_inr": -155.80934360412596,
+          "recent_candidate_h_terminal_equity_pnl_inr": -151.1297441729143,
+          "recent_delta_h_vs_d_inr": 4.67959943121167,
+          "historical_candidate_h_flow_exits": 14,
+          "recent_candidate_h_flow_exits": 2
+        }
+      ]
+    }
+  }
+}
