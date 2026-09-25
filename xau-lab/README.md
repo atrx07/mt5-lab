@@ -180,3 +180,6 @@ Every new V4.x candidate must pass the locked V4.4 regression assertion inside `
 ## Research discipline
 
 Major-version graduation requires realistic bid/ask execution, holdout evidence with its provenance caveat, multiple regimes, drawdown checks, stress tests and live-paper validation. Fractional versions may be locked as experimental iterations when they show a distinct measurable improvement while preserving fixed risk discipline. Hourly earning/capture targets are evaluation benchmarks, not instructions to force trades or increase risk.
+
+
+Experiments 34–35 deliberately avoid tuning the known windows. Frozen SNAPBACK was negative on the historical research pool and produced no recent opportunities; the separately frozen state-v2 ridge learner was weak/anti-correlated historically and essentially uncorrelated on recent transfer. These are rejections, not invitations to tweak thresholds/models until they pass. Candidate D remains the research leader; the next candidate must add genuinely new causal information or a structurally new opportunity family and be frozen before genuinely new validation.

@@ -1,11 +1,11 @@
 # Experiment 35 — state-v2 walk-forward predictability
 
-Status: **execution pending**.
+Status: **completed; transferable predictability not demonstrated**.
 
-This is not a trading candidate.
+This was a fixed no-search diagnostic, not a trading candidate.
 
-A fixed ridge model with alpha 1.0 is trained only on past Experiment-33 shadow opportunities and predicts later fixed-size opportunity P&L. Features, preprocessing and the natural zero expected-P&L diagnostic threshold are frozen before execution.
+Historical expanding walk-forward prediction was weak or anti-correlated with future fixed-size P&L. On later recent data, Spearman correlation was only +0.018 at 500 ms and -0.008 at 1 s; predicted-positive subsets remained deeply negative.
 
-Historical evaluation is expanding chronological walk-forward. The recent 24-hour window is predicted only after training on historical first80 opportunities.
+The result does **not** justify changing alpha, selecting features, changing the zero threshold or escalating to a more flexible model on these same windows.
 
-A favorable result cannot promote a strategy; it can only justify freezing a future adaptive admission candidate for genuinely new data.
+Conclusion: do not build a state-v2 adaptive admission candidate from this evidence. A future candidate must add genuinely new causal information or a structurally new opportunity family and be frozen before new unseen validation.
