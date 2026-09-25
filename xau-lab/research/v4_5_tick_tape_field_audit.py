@@ -66,7 +66,7 @@ def load_raw(path: Path, nrows=None):
         "last": pd.to_numeric(df["last"], errors="coerce").to_numpy(float),
         "volume": pd.to_numeric(df.volume, errors="coerce").to_numpy(float),
         "volume_real": pd.to_numeric(df.volume_real, errors="coerce").to_numpy(float),
-        "flags": pd.to_numeric(df.flags, errors="coerce").fillna(0).to_numpy(np.int64),
+        "flags": pd.to_numeric(df["flags"], errors="coerce").fillna(0).to_numpy(np.int64),
         "session_start": start,
     }
 
