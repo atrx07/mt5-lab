@@ -23,7 +23,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p /tmp/xau-router-v2
-          gh run download 36135850359 \
+          gh run download 36136635244 \
             --repo "$GITHUB_REPOSITORY" \
             --name xau-router-v2-full-replay \
             --dir /tmp/xau-router-v2
