@@ -1,0 +1,47 @@
+name: XAU Signal Fingerprint Entry Quality
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/xau-signal-fingerprint-entry-quality.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas numba scikit-learn
+      - name: Run frozen Experiment 42
+        working-directory: xau-lab
+        env:
+          PYTHONUNBUFFERED: "1"
+          NUMBA_CACHE_DIR: "/tmp/numba-cache"
+        run: |
+          set -euo pipefail
+          python tools/restore_dataset.py data/manifests/xau_ticks_7d_2026-09-16_to_2026-09-23.json
+          python -m py_compile research/v4_5_signal_fingerprint_entry_quality.py
+          python research/v4_5_signal_fingerprint_entry_quality.py             xau_ticks_7d.csv             data/raw/xau_ticks_recent_24h_2026-09-24.csv.gz
+      - name: Commit evidence
+        working-directory: xau-lab
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/simulations/2026-09-26-v4_5-signal-fingerprint-entry-quality/
+          if git diff --cached --quiet; then
+            echo "No new evidence."
+          else
+            git commit -m "Store XAU Experiment 42 signal-fingerprint evidence"
+            git push origin HEAD:main
+          fi
