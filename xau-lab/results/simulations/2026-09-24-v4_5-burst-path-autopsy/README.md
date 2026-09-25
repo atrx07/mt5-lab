@@ -3,7 +3,7 @@
 The companion [experiment record](../../../docs/experiments/2026-09-24/18-v4-5-burst-path-autopsy.md) contains the interpretation and decision. Reproduce from `xau-lab/` with:
 
 ```powershell
-python scripts/v4_5_burst_path_autopsy.py xau_ticks_7d.csv
+python research/v4_5_burst_path_autopsy.py xau_ticks_7d.csv
 ```
 
 The script verifies the raw SHA-256, reads only the first 1,869,979 rows, builds canonical 500 ms and 1 s features, asserts V4.4 against the frozen oracle, then requires instrumented Candidate B parity segment by segment before writing evidence. Both gates passed on both grids. The final 20% was not read.

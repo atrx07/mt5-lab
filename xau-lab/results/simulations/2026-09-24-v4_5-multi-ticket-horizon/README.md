@@ -5,9 +5,9 @@ Status: **completed negative research**. No prototype was promoted; provisional 
 From `xau-lab/`, reproduce the three bounded runs:
 
 ```powershell
-& .venv/Scripts/python.exe scripts/v4_5_multi_ticket_horizon.py xau_ticks_7d.csv --mode 0
-& .venv/Scripts/python.exe scripts/v4_5_multi_ticket_horizon.py xau_ticks_7d.csv --mode 1 --seed-only
-& .venv/Scripts/python.exe scripts/v4_5_multi_ticket_horizon.py xau_ticks_7d.csv --mode 2 --seed-only
+& .venv/Scripts/python.exe research/v4_5_multi_ticket_horizon.py xau_ticks_7d.csv --mode 0
+& .venv/Scripts/python.exe research/v4_5_multi_ticket_horizon.py xau_ticks_7d.csv --mode 1 --seed-only
+& .venv/Scripts/python.exe research/v4_5_multi_ticket_horizon.py xau_ticks_7d.csv --mode 2 --seed-only
 ```
 
 Mode 0 is the initial trend-first design and script default, mode 1 adds an active short-horizon impulse lane, and mode 2 tests short-horizon reversal. Modes 1 and 2 require `--seed-only`; the script rejects an attempt to run these rejected settings on later segments.

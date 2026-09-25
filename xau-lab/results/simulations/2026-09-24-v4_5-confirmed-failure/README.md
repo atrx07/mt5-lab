@@ -3,10 +3,10 @@
 See the [experiment record](../../../docs/experiments/2026-09-24/19-v4-5-confirmed-failure.md) for interpretation and decision. Reproduce the full first-80% runs from `xau-lab/` with:
 
 ```powershell
-python scripts/v4_5_confirmed_failure.py xau_ticks_7d.csv --seed-probe
-python scripts/v4_5_confirmed_failure.py xau_ticks_7d.csv --confirm-sec 1
-python scripts/v4_5_confirmed_failure.py xau_ticks_7d.csv --confirm-sec 2
-python scripts/v4_5_confirmed_failure.py xau_ticks_7d.csv --confirm-sec 3
+python research/v4_5_confirmed_failure.py xau_ticks_7d.csv --seed-probe
+python research/v4_5_confirmed_failure.py xau_ticks_7d.csv --confirm-sec 1
+python research/v4_5_confirmed_failure.py xau_ticks_7d.csv --confirm-sec 2
+python research/v4_5_confirmed_failure.py xau_ticks_7d.csv --confirm-sec 3
 ```
 
 `candidate_d_config.json` specifies the selected one-second rule and the unchanged Candidate B/risk configuration. `seed_confirmation_probe.json` preserves 0/1/2/3/5 s seed outcomes; the 5 s variant was rejected on the seed. `confirm_*s_metadata.json` records V4.4 and Candidate B gates, segment results, aggregate metrics, BURST attribution and fixed-size additional slippage at $0/$0.05/$0.10/$0.20 per side. `confirm_*s_*_trades.csv` preserves every completed candidate trade for the three full-run durations.

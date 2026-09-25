@@ -5,7 +5,7 @@ Status: **completed negative experiment**. See the [experiment record](../../../
 From `xau-lab/`, reproduce with:
 
 ```powershell
-python scripts/v4_5_exposure_velocity.py xau_ticks_7d.csv
+python research/v4_5_exposure_velocity.py xau_ticks_7d.csv
 ```
 
 The script verifies the raw SHA-256; reads only the first 1,869,979 rows; asserts the V4.4 golden oracle and exact Candidate B/D trace parity at 500 ms and 1 s; instruments Candidate D; and tests seven documented variants on segment 0 only. The flow variants were added after the entry diagnostic identified weaker short-horizon momentum and quote acceleration in unmatched 1 s SECONDARY trades. The final 20% holdout was not read. No variant was evaluated on segments 1–4 because none improved the joint seed P&L and profit-velocity frontier.

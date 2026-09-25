@@ -17,7 +17,7 @@ The frozen representation is `xau-raw-event-regime-v1`. The next valid test is a
 Reproduce the diagnostic with:
 
 ```powershell
-python scripts\v4_5_regime_normalization.py xau_ticks_7d.csv
+python research\v4_5_regime_normalization.py xau_ticks_7d.csv
 ```
 
 See the experiment record for the causal feature definitions, fixed bins and interpretation.

@@ -82,7 +82,7 @@ This strongly suggests that earlier BURST exit conditions and/or the entry path 
 
 The first automated execution exposed a pandas-version portability bug in the canonical timestamp conversion: pandas 3 may store parsed datetimes internally at microsecond resolution, while the old code assumed nanoseconds before dividing integer timestamps by `1e9`.
 
-`scripts/canonical_replay.py` was corrected to explicitly normalize datetime arrays to `datetime64[ns]` before epoch conversion.
+`research/canonical_replay.py` was corrected to explicitly normalize datetime arrays to `datetime64[ns]` before epoch conversion.
 
 This is a runtime portability fix, not a replay-schema change. After the fix, the stored V4.4 golden oracle reproduced exactly at both intervals and Candidate B instrumentation parity passed.
 

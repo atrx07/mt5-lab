@@ -11,5 +11,5 @@ Main finding: no engine is robust enough to receive a global permission rule. PR
 Reproduce from committed result ledgers with:
 
 ```powershell
-python scripts\v4_5_cross_window_engine_robustness.py
+python research\v4_5_cross_window_engine_robustness.py
 ```

@@ -16,7 +16,7 @@ The final 20% holdout remains unopened.
 
 ## Permanent parity gate
 
-Candidate B has now been rerun through `scripts/canonical_replay.py`.
+Candidate B has now been rerun through `research/canonical_replay.py`.
 
 The harness first rebuilt V4.4 on the exact same feature arrays and successfully matched the frozen V4.4 regression oracle before Candidate B was evaluated.
 
