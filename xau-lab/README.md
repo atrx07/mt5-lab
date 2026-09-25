@@ -154,7 +154,7 @@ See [`data/README.md`](data/README.md) for the exact archive/push workflow.
 - [V4.5 Router v2 arbitration divergence audit](docs/experiments/2026-09-25/31-v4-5-router-v2-arbitration-audit.md)
 - [V4.5 Router v3 priority-latched](docs/experiments/2026-09-25/32-v4-5-router-v3-priority-latched.md)
 - [V4.5 independent engine opportunity atlas](docs/experiments/2026-09-25/33-v4-5-independent-opportunity-atlas.md)
-- [V4.5 state-v2 walk-forward predictability](docs/experiments/2026-09-25/34-v4-5-state-v2-walkforward-predictability.md)
+- [V4.5 state-v2 walk-forward predictability](docs/experiments/2026-09-25/35-v4-5-state-v2-walkforward-predictability.md)
 - [V4.5 SNAPBACK complementary-engine foundation](docs/experiments/2026-09-25/34-v4-5-snapback-foundation.md)
 - [V4.1 optimization evidence](docs/experiments/2026-09-23/08-v4-1-optimization.md)
 - [V4.2 algorithm](docs/algorithms/v4_2.md)

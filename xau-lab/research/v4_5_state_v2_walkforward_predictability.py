@@ -1,4 +1,4 @@
-"""Experiment 34: frozen walk-forward predictability test for xau-state-v2.
+"""Experiment 35: frozen walk-forward predictability test for xau-state-v2.
 
 This is a diagnostic model, not a trading candidate. The specification is frozen
 in docs/plans/V4_5_ADAPTIVE_ADMISSION_FEASIBILITY.md before execution.

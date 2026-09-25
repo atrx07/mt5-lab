@@ -68,7 +68,7 @@ As of the current research line:
 - Experiment 31 traced Router-v2 damage to path-dependent cooldown/slot/timing cascades rather than direct score substitution alone.
 - Experiment 32 tested a pre-frozen priority-preserving/rejection-latched Router v3. It was not promoted: canonical first80 remained below Candidate D and random-window mean expectancy was worse on both grids. Vetoes were PRIMARY-only and fallback never fired.
 - Experiment 33 removed shared-slot/cooldown/compounding contamination in independent fixed-size shadow lanes. Historical first80 was positive for all four engines, but on the recent 500 ms window **all four engines lost independently**; at 1 s only SECONDARY stayed positive on nine trades. Independent engine entries were simultaneous only ~2-4% of the time, so routing alone cannot manufacture much complementarity.
-- Experiment 34 is frozen as a no-search chronological predictability test of `xau-state-v2`: fixed ridge alpha 1.0, past-only preprocessing/training, expanding historical walk-forward and historical->recent transfer. It is diagnostic only, not a strategy candidate.
+- Experiment 34 freezes SNAPBACK, a structurally different countertrend/failed-continuation engine using only inherited Candidate-D thresholds and short-lifecycle constants; no parameter search is allowed. Experiment 35 separately freezes the no-search chronological predictability test of `xau-state-v2`: ridge alpha 1.0, past-only preprocessing/training, expanding historical walk-forward and historical->recent transfer. Both are diagnostics; neither may be promoted from known data.
 - The final 20% research holdout has not been opened by the canonical replay harness.
 - All canonical work is maintained directly on `main`.
 

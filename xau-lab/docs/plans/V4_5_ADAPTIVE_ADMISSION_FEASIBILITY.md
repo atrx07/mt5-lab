@@ -1,6 +1,6 @@
 # V4.5 adaptive admission feasibility — frozen walk-forward specification
 
-Status: **frozen before Experiment 34 execution**
+Status: **frozen before Experiment 35 execution**
 
 Date: 2026-09-25
 
