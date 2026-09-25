@@ -1,4 +1,4 @@
-name: XAU Router v2 Arbitration Audit
+name: XAU Router v2 Arbitration Audit\n# retry 2: syntax-clean audit harness
 
 on:
   workflow_dispatch:
