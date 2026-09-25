@@ -1,0 +1,31 @@
+{
+  "schema": "xau-candidate-e-primary-micro-confirmation-v1",
+  "base_strategy": "Candidate D from Experiment 19",
+  "strategy_changed": true,
+  "changed_engine": "PRIMARY only",
+  "microstate_schema": "xau-microstate-v1",
+  "primary_veto": {
+    "all_of": [
+      "dir_mid_move2 < 0",
+      "dir_event_imb2 < 0"
+    ],
+    "meaning": "immediate raw price movement and raw event pressure both contradict intended PRIMARY direction",
+    "threshold_source": "natural direction-neutral zero; no outcome/P&L search"
+  },
+  "missing_feature_policy": "fail open (allow legacy Candidate D entry)",
+  "veto_cooldown": "none; do not mutate Candidate D cooldown state",
+  "same_tick_fall_through": false,
+  "retry_policy": "legacy PRIMARY signal may be reconsidered on later sampled quotes if still valid",
+  "unchanged": [
+    "Candidate D engine priority PRIMARY > SECONDARY > MICRO > BURST",
+    "all engine signal thresholds",
+    "all exit/lifecycle rules including BURST 1-second confirmed failure",
+    "3% planned-risk sizing and leverage cap",
+    "$4 emergency stop",
+    "spread rules",
+    "shared single-position slot"
+  ],
+  "known_data_promotion_allowed": false,
+  "final20_opened": false,
+  "prospective_validation_required": true
+}
