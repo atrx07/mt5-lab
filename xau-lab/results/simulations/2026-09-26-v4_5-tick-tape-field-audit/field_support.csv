@@ -1,0 +1,3 @@
+window,rows,unique_flags,last_nonzero_fraction,volume_nonzero_fraction,volume_real_nonzero_fraction,flag_bid_fraction,flag_bid_count,flag_ask_fraction,flag_ask_count,flag_last_fraction,flag_last_count,flag_volume_fraction,flag_volume_count,flag_buy_fraction,flag_buy_count,flag_sell_fraction,flag_sell_count,trade_flag_fraction
+historical7d,1869979,3,0.0,0.0,0.0,0.7896115410921727,1476557,0.7820050385592565,1462333,0.0,0,0.0,0,0.0,0,0.0,0,0.0
+recent24h,476535,5,0.0,0.0,0.0,0.7958198243570777,379236,0.7943173114251839,378520,0.0,0,0.0,0,0.0,0,0.0,0,0.0
