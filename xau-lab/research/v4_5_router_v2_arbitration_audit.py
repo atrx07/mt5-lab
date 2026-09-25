@@ -230,7 +230,7 @@ def terminal_metrics(state,arr,end):
     if state["pos"] and end>0:
         j=end-1
         move=(arr["bid"][j]-state["entry"]) if state["side"]==1 else (state["entry"]-arr["ask"][j])
-        unreal=float(move)*state["oz"]*canonical.INR_PER_USD+state["partial"]
+        # Partial MICRO profit is already in balance; terminal unrealized is only the remaining open quantity.\n        unreal=float(move)*state["oz"]*canonical.INR_PER_USD
     gl=state["gl"]
     return {
         "pnl_inr":float(state["bal"]-500.0),
@@ -329,7 +329,7 @@ def run_dual(arr,start,end,cache,window,interval,segment_id):
             "router_action":action_name(r_action),
             "candidate_d_last":json_compact({router.ENGINE_NAMES[k]:float(v) for k,v in d["last"].items()}),
             "router_last":json_compact({router.ENGINE_NAMES[k]:float(v) for k,v in rv["last"].items()}),
-            "candidate_scores":json_compact(r_scores if r_scores else d_scores),
+            "candidate_d_scores":json_compact(d_scores),\n            "router_scores":json_compact(r_scores),
             "d_cf_pnl_500":math.nan,"router_cf_pnl_500":math.nan,"cf_delta_router_minus_d":math.nan,
             "d_cf_mfe_usd":math.nan,"d_cf_mae_usd":math.nan,
             "router_cf_mfe_usd":math.nan,"router_cf_mae_usd":math.nan,
