@@ -1,0 +1,22 @@
+{
+  "schema_version": "xau-regime-router-probe-v1",
+  "experiment_id": "2026-09-25-v4_5-regime-router-probe",
+  "holdout_evaluated": false,
+  "seed_variants_tested": 48,
+  "seed_variants_eligible": 2,
+  "selected": {
+    "engine": "MICRO",
+    "blocked_regime": "low volatility",
+    "rule": "raw_range60_rel < 0.75",
+    "selection_basis": "highest minimum relative P&L improvement across both grids among variants passing all seed criteria"
+  },
+  "seed": {
+    "500ms": {"baseline_pnl_inr": 696.8428619834062, "candidate_pnl_inr": 709.3597352431655, "baseline_trades": 98, "candidate_trades": 97, "baseline_wins": 46, "candidate_wins": 46, "baseline_max_dd_inr": 218.9381795572965, "candidate_max_dd_inr": 221.22788820016694},
+    "1s": {"baseline_pnl_inr": 169.91793307493617, "candidate_pnl_inr": 179.60226535626566, "baseline_trades": 98, "candidate_trades": 97, "baseline_wins": 42, "candidate_wins": 42, "baseline_max_dd_inr": 172.14469599809354, "candidate_max_dd_inr": 164.5265011449145}
+  },
+  "full_first80": {
+    "500ms": {"baseline_compounded_pnl_inr": 1430.311133793068, "candidate_compounded_pnl_inr": 1407.8581663179127, "pnl_delta_inr": -22.45296747515522, "baseline_capture_ratio": 0.19115162293762435, "candidate_capture_ratio": 0.1881509323387476, "baseline_trades": 163, "candidate_trades": 161, "trade_retention": 0.9877300613496932, "baseline_wins": 81, "candidate_wins": 80, "baseline_win_rate": 0.49693251533742333, "candidate_win_rate": 0.4968944099378882, "baseline_max_segment_dd_inr": 218.9381795572965, "candidate_max_segment_dd_inr": 221.22788820016694},
+    "1s": {"baseline_compounded_pnl_inr": 385.2544619534224, "candidate_compounded_pnl_inr": 398.0516986593211, "pnl_delta_inr": 12.79723670589874, "baseline_capture_ratio": 0.05148671076275925, "candidate_capture_ratio": 0.05319697680743606, "baseline_trades": 156, "candidate_trades": 155, "trade_retention": 0.9935897435897436, "baseline_wins": 71, "candidate_wins": 71, "baseline_win_rate": 0.4551282051282051, "candidate_win_rate": 0.45806451612903226, "baseline_max_segment_dd_inr": 172.14469599809354, "candidate_max_segment_dd_inr": 164.5265011449145}
+  },
+  "decision": "REJECT. Candidate D remains provisional. Do not use the known later evaluation to select the second seed qualifier."
+}

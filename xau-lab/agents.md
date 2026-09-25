@@ -58,7 +58,8 @@ As of the current research line:
 - Experiment 21 tested an independent three-ticket trend/impulse/reversal architecture. Its full initial prototype lost on both grids, and two bounded seed revisions failed joint-grid selection. No multi-ticket candidate was promoted or reached ₹100 on an observed UTC quote day.
 - Experiment 22 froze a separate recent 24-hour MT5 snapshot. Candidate D lost heavily in realized-only recent diagnostics. A seed-derived impulse-only multi-ticket ablation improved its seed but lost on both later evaluation grids and under adverse-fill stress. No candidate was promoted or reached ₹100 on a reported quote day; the MT5 tick clock was about three hours ahead of host UTC.
 - Experiment 23 established a raw-event, pre-sampling regime-normalization diagnostic without changing strategy rules. V4.4/B/D parity passed; 119 matched Candidate D entries showed 92.44% volatility, 89.92% spread, 92.44% efficiency, 95.80% activity and 76.47% full-key agreement between 500 ms and 1 s. BURST and MICRO were the most consistently positive by 4-hour windows; PRIMARY remained regime-dependent and SECONDARY was negative at 1 s.
-- The next V4.5 step is to replay the exact frozen Experiment 23 regime schema on non-overlapping recent/future snapshots without retuning it. Only after cross-window stability is measured should a regime router or engine gate be selected. Fair terminal-equity diagnostics remain required when comparing single-slot recent segments.
+- Experiment 24 tested a bounded first regime-router family: 48 single-category engine vetoes selected only on the 0-40% seed under joint-grid P&L, win-rate, trade-retention and drawdown criteria. Two seed variants qualified. The preselected MICRO-low-volatility veto improved both seed grids but reduced full first-80% 500 ms compounded P&L from ₹1,430.31 to ₹1,407.86 while improving 1 s from ₹385.25 to ₹398.05. It is rejected; Candidate D remains provisional.
+- The next V4.5 step is to replay the exact frozen Experiment 23 regime schema on non-overlapping recent/future snapshots without retuning it. Do not test the second Experiment 24 seed qualifier merely because the first failed on later evaluation; that would adapt to the evaluation pool. Only after independent cross-window evidence should a stronger router family be selected.
 - The final 20% research holdout has not been opened by the canonical replay harness.
 - All canonical work is maintained directly on `main`.
 
@@ -353,7 +354,7 @@ Verify both references against `docs/experiments/README.md`, the latest experime
 
 Latest completed experiment:
 
-`docs/experiments/2026-09-25/23-v4-5-regime-normalization.md`
+`docs/experiments/2026-09-25/24-v4-5-regime-router-probe.md`
 
 Latest evidence:
 
@@ -369,6 +370,8 @@ Latest evidence:
 
 `results/simulations/2026-09-25-v4_5-regime-normalization/`
 
+`results/simulations/2026-09-25-v4_5-regime-router-probe/`
+
 Current research scripts:
 
 - `scripts/canonical_replay.py` — mandatory V4.4 parity and feature source;
@@ -378,9 +381,10 @@ Current research scripts:
 - `scripts/capture_recent_xau_ticks.py` — read-only, clock-audited MT5 quote snapshot capture.
 - `scripts/v4_5_recent_validation.py` — Experiment 22 historical parity-gated recent synthetic validation and ledgers.
 - `scripts/v4_5_regime_normalization.py` — Experiment 23 raw-event, pre-sampling normalized regime diagnostic and engine/window robustness audit.
+- `scripts/v4_5_regime_router_probe.py` — Experiment 24 bounded single-category regime-veto search and one-time chronological evaluation; selected probe rejected.
 - `scripts/restore_dataset.py` — hash-verified restoration of ignored raw CSVs from committed archives.
 
-No regime router or engine-gating candidate exists yet; Experiment 23 is diagnostic only.
+No regime router is promoted. Experiment 24's seed-selected MICRO low-volatility veto is rejected after chronological evaluation; Candidate D remains the provisional leader.
 
 Phase C1 tested 48 BURST lifecycle combinations and every one reproduced Candidate B exactly at both sampling grids. No Candidate C was promoted.
 

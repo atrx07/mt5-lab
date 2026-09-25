@@ -47,7 +47,9 @@ Experiment 21 tested a separate, bounded three-ticket trend/impulse/reversal res
 
 Experiment 22 froze a separate recent 24-hour MT5 quote snapshot and ran the historical V4.4 parity gate before synthetic replay. Candidate D lost heavily in realized-only recent diagnostics. A bounded impulse-only revision of the multi-ticket script improved its seed but lost on both later evaluation grids and under adverse-fill stress. Its continuous 24-hour synthetic P&L was only +₹1.89 at 500 ms / +₹6.08 at 1 s before stress. The terminal tick clock appeared about three hours ahead of host UTC. No candidate was promoted; Candidate D remains provisional, and V4.4 remains locked.
 
-Experiment 23 changes the research method rather than the strategy. It derives normalized regime state directly from raw tick events before the 500 ms / 1 s execution grids, using only past completed windows. V4.4 golden parity, Candidate B trace parity and Candidate D parity all passed. Across 119 matched Candidate D entries, the raw-event regime labels agreed between grids on volatility 92.44%, spread 89.92%, efficiency 92.44%, activity 95.80%, and the complete four-part regime key 76.47%. No engine gate or strategy rule was promoted from this diagnostic. The frozen schema must be replayed unchanged on non-overlapping recent/future snapshots before a regime router is selected.
+Experiment 23 changes the research method rather than the strategy. It derives normalized regime state directly from raw tick events before the 500 ms / 1 s execution grids, using only past completed windows. V4.4 golden parity, Candidate B trace parity and Candidate D parity all passed. Across 119 matched Candidate D entries, the raw-event regime labels agreed between grids on volatility 92.44%, spread 89.92%, efficiency 92.44%, activity 95.80%, and the complete four-part regime key 76.47%. No engine gate or strategy rule was promoted from this diagnostic.
+
+Experiment 24 then tested 48 simple one-category engine vetoes using only the 0-40% seed. Two met the predeclared joint-grid seed criteria; the stronger seed pick blocked MICRO when raw relative 60-second range was below 0.75. It improved both seed grids, but chronological evaluation reduced full first-80% 500 ms compounded P&L to ₹1,407.86 versus Candidate D's ₹1,430.31, while 1 s improved to ₹398.05 versus ₹385.25. Trade count stayed near baseline, but joint-grid performance did not improve, so the router probe is rejected. The frozen regime schema still needs independent-window validation before another router family is selected.
 
 Starting with V4.5 research, all candidate simulations must use the parity-gated canonical replay harness. V4.4's strategy parameters are unchanged; the 14.67% / 4.45% regression values are a reproducible measurement re-baseline used only as the future comparison oracle. The earlier 16.36% / 11.54% lock outputs remain preserved as historical research evidence.
 
@@ -86,6 +88,7 @@ python scripts\v4_5_exposure_velocity.py xau_ticks_7d.csv
 python scripts\v4_5_multi_ticket_horizon.py xau_ticks_7d.csv --mode 0
 python scripts\v4_5_recent_validation.py
 python scripts\v4_5_regime_normalization.py xau_ticks_7d.csv
+python scripts\v4_5_regime_router_probe.py xau_ticks_7d.csv
 ```
 
 Historical tick export:
@@ -116,6 +119,7 @@ See [`data/README.md`](data/README.md) for the exact archive/push workflow.
 - [V4.5 independent multi-ticket experiment](docs/experiments/2026-09-24/21-v4-5-multi-ticket-horizon.md)
 - [Recent MT5 micro/long synthetic validation](docs/experiments/2026-09-24/22-recent-micro-long-validation.md)
 - [V4.5 raw-event regime-normalization foundation](docs/experiments/2026-09-25/23-v4-5-regime-normalization.md)
+- [V4.5 bounded regime-router probe](docs/experiments/2026-09-25/24-v4-5-regime-router-probe.md)
 - [V4.1 optimization evidence](docs/experiments/2026-09-23/08-v4-1-optimization.md)
 - [V4.2 algorithm](docs/algorithms/v4_2.md)
 - [V4.3 algorithm](docs/algorithms/v4_3.md)
