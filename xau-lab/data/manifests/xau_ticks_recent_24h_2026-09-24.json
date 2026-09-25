@@ -55,7 +55,8 @@
     "docs/experiments/2026-09-25/33-v4-5-independent-opportunity-atlas.md",
     "docs/experiments/2026-09-25/34-v4-5-snapback-foundation.md",
     "docs/experiments/2026-09-25/35-v4-5-state-v2-walkforward-predictability.md",
-    "docs/experiments/2026-09-25/36-v4-5-microstate-v1-freeze.md"
+    "docs/experiments/2026-09-25/36-v4-5-microstate-v1-freeze.md",
+    "docs/experiments/2026-09-25/37-v4-5-candidate-e-microstate-confirmation.md"
   ],
   "notes": [
     "This frozen snapshot is an offline replay input, not an order or live trading log.",
