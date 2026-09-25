@@ -718,7 +718,7 @@ def combined_metrics(df: pd.DataFrame) -> List[Dict]:
     for (label, interval), g in df.groupby(["label", "interval"], sort=True):
         base = pd.to_numeric(g.baseline_pnl_inr).to_numpy(float)
         policy = pd.to_numeric(g.combined_policy_pnl_inr).to_numpy(float)
-        take = g.take.astype(bool).to_numpy()
+        take = g["take"].astype(bool).to_numpy()
         out.append({
             "label": label,
             "interval": interval,
