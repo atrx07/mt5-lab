@@ -19,4 +19,4 @@ Each strategy generation lives in its own file so future versions can be added w
 - [V4.5 — profit-velocity research line](v4_5.md)
 - [Future JEV integration](future-jev.md)
 
-The runnable implementations live in [../../scripts](../../scripts).
+Final/locked paper-challenge executors live in [../../scripts](../../scripts). Canonical replay and intermediate strategy/feature/model implementations live in [../../research](../../research).

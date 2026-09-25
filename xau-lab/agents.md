@@ -353,7 +353,19 @@ Do not create a feature/research branch unless the user explicitly asks for one.
 
 Do not require a PR for ordinary canonical xau-lab research unless the user explicitly asks for a PR workflow.
 
-GitHub Actions is not part of the normal XAU research execution path. When the canonical raw dataset is available in the active execution environment, run iterative simulations, diagnostics, validation and candidate development there. Commit the resulting algorithm/research scripts, experiment documentation and durable result artifacts back to their canonical locations on `main`.
+Prefer the active client-side execution environment for XAU simulations, diagnostics, validation and candidate development. If that runtime is unavailable because of infrastructure/tooling errors (for example a CAAS internal client exception), the user has authorized GitHub Actions as a **fallback compute worker**.
+
+Fallback-worker rules:
+
+- use Actions only when the normal execution runtime is unavailable or unsuitable for the required run;
+- prefer a temporary manual-only `workflow_dispatch` workflow rather than a push-triggered loop;
+- smoke-test the worker/runtime before launching an expensive replay when practical;
+- never change strategy logic merely to make the worker environment pass;
+- persist the resulting evidence under the normal `results/` paths and document any runtime-only compatibility fix;
+- remove temporary worker workflows after the run unless they have clear ongoing value;
+- GitHub-worker output is subject to the same dataset hashes, replay parity gates, holdout discipline and evidence rules as local execution.
+
+Commit the resulting algorithm/research scripts, experiment documentation and durable result artifacts back to their canonical locations on `main`.
 
 Do not commit the ~220 MB raw CSV itself. Preserve the existing compressed archive/manifest policy for repository data.
 

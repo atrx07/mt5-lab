@@ -8,7 +8,7 @@ All paths below are relative to `xau-lab/` unless otherwise stated.
 
 Canonical XAU research code, documentation and evidence belong inside `xau-lab/`.
 
-GitHub Actions is **not** part of the canonical research workflow. Full replay/search runs are performed in the active execution environment when the raw canonical dataset is available, and only the resulting scripts, documentation and evidence bundles are committed to `main`.
+The normal compute path is the active client-side execution environment. GitHub Actions may be used as a **fallback compute worker** when that runtime is unavailable because of infrastructure/tooling failures. Fallback workflows should be temporary and manual-only where practical, must obey the same replay/data/holdout rules, and should be removed after evidence is persisted unless they have clear ongoing value.
 
 ## Top-level contract
 
@@ -462,7 +462,7 @@ Current V4.5 research evidence directories:
 - `results/simulations/2026-09-25-v4_5-cross-window-engine-robustness/` — Experiment 25 historical-versus-recent per-engine robustness comparison using preserved Candidate D ledgers.
 - `results/simulations/2026-09-25-v4_5-regime-portability/` — Experiment 26 frozen raw-event regime replay on the recent 24-hour snapshot, transfer matrix and PRIMARY outcome diagnostics.
 - `results/simulations/2026-09-25-v4_5-state-v2-freeze/` — Experiment 27 frozen 20-feature continuous state-v2 catalog, coverage/stability diagnostics and descriptive PRIMARY outcome profiles.
-- `results/simulations/2026-09-25-v4_5-router-v2-implementation/` — Experiment 28 frozen Router v2 structural config; unseen validation pending.
+- `results/simulations/2026-09-25-v4_5-router-v2-implementation/` — Experiment 28 frozen Router v2 structural config; later known-data full replay in Experiment 30 did not promote the score, while genuinely unseen validation remains pending for any future router candidate.
 - `results/simulations/2026-09-25-v4_5-router-v2-preflight/` — Experiment 29 known-ledger gate proxy, recent-window comparison and seeded variable-regime bootstrap; not promotion evidence.
 - `results/simulations/2026-09-25-v4_5-router-v2-full-replay/` — Experiment 30 completed full raw-tick Candidate D versus Router-v2 replay plus corrected contiguous-session random-window stress; Router v2 not promoted.
 

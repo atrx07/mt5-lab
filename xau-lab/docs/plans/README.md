@@ -1,9 +1,13 @@
 # Plans
 
-Research proposals are recorded here **before** changing the live-paper algorithm.
+Research proposals are recorded here **before** implementation so "what we planned" stays separate from "what we actually implemented and tested."
 
-That keeps "what we planned" separate from "what we actually implemented and tested."
+Plans are historical specifications once their corresponding experiment line moves on; do not rewrite them after results arrive to make them look prescient.
 
-## Current
+## Index
 
-- [V4.1 proposal](V4_1_PROPOSAL.md)
+- [V4.1 proposal](V4_1_PROPOSAL.md) — historical proposal preceding the V4.1 research/lock line.
+- [V4.4 run specification](V4_4_RUN_SPEC.md) — historical pre-run specification for the V4.4 research line.
+- [V4.5 run specification](V4_5_RUN_SPEC.md) — preserved pre-run specification for the current V4.5 research generation.
+
+Current strategy status and next actions belong in `../../agents.md`, the experiment index, and the current algorithm document rather than in this plans index.

@@ -72,9 +72,12 @@ The earlier V4.4 lock record (16.36% at 500 ms / 11.54% at 1 s) is preserved as 
 Example:
 
 ```powershell
-python research\canonical_replay.py data\raw\xau_ticks_7d.csv --interval 500ms --strategy v4_5_b
-python research\canonical_replay.py data\raw\xau_ticks_7d.csv --interval 1s --strategy v4_5_b
+python tools\restore_dataset.py data\manifests\xau_ticks_7d_2026-09-16_to_2026-09-23.json
+python research\canonical_replay.py xau_ticks_7d.csv --interval 500ms --strategy v4_5_b
+python research\canonical_replay.py xau_ticks_7d.csv --interval 1s --strategy v4_5_b
 ```
+
+The restore helper writes the ignored raw CSV to the `xau-lab/` root and verifies both archive and raw hashes. If `xau_ticks_7d.csv` already exists and is verified, skip the restore command.
 
 For any non-baseline strategy, the harness automatically:
 

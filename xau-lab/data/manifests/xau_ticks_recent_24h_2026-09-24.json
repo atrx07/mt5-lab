@@ -10,7 +10,7 @@
     "host_acquisition_utc": "2026-09-24T15:58:48.152011+00:00",
     "latest_mt5_reported_utc": "2026-09-24T18:58:46.063000+00:00",
     "mt5_minus_host_clock_sec": 10797.910989,
-    "requested_window_hours": 24.0
+    "requested_window_hours": 24
   },
   "raw": {
     "filename": "xau_ticks_recent_24h_2026-09-24.csv",
@@ -44,7 +44,12 @@
     "sha256": "2d3c963f678aa0341224efe5f6859651018e11a43c8c5797bb5685f8dce19aeb"
   },
   "used_by": [
-    "docs/experiments/2026-09-24/22-recent-micro-long-validation.md"
+    "docs/experiments/2026-09-24/22-recent-micro-long-validation.md",
+    "docs/experiments/2026-09-25/25-v4-5-cross-window-engine-robustness.md",
+    "docs/experiments/2026-09-25/26-v4-5-regime-portability.md",
+    "docs/experiments/2026-09-25/27-v4-5-state-v2-freeze.md",
+    "docs/experiments/2026-09-25/29-v4-5-router-v2-preflight.md",
+    "docs/experiments/2026-09-25/30-v4-5-router-v2-full-replay.md"
   ],
   "notes": [
     "This frozen snapshot is an offline replay input, not an order or live trading log.",
