@@ -133,3 +133,42 @@ Key files:
 - `exit_per_engine.csv`
 - `combined_policy_metrics.csv`
 - `prediction_calibration.csv`
+
+
+## Result
+
+The worker completed after one implementation-only retry caused by a pandas column/method name collision in final aggregation. The research calculation itself then completed and the evidence bundle was committed.
+
+Entry EV remained weak:
+
+- historical walk-forward 500 ms: Spearman 0.021; taking predicted-positive opportunities reduced fixed-size P&L from +₹267.42 to +₹153.70;
+- historical walk-forward 1 s: Spearman -0.107; P&L fell from +₹166.76 to +₹59.54;
+- recent transfer remained negative on both grids despite skipping some losses.
+
+The global entry regressor therefore did not demonstrate reliable trade ranking.
+
+The continuation controller showed the opposite failure mode: it was useful in the hostile recent regime but far too aggressive historically.
+
+- historical 500 ms: legacy +₹270.57 → exit policy -₹68.17;
+- historical 1 s: legacy +₹170.06 → exit policy -₹64.09;
+- recent 500 ms: legacy -₹352.50 → exit policy -₹41.62;
+- recent 1 s: legacy -₹191.70 → exit policy -₹69.04.
+
+It model-exited roughly 91-98% of represented trades. This confirms that a single global terminal-continuation model does not respect engine-specific lifecycle and phase structure.
+
+## Diagnosis
+
+Two conceptual problems were identified for the next iteration.
+
+1. **Entry target contamination:** training entry quality on final realized P&L mixes entry quality with exit quality. An entry can create large favorable excursion and still receive a poor label because the legacy exit gave it back.
+2. **Exit target/lifecycle mismatch:** `legacy_final_pnl - current_mark_pnl` asks whether holding all the way to the legacy terminal exit beats exiting now. It is too terminal and path-dependent for a local continuation controller, and a first-negative-decision policy amplifies prediction noise.
+
+The model was given engine one-hot identity, but not a full signal fingerprint containing the rule margins and regime/mode that caused that engine to fire. The action policy was also global rather than engine-specific.
+
+## Decision
+
+**Reject Decision Policy v1 as a candidate foundation. Do not create Candidate F from it.**
+
+The next iteration must separate entry quality from exit quality, expose engine-specific signal provenance/strength, use local-horizon continuation targets, and apply engine-aware hysteresis rather than a universal immediate-exit rule.
+
+Candidate D remains the V4.5 leader. Final20 remains sealed.
