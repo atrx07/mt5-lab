@@ -15,6 +15,8 @@ Plans are historical specifications once their corresponding experiment line mov
 - [V4.5 Decision Policy v1](V4_5_DECISION_POLICY_V1.md) — frozen entry-ownership and continuation-value diagnostic specification for Experiment 38.
 - [V4.5 Decision Policy v2](V4_5_DECISION_POLICY_V2.md) — frozen signal-episode timing and short-horizon continuation specification for Experiment 39.
 - [V4.5 Candidate F PRIMARY ratchet](V4_5_CANDIDATE_F_PRIMARY_RATCHET.md) — frozen full shared-slot Candidate F specification for Experiment 40.
-- [V4.5 Candidate G ghost ratchet](V4_5_CANDIDATE_G_GHOST_RATCHET.md) — frozen path-preserving profit-retention specification for Experiment 41.
+- [V4.5 Candidate G ghost ratchet](V4_5_CANDIDATE_G_GHOST_RATCHET.md)
+- [V4.5 signal-fingerprint entry quality](V4_5_SIGNAL_FINGERPRINT_ENTRY_QUALITY.md) — frozen Experiment 42 entry-intelligence specification.
+- [V4.5 Candidate H flow-confirmed ghost exit](V4_5_CANDIDATE_H_FLOW_CONFIRMED_GHOST_EXIT.md) — frozen Experiment 43 signal-aware exit specification. — frozen path-preserving profit-retention specification for Experiment 41.
 
 Current strategy status and next actions belong in `../../agents.md`, the experiment index, and the current algorithm document rather than in this plans index.
