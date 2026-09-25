@@ -2,67 +2,94 @@
 
 Date: 2026-09-25
 
-Status: **architecture frozen before performance evaluation; execution pending**
+Status: **completed known-data diagnostic; not promoted**
 
-## Why this experiment exists
+## Frozen architecture
 
-Experiment 31 showed that the main Router-v2 defect is not simply the instantaneous stronghold score. A changed decision modifies engine cooldown history, shared-slot occupancy, later entry timing and then balance-based sizing.
+Router v3 was committed before measuring its P&L:
 
-Therefore Experiment 32 is intentionally **not** a score search.
+1. preserve Candidate D priority **PRIMARY → SECONDARY → MICRO → BURST**;
+2. keep the Experiment-28 stronghold score unchanged;
+3. keep the score floor at **0.0**;
+4. use the score only as a veto, never a global ranker;
+5. latch a vetoed engine for its already-existing Candidate-D cooldown horizon;
+6. fall through to lower-priority candidates on the same tick;
+7. HOLD only when none qualifies;
+8. keep entry, exit, sizing, spread, leverage and lifecycle logic unchanged.
 
-The new candidate changes routing mechanics only, using causal structure already present in Candidate D and the frozen Router-v2 representation.
+No score, threshold, weight or cooldown search was performed.
 
-## Frozen Router v3 rules
+The final20 holdout remained sealed.
 
-1. Preserve Candidate D's engine priority: **PRIMARY → SECONDARY → MICRO → BURST**.
-2. Keep the Experiment-28 stronghold score unchanged.
-3. Keep the score floor unchanged at **0.0**.
-4. Use the score only as a **veto**. It can reject a priority candidate, but it cannot allow a lower-priority engine to outrank a qualifying higher-priority one.
-5. When an engine is vetoed, latch that rejection for the engine's **already-existing Candidate-D cooldown duration**. This prevents the same rejected setup from being reconsidered seconds later as though it were a new independent opportunity.
-6. After a veto, evaluate the next lower-priority candidate on the same tick.
-7. HOLD only when no priority-ordered candidate clears the frozen score.
-8. Entry/exit logic, risk, spread handling, leverage assumptions and lifecycle rules remain unchanged.
+## Canonical first80
 
-No new numeric threshold is introduced. No cooldown duration is searched. No score component or weight is changed.
+| Grid | Candidate D | Router v2 | Router v3 | V3 trades | V3 wins |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 500 ms | +₹1,430.31 | +₹851.27 | **+₹1,162.46** | 159 | 79 |
+| 1 s | +₹385.25 | +₹297.67 | **+₹214.06** | 155 | 70 |
 
-## Evaluation discipline
+Router v3 recovered a large fraction of the Router-v2 500 ms damage, but it still lost **₹267.85** versus Candidate D. At 1 s it was **₹171.20 worse** than Candidate D and also below Router v2.
 
-The canonical seven-day first80 and existing recent 24-hour window are already known. They may be used only to answer:
+Trade retention remained high: 97.55% at 500 ms and 99.36% at 1 s. Win rate was essentially unchanged from Candidate D at 500 ms and slightly lower at 1 s.
 
-- does the implementation preserve Candidate D parity?
-- does this structural change behave as intended?
-- does it avoid the known Router-v2 path pathology or create a new one?
-- is it obviously dominated and therefore not worth carrying forward?
+## What actually changed
 
-A good known-data result **cannot promote Router v3**.
+The most important implementation result is that **fallback never fired**.
 
-Promotion still requires a genuinely new non-overlapping raw snapshot collected after this architecture was frozen.
+Across the canonical first80:
 
-The final20 holdout remains sealed.
+- 500 ms: 4 rejected candidates, all PRIMARY; 4 HOLDs; **0 fallback entries**;
+- 1 s: 5 rejected candidates, all PRIMARY; 5 HOLDs; **0 fallback entries**.
 
-## Diagnostic matrix
+So in the observed known data, priority-preserving fall-through did not create a new lower-priority opportunity at any veto point. Router v3 effectively became a sparse PRIMARY gate with rejection latching.
 
-Run, unchanged, on both 500 ms and 1 s:
+This is useful architecture evidence: simultaneous candidate competition is too rare to be the main route to robustness.
 
-- canonical first80;
-- whole recent 24 h;
-- the existing 60/40 recent split for continuity with prior experiments;
-- deterministic contiguous four-hour real windows sampled from the known historical/recent datasets.
+## Recent 24-hour window
 
-The random windows are stress diagnostics only; they are not independent validation.
+| Grid | Candidate D | Router v2 | Router v3 |
+| --- | ---: | ---: | ---: |
+| 500 ms | -₹223.27 | -₹210.63 | **-₹210.63** |
+| 1 s | -₹135.91 | -₹144.22 | **-₹128.87** |
 
-## Promotion gate for a future unseen snapshot
+Router v3 improved versus Candidate D by ₹12.64 at 500 ms and ₹7.04 at 1 s, but **both grids remained negative**.
 
-A future unseen evaluation should prefer Router v3 over Candidate D only if it simultaneously shows:
+At 500 ms Router v3 was exactly the same whole-window result as Router v2. At 1 s it removed Router-v2's extra follow-on damage and modestly improved on Candidate D, but not enough to establish a positive edge.
 
-- higher net P&L on both grids;
-- improved or at least non-degraded win quality;
-- at least 95% system-level trade retention unless omitted trades are replaced by demonstrably better opportunities;
-- no material drawdown deterioration;
-- no execution-cost fragility;
-- no evidence that rejection latching merely suppresses activity to manufacture robustness.
+## Known real-window stress
+
+Forty deterministic contiguous four-hour windows per grid were sampled from the already-known canonical/recent data. These are stress diagnostics, not independent validation.
+
+500 ms:
+
+- Candidate D mean terminal-equity P&L: -₹6.26;
+- Router v3: -₹6.53;
+- Router v3 beat D in 15% of windows;
+- trade retention: 98.08%.
+
+1 s:
+
+- Candidate D mean: -₹8.25;
+- Router v3: -₹12.70;
+- Router v3 beat D in only 2.5% of windows;
+- trade retention: 99.52%.
+
+## Decision
+
+**Router v3 is not promoted. Candidate D remains the V4.5 leader.**
+
+The experiment rejects a tempting but weak direction: repeatedly modifying a router around the same fixed data.
+
+The current engine family gives the router very few simultaneous alternatives, and the frozen state score is not selective enough to distinguish the sparse profitable/losing PRIMARY veto cases. More router mechanics will not create a missing edge.
+
+The next experiment therefore changes the research question rather than tuning the gate:
+
+> What profitable opportunities do PRIMARY, SECONDARY, MICRO and BURST produce **independently of the shared slot and each other's cooldown path**, and does the current engine family contain enough genuinely different edge to survive changing regimes?
+
+Experiment 33 will build a fixed-size independent shadow-lane opportunity atlas. It changes no trading strategy and selects no rule. If all four engines lose together in the hostile window even when observed independently, the next productive step is a genuinely complementary opportunity generator or adaptive meta-labeler—not another router threshold.
 
 ## Evidence
 
 - `research/v4_5_router_v3_priority_latched.py`
-- `results/simulations/2026-09-25-v4_5-router-v3-priority-latched/`
+- `results/simulations/2026-09-25-v4_5-router-v3-priority-latched/summary.json`
+- `results/simulations/2026-09-25-v4_5-router-v3-priority-latched/random_real_windows.csv`

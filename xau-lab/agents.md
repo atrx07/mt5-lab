@@ -381,15 +381,17 @@ Verify both references against `docs/experiments/README.md`, the latest experime
 
 ## Current active work
 
-Latest completed diagnostic experiment:
-
-`docs/experiments/2026-09-25/31-v4-5-router-v2-arbitration-audit.md`
-
-Current frozen candidate experiment:
+Latest completed strategy diagnostic:
 
 `docs/experiments/2026-09-25/32-v4-5-router-v3-priority-latched.md`
 
-Router v3 is structurally frozen **before** performance evaluation: preserve Candidate D engine priority; use the unchanged Router-v2 score only as a veto; latch rejected engines for their already-existing Candidate-D cooldown horizon; then fall through in legacy priority. No threshold, weight or cooldown search is allowed from known P&L. Known seven-day/recent runs are diagnostic only; promotion still requires genuinely new non-overlapping data.
+Router v3 is **not promoted**: +₹1,162.46 / +₹214.06 canonical first80 at 500 ms / 1 s versus Candidate D +₹1,430.31 / +₹385.25; recent remained negative at -₹210.63 / -₹128.87. Crucially, canonical fallback entries were zero: every veto was PRIMARY-only.
+
+Current diagnostic:
+
+`docs/experiments/2026-09-25/33-v4-5-independent-opportunity-atlas.md`
+
+Experiment 33 removes shared-slot competition, cross-engine cooldown cascades and compounding in diagnostic shadow lanes, then measures each existing engine's fixed-size opportunity stream with frozen state-v2 context. Do not fit a router threshold from the atlas. Use it to decide whether the engine family itself has enough cross-regime complementarity or whether a genuinely new engine/adaptive learner is required.
 
 Latest evidence:
 
@@ -439,6 +441,7 @@ Current research scripts:
 - `research/v4_5_router_v2_full_eval.py` — Experiment 30 full raw-tick Candidate D vs Router v2 replay across canonical/recent data and deterministic random real four-hour windows.
 - `research/v4_5_router_v2_arbitration_audit.py` — Experiment 31 decision-level Router-v2/Candidate-D divergence and counterfactual arbitration audit; no strategy changes.
 - `research/v4_5_router_v3_priority_latched.py` — Experiment 32 priority-preserving, rejection-latched Router v3 candidate; structurally frozen before known-data evaluation.
+- `research/v4_5_independent_opportunity_atlas.py` — Experiment 33 fixed-size independent shadow-lane atlas for engine-family complementarity; diagnostic only.
 - `tools/restore_dataset.py` — hash-verified restoration of ignored raw CSVs from committed archives.
 
 No regime router is promoted. Experiment 24's selected veto is rejected. Experiments 25-26 show that neither engine identity nor the four-part historical regime key is sufficient as a portable permission rule. Experiment 27 freezes `xau-state-v2`; Experiment 28 freezes Router v2; Experiment 29's proxy is negative; Experiment 30's full raw-tick replay confirms the frozen Router-v2 score does not beat Candidate D; Experiment 31 shows the dominant failure is path-dependent cooldown/slot/timing cascade rather than direct score substitution alone. Candidate D remains the provisional historical leader. Next specify a path-aware, priority-preserving architecture without tuning the known score floor.

@@ -63,7 +63,9 @@
     "docs/experiments/2026-09-25/28-v4-5-router-v2-implementation.md",
     "docs/experiments/2026-09-25/29-v4-5-router-v2-preflight.md",
     "docs/experiments/2026-09-25/30-v4-5-router-v2-full-replay.md",
-    "docs/experiments/2026-09-25/31-v4-5-router-v2-arbitration-audit.md"
+    "docs/experiments/2026-09-25/31-v4-5-router-v2-arbitration-audit.md",
+    "docs/experiments/2026-09-25/32-v4-5-router-v3-priority-latched.md",
+    "docs/experiments/2026-09-25/33-v4-5-independent-opportunity-atlas.md"
   ],
   "notes": [
     "The raw CSV is intentionally excluded from Git because it is approximately 220 MB.",
