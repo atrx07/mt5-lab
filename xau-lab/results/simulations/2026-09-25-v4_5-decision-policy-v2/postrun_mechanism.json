@@ -1,0 +1,32 @@
+{
+  "schema": "xau-decision-policy-v2-postrun-mechanism-v1",
+  "note": "Post-run decomposition only; not preregistered candidate evidence.",
+  "primary_only_ratchet_counterfactual_on_represented_independent_lane_trades": {
+    "historical_walkforward": {
+      "500ms": {
+        "legacy_pnl_inr": 270.57187500000225,
+        "primary_only_pnl_inr": 295.4718750000035,
+        "delta_inr": 24.900000000001228
+      },
+      "1s": {
+        "legacy_pnl_inr": 170.06250000002865,
+        "primary_only_pnl_inr": 190.27500000002988,
+        "delta_inr": 20.212500000001228
+      }
+    },
+    "recent_after_first80": {
+      "500ms": {
+        "legacy_pnl_inr": -352.50000000001705,
+        "primary_only_pnl_inr": -325.4625000000203,
+        "delta_inr": 27.037499999996722
+      },
+      "1s": {
+        "legacy_pnl_inr": -191.70000000002346,
+        "primary_only_pnl_inr": -187.16250000002674,
+        "delta_inr": 4.537499999996726
+      }
+    }
+  },
+  "mechanism": "The universal ratchet affected only PRIMARY/SECONDARY. PRIMARY contribution improved all four evaluated window/grid combinations; recent 1s degradation came from SECONDARY ratchet exits.",
+  "decision_use": "May justify freezing a PRIMARY-only ratchet candidate in a later numbered experiment; cannot be treated as promotion evidence because this decomposition was selected after Experiment 39 outcomes were visible."
+}
