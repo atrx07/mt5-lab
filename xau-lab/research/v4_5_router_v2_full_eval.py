@@ -29,7 +29,7 @@ EXPECTED_D={
     "1s":{"pnl":385.2544619534224,"trades":156,"wins":71},
 }
 RANDOM_SEED=20260925
-RANDOM_WINDOWS=40
+RANDOM_WINDOWS=100
 RANDOM_HOURS=4.0
 
 
@@ -71,14 +71,29 @@ def run_segment_pair(arr,start,end,cache):
     )
 
 
-def random_window_indices(arr,start,end,rng,hours):
+def random_window_from_ranges(arr,ranges,rng,hours):
+    """Sample one chronological real window from one or more valid index ranges."""
     t=arr["t"]; seconds=hours*3600.0
-    lo=float(t[start]); hi=float(t[end-1])-seconds
-    if hi<=lo: return start,end
-    target=float(rng.uniform(lo,hi))
+    valid=[]
+    for range_id,(start,end) in enumerate(ranges):
+        if end<=start:
+            continue
+        lo=float(t[start]); last=float(t[end-1]); available=last-lo-seconds
+        if available>=0:
+            valid.append((range_id,start,end,lo,last,available))
+    if not valid:
+        raise RuntimeError("no chronological range can hold requested random window")
+
+    weights=np.asarray([x[5]+1.0 for x in valid],dtype=float)
+    weights/=weights.sum()
+    pick=valid[int(rng.choice(len(valid),p=weights))]
+    range_id,start,end,lo,last,available=pick
+    target=lo if available<=0 else float(rng.uniform(lo,lo+available))
     a=max(start,int(np.searchsorted(t,target,"left")))
     z=min(end,int(np.searchsorted(t,target+seconds,"right")))
-    return a,z
+    if z<=a or float(t[z-1])<float(t[a]):
+        raise RuntimeError(f"invalid random window: range={range_id} start={a} end={z}")
+    return a,z,range_id
 
 
 def random_summary(rows,key_prefix):
@@ -158,20 +173,23 @@ def main():
             d,v=run_segment_pair(r_arr,s,e,r_cache)
             recent_split.append({"split":name,"candidate_d":compact(d),"router_v2":compact(v)})
 
+        if np.any(np.diff(h_arr["t"])<0) or np.any(np.diff(r_arr["t"])<0):
+            raise RuntimeError("sampled feature timestamps are not monotonic")
+
         rng=np.random.default_rng(a.seed + (0 if interval=="500ms" else 1))
         rows=[]
-        hist_start,hist_end=h_inds[0][0],h_inds[-1][1]
-        recent_start,recent_end=0,len(r_arr["t"])
+        hist_ranges=h_inds
+        recent_ranges=[(0,len(r_arr["t"]))]
         for wid in range(a.random_windows):
             source="historical7d" if wid%2==0 else "recent24h"
             if source=="historical7d":
-                arr,cache=h_arr,h_cache; lo,hi=hist_start,hist_end
+                arr,cache,ranges=h_arr,h_cache,hist_ranges
             else:
-                arr,cache=r_arr,r_cache; lo,hi=recent_start,recent_end
-            s,e=random_window_indices(arr,lo,hi,rng,a.random_hours)
+                arr,cache,ranges=r_arr,r_cache,recent_ranges
+            s,e,range_id=random_window_from_ranges(arr,ranges,rng,a.random_hours)
             d,v=run_segment_pair(arr,s,e,cache)
             rows.append({
-                "interval":interval,"window_id":wid,"source":source,
+                "interval":interval,"window_id":wid,"source":source,"source_range_id":range_id,
                 "start_ts":float(arr["t"][s]),"end_ts":float(arr["t"][e-1]),
                 "candidate_d_pnl":float(d["terminal_equity_pnl_inr"]),
                 "router_v2_pnl":float(v["terminal_equity_pnl_inr"]),
