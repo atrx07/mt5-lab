@@ -53,6 +53,8 @@ Experiment 24 then tested 48 simple one-category engine vetoes using only the 0-
 
 Experiment 25 compared Candidate D engine attribution across the canonical historical window and Experiment 22's non-overlapping recent split ledgers without changing any rule. PRIMARY moved from +₹586.30 / +₹156.00 historical engine P&L at 500 ms / 1 s to -₹184.37 / -₹118.65 in the recent realized split attribution. MICRO and BURST also lost in the fresh split but on only 3–5 trades per grid; SECONDARY remained unstable. The eventual router therefore has to condition on market state rather than simply declaring an engine globally good or bad.
 
+Experiment 26 applied the frozen `xau-raw-event-regime-v1` schema unchanged to the separate recent 24-hour raw snapshot. The representation remained highly consistent between 500 ms and 1 s, but historical four-part regime keys did **not** preserve profitability: historically positive engine/grid/regime keys lost ₹90.74 on 23 recent 500 ms trades and ₹123.88 on 21 recent 1 s trades. The bins are therefore retained as descriptive state, not a router permission table. PRIMARY's recent failure was dominated by emergency-stop and momentum-zero-cross exits while its max-hold exits remained profitable, pointing to an admission/exhaustion problem rather than a complete loss of the underlying trend opportunity class.
+
 Starting with V4.5 research, all candidate simulations must use the parity-gated canonical replay harness. V4.4's strategy parameters are unchanged; the 14.67% / 4.45% regression values are a reproducible measurement re-baseline used only as the future comparison oracle. The earlier 16.36% / 11.54% lock outputs remain preserved as historical research evidence.
 
 V4.3 replay-parity documentation was corrected during the V4.4 lock: its canonical +₹603.60 figure is the compounded result of five independently reset research segments, not a literal one-pass continuous replay.
@@ -92,6 +94,7 @@ python scripts\v4_5_recent_validation.py
 python scripts\v4_5_regime_normalization.py xau_ticks_7d.csv
 python scripts\v4_5_regime_router_probe.py xau_ticks_7d.csv
 python scripts\v4_5_cross_window_engine_robustness.py
+python scripts\v4_5_regime_portability.py xau_ticks_7d.csv xau_ticks_recent_24h_2026-09-24.csv.gz
 ```
 
 Historical tick export:
@@ -124,6 +127,7 @@ See [`data/README.md`](data/README.md) for the exact archive/push workflow.
 - [V4.5 raw-event regime-normalization foundation](docs/experiments/2026-09-25/23-v4-5-regime-normalization.md)
 - [V4.5 bounded regime-router probe](docs/experiments/2026-09-25/24-v4-5-regime-router-probe.md)
 - [V4.5 cross-window engine robustness](docs/experiments/2026-09-25/25-v4-5-cross-window-engine-robustness.md)
+- [V4.5 frozen regime portability](docs/experiments/2026-09-25/26-v4-5-regime-portability.md)
 - [V4.1 optimization evidence](docs/experiments/2026-09-23/08-v4-1-optimization.md)
 - [V4.2 algorithm](docs/algorithms/v4_2.md)
 - [V4.3 algorithm](docs/algorithms/v4_3.md)

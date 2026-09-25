@@ -60,7 +60,8 @@ As of the current research line:
 - Experiment 23 established a raw-event, pre-sampling regime-normalization diagnostic without changing strategy rules. V4.4/B/D parity passed; 119 matched Candidate D entries showed 92.44% volatility, 89.92% spread, 92.44% efficiency, 95.80% activity and 76.47% full-key agreement between 500 ms and 1 s. BURST and MICRO were the most consistently positive by 4-hour windows; PRIMARY remained regime-dependent and SECONDARY was negative at 1 s.
 - Experiment 24 tested a bounded first regime-router family: 48 single-category engine vetoes selected only on the 0-40% seed under joint-grid P&L, win-rate, trade-retention and drawdown criteria. Two seed variants qualified. The preselected MICRO-low-volatility veto improved both seed grids but reduced full first-80% 500 ms compounded P&L from ₹1,430.31 to ₹1,407.86 while improving 1 s from ₹385.25 to ₹398.05. It is rejected; Candidate D remains provisional.
 - Experiment 25 compared Candidate D engine attribution between the canonical seven-day history and Experiment 22's non-overlapping recent split ledgers with no tuning. PRIMARY reversed from strongly positive historical aggregate P&L to -₹184.37 / -₹118.65 recent realized attribution at 500 ms / 1 s. MICRO and BURST also lost in the fresh split on very small counts; SECONDARY remained unstable and near flat only at 1 s. No engine receives a global permission rule.
-- The next V4.5 step is to replay the exact frozen Experiment 23 raw-event regime schema on the non-overlapping 24-hour raw snapshot and additional future snapshots without retuning it. Engine identity alone is not enough; routing must condition on market state, preserve opportunity, and allow explicit HOLD/no-trade states. Do not test the second Experiment 24 seed qualifier merely because the first failed later evaluation.
+- Experiment 26 replayed the exact frozen Experiment 23 raw-event regime schema on the non-overlapping recent 24-hour raw snapshot. Dataset archive and decompressed raw hashes matched the committed manifest. The state representation itself remained sampling-stable across 27 same-engine/same-side matched entries (92.59% volatility, 92.59% spread, 96.30% efficiency, 100% activity, 85.19% full-key agreement), but historical positive engine+grid+four-part regime keys did not transfer: those keys lost ₹90.74 on 23 recent 500 ms trades and ₹123.88 on 21 recent 1 s trades. No router is promoted.
+- The next V4.5 step is to freeze a richer, still causal raw-event state representation before the next unseen snapshot. The current four-part bins are useful as stable market descriptors but are too coarse to serve as portable profitability permissions. Add continuous direction-normalized momentum/exhaustion and market-heat diagnostics without selecting thresholds from Experiment 26, then validate the frozen representation on a genuinely new non-overlapping window.
 - The final 20% research holdout has not been opened by the canonical replay harness.
 - All canonical work is maintained directly on `main`.
 
@@ -355,7 +356,7 @@ Verify both references against `docs/experiments/README.md`, the latest experime
 
 Latest completed experiment:
 
-`docs/experiments/2026-09-25/25-v4-5-cross-window-engine-robustness.md`
+`docs/experiments/2026-09-25/26-v4-5-regime-portability.md`
 
 Latest evidence:
 
@@ -375,6 +376,8 @@ Latest evidence:
 
 `results/simulations/2026-09-25-v4_5-cross-window-engine-robustness/`
 
+`results/simulations/2026-09-25-v4_5-regime-portability/`
+
 Current research scripts:
 
 - `scripts/canonical_replay.py` — mandatory V4.4 parity and feature source;
@@ -386,9 +389,10 @@ Current research scripts:
 - `scripts/v4_5_regime_normalization.py` — Experiment 23 raw-event, pre-sampling normalized regime diagnostic and engine/window robustness audit.
 - `scripts/v4_5_regime_router_probe.py` — Experiment 24 bounded single-category regime-veto search and one-time chronological evaluation; selected probe rejected.
 - `scripts/v4_5_cross_window_engine_robustness.py` — Experiment 25 no-tuning comparison of Candidate D engine behavior across historical and recent preserved ledgers.
+- `scripts/v4_5_regime_portability.py` — Experiment 26 exact frozen Experiment 23 regime replay on the recent raw snapshot plus historical-key portability and PRIMARY exit-state diagnostics.
 - `scripts/restore_dataset.py` — hash-verified restoration of ignored raw CSVs from committed archives.
 
-No regime router is promoted. Experiment 24's selected veto is rejected. Experiment 25 confirms that no engine can be treated as universally safe across windows; Candidate D remains the provisional historical leader.
+No regime router is promoted. Experiment 24's selected veto is rejected. Experiments 25-26 show that neither engine identity nor the four-part historical regime key is sufficient as a portable permission rule; Candidate D remains the provisional historical leader.
 
 Phase C1 tested 48 BURST lifecycle combinations and every one reproduced Candidate B exactly at both sampling grids. No Candidate C was promoted.
 

@@ -1,0 +1,15 @@
+window,grid,exit_reason_name,trades,wins,pnl_inr,win_rate
+historical7d,1s,emergency_stop,25,0,-498.78979117929,0.0
+historical7d,1s,max_hold,24,20,500.7436849101244,0.8333333333333334
+historical7d,1s,momentum_zero_cross,18,5,-51.74731356568887,0.2777777777777778
+historical7d,1s,take_profit,2,2,205.7951977580712,1.0
+historical7d,500ms,emergency_stop,23,0,-536.2593320881203,0.0
+historical7d,500ms,max_hold,27,23,802.31979960391,0.8518518518518519
+historical7d,500ms,momentum_zero_cross,21,9,24.44130790555204,0.42857142857142855
+historical7d,500ms,take_profit,3,3,295.79379315137453,1.0
+recent24h,1s,emergency_stop,9,0,-129.78376680755701,0.0
+recent24h,1s,max_hold,5,5,50.37234950391856,1.0
+recent24h,1s,momentum_zero_cross,6,0,-39.23801049521741,0.0
+recent24h,500ms,emergency_stop,13,0,-172.84276875812787,0.0
+recent24h,500ms,max_hold,4,4,39.815581883983775,1.0
+recent24h,500ms,momentum_zero_cross,7,0,-51.34036783766876,0.0

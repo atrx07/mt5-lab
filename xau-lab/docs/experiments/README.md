@@ -41,3 +41,4 @@ Experiments are grouped by date so each session can grow independently without t
 - [23 — V4.5 raw-event regime-normalization foundation](2026-09-25/23-v4-5-regime-normalization.md)
 - [24 — V4.5 bounded regime-router probe](2026-09-25/24-v4-5-regime-router-probe.md)
 - [25 — V4.5 cross-window engine robustness baseline](2026-09-25/25-v4-5-cross-window-engine-robustness.md)
+- [26 — V4.5 frozen regime portability on recent raw data](2026-09-25/26-v4-5-regime-portability.md)

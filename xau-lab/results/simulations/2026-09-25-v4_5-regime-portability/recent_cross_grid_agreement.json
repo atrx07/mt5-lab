@@ -1,0 +1,15 @@
+{
+  "schema_version": "xau-raw-event-regime-v1",
+  "recent_dataset_raw_sha256": "9243ac73c3d180417ff634fe9371a28939713a531c9ccfa63f919c94eb9a28b1",
+  "recent_dataset_archive_sha256": "2d3c963f678aa0341224efe5f6859651018e11a43c8c5797bb5685f8dce19aeb",
+  "matched_pairs": 27,
+  "agreement": {
+    "volatility": 0.9259259259259259,
+    "spread": 0.9259259259259259,
+    "efficiency": 0.9629629629629629,
+    "activity": 1,
+    "complete_regime_key": 0.8518518518518519
+  },
+  "strategy_changed": false,
+  "router_promoted": false
+}
