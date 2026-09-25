@@ -57,3 +57,5 @@ Experiments are grouped by date so each session can grow independently without t
 - [39 — V4.5 Decision Policy v2: signal episodes + short-horizon exit](2026-09-25/39-v4-5-decision-policy-v2.md)
 - [40 — V4.5 Candidate F PRIMARY profit-ratchet full replay](2026-09-25/40-v4-5-candidate-f-primary-ratchet.md)
 - [41 — V4.5 Candidate G path-preserving ghost ratchet](2026-09-25/41-v4-5-candidate-g-ghost-ratchet.md)
+- [42 — V4.5 signal-fingerprint entry quality](2026-09-26/42-v4-5-signal-fingerprint-entry-quality.md)
+- [43 — V4.5 Candidate H flow-confirmed ghost exit](2026-09-26/43-v4-5-candidate-h-flow-confirmed-ghost-exit.md)
