@@ -283,7 +283,8 @@ docs/experiments/
 Current sessions use:
 
 - `2026-09-23/` for experiments 00-08;
-- `2026-09-24/` for experiments 09 onward.
+- `2026-09-24/` for experiments 09-22;
+- `2026-09-25/` for experiments 23 onward.
 
 ### Naming
 
@@ -305,6 +306,7 @@ Examples:
 - `27-v4-5-state-v2-freeze.md`
 - `28-v4-5-router-v2-implementation.md`
 - `29-v4-5-router-v2-preflight.md`
+- `30-v4-5-router-v2-full-replay.md`
 
 Experiment numbers are chronological across the project, not reset each day.
 
@@ -462,6 +464,7 @@ Current V4.5 research evidence directories:
 - `results/simulations/2026-09-25-v4_5-state-v2-freeze/` — Experiment 27 frozen 20-feature continuous state-v2 catalog, coverage/stability diagnostics and descriptive PRIMARY outcome profiles.
 - `results/simulations/2026-09-25-v4_5-router-v2-implementation/` — Experiment 28 frozen Router v2 structural config; unseen validation pending.
 - `results/simulations/2026-09-25-v4_5-router-v2-preflight/` — Experiment 29 known-ledger gate proxy, recent-window comparison and seeded variable-regime bootstrap; not promotion evidence.
+- `results/simulations/2026-09-25-v4_5-router-v2-full-replay/` — Experiment 30 completed full raw-tick Candidate D versus Router-v2 replay plus corrected contiguous-session random-window stress; Router v2 not promoted.
 
 ### Result-directory contents
 
@@ -672,12 +675,12 @@ research/v4_5_state_v2_freeze.py
 docs/experiments/2026-09-25/28-v4-5-router-v2-implementation.md
 results/simulations/2026-09-25-v4_5-router-v2-implementation/
 research/v4_5_router_v2.py
-docs/experiments/2026-09-25/30-v4-5-router-v2-full-replay.md
-results/simulations/2026-09-25-v4_5-router-v2-full-replay/
-research/v4_5_router_v2_full_eval.py
 docs/experiments/2026-09-25/29-v4-5-router-v2-preflight.md
 results/simulations/2026-09-25-v4_5-router-v2-preflight/
 research/v4_5_router_v2_preflight.py
+docs/experiments/2026-09-25/30-v4-5-router-v2-full-replay.md
+results/simulations/2026-09-25-v4_5-router-v2-full-replay/
+research/v4_5_router_v2_full_eval.py
 ```
 
 If the latest experiment number/version changes later, follow the indexes rather than assuming the paths above remain the newest.

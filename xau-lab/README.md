@@ -61,6 +61,8 @@ Experiment 28 has now started the actual Router v2 implementation. Instead of a 
 
 Experiment 29 adds a known-data **gate-proxy preflight** for Router v2. It reproduces Candidate D's canonical trade ledger exactly, then applies the frozen stronghold score only to those realized entries. The proxy preserves about 97% of trades but damages the seven-day benchmark while only removing one losing recent PRIMARY entry per grid. A seeded 10,000-scenario empirical regime-mixture bootstrap also fails to show a profitability advantage. Because the proxy cannot model simultaneous-engine fall-through, it does not reject the Router-v2 architecture; it does show that the score must not be celebrated or tuned from known data. Candidate D remains the winning candidate pending a full unseen raw-tick replay.
 
+Experiment 30 then ran the **full raw-tick fall-through router** on a user-authorized GitHub worker. Candidate D parity passed exactly. Router v2 retained all canonical trades but cut 500 ms compounded P&L from **₹1,430.31 to ₹851.27** and 1 s from **₹385.25 to ₹297.67**, with lower win rates. On the whole recent 24-hour raw window it improved 500 ms only modestly (-₹223.27 → -₹210.63) and worsened 1 s (-₹135.91 → -₹144.22). Corrected contiguous-session four-hour stress windows also showed worse mean expectancy. **Candidate D therefore remains the V4.5 leader; the current Router-v2 score is not promoted.** Next work should audit the exact arbitration divergences rather than fit the score to these known results.
+
 Starting with V4.5 research, all candidate simulations must use the parity-gated canonical replay harness. V4.4's strategy parameters are unchanged; the 14.67% / 4.45% regression values are a reproducible measurement re-baseline used only as the future comparison oracle. The earlier 16.36% / 11.54% lock outputs remain preserved as historical research evidence.
 
 V4.3 replay-parity documentation was corrected during the V4.4 lock: its canonical +₹603.60 figure is the compounded result of five independently reset research segments, not a literal one-pass continuous replay.
@@ -140,8 +142,8 @@ See [`data/README.md`](data/README.md) for the exact archive/push workflow.
 - [V4.5 frozen regime portability](docs/experiments/2026-09-25/26-v4-5-regime-portability.md)
 - [V4.5 state-v2 feature freeze](docs/experiments/2026-09-25/27-v4-5-state-v2-freeze.md)
 - [V4.5 Router v2 implementation freeze](docs/experiments/2026-09-25/28-v4-5-router-v2-implementation.md)
-- [V4.5 full raw-tick Router v2 replay](docs/experiments/2026-09-25/30-v4-5-router-v2-full-replay.md)
 - [V4.5 Router v2 gate-proxy preflight](docs/experiments/2026-09-25/29-v4-5-router-v2-preflight.md)
+- [V4.5 full raw-tick Router v2 replay](docs/experiments/2026-09-25/30-v4-5-router-v2-full-replay.md)
 - [V4.1 optimization evidence](docs/experiments/2026-09-23/08-v4-1-optimization.md)
 - [V4.2 algorithm](docs/algorithms/v4_2.md)
 - [V4.3 algorithm](docs/algorithms/v4_3.md)
