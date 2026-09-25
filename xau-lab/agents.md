@@ -57,7 +57,8 @@ As of the current research line:
 - Experiment 20 diagnosed non-BURST exposure and sampling fragility. Seven seed variants failed joint 500 ms / 1 s selection; Candidate D remains provisional.
 - Experiment 21 tested an independent three-ticket trend/impulse/reversal architecture. Its full initial prototype lost on both grids, and two bounded seed revisions failed joint-grid selection. No multi-ticket candidate was promoted or reached ₹100 on an observed UTC quote day.
 - Experiment 22 froze a separate recent 24-hour MT5 snapshot. Candidate D lost heavily in realized-only recent diagnostics. A seed-derived impulse-only multi-ticket ablation improved its seed but lost on both later evaluation grids and under adverse-fill stress. No candidate was promoted or reached ₹100 on a reported quote day; the MT5 tick clock was about three hours ahead of host UTC.
-- The next V4.5 step is fair terminal-equity/forced-close diagnostics for single-slot comparators without changing golden replay semantics, followed by non-overlapping recent sessions. A common raw-event admission feature remains a later research direction.
+- Experiment 23 established a raw-event, pre-sampling regime-normalization diagnostic without changing strategy rules. V4.4/B/D parity passed; 119 matched Candidate D entries showed 92.44% volatility, 89.92% spread, 92.44% efficiency, 95.80% activity and 76.47% full-key agreement between 500 ms and 1 s. BURST and MICRO were the most consistently positive by 4-hour windows; PRIMARY remained regime-dependent and SECONDARY was negative at 1 s.
+- The next V4.5 step is to replay the exact frozen Experiment 23 regime schema on non-overlapping recent/future snapshots without retuning it. Only after cross-window stability is measured should a regime router or engine gate be selected. Fair terminal-equity diagnostics remain required when comparing single-slot recent segments.
 - The final 20% research holdout has not been opened by the canonical replay harness.
 - All canonical work is maintained directly on `main`.
 
@@ -352,7 +353,7 @@ Verify both references against `docs/experiments/README.md`, the latest experime
 
 Latest completed experiment:
 
-`docs/experiments/2026-09-24/22-recent-micro-long-validation.md`
+`docs/experiments/2026-09-25/23-v4-5-regime-normalization.md`
 
 Latest evidence:
 
@@ -366,6 +367,8 @@ Latest evidence:
 
 `results/simulations/2026-09-24-recent-micro-long-validation/`
 
+`results/simulations/2026-09-25-v4_5-regime-normalization/`
+
 Current research scripts:
 
 - `scripts/canonical_replay.py` — mandatory V4.4 parity and feature source;
@@ -373,10 +376,11 @@ Current research scripts:
 - `scripts/v4_5_exposure_velocity.py` — completed Experiment 20 diagnostic and rejected seed variants.
 - `scripts/v4_5_multi_ticket_horizon.py` — completed negative Experiment 21 independent multi-ticket replay; exploratory research only.
 - `scripts/capture_recent_xau_ticks.py` — read-only, clock-audited MT5 quote snapshot capture.
-- `scripts/v4_5_recent_validation.py` — latest Experiment 22 historical parity gate and recent synthetic replay; mode 3 is rejected.
+- `scripts/v4_5_recent_validation.py` — Experiment 22 historical parity-gated recent synthetic validation and ledgers.
+- `scripts/v4_5_regime_normalization.py` — Experiment 23 raw-event, pre-sampling normalized regime diagnostic and engine/window robustness audit.
 - `scripts/restore_dataset.py` — hash-verified restoration of ignored raw CSVs from committed archives.
 
-No raw-event admission script for the next experiment exists yet.
+No regime router or engine-gating candidate exists yet; Experiment 23 is diagnostic only.
 
 Phase C1 tested 48 BURST lifecycle combinations and every one reproduced Candidate B exactly at both sampling grids. No Candidate C was promoted.
 
@@ -386,7 +390,9 @@ Experiment 20 found that simple 120/300 s conditional exits, two-second SECONDAR
 
 Experiment 21 followed the user's separate multi-position direction under the unchanged 3% basket-risk ceiling. Three prototypes were preserved: the initial full-run design lost on both grids, and impulse-first and reversal seed revisions failed joint 500 ms / 1 s selection. None met the ₹100-per-observed-UTC-day research target. Do not promote or deploy this branch; Candidate D remains provisional.
 
-Experiment 22 captured and archived 476,535 recent quotes after the seven-day dataset. Its historical V4.4 parity gates passed. The recent Candidate D and independent trend tickets lost; disabling trend tickets in a bounded mode 3 yielded +₹3.73/+₹7.92 seed P&L but -₹1.83/-₹1.81 later evaluation P&L at 500 ms/1 s, worse with $0.20 adverse fill per side. Mode 3 is rejected. Single-slot recent segment figures are realized-only and may omit open boundary positions; compare them only after a fair terminal-equity diagnostic. The terminal-reported tick clock was about three hours ahead of host UTC, so reported date labels need caution. Next collect non-overlapping sessions, then assess raw-event admission without tuning this later segment. Candidate D remains provisional, V4.4 locked, and the final 20% sealed.
+Experiment 22 captured and archived 476,535 recent quotes after the seven-day dataset. Its historical V4.4 parity gates passed. The recent Candidate D and independent trend tickets lost; disabling trend tickets in a bounded mode 3 yielded +₹3.73/+₹7.92 seed P&L but -₹1.83/-₹1.81 later evaluation P&L at 500 ms/1 s, worse with $0.20 adverse fill per side. Mode 3 is rejected. Single-slot recent segment figures are realized-only and may omit open boundary positions; compare them only after a fair terminal-equity diagnostic. The terminal-reported tick clock was about three hours ahead of host UTC, so reported date labels need caution.
+
+Experiment 23 then froze a raw-event regime representation before execution-grid sampling. The diagnostic uses relative rolling volatility/range, spread, path efficiency and quote activity rather than P&L-selected absolute regime thresholds. It does not disable any engine or change Candidate D. Its first purpose is to stop designing each successive rule around quirks of the same seven-day episode. Reuse this exact representation on non-overlapping snapshots before selecting a router. Candidate D remains provisional, V4.4 locked, and the final 20% sealed.
 
 The canonical replay timestamp path now explicitly normalizes datetimes to nanosecond resolution before epoch conversion so pandas 3 and earlier supported pandas runtimes use the same replay semantics. Golden V4.4 parity must still pass before any candidate evidence is accepted.
 

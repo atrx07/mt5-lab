@@ -1,0 +1,32 @@
+{
+  "schema_version": "xau-raw-event-regime-v1",
+  "experiment_id": "2026-09-25-v4_5-regime-normalization",
+  "dataset_sha256": "007e7ab10cc16519b544003dbe81521f46cf868bf267780932638d1e8cec86e5",
+  "research_rows": 1869979,
+  "raw_boundaries": [0, 934989, 1168737, 1402484, 1636231, 1869979],
+  "holdout_evaluated": false,
+  "strategy_changed": false,
+  "candidate": "V4.5 Candidate D",
+  "feature_source": "raw tick events before execution-grid sampling",
+  "baselines": {
+    "spread_and_range": "30 completed 1-minute buckets, rolling median, minimum 10, shifted one bucket",
+    "m60": "30 completed 1-minute absolute returns, rolling median, minimum 10, shifted one bucket",
+    "m300": "24 completed 5-minute absolute returns, rolling median, minimum 8, shifted one bucket",
+    "activity": "180 completed 10-second raw-event counts, rolling median, minimum 60, shifted one bucket"
+  },
+  "fixed_bins": {
+    "vol_range60_rel": [0.75, 1.5],
+    "spread_rel": [0.75, 1.25],
+    "er60": [0.10, 0.25],
+    "activity_rel": [0.75, 1.5]
+  },
+  "cross_grid_match": {
+    "same_segment": true,
+    "same_engine": true,
+    "same_side": true,
+    "max_entry_difference_sec": 120,
+    "one_to_one": true
+  },
+  "robustness_window_hours": 4,
+  "bin_selection_used_trade_pnl": false
+}

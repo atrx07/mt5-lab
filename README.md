@@ -12,10 +12,6 @@ The XAUUSD paper-trading research track uses live MT5 bid/ask data. Its own docu
 
 The full chronology, raw run logs, algorithm notes and runnable scripts live inside [`xau-lab/`](./xau-lab).
 
-### [jev-lab](./jev-lab)
-
-An independent research track for testing whether Jev can improve a practical home-operated trading system after market and model costs. It currently contains the project rules and canonical file structure; no market, strategy, or result is selected yet. Start with [`jev-lab/README.md`](./jev-lab/README.md).
-
 ## Research workflow
 
 ```text
@@ -50,16 +46,6 @@ live paper validation
 ```text
 mt5-lab/
 ├── README.md
-├── jev-lab/
-│   ├── AGENTS.md
-│   ├── STRUCTURE.md
-│   ├── configs/
-│   ├── data/
-│   ├── docs/
-│   ├── results/
-│   ├── scripts/
-│   ├── src/
-│   └── tests/
 └── xau-lab/
     ├── README.md
     ├── docs/

@@ -296,6 +296,7 @@ Examples:
 - `20-v4-5-exposure-velocity.md`
 - `21-v4-5-multi-ticket-horizon.md`
 - `22-recent-micro-long-validation.md`
+- `23-v4-5-regime-normalization.md`
 
 Experiment numbers are chronological across the project, not reset each day.
 
@@ -445,7 +446,8 @@ Current V4.5 research evidence directories:
 - `results/simulations/2026-09-24-v4_5-confirmed-failure/` — provisional Candidate D evidence;
 - `results/simulations/2026-09-24-v4_5-exposure-velocity/` — completed Experiment 20 negative evidence;
 - `results/simulations/2026-09-24-v4_5-multi-ticket-horizon/` — Experiment 21 negative independent multi-position evidence;
-- `results/simulations/2026-09-24-recent-micro-long-validation/` — latest Experiment 22 fresh-regime synthetic replay and rejected impulse-only ablation.
+- `results/simulations/2026-09-24-recent-micro-long-validation/` — Experiment 22 fresh-regime synthetic replay and rejected impulse-only ablation;
+- `results/simulations/2026-09-25-v4_5-regime-normalization/` — Experiment 23 raw-event regime-normalization diagnostic, cross-grid agreement and 4-hour engine robustness evidence.
 
 ### Result-directory contents
 
@@ -527,9 +529,10 @@ Do not create `paper_challenge_v4_5.py` until V4.5 is actually selected/locked f
 - `v4_5_confirmed_failure.py` — provisional Candidate D replay from Experiment 19;
 - `v4_5_exposure_velocity.py` — completed Experiment 20 PRIMARY/SECONDARY diagnostic and rejected seed variants;
 - `v4_5_multi_ticket_horizon.py` — Experiment 21 independent multi-ticket replay plus Experiment 22's rejected impulse-only mode 3;
-- `v4_5_recent_validation.py` — latest Experiment 22 historical parity-gated recent synthetic validation and ledgers.
+- `v4_5_recent_validation.py` — Experiment 22 historical parity-gated recent synthetic validation and ledgers;
+- `v4_5_regime_normalization.py` — Experiment 23 raw-event, pre-sampling normalized regime diagnostic and engine/window robustness audit.
 
-The next fair terminal-equity/forced-close diagnostic for single-slot comparators has not been implemented. Additional non-overlapping recent snapshots should follow before a new micro/long admission choice. Raw-event admission remains a research direction, not an active tested candidate.
+Experiment 23 changes no trading rule. Its frozen regime schema should be replayed unchanged on non-overlapping recent/future snapshots before any regime router or engine gate is selected. Fair terminal-equity/forced-close diagnostics remain required for like-for-like recent single-slot comparison.
 
 For new research harnesses, use a descriptive version-prefixed name under `scripts/`, for example:
 
@@ -653,6 +656,9 @@ results/simulations/2026-09-24-recent-micro-long-validation/
 data/manifests/xau_ticks_recent_24h_2026-09-24.json
 scripts/v4_5_recent_validation.py
 scripts/capture_recent_xau_ticks.py
+docs/experiments/2026-09-25/23-v4-5-regime-normalization.md
+results/simulations/2026-09-25-v4_5-regime-normalization/
+scripts/v4_5_regime_normalization.py
 ```
 
 If the latest experiment number/version changes later, follow the indexes rather than assuming the paths above remain the newest.

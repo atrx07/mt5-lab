@@ -1,0 +1,35 @@
+{
+  "schema_version": "xau-raw-event-regime-v1",
+  "experiment_id": "2026-09-25-v4_5-regime-normalization",
+  "dataset_sha256": "007e7ab10cc16519b544003dbe81521f46cf868bf267780932638d1e8cec86e5",
+  "research_rows": 1869979,
+  "holdout_evaluated": false,
+  "strategy_changed": false,
+  "parity": {
+    "500ms": {
+      "v4_4_compounded_pnl_inr": 1097.6596523751064,
+      "candidate_b_compounded_pnl_inr": 1299.367875231396,
+      "candidate_d_compounded_pnl_inr": 1430.311133793068,
+      "candidate_d_trades": 163,
+      "candidate_d_wins": 81
+    },
+    "1s": {
+      "v4_4_compounded_pnl_inr": 333.27105856299124,
+      "candidate_b_compounded_pnl_inr": 365.25390229096365,
+      "candidate_d_compounded_pnl_inr": 385.2544619534224,
+      "candidate_d_trades": 156,
+      "candidate_d_wins": 71
+    }
+  },
+  "cross_grid": {
+    "matched_trades": 119,
+    "agreement": {
+      "volatility": {"matches": 110, "ratio": 0.9243697478991597},
+      "spread": {"matches": 107, "ratio": 0.8991596638655462},
+      "efficiency": {"matches": 110, "ratio": 0.9243697478991597},
+      "activity": {"matches": 114, "ratio": 0.957983193277311},
+      "complete_regime_key": {"matches": 91, "ratio": 0.7647058823529411}
+    }
+  },
+  "decision": "Diagnostic schema accepted. No strategy or engine gate promoted. Replay unchanged on non-overlapping snapshots before selecting a regime router."
+}
