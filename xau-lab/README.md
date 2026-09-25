@@ -67,7 +67,7 @@ Experiment 32 froze Router v3 before measuring its P&L. It recovered some Router
 
 Experiment 33 stopped tuning routers around the same fixed data and measured each existing engine independently. Historical edge exists in all four lanes, but on recent 500 ms **PRIMARY, SECONDARY, MICRO and BURST all lose independently**; at recent 1 s only SECONDARY stays positive. Exact simultaneous entries occur on only ~2–4% of events. The engine family itself therefore lacks enough cross-regime complementarity.
 
-Experiment 34 now adds SNAPBACK as a structurally different failed-continuation/countertrend lane. The rules are frozen before P&L evaluation: existing MICRO/global thresholds are reused with the natural low-efficiency/reversal complement, and the short lifecycle reuses BURST constants. We will reject it if it fails; we will not slide thresholds around the known 24-hour day until it looks pretty.
+Experiments 34-36 deliberately stop treating the known windows as a tuning scoreboard. Frozen SNAPBACK was rejected unchanged (-₹153.04 / -₹44.78 historical fixed-size P&L at 500 ms / 1 s and zero recent realized opportunities). The separately frozen state-v2 ridge transfer test was weak/anti-correlated historically and essentially uncorrelated on recent transfer. Experiment 36 then added outcome-blind `xau-microstate-v1`: 23 new raw-event features with 100% coverage and strict cross-grid median Spearman 0.869 historical / 0.935 recent. It is a representation foundation, not a candidate. Candidate D remains the V4.5 leader, and the next strategy-changing hypothesis must be frozen before genuinely new non-overlapping raw data is evaluated.
 
 Starting with V4.5 research, all candidate simulations must use the parity-gated canonical replay harness. V4.4's strategy parameters are unchanged; the 14.67% / 4.45% regression values are a reproducible measurement re-baseline used only as the future comparison oracle. The earlier 16.36% / 11.54% lock outputs remain preserved as historical research evidence.
 
@@ -114,6 +114,11 @@ python research\v4_5_router_v2.py xau_ticks_7d.csv
 python research\v4_5_router_v2_full_eval.py xau_ticks_7d.csv xau_ticks_recent_24h_2026-09-24.csv.gz
 python research\v4_5_router_v2_arbitration_audit.py xau_ticks_7d.csv xau_ticks_recent_24h_2026-09-24.csv.gz
 python research\v4_5_router_v2_preflight.py
+python research\v4_5_router_v3_priority_latched.py xau_ticks_7d.csv xau_ticks_recent_24h_2026-09-24.csv.gz
+python research\v4_5_independent_opportunity_atlas.py xau_ticks_7d.csv xau_ticks_recent_24h_2026-09-24.csv.gz
+python research\v4_5_snapback_foundation.py xau_ticks_7d.csv xau_ticks_recent_24h_2026-09-24.csv.gz
+python research\v4_5_state_v2_walkforward_predictability.py
+python research\v4_5_microstate_v1_freeze.py xau_ticks_7d.csv xau_ticks_recent_24h_2026-09-24.csv.gz
 ```
 
 Historical tick export:
@@ -154,8 +159,9 @@ See [`data/README.md`](data/README.md) for the exact archive/push workflow.
 - [V4.5 Router v2 arbitration divergence audit](docs/experiments/2026-09-25/31-v4-5-router-v2-arbitration-audit.md)
 - [V4.5 Router v3 priority-latched](docs/experiments/2026-09-25/32-v4-5-router-v3-priority-latched.md)
 - [V4.5 independent engine opportunity atlas](docs/experiments/2026-09-25/33-v4-5-independent-opportunity-atlas.md)
-- [V4.5 state-v2 walk-forward predictability](docs/experiments/2026-09-25/35-v4-5-state-v2-walkforward-predictability.md)
 - [V4.5 SNAPBACK complementary-engine foundation](docs/experiments/2026-09-25/34-v4-5-snapback-foundation.md)
+- [V4.5 state-v2 walk-forward predictability](docs/experiments/2026-09-25/35-v4-5-state-v2-walkforward-predictability.md)
+- [V4.5 microstate-v1 causal feature foundation](docs/experiments/2026-09-25/36-v4-5-microstate-v1-freeze.md)
 - [V4.1 optimization evidence](docs/experiments/2026-09-23/08-v4-1-optimization.md)
 - [V4.2 algorithm](docs/algorithms/v4_2.md)
 - [V4.3 algorithm](docs/algorithms/v4_3.md)

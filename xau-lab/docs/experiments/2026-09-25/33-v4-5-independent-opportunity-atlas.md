@@ -84,7 +84,7 @@ The next valid direction is one of:
 1. prove that frozen state-v2 contains transferable predictive information and use a pre-registered adaptive admission layer; or
 2. add a genuinely complementary opportunity generator, such as a structurally different reversal/mean-reversion family, then validate it independently.
 
-To avoid designing yet another fixed rule around the same two windows, Experiment 34 takes option 1 first: a **no-search chronological walk-forward predictability test**.
+To avoid designing yet another fixed rule around the same two windows, the two follow-ups were separated and frozen independently: Experiment 34 tested a structural SNAPBACK complement, while Experiment 35 ran the **no-search chronological state-v2 walk-forward predictability test**.
 
 ## Decision
 
@@ -92,7 +92,7 @@ No router or threshold is selected from this atlas.
 
 Candidate D remains the V4.5 research leader.
 
-Experiment 34 must train only on past shadow opportunities and predict later opportunities using a fixed regularized model and natural zero expected-P&L threshold. Even if known-data walk-forward looks good, that result can only justify freezing a future adaptive candidate before a new unseen snapshot.
+Experiment 35 trains only on past shadow opportunities and predicts later opportunities using a fixed regularized model and natural zero expected-P&L threshold. Experiment 34's SNAPBACK branch is a separate pre-registered complementary-engine test. Neither known-data result can promote a strategy; promotion still requires a future frozen candidate and genuinely new unseen data.
 
 ## Evidence
 

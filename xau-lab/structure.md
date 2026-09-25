@@ -473,7 +473,9 @@ Current V4.5 research evidence directories:
 - `results/simulations/2026-09-25-v4_5-router-v2-arbitration-audit/` — Experiment 31 completed decision-level divergence, counterfactual arbitration and trade-pair diagnostics; path-dependent cooldown/slot/timing cascades identified; strategy unchanged.
 - `results/simulations/2026-09-25-v4_5-router-v3-priority-latched/` — Experiment 32 completed; Router v3 not promoted; fallback never fired on canonical first80 and recent remained negative.
 - `results/simulations/2026-09-25-v4_5-independent-opportunity-atlas/` — Experiment 33 completed; all existing engines negative on recent 500 ms and simultaneous opportunities rare.
-- `results/simulations/2026-09-25-v4_5-snapback-foundation/` — Experiment 34 frozen SNAPBACK diagnostic; negative historical result, zero recent opportunities, rejected unchanged. — Experiment 34 pre-registered complementary SNAPBACK engine; execution pending.
+- `results/simulations/2026-09-25-v4_5-snapback-foundation/` — Experiment 34 completed SNAPBACK diagnostic; negative historical result, zero recent opportunities, rejected unchanged.
+- `results/simulations/2026-09-25-v4_5-state-v2-walkforward-predictability/` — Experiment 35 completed no-search state-v2 ridge walk-forward/transfer diagnostic; transferable predictability not demonstrated.
+- `results/simulations/2026-09-25-v4_5-microstate-v1-freeze/` — Experiment 36 completed outcome-blind microstate-v1 representation evidence; retained as feature foundation only.
 
 ### Result-directory contents
 
@@ -538,7 +540,7 @@ Do not place replay harnesses, diagnostics, searches, feature/model experiments,
 
 All non-final strategy-development code belongs here. This includes canonical replay, diagnostics, feature/model experiments, candidate searches and intermediate research harnesses.
 
-Current important files include `canonical_replay.py`, `replay_lab.py`, and the `v4_5_*.py` research line through Experiment 29, including `v4_5_router_v2.py` and `v4_5_router_v2_preflight.py`.
+Current important files include `canonical_replay.py`, `replay_lab.py`, and the V4.5 research line through Experiment 36: Router-v2/v3 diagnostics, independent opportunity atlas, SNAPBACK evaluation, state-v2 walk-forward predictability, and the outcome-blind `v4_5_microstate_v1_freeze.py` representation foundation.
 
 For new intermediate work use descriptive version-prefixed names such as `research/v4_5_<purpose>.py`.
 
@@ -693,9 +695,22 @@ research/v4_5_router_v2_full_eval.py
 docs/experiments/2026-09-25/31-v4-5-router-v2-arbitration-audit.md
 results/simulations/2026-09-25-v4_5-router-v2-arbitration-audit/
 research/v4_5_router_v2_arbitration_audit.py
+docs/experiments/2026-09-25/32-v4-5-router-v3-priority-latched.md
+results/simulations/2026-09-25-v4_5-router-v3-priority-latched/
+research/v4_5_router_v3_priority_latched.py
+docs/experiments/2026-09-25/33-v4-5-independent-opportunity-atlas.md
+results/simulations/2026-09-25-v4_5-independent-opportunity-atlas/
+research/v4_5_independent_opportunity_atlas.py
+docs/experiments/2026-09-25/34-v4-5-snapback-foundation.md
+results/simulations/2026-09-25-v4_5-snapback-foundation/
+research/v4_5_snapback_foundation.py
+docs/experiments/2026-09-25/35-v4-5-state-v2-walkforward-predictability.md
+results/simulations/2026-09-25-v4_5-state-v2-walkforward-predictability/
+research/v4_5_state_v2_walkforward_predictability.py
+docs/experiments/2026-09-25/36-v4-5-microstate-v1-freeze.md
+results/simulations/2026-09-25-v4_5-microstate-v1-freeze/
+research/v4_5_microstate_v1_freeze.py
 ```
 
 If the latest experiment number/version changes later, follow the indexes rather than assuming the paths above remain the newest.
 
-- `research/v4_5_microstate_v1_freeze.py` — Experiment 36 representation-only raw-event microstructure overlay.
-- `results/simulations/2026-09-25-v4_5-microstate-v1-freeze/` — Experiment 36 completed representation-only evidence; 100% feature coverage and strong cross-grid stability; no outcome labels.

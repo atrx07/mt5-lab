@@ -51,5 +51,4 @@ Experiments are grouped by date so each session can grow independently without t
 - [33 — V4.5 independent engine opportunity atlas](2026-09-25/33-v4-5-independent-opportunity-atlas.md)
 - [34 — V4.5 SNAPBACK complementary-engine foundation](2026-09-25/34-v4-5-snapback-foundation.md)
 - [35 — V4.5 state-v2 walk-forward predictability](2026-09-25/35-v4-5-state-v2-walkforward-predictability.md)
-
 - [36 — V4.5 raw-event microstate-v1 foundation](2026-09-25/36-v4-5-microstate-v1-freeze.md)

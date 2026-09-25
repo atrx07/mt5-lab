@@ -387,69 +387,59 @@ Verify both references against `docs/experiments/README.md`, the latest experime
 
 Latest completed diagnostic:
 
-`docs/experiments/2026-09-25/33-v4-5-independent-opportunity-atlas.md`
+`docs/experiments/2026-09-25/36-v4-5-microstate-v1-freeze.md`
 
-Experiment 33 confirms the variable-environment problem is upstream of routing: all four existing engines are independently negative on recent 500 ms; only SECONDARY is positive on recent 1 s; exact simultaneous engine opportunities are only ~2–4%. Do not tune another router around this evidence.
+Current status:
 
-Current frozen engine experiment:
+- **V4.4 remains the latest locked fractional paper version.**
+- **Candidate D remains the provisional V4.5 research leader.**
+- Router v2 and Router v3 are rejected/not promoted on known data.
+- Experiment 33 shows the current four-engine family broadly fails together on the recent hostile regime and rarely offers simultaneous alternatives.
+- Experiment 34's frozen SNAPBACK complement is rejected unchanged.
+- Experiment 35's no-search state-v2 ridge test does not demonstrate transferable outcome predictability.
+- Experiment 36 retains `xau-microstate-v1` only as an outcome-blind causal representation foundation: 23 raw-event features, 100% finite coverage, strict cross-grid median Spearman 0.869 historical / 0.935 recent.
+- The canonical final20 remains sealed.
 
-`docs/experiments/2026-09-25/34-v4-5-snapback-foundation.md`
-
-SNAPBACK is a structurally different countertrend/failed-continuation lane. Its signal is the natural low-efficiency complement of MICRO using existing Candidate-D thresholds; its short lifecycle reuses BURST constants with no countertrend-incompatible momentum-zero-cross. Rules are frozen before P&L evaluation. Known data may reject it but cannot promote it; no post-result threshold tuning is allowed.
+The known seven-day and recent-24h windows are now heavily observed. **Do not turn Experiment 36 into another same-data threshold/model search.** The next strategy-changing hypothesis must be specified and frozen before outcome evaluation, then tested on genuinely new non-overlapping raw data. Known data may still be used for replay parity, implementation diagnostics and rejection of already-frozen ideas.
 
 Latest evidence:
 
-`results/simulations/2026-09-24-v4_5-burst-path-autopsy/`
+`results/simulations/2026-09-25-v4_5-router-v3-priority-latched/`
 
-`results/simulations/2026-09-24-v4_5-confirmed-failure/`
+`results/simulations/2026-09-25-v4_5-independent-opportunity-atlas/`
 
-`results/simulations/2026-09-24-v4_5-exposure-velocity/`
+`results/simulations/2026-09-25-v4_5-snapback-foundation/`
 
-`results/simulations/2026-09-24-v4_5-multi-ticket-horizon/`
+`results/simulations/2026-09-25-v4_5-state-v2-walkforward-predictability/`
 
-`results/simulations/2026-09-24-recent-micro-long-validation/`
+`results/simulations/2026-09-25-v4_5-microstate-v1-freeze/`
 
-`results/simulations/2026-09-25-v4_5-regime-normalization/`
-
-`results/simulations/2026-09-25-v4_5-regime-router-probe/`
-
-`results/simulations/2026-09-25-v4_5-cross-window-engine-robustness/`
-
-`results/simulations/2026-09-25-v4_5-regime-portability/`
-
-`results/simulations/2026-09-25-v4_5-state-v2-freeze/`
-
-`results/simulations/2026-09-25-v4_5-router-v2-implementation/`
-
-`results/simulations/2026-09-25-v4_5-router-v2-preflight/`
-
-`results/simulations/2026-09-25-v4_5-router-v2-full-replay/`
-
-`results/simulations/2026-09-25-v4_5-router-v2-arbitration-audit/`
+Earlier Router-v2 diagnosis remains preserved under Experiments 28-31 and their matching result bundles.
 
 Current research scripts:
 
 - `research/canonical_replay.py` — mandatory V4.4 parity and feature source;
 - `research/v4_5_confirmed_failure.py` — Candidate D research replay;
-- `research/v4_5_exposure_velocity.py` — completed Experiment 20 diagnostic and rejected seed variants.
-- `research/v4_5_multi_ticket_horizon.py` — completed negative Experiment 21 independent multi-ticket replay; exploratory research only.
-- `tools/capture_recent_xau_ticks.py` — read-only, clock-audited MT5 quote snapshot capture.
-- `research/v4_5_recent_validation.py` — Experiment 22 historical parity-gated recent synthetic validation and ledgers.
-- `research/v4_5_regime_normalization.py` — Experiment 23 raw-event, pre-sampling normalized regime diagnostic and engine/window robustness audit.
-- `research/v4_5_regime_router_probe.py` — Experiment 24 bounded single-category regime-veto search and one-time chronological evaluation; selected probe rejected.
-- `research/v4_5_cross_window_engine_robustness.py` — Experiment 25 no-tuning comparison of Candidate D engine behavior across historical and recent preserved ledgers.
-- `research/v4_5_regime_portability.py` — Experiment 26 exact frozen Experiment 23 regime replay on the recent raw snapshot plus historical-key portability and PRIMARY exit-state diagnostics.
-- `research/v4_5_state_v2_freeze.py` — Experiment 27 frozen continuous raw-event state-v2 extraction, coverage, cross-grid stability and descriptive outcome profiling; no router selection.
-- `research/v4_5_router_v2.py` — Experiment 28 stronghold-aware Router v2 implementation with dynamic engine arbitration, fall-through and HOLD; frozen before unseen validation.
-- `research/v4_5_router_v2_preflight.py` — Experiment 29 reproducible trade-ledger gate proxy and seeded regime-mixture bootstrap; diagnostic only, not a full fall-through replay.
-- `research/v4_5_router_v2_full_eval.py` — Experiment 30 full raw-tick Candidate D vs Router v2 replay across canonical/recent data and deterministic random real four-hour windows.
-- `research/v4_5_router_v2_arbitration_audit.py` — Experiment 31 decision-level Router-v2/Candidate-D divergence and counterfactual arbitration audit; no strategy changes.
-- `research/v4_5_router_v3_priority_latched.py` — Experiment 32 priority-preserving, rejection-latched Router v3 candidate; structurally frozen before known-data evaluation.
-- `research/v4_5_independent_opportunity_atlas.py` — Experiment 33 fixed-size independent shadow-lane atlas for engine-family complementarity; diagnostic only.
-- `research/v4_5_snapback_engine.py` — Experiment 34 pre-registered SNAPBACK countertrend engine foundation; independent fixed-size evaluation only.
-- `tools/restore_dataset.py` — hash-verified restoration of ignored raw CSVs from committed archives.
+- `research/v4_5_recent_validation.py` — Experiment 22 recent-window replay;
+- `research/v4_5_regime_normalization.py` — Experiment 23 frozen regime representation;
+- `research/v4_5_regime_router_probe.py` — Experiment 24 rejected bounded router probe;
+- `research/v4_5_cross_window_engine_robustness.py` — Experiment 25 cross-window engine comparison;
+- `research/v4_5_regime_portability.py` — Experiment 26 regime portability diagnostics;
+- `research/v4_5_state_v2_freeze.py` — Experiment 27 state-v2 feature foundation;
+- `research/v4_5_router_v2.py` — Experiment 28 frozen Router v2;
+- `research/v4_5_router_v2_preflight.py` — Experiment 29 gate-proxy diagnostic;
+- `research/v4_5_router_v2_full_eval.py` — Experiment 30 full raw-tick Router v2 replay;
+- `research/v4_5_router_v2_arbitration_audit.py` — Experiment 31 arbitration/path-dependence audit;
+- `research/v4_5_router_v3_priority_latched.py` — Experiment 32 rejected priority-preserving Router v3;
+- `research/v4_5_independent_opportunity_atlas.py` — Experiment 33 independent engine atlas;
+- `research/v4_5_snapback_engine.py` — SNAPBACK signal/lifecycle helper;
+- `research/v4_5_snapback_foundation.py` — Experiment 34 frozen SNAPBACK evaluation;
+- `research/v4_5_state_v2_walkforward_predictability.py` — Experiment 35 fixed no-search ridge transfer diagnostic;
+- `research/v4_5_microstate_v1_freeze.py` — Experiment 36 outcome-blind raw-event microstate representation;
+- `tools/restore_dataset.py` — hash-verified restoration of ignored raw CSVs.
 
-No regime router is promoted. Experiment 24's selected veto is rejected. Experiments 25-26 show that neither engine identity nor the four-part historical regime key is sufficient as a portable permission rule. Experiment 27 freezes `xau-state-v2`; Experiment 28 freezes Router v2; Experiment 29's proxy is negative; Experiment 30's full raw-tick replay confirms the frozen Router-v2 score does not beat Candidate D; Experiment 31 shows the dominant failure is path-dependent cooldown/slot/timing cascade rather than direct score substitution alone. Candidate D remains the provisional historical leader. Next specify a path-aware, priority-preserving architecture without tuning the known score floor.
+No regime router is promoted. Experiments 28-32 show that routing mechanics cannot manufacture missing edge from the existing engine family. Experiments 33-35 then show that the problem is broader than routing: the current lanes fail together in the hostile window, SNAPBACK does not supply the missing complement, and state-v2 does not provide a demonstrated transferable admission signal under the frozen ridge test. Experiment 36 adds new causal information without selecting a strategy from known outcomes.
+
 
 Phase C1 tested 48 BURST lifecycle combinations and every one reproduced Candidate B exactly at both sampling grids. No Candidate C was promoted.
 
