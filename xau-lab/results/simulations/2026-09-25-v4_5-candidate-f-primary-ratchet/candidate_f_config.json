@@ -1,0 +1,17 @@
+{
+  "schema": "xau-candidate-f-primary-ratchet-v1",
+  "base_strategy": "Candidate D from Experiment 19",
+  "strategy_changed": true,
+  "entry_changed": false,
+  "exit_changed": true,
+  "ratchet_engine": "PRIMARY",
+  "ratchet_trigger_mfe_usd": 4.0,
+  "ratchet_trigger_r": 1.0,
+  "ratchet_retain_fraction_of_live_mfe": 0.5,
+  "ratchet_check_sec": 5.0,
+  "secondary_changed": false,
+  "micro_changed": false,
+  "burst_changed": false,
+  "known_data_promotion_allowed": false,
+  "final20_opened": false
+}

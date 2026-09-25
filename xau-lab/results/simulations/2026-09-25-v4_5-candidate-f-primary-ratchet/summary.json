@@ -1,0 +1,681 @@
+{
+  "schema": "xau-candidate-f-primary-ratchet-eval-v1",
+  "candidate_config": {
+    "schema": "xau-candidate-f-primary-ratchet-v1",
+    "base_strategy": "Candidate D from Experiment 19",
+    "strategy_changed": true,
+    "entry_changed": false,
+    "exit_changed": true,
+    "ratchet_engine": "PRIMARY",
+    "ratchet_trigger_mfe_usd": 4.0,
+    "ratchet_trigger_r": 1.0,
+    "ratchet_retain_fraction_of_live_mfe": 0.5,
+    "ratchet_check_sec": 5.0,
+    "secondary_changed": false,
+    "micro_changed": false,
+    "burst_changed": false,
+    "known_data_promotion_allowed": false,
+    "final20_opened": false
+  },
+  "known_data_promotion_allowed": false,
+  "final20_opened": false,
+  "random_window_method": "deterministic real contiguous four-hour windows from known canonical first80/recent24h; stress only, never promotion evidence",
+  "slippage_stress_usd_per_side": [
+    0.0,
+    0.05,
+    0.1,
+    0.2
+  ],
+  "intervals": {
+    "500ms": {
+      "canonical_first80": {
+        "candidate_d": {
+          "compounded_pnl_inr": 1430.311133793068,
+          "trades": 163,
+          "wins": 81,
+          "win_rate": 0.49693251533742333,
+          "max_segment_drawdown_inr": 218.9381795572965,
+          "primary_entries": 74,
+          "primary_ratchet_exits": 0
+        },
+        "candidate_f": {
+          "compounded_pnl_inr": 562.0748041113592,
+          "trades": 175,
+          "wins": 87,
+          "win_rate": 0.49714285714285716,
+          "max_segment_drawdown_inr": 118.5762099554293,
+          "primary_entries": 80,
+          "primary_ratchet_exits": 27
+        },
+        "delta_f_vs_d_inr": -868.2363296817088,
+        "trade_retention": 1.0736196319018405,
+        "win_rate_delta": 0.00021034180543383352,
+        "candidate_d_segments": [
+          {
+            "pnl_inr": 696.8428619834062,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 696.8428619834062,
+            "open_position_at_end": false,
+            "profit_factor": 1.7428577443389235,
+            "trades": 98,
+            "wins": 46,
+            "win_rate": 0.46938775510204084,
+            "max_drawdown_inr": 218.9381795572965,
+            "primary_entries": 53,
+            "primary_ratchet_exits": 0
+          },
+          {
+            "pnl_inr": 44.100517926115,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 44.100517926115,
+            "open_position_at_end": false,
+            "profit_factor": 1.3756640618094829,
+            "trades": 23,
+            "wins": 12,
+            "win_rate": 0.5217391304347826,
+            "max_drawdown_inr": 35.71970634386099,
+            "primary_entries": 12,
+            "primary_ratchet_exits": 0
+          },
+          {
+            "pnl_inr": -13.57863832016642,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -13.57863832016642,
+            "open_position_at_end": false,
+            "profit_factor": 0.6221002242035942,
+            "trades": 8,
+            "wins": 3,
+            "win_rate": 0.375,
+            "max_drawdown_inr": 29.53955840072996,
+            "primary_entries": 1,
+            "primary_ratchet_exits": 0
+          },
+          {
+            "pnl_inr": 34.31993370500095,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 34.31993370500095,
+            "open_position_at_end": false,
+            "profit_factor": 1.3509959326539795,
+            "trades": 16,
+            "wins": 7,
+            "win_rate": 0.4375,
+            "max_drawdown_inr": 45.342126358477344,
+            "primary_entries": 5,
+            "primary_ratchet_exits": 0
+          },
+          {
+            "pnl_inr": 212.81535096220955,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 212.81535096220955,
+            "open_position_at_end": false,
+            "profit_factor": 4.594076885025599,
+            "trades": 18,
+            "wins": 13,
+            "win_rate": 0.7222222222222222,
+            "max_drawdown_inr": 22.50067024906457,
+            "primary_entries": 3,
+            "primary_ratchet_exits": 0
+          }
+        ],
+        "candidate_f_segments": [
+          {
+            "pnl_inr": 128.48185614563056,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 128.48185614563056,
+            "open_position_at_end": false,
+            "profit_factor": 1.1686608182353078,
+            "trades": 110,
+            "wins": 52,
+            "win_rate": 0.4727272727272727,
+            "max_drawdown_inr": 118.5762099554293,
+            "primary_entries": 59,
+            "primary_ratchet_exits": 23
+          },
+          {
+            "pnl_inr": 70.10036535042718,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 70.10036535042718,
+            "open_position_at_end": false,
+            "profit_factor": 1.5910019367376556,
+            "trades": 23,
+            "wins": 12,
+            "win_rate": 0.5217391304347826,
+            "max_drawdown_inr": 40.122906704452646,
+            "primary_entries": 12,
+            "primary_ratchet_exits": 3
+          },
+          {
+            "pnl_inr": -13.57863832016642,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -13.57863832016642,
+            "open_position_at_end": false,
+            "profit_factor": 0.6221002242035942,
+            "trades": 8,
+            "wins": 3,
+            "win_rate": 0.375,
+            "max_drawdown_inr": 29.53955840072996,
+            "primary_entries": 1,
+            "primary_ratchet_exits": 1
+          },
+          {
+            "pnl_inr": 34.31993370500095,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 34.31993370500095,
+            "open_position_at_end": false,
+            "profit_factor": 1.3509959326539795,
+            "trades": 16,
+            "wins": 7,
+            "win_rate": 0.4375,
+            "max_drawdown_inr": 45.342126358477344,
+            "primary_entries": 5,
+            "primary_ratchet_exits": 0
+          },
+          {
+            "pnl_inr": 212.81535096220955,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 212.81535096220955,
+            "open_position_at_end": false,
+            "profit_factor": 4.594076885025599,
+            "trades": 18,
+            "wins": 13,
+            "win_rate": 0.7222222222222222,
+            "max_drawdown_inr": 22.50067024906457,
+            "primary_entries": 3,
+            "primary_ratchet_exits": 0
+          }
+        ]
+      },
+      "recent24h_whole": {
+        "candidate_d": {
+          "pnl_inr": -223.27329174700338,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -223.27329174700338,
+          "open_position_at_end": false,
+          "profit_factor": 0.22462663024633286,
+          "trades": 39,
+          "wins": 5,
+          "win_rate": 0.1282051282051282,
+          "max_drawdown_inr": 230.22212602319553,
+          "primary_entries": 25,
+          "primary_ratchet_exits": 0
+        },
+        "candidate_f": {
+          "pnl_inr": -221.57732144181182,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -221.57732144181182,
+          "open_position_at_end": false,
+          "profit_factor": 0.22654311464711033,
+          "trades": 42,
+          "wins": 8,
+          "win_rate": 0.19047619047619047,
+          "max_drawdown_inr": 221.57732144181182,
+          "primary_entries": 28,
+          "primary_ratchet_exits": 6
+        },
+        "delta_f_vs_d_inr": 1.6959703051915653,
+        "trade_retention": 1.0769230769230769,
+        "win_rate_delta": 0.06227106227106227
+      },
+      "recent24h_split": [
+        {
+          "split": "seed",
+          "candidate_d": {
+            "pnl_inr": -92.47632849025553,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -92.47632849025553,
+            "open_position_at_end": false,
+            "profit_factor": 0.35314786361894923,
+            "trades": 19,
+            "wins": 3,
+            "win_rate": 0.15789473684210525,
+            "max_drawdown_inr": 92.47632849025553,
+            "primary_entries": 12,
+            "primary_ratchet_exits": 0
+          },
+          "candidate_f": {
+            "pnl_inr": -106.74546942179217,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -106.74546942179217,
+            "open_position_at_end": false,
+            "profit_factor": 0.30324702452714686,
+            "trades": 21,
+            "wins": 4,
+            "win_rate": 0.19047619047619047,
+            "max_drawdown_inr": 106.74546942179217,
+            "primary_entries": 14,
+            "primary_ratchet_exits": 3
+          },
+          "delta_f_vs_d_inr": -14.26914093153664
+        },
+        {
+          "split": "evaluation",
+          "candidate_d": {
+            "pnl_inr": -149.92292560013215,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -149.92292560013215,
+            "open_position_at_end": false,
+            "profit_factor": 0.10696816560845236,
+            "trades": 19,
+            "wins": 2,
+            "win_rate": 0.10526315789473684,
+            "max_drawdown_inr": 158.7136476423097,
+            "primary_entries": 12,
+            "primary_ratchet_exits": 0
+          },
+          "candidate_f": {
+            "pnl_inr": -134.99710692321463,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -134.99710692321463,
+            "open_position_at_end": false,
+            "profit_factor": 0.15187967355705043,
+            "trades": 20,
+            "wins": 4,
+            "win_rate": 0.2,
+            "max_drawdown_inr": 134.99710692321463,
+            "primary_entries": 13,
+            "primary_ratchet_exits": 3
+          },
+          "delta_f_vs_d_inr": 14.925818676917515
+        }
+      ],
+      "random_real_windows": {
+        "candidate_d": {
+          "windows": 40,
+          "median_terminal_equity_pnl_inr": -23.586061895657508,
+          "mean_terminal_equity_pnl_inr": -6.260094042109164,
+          "p05_terminal_equity_pnl_inr": -27.100950513536418,
+          "p95_terminal_equity_pnl_inr": 49.57687903560627,
+          "positive_window_fraction": 0.3,
+          "total_trades": 417,
+          "total_wins": 157,
+          "aggregate_win_rate": 0.3764988009592326
+        },
+        "candidate_f": {
+          "windows": 40,
+          "median_terminal_equity_pnl_inr": -18.812812198357562,
+          "mean_terminal_equity_pnl_inr": -3.183013291822802,
+          "p05_terminal_equity_pnl_inr": -26.75154353660082,
+          "p95_terminal_equity_pnl_inr": 79.8548178746623,
+          "positive_window_fraction": 0.35,
+          "total_trades": 432,
+          "total_wins": 164,
+          "aggregate_win_rate": 0.37962962962962965
+        },
+        "candidate_f_better_than_d_fraction": 0.875,
+        "candidate_f_equal_to_d_fraction": 0.075,
+        "trade_retention": 1.0359712230215827
+      },
+      "cost_stress": [
+        {
+          "extra_slippage_usd_per_side": 0.0,
+          "historical_candidate_d_compounded_pnl_inr": 1430.311133793068,
+          "historical_candidate_f_compounded_pnl_inr": 562.0748041113592,
+          "historical_delta_f_vs_d_inr": -868.2363296817088,
+          "recent_candidate_d_terminal_equity_pnl_inr": -223.27329174700338,
+          "recent_candidate_f_terminal_equity_pnl_inr": -221.57732144181182,
+          "recent_delta_f_vs_d_inr": 1.6959703051915653,
+          "historical_candidate_f_ratchet_exits": 27,
+          "recent_candidate_f_ratchet_exits": 6
+        },
+        {
+          "extra_slippage_usd_per_side": 0.05,
+          "historical_candidate_d_compounded_pnl_inr": 1164.8109181225905,
+          "historical_candidate_f_compounded_pnl_inr": 571.2192867573314,
+          "historical_delta_f_vs_d_inr": -593.5916313652591,
+          "recent_candidate_d_terminal_equity_pnl_inr": -228.5917885979548,
+          "recent_candidate_f_terminal_equity_pnl_inr": -212.02802241435234,
+          "recent_delta_f_vs_d_inr": 16.563766183602468,
+          "historical_candidate_f_ratchet_exits": 23,
+          "recent_candidate_f_ratchet_exits": 6
+        },
+        {
+          "extra_slippage_usd_per_side": 0.1,
+          "historical_candidate_d_compounded_pnl_inr": 964.1613580745292,
+          "historical_candidate_f_compounded_pnl_inr": 649.1688709127408,
+          "historical_delta_f_vs_d_inr": -314.9924871617884,
+          "recent_candidate_d_terminal_equity_pnl_inr": -232.58559413921654,
+          "recent_candidate_f_terminal_equity_pnl_inr": -215.57501264038007,
+          "recent_delta_f_vs_d_inr": 17.010581498836473,
+          "historical_candidate_f_ratchet_exits": 21,
+          "recent_candidate_f_ratchet_exits": 6
+        },
+        {
+          "extra_slippage_usd_per_side": 0.2,
+          "historical_candidate_d_compounded_pnl_inr": 335.0871578930338,
+          "historical_candidate_f_compounded_pnl_inr": 158.8440445116871,
+          "historical_delta_f_vs_d_inr": -176.24311338134672,
+          "recent_candidate_d_terminal_equity_pnl_inr": -240.88778913584088,
+          "recent_candidate_f_terminal_equity_pnl_inr": -224.863927745698,
+          "recent_delta_f_vs_d_inr": 16.023861390142883,
+          "historical_candidate_f_ratchet_exits": 22,
+          "recent_candidate_f_ratchet_exits": 6
+        }
+      ]
+    },
+    "1s": {
+      "canonical_first80": {
+        "candidate_d": {
+          "compounded_pnl_inr": 385.2544619534224,
+          "trades": 156,
+          "wins": 71,
+          "win_rate": 0.4551282051282051,
+          "max_segment_drawdown_inr": 172.14469599809354,
+          "primary_entries": 69,
+          "primary_ratchet_exits": 0
+        },
+        "candidate_f": {
+          "compounded_pnl_inr": 283.97258777792325,
+          "trades": 165,
+          "wins": 78,
+          "win_rate": 0.4727272727272727,
+          "max_segment_drawdown_inr": 159.4531878511782,
+          "primary_entries": 73,
+          "primary_ratchet_exits": 22
+        },
+        "delta_f_vs_d_inr": -101.28187417549913,
+        "trade_retention": 1.0576923076923077,
+        "win_rate_delta": 0.017599067599067597,
+        "candidate_d_segments": [
+          {
+            "pnl_inr": 169.91793307493617,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 169.91793307493617,
+            "open_position_at_end": false,
+            "profit_factor": 1.1919652394865075,
+            "trades": 98,
+            "wins": 42,
+            "win_rate": 0.42857142857142855,
+            "max_drawdown_inr": 172.14469599809354,
+            "primary_entries": 50,
+            "primary_ratchet_exits": 0
+          },
+          {
+            "pnl_inr": 41.93295235703238,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 41.93295235703238,
+            "open_position_at_end": false,
+            "profit_factor": 1.3782424048517317,
+            "trades": 21,
+            "wins": 11,
+            "win_rate": 0.5238095238095238,
+            "max_drawdown_inr": 52.346540357980984,
+            "primary_entries": 11,
+            "primary_ratchet_exits": 0
+          },
+          {
+            "pnl_inr": -45.95461543615477,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -45.95461543615477,
+            "open_position_at_end": false,
+            "profit_factor": 0.23840252009619664,
+            "trades": 8,
+            "wins": 1,
+            "win_rate": 0.125,
+            "max_drawdown_inr": 55.95226824865756,
+            "primary_entries": 2,
+            "primary_ratchet_exits": 0
+          },
+          {
+            "pnl_inr": 80.42284290821033,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 80.42284290821033,
+            "open_position_at_end": false,
+            "profit_factor": 2.2676857449932504,
+            "trades": 11,
+            "wins": 6,
+            "win_rate": 0.5454545454545454,
+            "max_drawdown_inr": 45.0062855503611,
+            "primary_entries": 4,
+            "primary_ratchet_exits": 0
+          },
+          {
+            "pnl_inr": 78.27872866041719,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 78.27872866041719,
+            "open_position_at_end": false,
+            "profit_factor": 1.6772007246054033,
+            "trades": 18,
+            "wins": 11,
+            "win_rate": 0.6111111111111112,
+            "max_drawdown_inr": 40.75649050493149,
+            "primary_entries": 2,
+            "primary_ratchet_exits": 0
+          }
+        ],
+        "candidate_f_segments": [
+          {
+            "pnl_inr": 66.74744039213692,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 66.74744039213692,
+            "open_position_at_end": false,
+            "profit_factor": 1.0841451787049103,
+            "trades": 106,
+            "wins": 47,
+            "win_rate": 0.44339622641509435,
+            "max_drawdown_inr": 159.4531878511782,
+            "primary_entries": 54,
+            "primary_ratchet_exits": 17
+          },
+          {
+            "pnl_inr": 47.4567779306675,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 47.4567779306675,
+            "open_position_at_end": false,
+            "profit_factor": 1.3736068376904738,
+            "trades": 22,
+            "wins": 12,
+            "win_rate": 0.5454545454545454,
+            "max_drawdown_inr": 73.9801892919441,
+            "primary_entries": 11,
+            "primary_ratchet_exits": 3
+          },
+          {
+            "pnl_inr": -29.49983851455113,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -29.49983851455113,
+            "open_position_at_end": false,
+            "profit_factor": 0.4274347448455836,
+            "trades": 8,
+            "wins": 2,
+            "win_rate": 0.25,
+            "max_drawdown_inr": 47.13472956071104,
+            "primary_entries": 2,
+            "primary_ratchet_exits": 2
+          },
+          {
+            "pnl_inr": 80.42284290821033,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 80.42284290821033,
+            "open_position_at_end": false,
+            "profit_factor": 2.2676857449932504,
+            "trades": 11,
+            "wins": 6,
+            "win_rate": 0.5454545454545454,
+            "max_drawdown_inr": 45.0062855503611,
+            "primary_entries": 4,
+            "primary_ratchet_exits": 0
+          },
+          {
+            "pnl_inr": 78.27872866041719,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": 78.27872866041719,
+            "open_position_at_end": false,
+            "profit_factor": 1.6772007246054033,
+            "trades": 18,
+            "wins": 11,
+            "win_rate": 0.6111111111111112,
+            "max_drawdown_inr": 40.75649050493149,
+            "primary_entries": 2,
+            "primary_ratchet_exits": 0
+          }
+        ]
+      },
+      "recent24h_whole": {
+        "candidate_d": {
+          "pnl_inr": -135.9095261798986,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -135.9095261798986,
+          "open_position_at_end": false,
+          "profit_factor": 0.42272300867364804,
+          "trades": 34,
+          "wins": 8,
+          "win_rate": 0.23529411764705882,
+          "max_drawdown_inr": 143.89070468400888,
+          "primary_entries": 21,
+          "primary_ratchet_exits": 0
+        },
+        "candidate_f": {
+          "pnl_inr": -180.40810106271346,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -180.40810106271346,
+          "open_position_at_end": false,
+          "profit_factor": 0.3267785295150792,
+          "trades": 38,
+          "wins": 9,
+          "win_rate": 0.23684210526315788,
+          "max_drawdown_inr": 180.40810106271346,
+          "primary_entries": 24,
+          "primary_ratchet_exits": 5
+        },
+        "delta_f_vs_d_inr": -44.498574882814864,
+        "trade_retention": 1.1176470588235294,
+        "win_rate_delta": 0.0015479876160990613
+      },
+      "recent24h_split": [
+        {
+          "split": "seed",
+          "candidate_d": {
+            "pnl_inr": -86.5433495254544,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -86.5433495254544,
+            "open_position_at_end": false,
+            "profit_factor": 0.36712647671085546,
+            "trades": 16,
+            "wins": 3,
+            "win_rate": 0.1875,
+            "max_drawdown_inr": 86.5433495254544,
+            "primary_entries": 11,
+            "primary_ratchet_exits": 0
+          },
+          "candidate_f": {
+            "pnl_inr": -110.55065563222075,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -110.55065563222075,
+            "open_position_at_end": false,
+            "profit_factor": 0.3090600164460736,
+            "trades": 19,
+            "wins": 4,
+            "win_rate": 0.21052631578947367,
+            "max_drawdown_inr": 110.55065563222075,
+            "primary_entries": 13,
+            "primary_ratchet_exits": 3
+          },
+          "delta_f_vs_d_inr": -24.00730610676635
+        },
+        {
+          "split": "evaluation",
+          "candidate_d": {
+            "pnl_inr": -52.31249415892705,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -52.31249415892705,
+            "open_position_at_end": false,
+            "profit_factor": 0.536875919765751,
+            "trades": 17,
+            "wins": 5,
+            "win_rate": 0.29411764705882354,
+            "max_drawdown_inr": 62.12619200355397,
+            "primary_entries": 9,
+            "primary_ratchet_exits": 0
+          },
+          "candidate_f": {
+            "pnl_inr": -82.80372197814046,
+            "terminal_unrealized_inr": 0.0,
+            "terminal_equity_pnl_inr": -82.80372197814046,
+            "open_position_at_end": false,
+            "profit_factor": 0.3753729974767885,
+            "trades": 18,
+            "wins": 5,
+            "win_rate": 0.2777777777777778,
+            "max_drawdown_inr": 82.80372197814046,
+            "primary_entries": 10,
+            "primary_ratchet_exits": 2
+          },
+          "delta_f_vs_d_inr": -30.491227819213407
+        }
+      ],
+      "random_real_windows": {
+        "candidate_d": {
+          "windows": 40,
+          "median_terminal_equity_pnl_inr": -27.861680295516123,
+          "mean_terminal_equity_pnl_inr": -8.250865715963963,
+          "p05_terminal_equity_pnl_inr": -34.78181461314048,
+          "p95_terminal_equity_pnl_inr": 83.90268597611308,
+          "positive_window_fraction": 0.275,
+          "total_trades": 420,
+          "total_wins": 150,
+          "aggregate_win_rate": 0.35714285714285715
+        },
+        "candidate_f": {
+          "windows": 40,
+          "median_terminal_equity_pnl_inr": -26.918893492045186,
+          "mean_terminal_equity_pnl_inr": -4.536313787768535,
+          "p05_terminal_equity_pnl_inr": -27.16842815085719,
+          "p95_terminal_equity_pnl_inr": 51.38597553291605,
+          "positive_window_fraction": 0.35,
+          "total_trades": 446,
+          "total_wins": 173,
+          "aggregate_win_rate": 0.38789237668161436
+        },
+        "candidate_f_better_than_d_fraction": 0.825,
+        "candidate_f_equal_to_d_fraction": 0.0,
+        "trade_retention": 1.061904761904762
+      },
+      "cost_stress": [
+        {
+          "extra_slippage_usd_per_side": 0.0,
+          "historical_candidate_d_compounded_pnl_inr": 385.2544619534224,
+          "historical_candidate_f_compounded_pnl_inr": 283.97258777792325,
+          "historical_delta_f_vs_d_inr": -101.28187417549913,
+          "recent_candidate_d_terminal_equity_pnl_inr": -135.9095261798986,
+          "recent_candidate_f_terminal_equity_pnl_inr": -180.40810106271346,
+          "recent_delta_f_vs_d_inr": -44.498574882814864,
+          "historical_candidate_f_ratchet_exits": 22,
+          "recent_candidate_f_ratchet_exits": 5
+        },
+        {
+          "extra_slippage_usd_per_side": 0.05,
+          "historical_candidate_d_compounded_pnl_inr": 281.9016479168638,
+          "historical_candidate_f_compounded_pnl_inr": 141.10841708934075,
+          "historical_delta_f_vs_d_inr": -140.79323082752305,
+          "recent_candidate_d_terminal_equity_pnl_inr": -140.26333968522584,
+          "recent_candidate_f_terminal_equity_pnl_inr": -169.1754797708316,
+          "recent_delta_f_vs_d_inr": -28.912140085605756,
+          "historical_candidate_f_ratchet_exits": 23,
+          "recent_candidate_f_ratchet_exits": 5
+        },
+        {
+          "extra_slippage_usd_per_side": 0.1,
+          "historical_candidate_d_compounded_pnl_inr": 248.12032921993654,
+          "historical_candidate_f_compounded_pnl_inr": 125.77644522649045,
+          "historical_delta_f_vs_d_inr": -122.34388399344608,
+          "recent_candidate_d_terminal_equity_pnl_inr": -143.91095503479,
+          "recent_candidate_f_terminal_equity_pnl_inr": -170.78097320976713,
+          "recent_delta_f_vs_d_inr": -26.870018174977133,
+          "historical_candidate_f_ratchet_exits": 22,
+          "recent_candidate_f_ratchet_exits": 5
+        },
+        {
+          "extra_slippage_usd_per_side": 0.2,
+          "historical_candidate_d_compounded_pnl_inr": 35.88449127824222,
+          "historical_candidate_f_compounded_pnl_inr": -61.84440697821364,
+          "historical_delta_f_vs_d_inr": -97.72889825645586,
+          "recent_candidate_d_terminal_equity_pnl_inr": -155.80934360412596,
+          "recent_candidate_f_terminal_equity_pnl_inr": -176.47646643801625,
+          "recent_delta_f_vs_d_inr": -20.66712283389029,
+          "historical_candidate_f_ratchet_exits": 21,
+          "recent_candidate_f_ratchet_exits": 5
+        }
+      ]
+    }
+  }
+}

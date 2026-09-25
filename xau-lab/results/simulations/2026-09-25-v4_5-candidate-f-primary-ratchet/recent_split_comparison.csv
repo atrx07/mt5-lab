@@ -1,0 +1,5 @@
+interval,split,candidate_d_terminal_equity_pnl_inr,candidate_f_terminal_equity_pnl_inr,delta_f_vs_d_inr,candidate_d_trades,candidate_f_trades,candidate_d_wins,candidate_f_wins,candidate_f_primary_ratchet_exits
+500ms,seed,-92.47632849025553,-106.74546942179217,-14.26914093153664,19,21,3,4,3
+500ms,evaluation,-149.92292560013215,-134.99710692321463,14.925818676917515,19,20,2,4,3
+1s,seed,-86.5433495254544,-110.55065563222075,-24.00730610676635,16,19,3,4,3
+1s,evaluation,-52.31249415892705,-82.80372197814046,-30.491227819213407,17,18,5,5,2
