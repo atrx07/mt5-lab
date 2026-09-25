@@ -414,6 +414,8 @@ Latest evidence:
 
 `results/simulations/2026-09-25-v4_5-microstate-v1-freeze/`
 
+`results/simulations/2026-09-25-v4_5-candidate-e-microstate-confirmation/`
+
 Earlier Router-v2 diagnosis remains preserved under Experiments 28-31 and their matching result bundles.
 
 Current research scripts:
@@ -436,9 +438,12 @@ Current research scripts:
 - `research/v4_5_snapback_foundation.py` — Experiment 34 frozen SNAPBACK evaluation;
 - `research/v4_5_state_v2_walkforward_predictability.py` — Experiment 35 fixed no-search ridge transfer diagnostic;
 - `research/v4_5_microstate_v1_freeze.py` — Experiment 36 outcome-blind raw-event microstate representation;
+- `research/v4_5_candidate_e_microstate_confirmation.py` — Experiment 37 rejected Candidate E PRIMARY microstate confirmation;
 - `tools/restore_dataset.py` — hash-verified restoration of ignored raw CSVs.
 
 No regime router is promoted. Experiments 28-32 show that routing mechanics cannot manufacture missing edge from the existing engine family. Experiments 33-35 then show that the problem is broader than routing: the current lanes fail together in the hostile window, SNAPBACK does not supply the missing complement, and state-v2 does not provide a demonstrated transferable admission signal under the frozen ridge test. Experiment 36 adds new causal information without selecting a strategy from known outcomes.
+
+Experiment 37 froze Candidate E before outcome evaluation as Candidate D plus one PRIMARY-only `xau-microstate-v1` joint-contradiction veto. Candidate D parity passed exactly. Candidate E produced +₹1,163.47 / +₹374.58 canonical first80 P&L versus D's +₹1,430.31 / +₹385.25, while the known recent 24-hour diagnostic improved to -₹216.77 / -₹94.08 versus D's -₹223.27 / -₹135.91. Real contiguous four-hour stress-window mean expectancy did not improve on either grid. Candidate E is rejected unchanged; Candidate D remains provisional leader and `xau-microstate-v1` remains a feature foundation.
 
 
 Phase C1 tested 48 BURST lifecycle combinations and every one reproduced Candidate B exactly at both sampling grids. No Candidate C was promoted.
