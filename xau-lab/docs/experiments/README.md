@@ -59,3 +59,4 @@ Experiments are grouped by date so each session can grow independently without t
 - [41 — V4.5 Candidate G path-preserving ghost ratchet](2026-09-25/41-v4-5-candidate-g-ghost-ratchet.md)
 - [42 — V4.5 signal-fingerprint entry quality](2026-09-26/42-v4-5-signal-fingerprint-entry-quality.md)
 - [43 — V4.5 Candidate H flow-confirmed ghost exit](2026-09-26/43-v4-5-candidate-h-flow-confirmed-ghost-exit.md)
+- [44 — V4.5 MT5 tick-tape field audit](2026-09-26/44-v4-5-tick-tape-field-audit.md)
