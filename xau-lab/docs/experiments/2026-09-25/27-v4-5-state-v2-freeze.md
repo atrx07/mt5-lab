@@ -125,7 +125,7 @@ Do not change its formulas after seeing the next snapshot. The next unseen datas
 
 ## Evidence
 
-- `scripts/v4_5_state_v2_freeze.py`
+- `research/v4_5_state_v2_freeze.py`
 - `results/simulations/2026-09-25-v4_5-state-v2-freeze/state_v2_catalog.json`
 - `results/simulations/2026-09-25-v4_5-state-v2-freeze/feature_distribution.csv`
 - `results/simulations/2026-09-25-v4_5-state-v2-freeze/cross_grid_feature_stability.csv`

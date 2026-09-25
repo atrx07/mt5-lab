@@ -52,4 +52,4 @@ Mode 3 improves the exploratory full-window P&L relative to Experiment 21's mode
 
 Next: implement a fair forced-liquidation/terminal-equity diagnostic for the single-slot comparators without changing the canonical golden replay semantics. Collect additional non-overlapping recent snapshots to assess regime persistence before selecting a new micro/long admission rule. The existing raw-event admission idea remains a research direction, not an active tested candidate. Do not tune another threshold against this one later segment.
 
-Evidence: `results/simulations/2026-09-24-recent-micro-long-validation/README.md`, `diagnostic_metadata.json`, and the preserved engine/ticket trade ledgers. Reproduce with `python scripts/v4_5_recent_validation.py` after restoring the two archived raw inputs as documented in `data/README.md`.
+Evidence: `results/simulations/2026-09-24-recent-micro-long-validation/README.md`, `diagnostic_metadata.json`, and the preserved engine/ticket trade ledgers. Reproduce with `python research/v4_5_recent_validation.py` after restoring the two archived raw inputs as documented in `data/README.md`.

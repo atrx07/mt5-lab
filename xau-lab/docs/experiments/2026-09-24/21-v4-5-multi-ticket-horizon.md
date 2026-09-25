@@ -40,6 +40,6 @@ The final distinct seed hypothesis tested short-horizon **reversal** after a lar
 ## Evidence and next step
 
 - [Result bundle](../../../results/simulations/2026-09-24-v4_5-multi-ticket-horizon/)
-- [Independent research script](../../../scripts/v4_5_multi_ticket_horizon.py)
+- [Independent research script](../../../research/v4_5_multi_ticket_horizon.py)
 
 The earlier focused raw-event admission direction remains the next V4.5 research step. This separate multi-ticket idea is archived as a negative result. Do not create a V4.5 paper/live executor or open the final holdout from this experiment.

@@ -41,7 +41,7 @@ Additional adverse slippage of $0.10 per side, debited from each filled trade at
 ## Evidence
 
 - [Result bundle](../../../results/simulations/2026-09-24-v4_5-confirmed-failure/)
-- [Candidate runner](../../../scripts/v4_5_confirmed_failure.py)
+- [Candidate runner](../../../research/v4_5_confirmed_failure.py)
 
 ## Decision
 

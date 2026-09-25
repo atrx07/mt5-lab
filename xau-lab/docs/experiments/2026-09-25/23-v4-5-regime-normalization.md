@@ -106,7 +106,7 @@ JEV/ML may later be tested as a meta-labeler, but it is not part of Experiment 2
 
 ## Evidence
 
-- `scripts/v4_5_regime_normalization.py`
+- `research/v4_5_regime_normalization.py`
 - `results/simulations/2026-09-25-v4_5-regime-normalization/README.md`
 - `results/simulations/2026-09-25-v4_5-regime-normalization/run_config.json`
 - `results/simulations/2026-09-25-v4_5-regime-normalization/summary.json`

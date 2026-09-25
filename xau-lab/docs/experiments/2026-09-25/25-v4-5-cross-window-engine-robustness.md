@@ -41,5 +41,5 @@ Do not use this comparison to tune another fixed threshold on the seven-day hist
 
 - historical source: `results/simulations/2026-09-25-v4_5-regime-normalization/engine_robustness_4h.csv`
 - recent source: `results/simulations/2026-09-24-recent-micro-long-validation/candidate_d_*_trades.csv`
-- script: `scripts/v4_5_cross_window_engine_robustness.py`
+- script: `research/v4_5_cross_window_engine_robustness.py`
 - result bundle: `results/simulations/2026-09-25-v4_5-cross-window-engine-robustness/`

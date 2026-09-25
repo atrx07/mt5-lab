@@ -136,7 +136,7 @@ The first automated execution exposed a pandas-version portability bug in the ca
 
 Pandas 3 may store parsed datetimes internally at microsecond resolution, while the previous implementation assumed nanoseconds before dividing the raw integer representation by `1e9`. On that runtime the first replay therefore produced a false baseline drift with zero trades.
 
-`scripts/canonical_replay.py` was corrected to explicitly normalize timestamps to `datetime64[ns]` before epoch conversion.
+`research/canonical_replay.py` was corrected to explicitly normalize timestamps to `datetime64[ns]` before epoch conversion.
 
 This is a runtime portability fix, not a replay-schema change. After the fix, the stored V4.4 golden oracle reproduced exactly at both intervals and Candidate B instrumentation parity passed.
 
@@ -166,4 +166,4 @@ The next V4.5 candidate should be designed from those diagnostics rather than an
 
 - [Result bundle](../../../results/simulations/2026-09-24-v4_5-c-profit-velocity/)
 - [Result interpretation](../../../results/simulations/2026-09-24-v4_5-c-profit-velocity/README.md)
-- [Search harness](../../../scripts/v4_5_profit_velocity_search.py)
+- [Search harness](../../../research/v4_5_profit_velocity_search.py)

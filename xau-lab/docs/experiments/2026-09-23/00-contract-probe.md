@@ -14,4 +14,4 @@ This immediately showed that the intended ₹100 or ₹500 challenge sizes could
 
 ## Recovered probe
 
-The original probe script was recovered from the old local directory and is now archived at [`scripts/xau_probe.py`](../../../scripts/xau_probe.py).
+The original probe script was recovered from the old local directory and is now archived at [`tools/xau_probe.py`](../../../tools/xau_probe.py).

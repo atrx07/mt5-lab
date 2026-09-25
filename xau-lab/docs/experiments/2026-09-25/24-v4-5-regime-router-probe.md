@@ -89,7 +89,7 @@ Do not use the observed 40-80% miss to choose the second seed-qualified veto. Th
 
 ## Evidence
 
-- `scripts/v4_5_regime_router_probe.py`
+- `research/v4_5_regime_router_probe.py`
 - `results/simulations/2026-09-25-v4_5-regime-router-probe/README.md`
 - `results/simulations/2026-09-25-v4_5-regime-router-probe/summary.json`
 - `results/simulations/2026-09-25-v4_5-regime-router-probe/seed_eligible_candidates.csv`

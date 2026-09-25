@@ -12,7 +12,7 @@ Candidate B therefore leaves V4.4 intact and adds an independent BURST engine on
 
 Candidate B was rerun through the permanent parity-gated replay harness:
 
-`scripts/canonical_replay.py`
+`research/canonical_replay.py`
 
 Before Candidate B executes, that harness automatically replays V4.4 on the same arrays and asserts the result against the frozen regression oracle.
 

@@ -14,7 +14,7 @@ That made every new candidate waste time re-investigating parity.
 
 A single canonical replay harness is now frozen:
 
-[`scripts/canonical_replay.py`](../../../scripts/canonical_replay.py)
+[`research/canonical_replay.py`](../../../research/canonical_replay.py)
 
 Golden V4.4 regression oracle:
 

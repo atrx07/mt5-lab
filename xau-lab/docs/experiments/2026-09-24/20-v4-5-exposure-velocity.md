@@ -52,6 +52,6 @@ The 50% velocity / 20% exposure / 20% compounded-P&L targets remain a **preferre
 ## Evidence and next step
 
 - [Result bundle](../../../results/simulations/2026-09-24-v4_5-exposure-velocity/)
-- [Research script](../../../scripts/v4_5_exposure_velocity.py)
+- [Research script](../../../research/v4_5_exposure_velocity.py)
 
 Candidate D stays provisional. The next bounded research step is a raw-event admission feature built from the underlying first-80% tick stream identically for both execution grids, with V4.4/B/D parity retained and no canonical replay-schema change. The result here does **not** establish that such a feature will work. Do not open the holdout or create `paper_challenge_v4_5.py`.

@@ -107,5 +107,5 @@ Next:
 
 ## Evidence
 
-- script: `scripts/v4_5_regime_portability.py`
+- script: `research/v4_5_regime_portability.py`
 - result bundle: `results/simulations/2026-09-25-v4_5-regime-portability/`

@@ -11,7 +11,7 @@ Measure Candidate B's actual BURST admissions, exits, missed sampled opportuniti
 ## Gates and data discipline
 
 - Verify the raw CSV SHA-256 against the canonical dataset contract.
-- Build canonical features at 500 ms and 1 s using `scripts/canonical_replay.py`.
+- Build canonical features at 500 ms and 1 s using `research/canonical_replay.py`.
 - Assert locked V4.4 against the golden oracle on both grids.
 - Require instrumented Candidate B to match the canonical Candidate B segment metrics exactly before interpreting any trace.
 - Read only the first 1,869,979 raw rows with the frozen five research segments. The final 20% holdout stays sealed.
@@ -25,7 +25,7 @@ Search or candidate changes must be justified from the measured dominant failure
 ## Evidence
 
 - [Result bundle](../../../results/simulations/2026-09-24-v4_5-burst-path-autopsy/)
-- [Diagnostic script](../../../scripts/v4_5_burst_path_autopsy.py)
+- [Diagnostic script](../../../research/v4_5_burst_path_autopsy.py)
 
 ## Findings
 
