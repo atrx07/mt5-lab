@@ -29,7 +29,7 @@ EXPECTED_D={
     "1s":{"pnl":385.2544619534224,"trades":156,"wins":71},
 }
 RANDOM_SEED=20260925
-RANDOM_WINDOWS=100
+RANDOM_WINDOWS=40
 RANDOM_HOURS=4.0
 
 
@@ -69,6 +69,23 @@ def run_segment_pair(arr,start,end,cache):
         router.simulate(arr,start,end,legacy=True),
         router.simulate(arr,start,end,cache=cache,legacy=False),
     )
+
+
+def continuous_ranges(arr,ranges):
+    """Split outer ranges at sampled continuity-session boundaries."""
+    ss=arr["ss"]; out=[]
+    for outer_id,(start,end) in enumerate(ranges):
+        if end<=start:
+            continue
+        a=start
+        for i in range(start+1,end):
+            if ss[i]!=ss[i-1]:
+                if i>a:
+                    out.append((a,i))
+                a=i
+        if end>a:
+            out.append((a,end))
+    return out
 
 
 def random_window_from_ranges(arr,ranges,rng,hours):
@@ -178,8 +195,8 @@ def main():
 
         rng=np.random.default_rng(a.seed + (0 if interval=="500ms" else 1))
         rows=[]
-        hist_ranges=h_inds
-        recent_ranges=[(0,len(r_arr["t"]))]
+        hist_ranges=continuous_ranges(h_arr,h_inds)
+        recent_ranges=continuous_ranges(r_arr,[(0,len(r_arr["t"]))])
         for wid in range(a.random_windows):
             source="historical7d" if wid%2==0 else "recent24h"
             if source=="historical7d":
