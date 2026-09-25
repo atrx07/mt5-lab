@@ -14,5 +14,6 @@ Plans are historical specifications once their corresponding experiment line mov
 - [V4.5 Candidate E microstate confirmation](V4_5_CANDIDATE_E_MICROSTATE_CONFIRMATION.md) — frozen pre-run Candidate E specification for Experiment 37.
 - [V4.5 Decision Policy v1](V4_5_DECISION_POLICY_V1.md) — frozen entry-ownership and continuation-value diagnostic specification for Experiment 38.
 - [V4.5 Decision Policy v2](V4_5_DECISION_POLICY_V2.md) — frozen signal-episode timing and short-horizon continuation specification for Experiment 39.
+- [V4.5 Candidate F PRIMARY ratchet](V4_5_CANDIDATE_F_PRIMARY_RATCHET.md) — frozen full shared-slot Candidate F specification for Experiment 40.
 
 Current strategy status and next actions belong in `../../agents.md`, the experiment index, and the current algorithm document rather than in this plans index.
