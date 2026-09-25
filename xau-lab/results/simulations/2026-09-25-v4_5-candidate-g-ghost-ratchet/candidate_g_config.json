@@ -1,0 +1,16 @@
+{
+  "schema": "xau-candidate-g-path-preserving-ghost-ratchet-v1",
+  "base_strategy": "Candidate D from Experiment 19",
+  "strategy_changed": true,
+  "entry_changed": false,
+  "real_exit_change": "PRIMARY-only frozen Candidate-F ratchet",
+  "ratchet_trigger_mfe_usd": 4.0,
+  "ratchet_trigger_r": 1.0,
+  "ratchet_retain_fraction_of_live_mfe": 0.5,
+  "ratchet_check_sec": 5.0,
+  "post_ratchet_slot_policy": "capital-free ghost PRIMARY preserves Candidate-D occupancy until legacy exit",
+  "primary_cooldown_anchor": "ghost legacy-exit timestamp",
+  "canonical_entry_path_parity_required": true,
+  "known_data_promotion_allowed": false,
+  "final20_opened": false
+}

@@ -1,0 +1,11 @@
+interval,segment_id,match,candidate_d_entries,candidate_g_entries,first_mismatch_json
+500ms,0,True,98,98,null
+500ms,1,True,23,23,null
+500ms,2,True,8,8,null
+500ms,3,True,16,16,null
+500ms,4,True,18,18,null
+1s,0,True,98,98,null
+1s,1,True,21,21,null
+1s,2,True,8,8,null
+1s,3,True,11,11,null
+1s,4,True,18,18,null
