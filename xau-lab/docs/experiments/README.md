@@ -56,3 +56,4 @@ Experiments are grouped by date so each session can grow independently without t
 - [38 — V4.5 Decision Policy v1: entry ownership + continuation controller](2026-09-25/38-v4-5-decision-policy-v1.md)
 - [39 — V4.5 Decision Policy v2: signal episodes + short-horizon exit](2026-09-25/39-v4-5-decision-policy-v2.md)
 - [40 — V4.5 Candidate F PRIMARY profit-ratchet full replay](2026-09-25/40-v4-5-candidate-f-primary-ratchet.md)
+- [41 — V4.5 Candidate G path-preserving ghost ratchet](2026-09-25/41-v4-5-candidate-g-ghost-ratchet.md)
