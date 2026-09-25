@@ -460,6 +460,47 @@ Experiment 23 then froze a raw-event regime representation before execution-grid
 
 The canonical replay timestamp path now explicitly normalizes datetimes to nanosecond resolution before epoch conversion so pandas 3 and earlier supported pandas runtimes use the same replay semantics. Golden V4.4 parity must still pass before any candidate evidence is accepted.
 
+
+## Experiments 38-43 decision-control closeout
+
+Experiments 38-39 tested fixed nonlinear entry/exit decision policies with chronological walk-forward discipline.
+
+- Experiment 38 combined state-v2 + microstate-v1 at entry and 5-second in-trade checkpoints. Entry ranking stayed weak. The exit model reduced hostile recent losses but exited roughly 91-98% of represented trades and destroyed historical edge.
+- Experiment 39 changed entry representation to cooldown-free signal episodes and exit labels to 30-second continuation. Learned entry/exit policies still failed. A fixed +1R/50%-MFE ratchet was the only coherent management mechanism.
+- Experiment 40 integrated that ratchet as Candidate F. Earlier real exits freed the shared slot and caused path mutation; Candidate F was rejected.
+- Experiment 41 added capital-free ghost occupancy as Candidate G, preserving Candidate-D entry/cooldown timing exactly. The architecture worked, but the blunt ratchet still clipped too much historical upside.
+- Experiment 42 gave entry experts the full 20-feature state-v2 + 23-feature microstate-v1 context, exact engine-specific rule-margin fingerprints, and an exit-independent MFE/MAE excursion target. Historical 500 ms improved descriptively, but cross-grid/recent precision remained weak; recent PRIMARY was predicted positive on ~97% of checkpoints while its actual mean excursion edge was negative. Do not promote or tune this learner on known data.
+- Experiment 43 froze Candidate H: Candidate-D entries + ghost occupancy + PRIMARY exit only after +1R MFE, >=1R giveback, and two consecutive 5-second checks where both direction-normalized raw 2-second mid movement and event imbalance oppose the trade. Entry-path parity passed exactly. Canonical first80 was +₹1,287.09 / +₹360.79 versus D +₹1,430.31 / +₹385.25. Recent improved to -₹208.47 / -₹128.63. Random four-hour mean improved to -₹3.36 / -₹7.21 and positive-window fraction to 35% / 30%, but mean expectancy remains negative and D remains leader.
+
+Retain Candidate H's ghost/path-preserving exit architecture as the strongest exit-management branch so far. Do not parameter-sweep it on the same windows.
+
+Entry-selection conclusion: the script now has explicit engine identity, signal episodes, full causal state and rule-margin fingerprints. The remaining weakness is not merely "it cannot tell which engine fired"; current known quote-state features still do not portably forecast which individual eligible episode will produce the best future path.
+
+Latest evidence:
+
+`results/simulations/2026-09-25-v4_5-decision-policy-v1/`
+
+`results/simulations/2026-09-25-v4_5-decision-policy-v2/`
+
+`results/simulations/2026-09-25-v4_5-candidate-f-primary-ratchet/`
+
+`results/simulations/2026-09-25-v4_5-candidate-g-ghost-ratchet/`
+
+`results/simulations/2026-09-26-v4_5-signal-fingerprint-entry-quality/`
+
+`results/simulations/2026-09-26-v4_5-candidate-h-flow-confirmed-ghost-exit/`
+
+Current additional research scripts:
+
+- `research/v4_5_decision_policy_v1.py`
+- `research/v4_5_decision_policy_v2.py`
+- `research/v4_5_candidate_f_primary_ratchet.py`
+- `research/v4_5_candidate_g_ghost_ratchet.py`
+- `research/v4_5_signal_fingerprint_entry_quality.py`
+- `research/v4_5_candidate_h_flow_confirmed_ghost_exit.py`
+
+Candidate D remains provisional V4.5 leader. Candidate H is a retained exit branch, not the leader. Final20 remains sealed.
+
 ## New-chat handoff rule
 
 A new chat should not ask the user to reconstruct the project from memory.
