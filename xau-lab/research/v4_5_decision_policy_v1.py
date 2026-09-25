@@ -607,12 +607,6 @@ def build_exit_trade_policy(
 
         baseline = float(base["pnl_inr"])
         delta = policy_pnl - baseline
-        oz0 = atlasmod.fixed_oz(
-            float("nan")
-        )
-        # Do not reconstruct entry price here; normalized MFE capture is supplied
-        # from the actual fixed-size scale: pnl / (mfe * initial_oz * INR) is
-        # computed later only when initial_oz is available in snapshots.
         out.append({
             "label": labels[tid],
             "trade_id": tid,
