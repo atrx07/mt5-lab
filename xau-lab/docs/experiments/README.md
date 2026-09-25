@@ -46,3 +46,4 @@ Experiments are grouped by date so each session can grow independently without t
 - [28 — V4.5 stronghold-aware Router v2 implementation](2026-09-25/28-v4-5-router-v2-implementation.md)
 - [29 — V4.5 Router v2 gate-proxy and variable-regime preflight](2026-09-25/29-v4-5-router-v2-preflight.md)
 - [30 — V4.5 full raw-tick Router v2 replay](2026-09-25/30-v4-5-router-v2-full-replay.md)
+- [31 — V4.5 Router v2 arbitration divergence audit](2026-09-25/31-v4-5-router-v2-arbitration-audit.md)

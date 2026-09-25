@@ -385,9 +385,11 @@ Latest completed diagnostic experiment:
 
 `docs/experiments/2026-09-25/30-v4-5-router-v2-full-replay.md`
 
-Current next step:
+Current in-progress diagnostic:
 
-Decision-level Router-v2 arbitration audit. Preserve the frozen Experiment-28 score as failed known-data evidence; do not tune it. Log every Router-v2/Candidate-D divergence and classify engine substitution, HOLD/re-entry, cooldown-history changes and same-engine timing shifts before proposing another score.
+`docs/experiments/2026-09-25/31-v4-5-router-v2-arbitration-audit.md`
+
+Experiment 31 instruments Candidate D and frozen Router v2 side-by-side to classify direct score substitutions, HOLDs, cooldown-history divergence, slot-occupancy cascades and timing shifts, with normalized counterfactual lifecycle replays at direct arbitration points. It is diagnostic only: do not tune the score from these known outcomes.
 
 Latest evidence:
 
@@ -417,6 +419,8 @@ Latest evidence:
 
 `results/simulations/2026-09-25-v4_5-router-v2-full-replay/`
 
+`results/simulations/2026-09-25-v4_5-router-v2-arbitration-audit/`
+
 Current research scripts:
 
 - `research/canonical_replay.py` — mandatory V4.4 parity and feature source;
@@ -433,6 +437,7 @@ Current research scripts:
 - `research/v4_5_router_v2.py` — Experiment 28 stronghold-aware Router v2 implementation with dynamic engine arbitration, fall-through and HOLD; frozen before unseen validation.
 - `research/v4_5_router_v2_preflight.py` — Experiment 29 reproducible trade-ledger gate proxy and seeded regime-mixture bootstrap; diagnostic only, not a full fall-through replay.
 - `research/v4_5_router_v2_full_eval.py` — Experiment 30 full raw-tick Candidate D vs Router v2 replay across canonical/recent data and deterministic random real four-hour windows.
+- `research/v4_5_router_v2_arbitration_audit.py` — Experiment 31 decision-level Router-v2/Candidate-D divergence and counterfactual arbitration audit; no strategy changes.
 - `tools/restore_dataset.py` — hash-verified restoration of ignored raw CSVs from committed archives.
 
 No regime router is promoted. Experiment 24's selected veto is rejected. Experiments 25-26 show that neither engine identity nor the four-part historical regime key is sufficient as a portable permission rule. Experiment 27 freezes `xau-state-v2`; Experiment 28 freezes Router v2; Experiment 29's proxy is negative; Experiment 30's full raw-tick replay confirms the frozen Router-v2 score does not beat Candidate D. Candidate D remains the provisional historical leader. Next diagnose arbitration divergences rather than tuning the known score.

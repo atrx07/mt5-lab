@@ -61,7 +61,7 @@ Experiment 28 froze the first Router v2 implementation. Instead of a fixed PRIMA
 
 Experiment 29 added a known-data **gate-proxy preflight**. It reproduced Candidate D's canonical trade ledger exactly, then applied the frozen stronghold score only to those realized entries. The proxy preserved about 97% of trades but damaged the seven-day benchmark while removing only one losing recent PRIMARY entry per grid. A seeded 10,000-scenario empirical regime-mixture bootstrap also failed to show a profitability advantage. Because that proxy could not model simultaneous-engine fall-through, it remained diagnostic and led directly to the full raw-tick replay in Experiment 30.
 
-Experiment 30 then ran the **full raw-tick fall-through router** on a user-authorized GitHub worker. Candidate D parity passed exactly. Router v2 retained all canonical trades but cut 500 ms compounded P&L from **₹1,430.31 to ₹851.27** and 1 s from **₹385.25 to ₹297.67**, with lower win rates. On the whole recent 24-hour raw window it improved 500 ms only modestly (-₹223.27 → -₹210.63) and worsened 1 s (-₹135.91 → -₹144.22). Corrected contiguous-session four-hour stress windows also showed worse mean expectancy. **Candidate D therefore remains the V4.5 leader; the current Router-v2 score is not promoted.** Next work should audit the exact arbitration divergences rather than fit the score to these known results.
+Experiment 30 then ran the **full raw-tick fall-through router** on a user-authorized GitHub worker. Candidate D parity passed exactly. Router v2 retained all canonical trades but cut 500 ms compounded P&L from **₹1,430.31 to ₹851.27** and 1 s from **₹385.25 to ₹297.67**, with lower win rates. On the whole recent 24-hour raw window it improved 500 ms only modestly (-₹223.27 → -₹210.63) and worsened 1 s (-₹135.91 → -₹144.22). Corrected contiguous-session four-hour stress windows also showed worse mean expectancy. **Candidate D therefore remains the V4.5 leader; the current Router-v2 score is not promoted.** Experiment 31 now performs that decision-level arbitration audit: it traces substitutions, HOLD/re-entry, cooldown and slot-occupancy cascades, and same-engine timing shifts while replaying direct arbitration alternatives with normalized fixed-₹500 lifecycle outcomes. No strategy rule changes in this audit.
 
 Starting with V4.5 research, all candidate simulations must use the parity-gated canonical replay harness. V4.4's strategy parameters are unchanged; the 14.67% / 4.45% regression values are a reproducible measurement re-baseline used only as the future comparison oracle. The earlier 16.36% / 11.54% lock outputs remain preserved as historical research evidence.
 
@@ -106,6 +106,7 @@ python research\v4_5_regime_portability.py xau_ticks_7d.csv xau_ticks_recent_24h
 python research\v4_5_state_v2_freeze.py xau_ticks_7d.csv xau_ticks_recent_24h_2026-09-24.csv.gz
 python research\v4_5_router_v2.py xau_ticks_7d.csv
 python research\v4_5_router_v2_full_eval.py xau_ticks_7d.csv xau_ticks_recent_24h_2026-09-24.csv.gz
+python research\v4_5_router_v2_arbitration_audit.py xau_ticks_7d.csv xau_ticks_recent_24h_2026-09-24.csv.gz
 python research\v4_5_router_v2_preflight.py
 ```
 
@@ -144,6 +145,7 @@ See [`data/README.md`](data/README.md) for the exact archive/push workflow.
 - [V4.5 Router v2 implementation freeze](docs/experiments/2026-09-25/28-v4-5-router-v2-implementation.md)
 - [V4.5 Router v2 gate-proxy preflight](docs/experiments/2026-09-25/29-v4-5-router-v2-preflight.md)
 - [V4.5 full raw-tick Router v2 replay](docs/experiments/2026-09-25/30-v4-5-router-v2-full-replay.md)
+- [V4.5 Router v2 arbitration divergence audit](docs/experiments/2026-09-25/31-v4-5-router-v2-arbitration-audit.md)
 - [V4.1 optimization evidence](docs/experiments/2026-09-23/08-v4-1-optimization.md)
 - [V4.2 algorithm](docs/algorithms/v4_2.md)
 - [V4.3 algorithm](docs/algorithms/v4_3.md)
