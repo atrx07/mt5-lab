@@ -1,0 +1,17 @@
+{
+  "schema_version": "xau-state-v2",
+  "historical_trades": 319,
+  "recent_trades": 71,
+  "historical_cross_grid_pairs": 119,
+  "recent_cross_grid_pairs": 27,
+  "historical_median_feature_spearman": 0.9157624600411581,
+  "recent_median_feature_spearman": 0.9401709401709402,
+  "historical_features_ge_0_8": 17,
+  "recent_features_ge_0_8": 18,
+  "historical_features_ge_0_9": 11,
+  "recent_features_ge_0_9": 14,
+  "strategy_changed": false,
+  "router_selected": false,
+  "holdout_opened": false,
+  "decision": "Freeze formulas only. Do not select thresholds from either known window. Validate on the next non-overlapping snapshot before Router v2 promotion."
+}

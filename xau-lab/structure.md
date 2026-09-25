@@ -300,6 +300,7 @@ Examples:
 - `24-v4-5-regime-router-probe.md`
 - `25-v4-5-cross-window-engine-robustness.md`
 - `26-v4-5-regime-portability.md`
+- `27-v4-5-state-v2-freeze.md`
 
 Experiment numbers are chronological across the project, not reset each day.
 
@@ -454,6 +455,7 @@ Current V4.5 research evidence directories:
 - `results/simulations/2026-09-25-v4_5-regime-router-probe/` — Experiment 24 bounded single-category regime-router search and rejected seed-selected probe.
 - `results/simulations/2026-09-25-v4_5-cross-window-engine-robustness/` — Experiment 25 historical-versus-recent per-engine robustness comparison using preserved Candidate D ledgers.
 - `results/simulations/2026-09-25-v4_5-regime-portability/` — Experiment 26 frozen raw-event regime replay on the recent 24-hour snapshot, transfer matrix and PRIMARY outcome diagnostics.
+- `results/simulations/2026-09-25-v4_5-state-v2-freeze/` — Experiment 27 frozen 20-feature continuous state-v2 catalog, coverage/stability diagnostics and descriptive PRIMARY outcome profiles.
 
 ### Result-directory contents
 
@@ -540,6 +542,7 @@ Do not create `paper_challenge_v4_5.py` until V4.5 is actually selected/locked f
 - `v4_5_regime_router_probe.py` — Experiment 24 bounded regime-veto search and chronological evaluation.
 - `v4_5_cross_window_engine_robustness.py` — Experiment 25 no-tuning engine comparison across historical and recent preserved ledgers.
 - `v4_5_regime_portability.py` — Experiment 26 frozen raw-event regime portability replay and transfer diagnostics.
+- `v4_5_state_v2_freeze.py` — Experiment 27 state-v2 feature freeze and cross-grid stability harness.
 
 Experiment 23 changes no trading rule. Its frozen regime schema should be replayed unchanged on non-overlapping recent/future snapshots before any regime router or engine gate is selected. Fair terminal-equity/forced-close diagnostics remain required for like-for-like recent single-slot comparison.
 
@@ -677,6 +680,9 @@ scripts/v4_5_cross_window_engine_robustness.py
 docs/experiments/2026-09-25/26-v4-5-regime-portability.md
 results/simulations/2026-09-25-v4_5-regime-portability/
 scripts/v4_5_regime_portability.py
+docs/experiments/2026-09-25/27-v4-5-state-v2-freeze.md
+results/simulations/2026-09-25-v4_5-state-v2-freeze/
+scripts/v4_5_state_v2_freeze.py
 ```
 
 If the latest experiment number/version changes later, follow the indexes rather than assuming the paths above remain the newest.

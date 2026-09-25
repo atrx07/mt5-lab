@@ -1,0 +1,37 @@
+{
+  "schema_version": "xau-state-v2",
+  "selection_policy": "feature formulas frozen structurally; no feature threshold or router was selected from outcome P&L",
+  "features": [
+    "range60_rel",
+    "spread_rel",
+    "activity_rel",
+    "er60",
+    "spread_to_range",
+    "dir_m10_rel",
+    "dir_m30_rel",
+    "dir_m60_rel",
+    "dir_m300_rel",
+    "dir_eff60",
+    "flow_align10",
+    "flow_align60",
+    "accel_10_60",
+    "accel_30_300",
+    "short_long_balance",
+    "pullback60",
+    "pullback300",
+    "market_heat",
+    "execution_heat",
+    "session_age_sec"
+  ],
+  "baselines": {
+    "m10": "median absolute completed 10-second returns over prior 30 minutes, shifted one bucket",
+    "m30": "median absolute completed 30-second returns over prior 30 minutes, shifted one bucket",
+    "m60": "median absolute completed 1-minute returns over prior 30 minutes, shifted one bucket",
+    "m300": "median absolute completed 5-minute returns over prior 2 hours, shifted one bucket",
+    "range60_spread": "rolling medians of completed 1-minute range/spread over prior 30 minutes, shifted one bucket",
+    "activity": "median completed 10-second quote count over prior 30 minutes, shifted one bucket"
+  },
+  "direction_normalization": "all dir_* and flow_align* features multiply raw signal by trade side (+1 BUY, -1 SELL)",
+  "known_data_policy": "historical7d and recent24h are descriptive/benchmark data only after this experiment; next promotion evidence requires a new non-overlapping snapshot",
+  "router_v2_trade_retention_floor": 0.95
+}
