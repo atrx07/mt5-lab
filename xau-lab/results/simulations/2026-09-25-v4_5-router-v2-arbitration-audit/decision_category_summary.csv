@@ -1,0 +1,14 @@
+window,interval,classification,count,cf_count,cf_delta_sum,d_cf_sum,router_cf_sum,cf_delta_mean
+historical7d,1s,direct_score_substitution,4,4,-8.803125000000307,22.265625000004263,13.462500000003956,-2.2007812500000767
+historical7d,1s,router_hold,5,0,0.0,0.0,0.0,nan
+historical7d,1s,slot_occupancy_cascade,11,0,0.0,0.0,0.0,nan
+historical7d,500ms,cooldown_history_divergence,1,0,0.0,0.0,0.0,nan
+historical7d,500ms,direct_score_substitution,2,2,-2.325000000001296,2.362500000005525,0.03750000000422915,-1.162500000000648
+historical7d,500ms,router_hold,4,0,0.0,0.0,0.0,nan
+historical7d,500ms,slot_occupancy_cascade,11,0,0.0,0.0,0.0,nan
+recent24h,1s,cooldown_history_divergence,3,0,0.0,0.0,0.0,nan
+recent24h,1s,direct_score_substitution,1,1,0.0,-15.2250000000015,-15.2250000000015,0.0
+recent24h,1s,router_hold,1,0,0.0,0.0,0.0,nan
+recent24h,1s,slot_occupancy_cascade,2,0,0.0,0.0,0.0,nan
+recent24h,500ms,cooldown_history_divergence,2,0,0.0,0.0,0.0,nan
+recent24h,500ms,router_hold,1,0,0.0,0.0,0.0,nan
