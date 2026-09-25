@@ -256,28 +256,28 @@
       "random_real_windows": {
         "candidate_d": {
           "windows": 40,
-          "median_terminal_equity_pnl_inr": 0.0,
-          "mean_terminal_equity_pnl_inr": -10.104912182455475,
-          "p05_terminal_equity_pnl_inr": -104.00290639915636,
-          "p95_terminal_equity_pnl_inr": 42.48443335717415,
-          "positive_window_fraction": 0.275,
-          "total_trades": 184,
-          "total_wins": 57,
-          "aggregate_win_rate": 0.30978260869565216
+          "median_terminal_equity_pnl_inr": -23.586061895657508,
+          "mean_terminal_equity_pnl_inr": -6.260094042109164,
+          "p05_terminal_equity_pnl_inr": -27.100950513536418,
+          "p95_terminal_equity_pnl_inr": 49.57687903560627,
+          "positive_window_fraction": 0.3,
+          "total_trades": 417,
+          "total_wins": 157,
+          "aggregate_win_rate": 0.3764988009592326
         },
         "router_v2": {
           "windows": 40,
-          "median_terminal_equity_pnl_inr": 0.0,
-          "mean_terminal_equity_pnl_inr": -11.029512630950261,
-          "p05_terminal_equity_pnl_inr": -96.34214903760125,
-          "p95_terminal_equity_pnl_inr": 42.48443335717415,
-          "positive_window_fraction": 0.275,
-          "total_trades": 183,
-          "total_wins": 56,
-          "aggregate_win_rate": 0.30601092896174864
+          "median_terminal_equity_pnl_inr": -23.586061895657508,
+          "mean_terminal_equity_pnl_inr": -8.893028897012318,
+          "p05_terminal_equity_pnl_inr": -27.100950513536418,
+          "p95_terminal_equity_pnl_inr": 48.60014602485226,
+          "positive_window_fraction": 0.3,
+          "total_trades": 418,
+          "total_wins": 155,
+          "aggregate_win_rate": 0.3708133971291866
         },
         "router_better_window_fraction": 0.025,
-        "trade_retention": 0.9945652173913043
+        "trade_retention": 1.0023980815347722
       }
     },
     "1s": {
@@ -528,28 +528,28 @@
       "random_real_windows": {
         "candidate_d": {
           "windows": 40,
-          "median_terminal_equity_pnl_inr": -7.764537501051555,
-          "mean_terminal_equity_pnl_inr": -13.369314810621976,
-          "p05_terminal_equity_pnl_inr": -70.09945105407792,
-          "p95_terminal_equity_pnl_inr": 25.41334315603027,
-          "positive_window_fraction": 0.125,
-          "total_trades": 149,
-          "total_wins": 33,
-          "aggregate_win_rate": 0.2214765100671141
+          "median_terminal_equity_pnl_inr": -27.861680295516123,
+          "mean_terminal_equity_pnl_inr": -8.250865715963963,
+          "p05_terminal_equity_pnl_inr": -34.78181461314048,
+          "p95_terminal_equity_pnl_inr": 83.90268597611308,
+          "positive_window_fraction": 0.275,
+          "total_trades": 420,
+          "total_wins": 150,
+          "aggregate_win_rate": 0.35714285714285715
         },
         "router_v2": {
           "windows": 40,
-          "median_terminal_equity_pnl_inr": -7.764537501051555,
-          "mean_terminal_equity_pnl_inr": -13.84275493547687,
-          "p05_terminal_equity_pnl_inr": -69.70086863497099,
-          "p95_terminal_equity_pnl_inr": 18.697068959705312,
-          "positive_window_fraction": 0.125,
-          "total_trades": 148,
-          "total_wins": 32,
-          "aggregate_win_rate": 0.21621621621621623
+          "median_terminal_equity_pnl_inr": -46.28825749175209,
+          "mean_terminal_equity_pnl_inr": -15.226142536954494,
+          "p05_terminal_equity_pnl_inr": -47.38675408869227,
+          "p95_terminal_equity_pnl_inr": 73.97355561122764,
+          "positive_window_fraction": 0.35,
+          "total_trades": 462,
+          "total_wins": 153,
+          "aggregate_win_rate": 0.33116883116883117
         },
-        "router_better_window_fraction": 0.075,
-        "trade_retention": 0.9932885906040269
+        "router_better_window_fraction": 0.225,
+        "trade_retention": 1.1
       }
     }
   }
