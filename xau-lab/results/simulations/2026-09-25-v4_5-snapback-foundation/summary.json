@@ -1,0 +1,94 @@
+{
+  "schema": "xau-snapback-foundation-v1",
+  "strategy_changed": false,
+  "selection_performed": false,
+  "engine": "SNAPBACK",
+  "signal_constants": {
+    "cooldown_sec": 60.0,
+    "range60_min_usd": 2.0,
+    "er60_max_exclusive": 0.12,
+    "qacc_min": 0.65,
+    "spread_to_range_max": 0.25,
+    "spread_max_usd": 0.3,
+    "background_m120_abs_min": 6.0,
+    "background_m60_abs_min": 2.0,
+    "prior_background_m10_extreme_abs_min": 0.5,
+    "reversal_m10_abs_min": 0.2,
+    "imbalance_agrees_reversal": true
+  },
+  "lifecycle": {
+    "stop_usd": 4.0,
+    "take_profit_usd": 12.0,
+    "max_hold_sec": 120.0,
+    "stagnation_after_sec": 60.0,
+    "stagnation_peak_usd": 0.8,
+    "trail_trigger_usd": 5.5,
+    "trail_giveback_usd": 2.0,
+    "m30_failure_exit": false
+  },
+  "cost_stress_usd_per_side": 0.2,
+  "final20_opened": false,
+  "promotion_evidence": false,
+  "summary": [
+    {
+      "window": "historical7d",
+      "interval": "1s",
+      "trades": 7,
+      "wins": 2,
+      "win_rate": 0.2857142857142857,
+      "pnl_inr": -44.77500000000191,
+      "mean_pnl_inr": -6.396428571428844,
+      "median_pnl_inr": -15.0,
+      "profit_factor": 0.37388568432088665,
+      "fixed_size_max_drawdown_inr": 71.51249999999891,
+      "stressed_20c_each_side_pnl_inr": -55.27500000000191,
+      "stressed_20c_each_side_win_rate": 0.2857142857142857,
+      "emergency_stops": 4,
+      "max_holds": 1
+    },
+    {
+      "window": "historical7d",
+      "interval": "500ms",
+      "trades": 17,
+      "wins": 3,
+      "win_rate": 0.17647058823529413,
+      "pnl_inr": -153.03750000000832,
+      "mean_pnl_inr": -9.002205882353431,
+      "median_pnl_inr": -15.112500000002456,
+      "profit_factor": 0.23576779026215156,
+      "fixed_size_max_drawdown_inr": 168.75000000000682,
+      "stressed_20c_each_side_pnl_inr": -178.53750000000832,
+      "stressed_20c_each_side_win_rate": 0.17647058823529413,
+      "emergency_stops": 10,
+      "max_holds": 3
+    }
+  ],
+  "block_robustness": [
+    {
+      "window": "historical7d",
+      "interval": "1s",
+      "blocks": 2,
+      "positive_block_fraction": 0.5,
+      "median_block_pnl_inr": -22.387500000000955,
+      "mean_block_pnl_inr": -22.387500000000955,
+      "p10_block_pnl_inr": -50.46749999999997,
+      "p90_block_pnl_inr": 5.692499999998063
+    },
+    {
+      "window": "historical7d",
+      "interval": "500ms",
+      "blocks": 5,
+      "positive_block_fraction": 0.4,
+      "median_block_pnl_inr": -2.8500000000008185,
+      "mean_block_pnl_inr": -30.607500000001664,
+      "p10_block_pnl_inr": -105.75750000000357,
+      "p90_block_pnl_inr": 16.9724999999994
+    }
+  ],
+  "cross_grid_matches": {
+    "matches": 7,
+    "same_sign_fraction": 1.0,
+    "median_abs_entry_delta_sec": 6.001999855041504
+  },
+  "decision": "Known-data rejection/diagnostic only. Do not tune SNAPBACK constants from these results."
+}

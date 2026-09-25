@@ -1,0 +1,3 @@
+window,interval,blocks,positive_block_fraction,median_block_pnl_inr,mean_block_pnl_inr,p10_block_pnl_inr,p90_block_pnl_inr
+historical7d,1s,2,0.5,-22.387500000000955,-22.387500000000955,-50.46749999999997,5.692499999998063
+historical7d,500ms,5,0.4,-2.8500000000008185,-30.607500000001664,-105.75750000000357,16.9724999999994
