@@ -43,5 +43,7 @@ jobs:
             echo "No new evidence."
           else
             git commit -m "Store XAU Experiment 42 signal-fingerprint evidence"
+            git fetch origin main
+            git rebase origin/main
             git push origin HEAD:main
           fi
