@@ -1,0 +1,87 @@
+name: XAU Router v3 Diagnostic
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/xau-router-v3-diagnostic.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install runtime
+        continue-on-error: true
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas numba
+
+      - name: Run pre-registered Router v3 diagnostic
+        continue-on-error: true
+        working-directory: xau-lab
+        env:
+          PYTHONUNBUFFERED: "1"
+          NUMBA_CACHE_DIR: "/tmp/numba-cache"
+        run: |
+          set +e
+          rm -f router_v3_status.txt router_v3.log
+
+          python tools/restore_dataset.py data/manifests/xau_ticks_7d_2026-09-16_to_2026-09-23.json > router_v3.log 2>&1
+          status=$?
+          if [ "$status" -eq 0 ]; then
+            python -m py_compile research/v4_5_router_v3_priority_latched.py >> router_v3.log 2>&1
+            status=$?
+          fi
+          if [ "$status" -eq 0 ]; then
+            python research/v4_5_router_v3_priority_latched.py               xau_ticks_7d.csv               data/raw/xau_ticks_recent_24h_2026-09-24.csv.gz               >> router_v3.log 2>&1
+            status=$?
+          fi
+
+          echo "$status" > router_v3_status.txt
+          cat router_v3.log
+          exit 0
+
+      - name: Commit evidence when run passed
+        continue-on-error: true
+        working-directory: xau-lab
+        run: |
+          status="$(cat router_v3_status.txt 2>/dev/null || echo 999)"
+          echo "diagnostic status: $status"
+          if [ "$status" != "0" ]; then
+            echo "Diagnostic did not complete; no result commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/simulations/2026-09-25-v4_5-router-v3-priority-latched/
+          if git diff --cached --quiet; then
+            echo "No new evidence to commit."
+          else
+            git commit -m "Store XAU Router v3 diagnostic evidence"
+            git push origin HEAD:main
+          fi
+
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xau-router-v3-diagnostic
+          path: |
+            xau-lab/router_v3_status.txt
+            xau-lab/router_v3.log
+            xau-lab/results/simulations/2026-09-25-v4_5-router-v3-priority-latched/
+          if-no-files-found: warn
+          retention-days: 7

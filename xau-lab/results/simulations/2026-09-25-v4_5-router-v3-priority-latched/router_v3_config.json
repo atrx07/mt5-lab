@@ -1,0 +1,16 @@
+{
+  "schema": "xau-router-v3-priority-latched-v1",
+  "frozen_before_performance_evaluation": true,
+  "candidate_priority": ["PRIMARY", "SECONDARY", "MICRO", "BURST"],
+  "score_schema": "Experiment-28 xau-state-v2 stronghold score",
+  "score_floor": 0.0,
+  "score_role": "veto only; never global re-ranking",
+  "rejection_latch": "existing Candidate-D cooldown horizon for that engine",
+  "cooldown_search": false,
+  "score_search": false,
+  "fall_through_after_veto": true,
+  "hold_when_none_qualify": true,
+  "risk_and_lifecycle_changed": false,
+  "known_data_can_promote": false,
+  "final20_opened": false
+}
