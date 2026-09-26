@@ -492,6 +492,8 @@ Latest evidence:
 
 `results/simulations/2026-09-26-v4_5-tick-tape-field-audit/`
 
+`results/simulations/2026-09-26-v4_5-external-gc-correlation/`
+
 Current additional research scripts:
 
 - `research/v4_5_decision_policy_v1.py`
@@ -501,10 +503,12 @@ Current additional research scripts:
 - `research/v4_5_signal_fingerprint_entry_quality.py`
 - `research/v4_5_candidate_h_flow_confirmed_ghost_exit.py`
 - `research/v4_5_tick_tape_field_audit.py`
+- `research/v4_5_external_gc_correlation.py`
 
 Candidate D remains provisional V4.5 leader. Candidate H is a retained exit branch, not the leader. Final20 remains sealed.
 
 Experiment 44 audited the archived MT5 MqlTick tape fields without P&L labels. The current broker's XAUUSD history has zero usable `last`, `volume`, `volume_real`, LAST, VOLUME, BUY or SELL trade-tape observations in both canonical first80 and recent24h. Exact BID/ASK change flags are populated (~79% of rows each) and flag-derived 2s/10s quote-update features are highly sampling-stable (strict median Spearman 0.940 historical / 0.956 recent). Retain quote-flag features; do not claim or synthesize true aggressor/traded-volume flow from this feed.
+Experiment 45 established the external-data bridge. Public 5-minute GC=F futures-proxy returns align with MT5 XAUUSD at a +180-minute GC shift relative to MT5-reported timestamps, matching the independently observed ~10,798-second broker clock offset. Best-lag Pearson/Spearman return correlation was 0.9921/0.9890 historical-first80 and 0.9915/0.9911 recent24h, with 95.05%/95.83% directional agreement. Treat this as timestamp/alignment validation only, not predictive lead. Richer CME trade/depth data is the next new information class worth acquiring.
 
 ## New-chat handoff rule
 
