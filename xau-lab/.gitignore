@@ -15,3 +15,6 @@ data/raw/*.csv
 .idea/
 .DS_Store
 Thumbs.db
+
+# Read-only live-shadow sessions stay local until explicitly frozen.
+data/live_shadow/
