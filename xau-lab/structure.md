@@ -742,6 +742,9 @@ research/v4_5_external_gc_correlation.py
 docs/experiments/2026-09-26/46-v4-5-external-gc-overlay-simulation.md
 results/simulations/2026-09-26-v4_5-external-gc-overlay-simulation/
 research/v4_5_external_gc_overlay_simulation.py
+docs/experiments/2026-09-26/47-v4-5-quote-flow-phase-controller.md
+results/simulations/2026-09-26-v4_5-quote-flow-phase-controller/
+research/v4_5_quote_flow_phase_controller.py
 docs/plans/V4_5_MT5_ONLY_LIVE_PRACTICALITY_GATE.md
 ```
 
