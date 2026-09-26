@@ -131,6 +131,7 @@ python research\v4_5_candidate_h_flow_confirmed_ghost_exit.py xau_ticks_7d.csv d
 python research\v4_5_tick_tape_field_audit.py xau_ticks_7d.csv data/raw/xau_ticks_recent_24h_2026-09-24.csv.gz
 python research\v4_5_external_gc_correlation.py xau_ticks_7d.csv data/raw/xau_ticks_recent_24h_2026-09-24.csv.gz
 python research\v4_5_external_gc_overlay_simulation.py xau_ticks_7d.csv data/raw/xau_ticks_recent_24h_2026-09-24.csv.gz
+python research\v4_5_quote_flow_phase_controller.py xau_ticks_7d.csv data/raw/xau_ticks_recent_24h_2026-09-24.csv.gz
 ```
 
 Historical tick export:
@@ -184,6 +185,7 @@ See [`data/README.md`](data/README.md) for the exact archive/push workflow.
 - [V4.5 MT5 tick-tape field audit](docs/experiments/2026-09-26/44-v4-5-tick-tape-field-audit.md)
 - [V4.5 external GC futures correlation bridge](docs/experiments/2026-09-26/45-v4-5-external-gc-correlation.md)
 - [V4.5 same-timeline external GC overlay simulation](docs/experiments/2026-09-26/46-v4-5-external-gc-overlay-simulation.md)
+- [V4.5 MT5-native quote-flow phase controller](docs/experiments/2026-09-26/47-v4-5-quote-flow-phase-controller.md)
 - [V4.1 optimization evidence](docs/experiments/2026-09-23/08-v4-1-optimization.md)
 - [V4.2 algorithm](docs/algorithms/v4_2.md)
 - [V4.3 algorithm](docs/algorithms/v4_3.md)
@@ -218,3 +220,5 @@ Experiment 46 tested that bridge inside the full path-dependent simulator using 
 External GC data is **not part of the active V4.5 algorithm or live dependency set**. Experiments 45-46 are retained as research evidence only. The ~3-hour discrepancy observed in Experiment 45 was a timestamp-label/clock-offset issue rather than evidence that futures information itself arrives three hours late, but the practical decision is unchanged: the active strategy must not depend on a secondary market-data feed that is unavailable from the execution terminal, adds synchronization/latency/availability risk, or has not demonstrated portable live value.
 
 From this point, a feature is eligible for the active candidate only if it is available causally from the same MT5/broker feed at decision time and can be reconstructed from the archived MT5 fields used in replay. Candidate D remains the leader; Candidate H remains the strongest retained exit branch. External-GC scripts/evidence stay archived for provenance and are not a planned runtime component. Final20 remains sealed.
+
+Experiment 47 returned to MT5-native data only and introduced a frozen quote-flow phase controller using exact bid/ask update flags plus raw quote-path state. Candidate J materially improved hostile recent performance and random-window robustness: random four-hour mean moved from D -₹6.26/-₹8.25 to J **+₹3.75/-₹2.82** at 500 ms/1 s, and J beat D in 100%/87.5% of the deterministic random windows. It also reduced max segment drawdown to ₹139.87/₹109.26. The cost was lower known canonical first80 P&L (+₹1,048.86/+₹273.18 versus D +₹1,430.31/+₹385.25), so J is **not promoted**. Freeze J unchanged for genuinely fresh MT5-only validation; do not tune the phase rules on known windows.
