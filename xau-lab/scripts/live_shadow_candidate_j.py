@@ -585,6 +585,7 @@ def live_main(args) -> None:
     last_ts: str | None = None
 
     last_tick_advance_host = time.monotonic()
+    continuity_start_msc: int | None = None
     last_replay_host = 0.0
     last_manifest_host = 0.0
     last_print_host = 0.0
@@ -624,8 +625,17 @@ def live_main(args) -> None:
             if new_rows:
                 cleaned = [public_row(x) for x in new_rows]
                 append_rows(ticks_path, cleaned)
+
+                prior_last_msc = last_time_msc
                 for row in new_rows:
+                    tmsc = int(row["_time_msc"])
+                    if continuity_start_msc is None or (
+                        prior_last_msc > 0 and tmsc - prior_last_msc > 5000
+                    ):
+                        continuity_start_msc = tmsc
                     rolling.append(row)
+                    prior_last_msc = tmsc
+
                 total_rows += len(new_rows)
                 first_ts = first_ts or cleaned[0]["timestamp_utc"]
                 last_ts = cleaned[-1]["timestamp_utc"]
@@ -645,7 +655,12 @@ def live_main(args) -> None:
                 if first_ts and last_time_msc > 0
                 else 0.0
             )
-            warmup_complete = capture_age_sec >= args.warmup_minutes * 60.0
+            continuity_age_sec = (
+                (last_time_msc - continuity_start_msc) / 1000.0
+                if continuity_start_msc is not None and last_time_msc > 0
+                else 0.0
+            )
+            warmup_complete = continuity_age_sec >= args.warmup_minutes * 60.0
 
             now_mono = time.monotonic()
             if (
@@ -677,6 +692,7 @@ def live_main(args) -> None:
                     "raw_rows_captured": total_rows,
                     "rolling_rows": len(rolling),
                     "capture_age_sec": capture_age_sec,
+                    "current_continuity_age_sec": continuity_age_sec,
                     "warmup_complete": warmup_complete,
                     "replay_hours": args.replay_hours,
                     "refresh_sec": args.refresh_sec,
@@ -718,7 +734,8 @@ def live_main(args) -> None:
                 print(
                     f"{host_now.strftime('%H:%M:%S')}Z | {market_state} | "
                     f"captured={total_rows:,} | rolling={len(rolling):,} | "
-                    f"idle={idle_for:.1f}s | warmup={'YES' if warmup_complete else 'NO'}"
+                    f"idle={idle_for:.1f}s | continuity={continuity_age_sec/60.0:.1f}m | "
+                    f"warmup={'YES' if warmup_complete else 'NO'}"
                 )
                 last_print_host = now_mono
 
