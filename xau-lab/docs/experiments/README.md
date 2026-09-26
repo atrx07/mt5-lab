@@ -65,3 +65,4 @@ Experiments are grouped by date so each session can grow independently without t
 - [47 — V4.5 MT5-native quote-flow phase controller](2026-09-26/47-v4-5-quote-flow-phase-controller.md)
 - [47R — V4.5 Candidate J multi-seed random-window robustness audit](2026-09-26/47R-v4-5-candidate-j-multiseed-random-audit.md)
 - [48 — V4.5 Candidate J fresh MT5-only prospective validation](2026-09-26/48-v4-5-candidate-j-fresh-validation.md)
+- [48P — V4.5 Candidate J live-shadow harness preflight](2026-09-26/48P-v4-5-candidate-j-live-shadow-preflight.md)
