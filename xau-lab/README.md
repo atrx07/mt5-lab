@@ -226,3 +226,5 @@ Experiment 47 returned to MT5-native data only and introduced a frozen quote-flo
 ### Next frozen step: Experiment 48
 
 Candidate J is now frozen unchanged for genuinely fresh MT5-only validation. Experiment 48 must wait for a new 48-hour XAUUSD snapshot captured after at least 48 live market hours following the weekend reopen. The validator and prospective pass criteria are already committed; no known-data tuning is allowed before that run. Final20 remains sealed.
+
+Experiment 47R reran frozen Candidate J on three additional 40-window random batches per grid. The 500 ms mean stayed positive in **all three** new batches (+₹0.97, +₹8.13, +₹3.92) and pooled +₹4.34 across 120 new sampled windows, versus D -₹0.85 and H -₹4.17. At 1 s J produced +₹0.54/-₹2.85/+₹1.83 and pooled -₹0.16, so 1 s is near break-even rather than confirmed profitable. J beat D in 92.5%/87.5% of pooled new windows at 500 ms/1 s. This strengthens the known-data 500 ms result but does not replace Experiment 48 fresh validation.
