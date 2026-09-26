@@ -1,3 +1,4 @@
+# retry after rank-based Spearman fix
 name: XAU External GC Correlation
 
 on:
