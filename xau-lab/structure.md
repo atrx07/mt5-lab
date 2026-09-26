@@ -745,6 +745,9 @@ research/v4_5_external_gc_overlay_simulation.py
 docs/experiments/2026-09-26/47-v4-5-quote-flow-phase-controller.md
 results/simulations/2026-09-26-v4_5-quote-flow-phase-controller/
 research/v4_5_quote_flow_phase_controller.py
+docs/experiments/2026-09-26/47R-v4-5-candidate-j-multiseed-random-audit.md
+results/simulations/2026-09-26-v4_5-candidate-j-multiseed-random-audit/
+research/v4_5_candidate_j_multiseed_random_audit.py
 docs/experiments/2026-09-26/48-v4-5-candidate-j-fresh-validation.md
 research/v4_5_candidate_j_fresh_validation.py
 docs/plans/V4_5_MT5_ONLY_LIVE_PRACTICALITY_GATE.md
