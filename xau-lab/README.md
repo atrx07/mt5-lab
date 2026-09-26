@@ -130,6 +130,7 @@ python research\v4_5_signal_fingerprint_entry_quality.py xau_ticks_7d.csv data/r
 python research\v4_5_candidate_h_flow_confirmed_ghost_exit.py xau_ticks_7d.csv data/raw/xau_ticks_recent_24h_2026-09-24.csv.gz
 python research\v4_5_tick_tape_field_audit.py xau_ticks_7d.csv data/raw/xau_ticks_recent_24h_2026-09-24.csv.gz
 python research\v4_5_external_gc_correlation.py xau_ticks_7d.csv data/raw/xau_ticks_recent_24h_2026-09-24.csv.gz
+python research\v4_5_external_gc_overlay_simulation.py xau_ticks_7d.csv data/raw/xau_ticks_recent_24h_2026-09-24.csv.gz
 ```
 
 Historical tick export:
@@ -182,6 +183,7 @@ See [`data/README.md`](data/README.md) for the exact archive/push workflow.
 - [V4.5 Candidate H flow-confirmed ghost exit](docs/experiments/2026-09-26/43-v4-5-candidate-h-flow-confirmed-ghost-exit.md)
 - [V4.5 MT5 tick-tape field audit](docs/experiments/2026-09-26/44-v4-5-tick-tape-field-audit.md)
 - [V4.5 external GC futures correlation bridge](docs/experiments/2026-09-26/45-v4-5-external-gc-correlation.md)
+- [V4.5 same-timeline external GC overlay simulation](docs/experiments/2026-09-26/46-v4-5-external-gc-overlay-simulation.md)
 - [V4.1 optimization evidence](docs/experiments/2026-09-23/08-v4-1-optimization.md)
 - [V4.2 algorithm](docs/algorithms/v4_2.md)
 - [V4.3 algorithm](docs/algorithms/v4_3.md)
@@ -209,3 +211,4 @@ Major-version graduation requires realistic bid/ask execution, holdout evidence 
 
 The seven-day and recent-24h windows are now heavily observed. Their role is parity, diagnostics and rejection of already-frozen ideas—not repeated strategy selection. Candidate D remains the V4.5 research leader. Experiments 38-42 rejected two learned exit controllers and three increasingly informed entry-selection formulations, including the full signal-fingerprint "encyclopedia"; the known causal state still does not rank individual trades portably enough. Experiment 43's Candidate H is the strongest exit-management branch so far: path-preserving ghost occupancy plus confirmed raw-flow deterioration retained +₹1,287.09 / +₹360.79 canonical first80 P&L, improved recent losses on both grids, reduced 500 ms max segment drawdown to ₹148.66, and improved random four-hour mean P&L to -₹3.36 / -₹7.21, but variable-window mean expectancy remains negative and Candidate D still owns the canonical P&L lead. Final20 remains sealed; promotion still requires genuinely new non-overlapping raw data. Experiment 44 audited the archived MT5 tick tape and found a hard data limitation: `last`, `volume`, `volume_real`, and LAST/VOLUME/BUY/SELL flags are empty on this broker's XAUUSD history. Exact BID/ASK change flags are populated and highly cross-grid stable, so they are retained as quote-microstructure inputs, but true aggressor-side trade flow is not available from the current feed.
 Experiment 45 confirmed that external COMEX Gold futures proxy data is tightly aligned with MT5 XAUUSD once the broker's ~3-hour timestamp offset is corrected: 5-minute return Pearson correlation was 0.9921 historical-first80 and 0.9915 recent24h, with 95.05% / 95.83% directional agreement. This validates external GC as a price-discovery sensor, but aggregated Yahoo bars are not trade tape; richer CME trades/depth remain the next data-acquisition step.
+Experiment 46 tested that bridge inside the full path-dependent simulator using only same-timeline historical GC data. A conservative PRIMARY/SECONDARY guard based on opposite GC 5m+15m direction skipped 18/22 canonical trades and worsened P&L; requiring the same coarse external reversal before Candidate-H exits suppressed almost all useful H exits. Candidate I fell to +₹1,044.62/+₹345.91 canonical and -₹233.16/-₹137.53 recent, with random 4h means -₹14.73/-₹15.09. Conclusion: the GC relationship is real, but five-minute direction is too coarse for individual 500 ms/1 s decisions. Candidate D remains leader; Candidate H remains the best retained exit branch; next external work should use finer GC trades/depth or sub-five-minute data.
