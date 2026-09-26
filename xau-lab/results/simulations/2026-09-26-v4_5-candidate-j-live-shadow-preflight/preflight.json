@@ -1,0 +1,81 @@
+{
+  "schema": "xau-candidate-j-live-shadow-preflight-v1",
+  "status": "PASS",
+  "safety_scan": {
+    "status": "PASS",
+    "forbidden_calls_found": 0,
+    "policy": "read-only MT5 market-data access only; no order_send/trade_* calls"
+  },
+  "source": "data/raw/xau_ticks_recent_24h_2026-09-24.csv.gz",
+  "source_sha256": "2d3c963f678aa0341224efe5f6859651018e11a43c8c5797bb5685f8dce19aeb",
+  "checks": [
+    {
+      "interval": "500ms",
+      "candidate": "D",
+      "pass": true,
+      "expected_pnl_inr": -223.27329174700338,
+      "actual_pnl_inr": -223.27329174700338,
+      "expected_trades": 39,
+      "actual_trades": 39,
+      "expected_wins": 5,
+      "actual_wins": 5
+    },
+    {
+      "interval": "500ms",
+      "candidate": "H",
+      "pass": true,
+      "expected_pnl_inr": -208.4689762103303,
+      "actual_pnl_inr": -208.4689762103303,
+      "expected_trades": 39,
+      "actual_trades": 39,
+      "expected_wins": 5,
+      "actual_wins": 5
+    },
+    {
+      "interval": "500ms",
+      "candidate": "J",
+      "pass": true,
+      "expected_pnl_inr": -164.53993148659703,
+      "actual_pnl_inr": -164.53993148659703,
+      "expected_trades": 31,
+      "actual_trades": 31,
+      "expected_wins": 4,
+      "actual_wins": 4
+    },
+    {
+      "interval": "1s",
+      "candidate": "D",
+      "pass": true,
+      "expected_pnl_inr": -135.9095261798986,
+      "actual_pnl_inr": -135.9095261798986,
+      "expected_trades": 34,
+      "actual_trades": 34,
+      "expected_wins": 8,
+      "actual_wins": 8
+    },
+    {
+      "interval": "1s",
+      "candidate": "H",
+      "pass": true,
+      "expected_pnl_inr": -128.62645713776266,
+      "actual_pnl_inr": -128.62645713776266,
+      "expected_trades": 34,
+      "actual_trades": 34,
+      "expected_wins": 8,
+      "actual_wins": 8
+    },
+    {
+      "interval": "1s",
+      "candidate": "J",
+      "pass": true,
+      "expected_pnl_inr": -70.99924105736795,
+      "actual_pnl_inr": -70.99924105736795,
+      "expected_trades": 28,
+      "actual_trades": 28,
+      "expected_wins": 8,
+      "actual_wins": 8
+    }
+  ],
+  "final20_opened": false,
+  "live_market_claimed": false
+}
