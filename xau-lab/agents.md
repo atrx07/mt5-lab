@@ -496,6 +496,8 @@ Latest evidence:
 
 `results/simulations/2026-09-26-v4_5-external-gc-overlay-simulation/`
 
+`results/simulations/2026-09-26-v4_5-quote-flow-phase-controller/`
+
 Current additional research scripts:
 
 - `research/v4_5_decision_policy_v1.py`
@@ -507,6 +509,7 @@ Current additional research scripts:
 - `research/v4_5_tick_tape_field_audit.py`
 - `research/v4_5_external_gc_correlation.py`
 - `research/v4_5_external_gc_overlay_simulation.py`
+- `research/v4_5_quote_flow_phase_controller.py`
 
 Candidate D remains provisional V4.5 leader. Candidate H is a retained exit branch, not the leader. Final20 remains sealed.
 
@@ -527,3 +530,5 @@ Do not integrate external GC/Yahoo/CME/LMAX data into the active V4.5 execution 
 The Experiment-45 ~3-hour offset was a timestamp-label alignment issue, not a live market lead/lag claim. Even so, the active candidate now has a stricter deployability rule: every decision feature must be causally available from the same MT5/broker feed at trade time, must be replayable from archived MT5 fields, and must not require a second network/data-provider dependency. This avoids synchronization, feed-availability, licensing and latency failure modes that the current live design does not need.
 
 Candidate D remains provisional leader. Candidate H remains the strongest retained exit-management branch. Future experiments should improve entry/exit intelligence using MT5-native quote/tick/state information only unless the owner explicitly reopens external-feed research. Final20 remains sealed.
+
+Experiment 47 is the first post-external MT5-only challenger with materially better variable-window behavior. Candidate J combines a frozen quote-flow phase entry controller for PRIMARY/SECONDARY with a phase-tamed Candidate-H exit, while a capital-free Candidate-D baseline shadow preserves opportunity/cooldown timing. Canonical first80 J = +₹1,048.86/+₹273.18 (below D), recent24h J = -₹164.54/-₹71.00 (materially better than D/H), and random four-hour mean = **+₹3.75/-₹2.82** versus D -₹6.26/-₹8.25. J beat D in 100% of 500 ms and 87.5% of 1 s random windows. Max segment DD fell to ₹139.87/₹109.26. Do not tune this result on known data; Candidate J is frozen unchanged for fresh MT5-only prospective validation. Candidate D remains formal leader; Candidate H remains strongest retained exit branch. Final20 remains sealed.
