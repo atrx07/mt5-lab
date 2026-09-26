@@ -1,0 +1,26 @@
+{
+  "schema": "xau-quote-flow-phase-controller-v1",
+  "runtime_data_scope": "MT5/broker-native only",
+  "external_data_used": false,
+  "entry_wait_sec": 2.0,
+  "phase_windows_sec": [
+    2,
+    10
+  ],
+  "entry_changed_engines": [
+    "PRIMARY",
+    "SECONDARY"
+  ],
+  "micro_burst_entry_changed": false,
+  "exit_changed_engine": "PRIMARY only",
+  "exit_base": "Candidate H from Experiment 43",
+  "trigger_mfe_usd": 4.0,
+  "min_giveback_usd": 4.0,
+  "exit_check_sec": 5.0,
+  "negative_confirmations": 2,
+  "path_policy": "capital-free Candidate-D baseline shadow owns opportunity/cooldown path",
+  "model_search": false,
+  "threshold_search": false,
+  "known_data_promotion_allowed": false,
+  "final20_opened": false
+}

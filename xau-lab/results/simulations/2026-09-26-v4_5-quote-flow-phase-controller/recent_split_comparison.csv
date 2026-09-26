@@ -1,0 +1,5 @@
+interval,split,D_terminal_equity_pnl_inr,H_terminal_equity_pnl_inr,Quote-entry_terminal_equity_pnl_inr,Quote-entry_trades,Quote-entry_delayed_entries,Quote-entry_skipped_entries,Quote-entry_phase_exits,Quote-exit_terminal_equity_pnl_inr,Quote-exit_trades,Quote-exit_delayed_entries,Quote-exit_skipped_entries,Quote-exit_phase_exits,Candidate-J_terminal_equity_pnl_inr,Candidate-J_trades,Candidate-J_delayed_entries,Candidate-J_skipped_entries,Candidate-J_phase_exits
+500ms,seed,-92.47632849025553,-80.57790392259221,-47.09486050823227,13,0,6,0,-86.06948449228156,19,0,0,1,-47.09486050823227,13,0,6,0
+500ms,evaluation,-149.92292560013215,-141.65701614833876,-126.95280242754467,17,1,2,0,-141.65701614833876,19,0,0,1,-118.14452967313679,17,1,2,1
+1s,seed,-86.5433495254544,-73.58004601823319,-50.058160316679675,13,0,3,0,-79.16325099411489,16,0,0,1,-50.058160316679675,13,0,3,0
+1s,evaluation,-52.31249415892705,-57.23928314683707,-23.270875137358985,15,0,2,0,-52.31249415892705,17,0,0,0,-23.270875137358985,15,0,2,0
