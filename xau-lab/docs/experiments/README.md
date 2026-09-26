@@ -63,3 +63,4 @@ Experiments are grouped by date so each session can grow independently without t
 - [45 — V4.5 external GC futures correlation bridge](2026-09-26/45-v4-5-external-gc-correlation.md)
 - [46 — V4.5 same-timeline external GC overlay simulation](2026-09-26/46-v4-5-external-gc-overlay-simulation.md)
 - [47 — V4.5 MT5-native quote-flow phase controller](2026-09-26/47-v4-5-quote-flow-phase-controller.md)
+- [48 — V4.5 Candidate J fresh MT5-only prospective validation](2026-09-26/48-v4-5-candidate-j-fresh-validation.md)
