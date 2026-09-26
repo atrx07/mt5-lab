@@ -30,8 +30,8 @@
     "requested_start_utc": "2026-09-16T09:56:21.193011+00:00",
     "requested_end_utc": "2026-09-24T17:58:47.949011+00:00",
     "http_status": 200,
-    "response_sha256": "501b38c031d08983bef0e1655f7e1829de86b92207e5b9485216c8984de45bb5",
-    "response_bytes": 143320,
+    "response_sha256": "d21a31ed1bb44dc49ad00b645d4b2d78fe08c39dc1382c7e11db76b26bf48b01",
+    "response_bytes": 143321,
     "rows": 1751,
     "first_timestamp_utc": "2026-09-16T09:55:00+00:00",
     "last_timestamp_utc": "2026-09-24T17:50:00+00:00",
@@ -75,14 +75,14 @@
           "ghost_releases": 18
         },
         "GC-entry": {
-          "compounded_pnl_inr": 1430.311133793068,
-          "trades": 163,
-          "wins": 81,
-          "win_rate": 0.49693251533742333,
-          "max_segment_drawdown_inr": 218.9381795572965,
-          "external_entry_skips": 0,
+          "compounded_pnl_inr": 1044.616173916179,
+          "trades": 145,
+          "wins": 72,
+          "win_rate": 0.496551724137931,
+          "max_segment_drawdown_inr": 237.17687362832066,
+          "external_entry_skips": 18,
           "primary_flow_exits": 0,
-          "ghost_releases": 0
+          "ghost_releases": 18
         },
         "GC-exit": {
           "compounded_pnl_inr": 1430.311133793068,
@@ -95,14 +95,14 @@
           "ghost_releases": 0
         },
         "I": {
-          "compounded_pnl_inr": 1430.311133793068,
-          "trades": 163,
-          "wins": 81,
-          "win_rate": 0.49693251533742333,
-          "max_segment_drawdown_inr": 218.9381795572965,
-          "external_entry_skips": 0,
+          "compounded_pnl_inr": 1044.616173916179,
+          "trades": 145,
+          "wins": 72,
+          "win_rate": 0.496551724137931,
+          "max_segment_drawdown_inr": 237.17687362832066,
+          "external_entry_skips": 18,
           "primary_flow_exits": 0,
-          "ghost_releases": 0
+          "ghost_releases": 18
         }
       },
       "recent24h_whole": {
@@ -139,20 +139,20 @@
           "ghost_releases": 2
         },
         "GC-entry": {
-          "pnl_inr": -223.27329174700338,
+          "pnl_inr": -233.16451242541297,
           "terminal_unrealized_inr": 0.0,
-          "terminal_equity_pnl_inr": -223.27329174700338,
+          "terminal_equity_pnl_inr": -233.16451242541297,
           "open_position_at_end": false,
           "ghost_active_at_end": false,
-          "profit_factor": 0.22462663024633286,
-          "trades": 39,
-          "wins": 5,
-          "win_rate": 0.1282051282051282,
-          "max_drawdown_inr": 230.22212602319553,
-          "real_primary_entries": 25,
+          "profit_factor": 0.09751065041240158,
+          "trades": 35,
+          "wins": 3,
+          "win_rate": 0.08571428571428572,
+          "max_drawdown_inr": 233.16451242541297,
+          "real_primary_entries": 24,
           "primary_flow_exits": 0,
-          "external_entry_skips": 0,
-          "ghost_releases": 0
+          "external_entry_skips": 4,
+          "ghost_releases": 4
         },
         "GC-exit": {
           "pnl_inr": -223.27329174700338,
@@ -171,20 +171,20 @@
           "ghost_releases": 0
         },
         "I": {
-          "pnl_inr": -223.27329174700338,
+          "pnl_inr": -233.16451242541297,
           "terminal_unrealized_inr": 0.0,
-          "terminal_equity_pnl_inr": -223.27329174700338,
+          "terminal_equity_pnl_inr": -233.16451242541297,
           "open_position_at_end": false,
           "ghost_active_at_end": false,
-          "profit_factor": 0.22462663024633286,
-          "trades": 39,
-          "wins": 5,
-          "win_rate": 0.1282051282051282,
-          "max_drawdown_inr": 230.22212602319553,
-          "real_primary_entries": 25,
+          "profit_factor": 0.09751065041240158,
+          "trades": 35,
+          "wins": 3,
+          "win_rate": 0.08571428571428572,
+          "max_drawdown_inr": 233.16451242541297,
+          "real_primary_entries": 24,
           "primary_flow_exits": 0,
-          "external_entry_skips": 0,
-          "ghost_releases": 0
+          "external_entry_skips": 4,
+          "ghost_releases": 4
         }
       },
       "recent24h_split": [
@@ -223,20 +223,20 @@
             "ghost_releases": 1
           },
           "GC-entry": {
-            "pnl_inr": -92.47632849025553,
+            "pnl_inr": -104.77821710065183,
             "terminal_unrealized_inr": 0.0,
-            "terminal_equity_pnl_inr": -92.47632849025553,
+            "terminal_equity_pnl_inr": -104.77821710065183,
             "open_position_at_end": false,
             "ghost_active_at_end": false,
-            "profit_factor": 0.35314786361894923,
-            "trades": 19,
-            "wins": 3,
-            "win_rate": 0.15789473684210525,
-            "max_drawdown_inr": 92.47632849025553,
+            "profit_factor": 0.1682689407858575,
+            "trades": 17,
+            "wins": 2,
+            "win_rate": 0.11764705882352941,
+            "max_drawdown_inr": 104.77821710065183,
             "real_primary_entries": 12,
             "primary_flow_exits": 0,
-            "external_entry_skips": 0,
-            "ghost_releases": 0
+            "external_entry_skips": 2,
+            "ghost_releases": 2
           },
           "GC-exit": {
             "pnl_inr": -92.47632849025553,
@@ -255,20 +255,20 @@
             "ghost_releases": 0
           },
           "I": {
-            "pnl_inr": -92.47632849025553,
+            "pnl_inr": -104.77821710065183,
             "terminal_unrealized_inr": 0.0,
-            "terminal_equity_pnl_inr": -92.47632849025553,
+            "terminal_equity_pnl_inr": -104.77821710065183,
             "open_position_at_end": false,
             "ghost_active_at_end": false,
-            "profit_factor": 0.35314786361894923,
-            "trades": 19,
-            "wins": 3,
-            "win_rate": 0.15789473684210525,
-            "max_drawdown_inr": 92.47632849025553,
+            "profit_factor": 0.1682689407858575,
+            "trades": 17,
+            "wins": 2,
+            "win_rate": 0.11764705882352941,
+            "max_drawdown_inr": 104.77821710065183,
             "real_primary_entries": 12,
             "primary_flow_exits": 0,
-            "external_entry_skips": 0,
-            "ghost_releases": 0
+            "external_entry_skips": 2,
+            "ghost_releases": 2
           }
         },
         {
@@ -306,20 +306,20 @@
             "ghost_releases": 1
           },
           "GC-entry": {
-            "pnl_inr": -149.92292560013215,
+            "pnl_inr": -151.9287531637412,
             "terminal_unrealized_inr": 0.0,
-            "terminal_equity_pnl_inr": -149.92292560013215,
+            "terminal_equity_pnl_inr": -151.9287531637412,
             "open_position_at_end": false,
             "ghost_active_at_end": false,
-            "profit_factor": 0.10696816560845236,
-            "trades": 19,
-            "wins": 2,
-            "win_rate": 0.10526315789473684,
-            "max_drawdown_inr": 158.7136476423097,
-            "real_primary_entries": 12,
+            "profit_factor": 0.03316069761880117,
+            "trades": 17,
+            "wins": 1,
+            "win_rate": 0.058823529411764705,
+            "max_drawdown_inr": 151.9287531637412,
+            "real_primary_entries": 11,
             "primary_flow_exits": 0,
-            "external_entry_skips": 0,
-            "ghost_releases": 0
+            "external_entry_skips": 2,
+            "ghost_releases": 2
           },
           "GC-exit": {
             "pnl_inr": -149.92292560013215,
@@ -338,20 +338,20 @@
             "ghost_releases": 0
           },
           "I": {
-            "pnl_inr": -149.92292560013215,
+            "pnl_inr": -151.9287531637412,
             "terminal_unrealized_inr": 0.0,
-            "terminal_equity_pnl_inr": -149.92292560013215,
+            "terminal_equity_pnl_inr": -151.9287531637412,
             "open_position_at_end": false,
             "ghost_active_at_end": false,
-            "profit_factor": 0.10696816560845236,
-            "trades": 19,
-            "wins": 2,
-            "win_rate": 0.10526315789473684,
-            "max_drawdown_inr": 158.7136476423097,
-            "real_primary_entries": 12,
+            "profit_factor": 0.03316069761880117,
+            "trades": 17,
+            "wins": 1,
+            "win_rate": 0.058823529411764705,
+            "max_drawdown_inr": 151.9287531637412,
+            "real_primary_entries": 11,
             "primary_flow_exits": 0,
-            "external_entry_skips": 0,
-            "ghost_releases": 0
+            "external_entry_skips": 2,
+            "ghost_releases": 2
           }
         }
       ],
@@ -380,14 +380,14 @@
         },
         "I": {
           "windows": 40,
-          "median_terminal_equity_pnl_inr": -23.586061895657508,
-          "mean_terminal_equity_pnl_inr": -6.260094042109164,
-          "p05_terminal_equity_pnl_inr": -27.100950513536418,
-          "p95_terminal_equity_pnl_inr": 49.57687903560627,
-          "positive_window_fraction": 0.3,
-          "total_trades": 417,
-          "total_wins": 157,
-          "aggregate_win_rate": 0.3764988009592326
+          "median_terminal_equity_pnl_inr": -40.65462959335798,
+          "mean_terminal_equity_pnl_inr": -14.733289842953809,
+          "p05_terminal_equity_pnl_inr": -41.37632109309726,
+          "p95_terminal_equity_pnl_inr": 41.28169829543718,
+          "positive_window_fraction": 0.375,
+          "total_trades": 351,
+          "total_wins": 119,
+          "aggregate_win_rate": 0.33903133903133903
         }
       },
       "cost_stress": [
@@ -398,8 +398,8 @@
           "D_recent_terminal_equity_pnl_inr": -223.27329174700338,
           "H_historical_compounded_pnl_inr": 1287.0890835318237,
           "H_recent_terminal_equity_pnl_inr": -208.4689762103303,
-          "I_historical_compounded_pnl_inr": 1430.311133793068,
-          "I_recent_terminal_equity_pnl_inr": -223.27329174700338
+          "I_historical_compounded_pnl_inr": 1044.616173916179,
+          "I_recent_terminal_equity_pnl_inr": -233.16451242541297
         },
         {
           "interval": "500ms",
@@ -408,8 +408,8 @@
           "D_recent_terminal_equity_pnl_inr": -228.5917885979548,
           "H_historical_compounded_pnl_inr": 1063.7079344681954,
           "H_recent_terminal_equity_pnl_inr": -214.0606050534518,
-          "I_historical_compounded_pnl_inr": 1164.8109181225905,
-          "I_recent_terminal_equity_pnl_inr": -228.5917885979548
+          "I_historical_compounded_pnl_inr": 845.126633265376,
+          "I_recent_terminal_equity_pnl_inr": -237.9998436869364
         },
         {
           "interval": "500ms",
@@ -418,8 +418,8 @@
           "D_recent_terminal_equity_pnl_inr": -232.58559413921654,
           "H_historical_compounded_pnl_inr": 875.1940743033928,
           "H_recent_terminal_equity_pnl_inr": -219.15014645031755,
-          "I_historical_compounded_pnl_inr": 964.1613580745292,
-          "I_recent_terminal_equity_pnl_inr": -232.58559413921654
+          "I_historical_compounded_pnl_inr": 679.0714778284963,
+          "I_recent_terminal_equity_pnl_inr": -241.34581930940328
         },
         {
           "interval": "500ms",
@@ -428,8 +428,8 @@
           "D_recent_terminal_equity_pnl_inr": -240.88778913584088,
           "H_historical_compounded_pnl_inr": 287.88770606255974,
           "H_recent_terminal_equity_pnl_inr": -229.17428569149047,
-          "I_historical_compounded_pnl_inr": 335.0871578930338,
-          "I_recent_terminal_equity_pnl_inr": -240.88778913584088
+          "I_historical_compounded_pnl_inr": 206.79928917606938,
+          "I_recent_terminal_equity_pnl_inr": -248.38513545438062
         }
       ]
     },
@@ -456,34 +456,34 @@
           "ghost_releases": 16
         },
         "GC-entry": {
-          "compounded_pnl_inr": 385.2544619534224,
-          "trades": 156,
-          "wins": 71,
-          "win_rate": 0.4551282051282051,
-          "max_segment_drawdown_inr": 172.14469599809354,
-          "external_entry_skips": 0,
+          "compounded_pnl_inr": 344.6137535980678,
+          "trades": 134,
+          "wins": 62,
+          "win_rate": 0.4626865671641791,
+          "max_segment_drawdown_inr": 135.39567423341964,
+          "external_entry_skips": 22,
           "primary_flow_exits": 0,
-          "ghost_releases": 0
+          "ghost_releases": 22
         },
         "GC-exit": {
-          "compounded_pnl_inr": 385.2544619534224,
+          "compounded_pnl_inr": 386.60813104249814,
           "trades": 156,
           "wins": 71,
           "win_rate": 0.4551282051282051,
           "max_segment_drawdown_inr": 172.14469599809354,
           "external_entry_skips": 0,
-          "primary_flow_exits": 0,
-          "ghost_releases": 0
+          "primary_flow_exits": 1,
+          "ghost_releases": 1
         },
         "I": {
-          "compounded_pnl_inr": 385.2544619534224,
-          "trades": 156,
-          "wins": 71,
-          "win_rate": 0.4551282051282051,
-          "max_segment_drawdown_inr": 172.14469599809354,
-          "external_entry_skips": 0,
-          "primary_flow_exits": 0,
-          "ghost_releases": 0
+          "compounded_pnl_inr": 345.9052777638213,
+          "trades": 134,
+          "wins": 62,
+          "win_rate": 0.4626865671641791,
+          "max_segment_drawdown_inr": 135.39567423341964,
+          "external_entry_skips": 22,
+          "primary_flow_exits": 1,
+          "ghost_releases": 23
         }
       },
       "recent24h_whole": {
@@ -520,20 +520,20 @@
           "ghost_releases": 2
         },
         "GC-entry": {
-          "pnl_inr": -135.9095261798986,
+          "pnl_inr": -137.53263144428837,
           "terminal_unrealized_inr": 0.0,
-          "terminal_equity_pnl_inr": -135.9095261798986,
+          "terminal_equity_pnl_inr": -137.53263144428837,
           "open_position_at_end": false,
           "ghost_active_at_end": false,
-          "profit_factor": 0.42272300867364804,
-          "trades": 34,
-          "wins": 8,
-          "win_rate": 0.23529411764705882,
-          "max_drawdown_inr": 143.89070468400888,
-          "real_primary_entries": 21,
+          "profit_factor": 0.29415437817000234,
+          "trades": 29,
+          "wins": 6,
+          "win_rate": 0.20689655172413793,
+          "max_drawdown_inr": 140.37100597609304,
+          "real_primary_entries": 19,
           "primary_flow_exits": 0,
-          "external_entry_skips": 0,
-          "ghost_releases": 0
+          "external_entry_skips": 5,
+          "ghost_releases": 5
         },
         "GC-exit": {
           "pnl_inr": -135.9095261798986,
@@ -552,20 +552,20 @@
           "ghost_releases": 0
         },
         "I": {
-          "pnl_inr": -135.9095261798986,
+          "pnl_inr": -137.53263144428837,
           "terminal_unrealized_inr": 0.0,
-          "terminal_equity_pnl_inr": -135.9095261798986,
+          "terminal_equity_pnl_inr": -137.53263144428837,
           "open_position_at_end": false,
           "ghost_active_at_end": false,
-          "profit_factor": 0.42272300867364804,
-          "trades": 34,
-          "wins": 8,
-          "win_rate": 0.23529411764705882,
-          "max_drawdown_inr": 143.89070468400888,
-          "real_primary_entries": 21,
+          "profit_factor": 0.29415437817000234,
+          "trades": 29,
+          "wins": 6,
+          "win_rate": 0.20689655172413793,
+          "max_drawdown_inr": 140.37100597609304,
+          "real_primary_entries": 19,
           "primary_flow_exits": 0,
-          "external_entry_skips": 0,
-          "ghost_releases": 0
+          "external_entry_skips": 5,
+          "ghost_releases": 5
         }
       },
       "recent24h_split": [
@@ -604,20 +604,20 @@
             "ghost_releases": 1
           },
           "GC-entry": {
-            "pnl_inr": -86.5433495254544,
+            "pnl_inr": -86.04655001402153,
             "terminal_unrealized_inr": 0.0,
-            "terminal_equity_pnl_inr": -86.5433495254544,
+            "terminal_equity_pnl_inr": -86.04655001402153,
             "open_position_at_end": false,
             "ghost_active_at_end": false,
-            "profit_factor": 0.36712647671085546,
-            "trades": 16,
-            "wins": 3,
-            "win_rate": 0.1875,
-            "max_drawdown_inr": 86.5433495254544,
-            "real_primary_entries": 11,
+            "profit_factor": 0.19574399574286772,
+            "trades": 13,
+            "wins": 2,
+            "win_rate": 0.15384615384615385,
+            "max_drawdown_inr": 86.04655001402153,
+            "real_primary_entries": 10,
             "primary_flow_exits": 0,
-            "external_entry_skips": 0,
-            "ghost_releases": 0
+            "external_entry_skips": 3,
+            "ghost_releases": 3
           },
           "GC-exit": {
             "pnl_inr": -86.5433495254544,
@@ -636,20 +636,20 @@
             "ghost_releases": 0
           },
           "I": {
-            "pnl_inr": -86.5433495254544,
+            "pnl_inr": -86.04655001402153,
             "terminal_unrealized_inr": 0.0,
-            "terminal_equity_pnl_inr": -86.5433495254544,
+            "terminal_equity_pnl_inr": -86.04655001402153,
             "open_position_at_end": false,
             "ghost_active_at_end": false,
-            "profit_factor": 0.36712647671085546,
-            "trades": 16,
-            "wins": 3,
-            "win_rate": 0.1875,
-            "max_drawdown_inr": 86.5433495254544,
-            "real_primary_entries": 11,
+            "profit_factor": 0.19574399574286772,
+            "trades": 13,
+            "wins": 2,
+            "win_rate": 0.15384615384615385,
+            "max_drawdown_inr": 86.04655001402153,
+            "real_primary_entries": 10,
             "primary_flow_exits": 0,
-            "external_entry_skips": 0,
-            "ghost_releases": 0
+            "external_entry_skips": 3,
+            "ghost_releases": 3
           }
         },
         {
@@ -687,20 +687,20 @@
             "ghost_releases": 1
           },
           "GC-entry": {
-            "pnl_inr": -52.31249415892705,
+            "pnl_inr": -54.843162370049754,
             "terminal_unrealized_inr": 0.0,
-            "terminal_equity_pnl_inr": -52.31249415892705,
+            "terminal_equity_pnl_inr": -54.843162370049754,
             "open_position_at_end": false,
             "ghost_active_at_end": false,
-            "profit_factor": 0.536875919765751,
-            "trades": 17,
-            "wins": 5,
-            "win_rate": 0.29411764705882354,
-            "max_drawdown_inr": 62.12619200355397,
-            "real_primary_entries": 9,
+            "profit_factor": 0.44888914095279764,
+            "trades": 15,
+            "wins": 4,
+            "win_rate": 0.26666666666666666,
+            "max_drawdown_inr": 58.32905362592254,
+            "real_primary_entries": 8,
             "primary_flow_exits": 0,
-            "external_entry_skips": 0,
-            "ghost_releases": 0
+            "external_entry_skips": 2,
+            "ghost_releases": 2
           },
           "GC-exit": {
             "pnl_inr": -52.31249415892705,
@@ -719,20 +719,20 @@
             "ghost_releases": 0
           },
           "I": {
-            "pnl_inr": -52.31249415892705,
+            "pnl_inr": -54.843162370049754,
             "terminal_unrealized_inr": 0.0,
-            "terminal_equity_pnl_inr": -52.31249415892705,
+            "terminal_equity_pnl_inr": -54.843162370049754,
             "open_position_at_end": false,
             "ghost_active_at_end": false,
-            "profit_factor": 0.536875919765751,
-            "trades": 17,
-            "wins": 5,
-            "win_rate": 0.29411764705882354,
-            "max_drawdown_inr": 62.12619200355397,
-            "real_primary_entries": 9,
+            "profit_factor": 0.44888914095279764,
+            "trades": 15,
+            "wins": 4,
+            "win_rate": 0.26666666666666666,
+            "max_drawdown_inr": 58.32905362592254,
+            "real_primary_entries": 8,
             "primary_flow_exits": 0,
-            "external_entry_skips": 0,
-            "ghost_releases": 0
+            "external_entry_skips": 2,
+            "ghost_releases": 2
           }
         }
       ],
@@ -761,14 +761,14 @@
         },
         "I": {
           "windows": 40,
-          "median_terminal_equity_pnl_inr": -27.861680295516123,
-          "mean_terminal_equity_pnl_inr": -8.250865715963963,
-          "p05_terminal_equity_pnl_inr": -34.78181461314048,
-          "p95_terminal_equity_pnl_inr": 83.90268597611308,
-          "positive_window_fraction": 0.275,
-          "total_trades": 420,
-          "total_wins": 150,
-          "aggregate_win_rate": 0.35714285714285715
+          "median_terminal_equity_pnl_inr": -42.397315178208316,
+          "mean_terminal_equity_pnl_inr": -15.091462281343098,
+          "p05_terminal_equity_pnl_inr": -42.397315178208316,
+          "p95_terminal_equity_pnl_inr": 88.4056297741652,
+          "positive_window_fraction": 0.3,
+          "total_trades": 347,
+          "total_wins": 110,
+          "aggregate_win_rate": 0.3170028818443804
         }
       },
       "cost_stress": [
@@ -779,8 +779,8 @@
           "D_recent_terminal_equity_pnl_inr": -135.9095261798986,
           "H_historical_compounded_pnl_inr": 360.79357527974355,
           "H_recent_terminal_equity_pnl_inr": -128.62645713776266,
-          "I_historical_compounded_pnl_inr": 385.2544619534224,
-          "I_recent_terminal_equity_pnl_inr": -135.9095261798986
+          "I_historical_compounded_pnl_inr": 345.9052777638213,
+          "I_recent_terminal_equity_pnl_inr": -137.53263144428837
         },
         {
           "interval": "1s",
@@ -789,8 +789,8 @@
           "D_recent_terminal_equity_pnl_inr": -140.26333968522584,
           "H_historical_compounded_pnl_inr": 274.43278309175156,
           "H_recent_terminal_equity_pnl_inr": -133.06171619388073,
-          "I_historical_compounded_pnl_inr": 281.9016479168638,
-          "I_recent_terminal_equity_pnl_inr": -140.26333968522584
+          "I_historical_compounded_pnl_inr": 273.05607782565875,
+          "I_recent_terminal_equity_pnl_inr": -141.90990978771015
         },
         {
           "interval": "1s",
@@ -799,8 +799,8 @@
           "D_recent_terminal_equity_pnl_inr": -143.91095503479,
           "H_historical_compounded_pnl_inr": 240.97302084265993,
           "H_recent_terminal_equity_pnl_inr": -138.60265758541567,
-          "I_historical_compounded_pnl_inr": 248.12032921993654,
-          "I_recent_terminal_equity_pnl_inr": -143.91095503479
+          "I_historical_compounded_pnl_inr": 201.18986549862527,
+          "I_recent_terminal_equity_pnl_inr": -144.208794345643
         },
         {
           "interval": "1s",
@@ -809,8 +809,8 @@
           "D_recent_terminal_equity_pnl_inr": -155.80934360412596,
           "H_historical_compounded_pnl_inr": 27.98417774859041,
           "H_recent_terminal_equity_pnl_inr": -151.1297441729143,
-          "I_historical_compounded_pnl_inr": 35.88449127824222,
-          "I_recent_terminal_equity_pnl_inr": -155.80934360412596
+          "I_historical_compounded_pnl_inr": 3.282161774507797,
+          "I_recent_terminal_equity_pnl_inr": -155.61808434611606
         }
       ]
     }
