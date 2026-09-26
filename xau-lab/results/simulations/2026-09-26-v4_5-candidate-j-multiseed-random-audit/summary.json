@@ -1,0 +1,346 @@
+{
+  "schema": "xau-candidate-j-multiseed-random-audit-v1",
+  "candidate_j_frozen_from": "Experiment 47",
+  "batches": {
+    "A": {
+      "500ms": 20261001,
+      "1s": 20261002
+    },
+    "B": {
+      "500ms": 20261013,
+      "1s": 20261014
+    },
+    "C": {
+      "500ms": 20261027,
+      "1s": 20261028
+    }
+  },
+  "windows_per_batch_per_grid": 40,
+  "window_hours": 4.0,
+  "external_data_used": false,
+  "threshold_search": false,
+  "known_data_only": true,
+  "promotion_evidence": false,
+  "final20_opened": false,
+  "intervals": {
+    "500ms": {
+      "batches": {
+        "A": {
+          "seed": 20261001,
+          "D": {
+            "windows": 40,
+            "mean_pnl_inr": -2.5900546995999276,
+            "median_pnl_inr": -27.100950513536418,
+            "p05_pnl_inr": -80.46184986965078,
+            "p95_pnl_inr": 129.27844138941987,
+            "positive_window_fraction": 0.35,
+            "total_trades": 434,
+            "total_wins": 145,
+            "aggregate_win_rate": 0.33410138248847926
+          },
+          "H": {
+            "windows": 40,
+            "mean_pnl_inr": -7.7819877277947445,
+            "median_pnl_inr": -27.100950513536418,
+            "p05_pnl_inr": -80.46184986965078,
+            "p95_pnl_inr": 64.91853309384464,
+            "positive_window_fraction": 0.35,
+            "total_trades": 436,
+            "total_wins": 147,
+            "aggregate_win_rate": 0.33715596330275227
+          },
+          "J": {
+            "windows": 40,
+            "mean_pnl_inr": 0.9655510791161532,
+            "median_pnl_inr": -19.41822854340984,
+            "p05_pnl_inr": -71.1769325236891,
+            "p95_pnl_inr": 88.85435549452191,
+            "positive_window_fraction": 0.35,
+            "total_trades": 377,
+            "total_wins": 125,
+            "aggregate_win_rate": 0.33156498673740054
+          },
+          "J_beats_D_fraction": 0.925,
+          "J_beats_H_fraction": 0.825,
+          "shadow_parity": true
+        },
+        "B": {
+          "seed": 20261013,
+          "D": {
+            "windows": 40,
+            "mean_pnl_inr": 3.19978017340229,
+            "median_pnl_inr": -27.100950513536418,
+            "p05_pnl_inr": -27.100950513536418,
+            "p95_pnl_inr": 158.97001238375535,
+            "positive_window_fraction": 0.35,
+            "total_trades": 455,
+            "total_wins": 152,
+            "aggregate_win_rate": 0.33406593406593404
+          },
+          "H": {
+            "windows": 40,
+            "mean_pnl_inr": 0.020614029901586405,
+            "median_pnl_inr": -27.100950513536418,
+            "p05_pnl_inr": -27.100950513536418,
+            "p95_pnl_inr": 82.05451999072004,
+            "positive_window_fraction": 0.375,
+            "total_trades": 456,
+            "total_wins": 157,
+            "aggregate_win_rate": 0.3442982456140351
+          },
+          "J": {
+            "windows": 40,
+            "mean_pnl_inr": 8.126305381677785,
+            "median_pnl_inr": -19.41822854340984,
+            "p05_pnl_inr": -19.41822854340984,
+            "p95_pnl_inr": 108.18576776382957,
+            "positive_window_fraction": 0.375,
+            "total_trades": 390,
+            "total_wins": 128,
+            "aggregate_win_rate": 0.3282051282051282
+          },
+          "J_beats_D_fraction": 0.9,
+          "J_beats_H_fraction": 0.8,
+          "shadow_parity": true
+        },
+        "C": {
+          "seed": 20261027,
+          "D": {
+            "windows": 40,
+            "mean_pnl_inr": -3.173253756629141,
+            "median_pnl_inr": -27.100950513536418,
+            "p05_pnl_inr": -27.100950513536418,
+            "p95_pnl_inr": 101.53880455421191,
+            "positive_window_fraction": 0.3,
+            "total_trades": 428,
+            "total_wins": 154,
+            "aggregate_win_rate": 0.3598130841121495
+          },
+          "H": {
+            "windows": 40,
+            "mean_pnl_inr": -4.754042740895455,
+            "median_pnl_inr": -19.93354518697896,
+            "p05_pnl_inr": -27.100950513536418,
+            "p95_pnl_inr": 36.148630780478,
+            "positive_window_fraction": 0.35,
+            "total_trades": 428,
+            "total_wins": 156,
+            "aggregate_win_rate": 0.3644859813084112
+          },
+          "J": {
+            "windows": 40,
+            "mean_pnl_inr": 3.916582403891917,
+            "median_pnl_inr": -16.23358314747506,
+            "p05_pnl_inr": -19.41822854340984,
+            "p95_pnl_inr": 59.98639207125661,
+            "positive_window_fraction": 0.375,
+            "total_trades": 369,
+            "total_wins": 132,
+            "aggregate_win_rate": 0.35772357723577236
+          },
+          "J_beats_D_fraction": 0.95,
+          "J_beats_H_fraction": 0.825,
+          "shadow_parity": true
+        }
+      },
+      "pooled_three_new_batches": {
+        "D": {
+          "windows": 120,
+          "mean_pnl_inr": -0.8545094276089255,
+          "median_pnl_inr": -27.100950513536418,
+          "p05_pnl_inr": -27.25948076214973,
+          "p95_pnl_inr": 108.21138035488886,
+          "positive_window_fraction": 0.3333333333333333,
+          "total_trades": 1317,
+          "total_wins": 451,
+          "aggregate_win_rate": 0.3424449506454062
+        },
+        "H": {
+          "windows": 120,
+          "mean_pnl_inr": -4.1718054795962045,
+          "median_pnl_inr": -27.100950513536418,
+          "p05_pnl_inr": -27.100950513536418,
+          "p95_pnl_inr": 76.53572294937055,
+          "positive_window_fraction": 0.35833333333333334,
+          "total_trades": 1320,
+          "total_wins": 460,
+          "aggregate_win_rate": 0.3484848484848485
+        },
+        "J": {
+          "windows": 120,
+          "mean_pnl_inr": 4.336146288228618,
+          "median_pnl_inr": -19.41822854340984,
+          "p05_pnl_inr": -19.41822854340984,
+          "p95_pnl_inr": 90.28431925792415,
+          "positive_window_fraction": 0.36666666666666664,
+          "total_trades": 1136,
+          "total_wins": 385,
+          "aggregate_win_rate": 0.3389084507042254
+        },
+        "J_beats_D_fraction": 0.925,
+        "J_beats_H_fraction": 0.8166666666666667,
+        "shadow_parity": true
+      }
+    },
+    "1s": {
+      "batches": {
+        "A": {
+          "seed": 20261002,
+          "D": {
+            "windows": 40,
+            "mean_pnl_inr": -8.750242644763498,
+            "median_pnl_inr": -27.861680295516123,
+            "p05_pnl_inr": -28.090961993161002,
+            "p95_pnl_inr": 43.252135613179824,
+            "positive_window_fraction": 0.325,
+            "total_trades": 438,
+            "total_wins": 152,
+            "aggregate_win_rate": 0.3470319634703196
+          },
+          "H": {
+            "windows": 40,
+            "mean_pnl_inr": -6.381782148025179,
+            "median_pnl_inr": -24.66576873116373,
+            "p05_pnl_inr": -27.861680295516123,
+            "p95_pnl_inr": 46.74084072920471,
+            "positive_window_fraction": 0.3,
+            "total_trades": 438,
+            "total_wins": 158,
+            "aggregate_win_rate": 0.3607305936073059
+          },
+          "J": {
+            "windows": 40,
+            "mean_pnl_inr": 0.5393072603454971,
+            "median_pnl_inr": -12.958201253885306,
+            "p05_pnl_inr": -21.258211977770486,
+            "p95_pnl_inr": 48.64813710338395,
+            "positive_window_fraction": 0.325,
+            "total_trades": 389,
+            "total_wins": 146,
+            "aggregate_win_rate": 0.37532133676092544
+          },
+          "J_beats_D_fraction": 0.85,
+          "J_beats_H_fraction": 0.65,
+          "shadow_parity": true
+        },
+        "B": {
+          "seed": 20261014,
+          "D": {
+            "windows": 40,
+            "mean_pnl_inr": -10.653838249730963,
+            "median_pnl_inr": -27.861680295516123,
+            "p05_pnl_inr": -31.773199259989607,
+            "p95_pnl_inr": 38.26518583881321,
+            "positive_window_fraction": 0.25,
+            "total_trades": 432,
+            "total_wins": 151,
+            "aggregate_win_rate": 0.34953703703703703
+          },
+          "H": {
+            "windows": 40,
+            "mean_pnl_inr": -8.467644125973536,
+            "median_pnl_inr": -27.861680295516123,
+            "p05_pnl_inr": -27.861680295516123,
+            "p95_pnl_inr": 58.86114106800788,
+            "positive_window_fraction": 0.25,
+            "total_trades": 432,
+            "total_wins": 156,
+            "aggregate_win_rate": 0.3611111111111111
+          },
+          "J": {
+            "windows": 40,
+            "mean_pnl_inr": -2.8500536623267996,
+            "median_pnl_inr": -12.958201253885306,
+            "p05_pnl_inr": -26.938709907449837,
+            "p95_pnl_inr": 28.54975285704465,
+            "positive_window_fraction": 0.3,
+            "total_trades": 387,
+            "total_wins": 146,
+            "aggregate_win_rate": 0.3772609819121447
+          },
+          "J_beats_D_fraction": 0.925,
+          "J_beats_H_fraction": 0.65,
+          "shadow_parity": true
+        },
+        "C": {
+          "seed": 20261028,
+          "D": {
+            "windows": 40,
+            "mean_pnl_inr": -5.147572620811587,
+            "median_pnl_inr": -27.861680295516123,
+            "p05_pnl_inr": -30.84989938139462,
+            "p95_pnl_inr": 65.73814173442224,
+            "positive_window_fraction": 0.325,
+            "total_trades": 433,
+            "total_wins": 153,
+            "aggregate_win_rate": 0.3533487297921478
+          },
+          "H": {
+            "windows": 40,
+            "mean_pnl_inr": -2.7081021197401163,
+            "median_pnl_inr": -27.216346057473714,
+            "p05_pnl_inr": -27.861680295516123,
+            "p95_pnl_inr": 84.37359781540796,
+            "positive_window_fraction": 0.325,
+            "total_trades": 433,
+            "total_wins": 159,
+            "aggregate_win_rate": 0.3672055427251732
+          },
+          "J": {
+            "windows": 40,
+            "mean_pnl_inr": 1.8323602989309684,
+            "median_pnl_inr": -12.958201253885306,
+            "p05_pnl_inr": -27.29863248753481,
+            "p95_pnl_inr": 54.1466396816503,
+            "positive_window_fraction": 0.35,
+            "total_trades": 379,
+            "total_wins": 145,
+            "aggregate_win_rate": 0.38258575197889183
+          },
+          "J_beats_D_fraction": 0.85,
+          "J_beats_H_fraction": 0.625,
+          "shadow_parity": true
+        }
+      },
+      "pooled_three_new_batches": {
+        "D": {
+          "windows": 120,
+          "mean_pnl_inr": -8.183884505102016,
+          "median_pnl_inr": -27.861680295516123,
+          "p05_pnl_inr": -31.52641692402436,
+          "p95_pnl_inr": 48.58579018198685,
+          "positive_window_fraction": 0.3,
+          "total_trades": 1303,
+          "total_wins": 456,
+          "aggregate_win_rate": 0.3499616270145817
+        },
+        "H": {
+          "windows": 120,
+          "mean_pnl_inr": -5.852509464579611,
+          "median_pnl_inr": -27.861680295516123,
+          "p05_pnl_inr": -27.861680295516123,
+          "p95_pnl_inr": 73.71819347986603,
+          "positive_window_fraction": 0.2916666666666667,
+          "total_trades": 1303,
+          "total_wins": 473,
+          "aggregate_win_rate": 0.363008442056792
+        },
+        "J": {
+          "windows": 120,
+          "mean_pnl_inr": -0.15946203435011058,
+          "median_pnl_inr": -12.958201253885306,
+          "p05_pnl_inr": -26.87515360315765,
+          "p95_pnl_inr": 54.02848811421869,
+          "positive_window_fraction": 0.325,
+          "total_trades": 1155,
+          "total_wins": 437,
+          "aggregate_win_rate": 0.37835497835497833
+        },
+        "J_beats_D_fraction": 0.875,
+        "J_beats_H_fraction": 0.6416666666666667,
+        "shadow_parity": true
+      }
+    }
+  },
+  "decision": "Robustness audit only. Use these three independent random seeds to assess whether Experiment 47's random-window behavior persists. Candidate J remains frozen for Experiment 48 regardless of this known-data result."
+}
