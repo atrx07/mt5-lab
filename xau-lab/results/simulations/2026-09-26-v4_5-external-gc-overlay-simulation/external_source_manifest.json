@@ -1,0 +1,21 @@
+{
+  "schema": "xau-external-gc-overlay-source-v1",
+  "provider": "Yahoo Finance chart endpoint",
+  "symbol": "GC=F",
+  "interval": "5m",
+  "host": "query1.finance.yahoo.com",
+  "requested_start_utc": "2026-09-16T09:56:21.193011+00:00",
+  "requested_end_utc": "2026-09-24T17:58:47.949011+00:00",
+  "http_status": 200,
+  "response_sha256": "501b38c031d08983bef0e1655f7e1829de86b92207e5b9485216c8984de45bb5",
+  "response_bytes": 143320,
+  "rows": 1751,
+  "first_timestamp_utc": "2026-09-16T09:55:00+00:00",
+  "last_timestamp_utc": "2026-09-24T17:50:00+00:00",
+  "source_note": "Aggregated continuous Gold futures proxy bars; not CME trade tape/depth.",
+  "mt5_clock_correction_sec": -10797.910989,
+  "timeline_policy": "request derived from archived MT5 timestamps; no current data",
+  "causal_policy": "use only fully completed 5-minute GC bars",
+  "derived_feature_rows_committed": 1751,
+  "final20_opened": false
+}

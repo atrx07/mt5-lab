@@ -1,0 +1,21 @@
+{
+  "schema": "xau-external-gc-overlay-v1",
+  "external_symbol": "GC=F",
+  "external_interval": "5m",
+  "external_timeline_policy": "same archived MT5 dates only; never current data",
+  "mt5_true_utc_correction_sec": -10797.910989,
+  "external_causality": "last fully completed 5-minute GC bar only",
+  "entry_guard_engines": [
+    "PRIMARY",
+    "SECONDARY"
+  ],
+  "entry_guard": "dir_gc_ret5 < 0 AND dir_gc_ret15 < 0",
+  "entry_skip_policy": "capital-free legacy ghost preserves slot/cooldown path",
+  "micro_burst_entry_changed": false,
+  "candidate_h_base": "Experiment 43",
+  "external_exit_confirmation": "dir_gc_ret5 < 0 AND dir_gc_ret15 < 0",
+  "known_data_promotion_allowed": false,
+  "threshold_search": false,
+  "lag_search": false,
+  "final20_opened": false
+}

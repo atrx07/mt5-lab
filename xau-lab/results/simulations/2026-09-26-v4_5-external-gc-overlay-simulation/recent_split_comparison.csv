@@ -1,0 +1,5 @@
+interval,split,D_terminal_equity_pnl_inr,D_trades,D_entry_skips,D_flow_exits,H_terminal_equity_pnl_inr,H_trades,H_entry_skips,H_flow_exits,GC-entry_terminal_equity_pnl_inr,GC-entry_trades,GC-entry_entry_skips,GC-entry_flow_exits,GC-exit_terminal_equity_pnl_inr,GC-exit_trades,GC-exit_entry_skips,GC-exit_flow_exits,I_terminal_equity_pnl_inr,I_trades,I_entry_skips,I_flow_exits
+500ms,seed,-92.47632849025553,19,0,0,-80.57790392259221,19,0,1,-92.47632849025553,19,0,0,-92.47632849025553,19,0,0,-92.47632849025553,19,0,0
+500ms,evaluation,-149.92292560013215,19,0,0,-141.65701614833876,19,0,1,-149.92292560013215,19,0,0,-149.92292560013215,19,0,0,-149.92292560013215,19,0,0
+1s,seed,-86.5433495254544,16,0,0,-73.58004601823319,16,0,1,-86.5433495254544,16,0,0,-86.5433495254544,16,0,0,-86.5433495254544,16,0,0
+1s,evaluation,-52.31249415892705,17,0,0,-57.23928314683707,17,0,1,-52.31249415892705,17,0,0,-52.31249415892705,17,0,0,-52.31249415892705,17,0,0
