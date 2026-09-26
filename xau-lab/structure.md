@@ -750,6 +750,10 @@ results/simulations/2026-09-26-v4_5-candidate-j-multiseed-random-audit/
 research/v4_5_candidate_j_multiseed_random_audit.py
 docs/experiments/2026-09-26/48-v4-5-candidate-j-fresh-validation.md
 research/v4_5_candidate_j_fresh_validation.py
+docs/experiments/2026-09-26/48P-v4-5-candidate-j-live-shadow-preflight.md
+results/simulations/2026-09-26-v4_5-candidate-j-live-shadow-preflight/
+scripts/live_shadow_candidate_j.py
+scripts/start_candidate_j_shadow.ps1
 docs/plans/V4_5_MT5_ONLY_LIVE_PRACTICALITY_GATE.md
 ```
 
