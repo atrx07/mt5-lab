@@ -519,3 +519,11 @@ Experiment 46 integrated the GC bridge using only matching historical dates and 
 A new chat should not ask the user to reconstruct the project from memory.
 
 Read this file and `structure.md`, inspect the latest canonical artifacts on `main`, state the recovered current status briefly, and continue from the latest unfinished experiment.
+
+## Live-practicality gate after Experiment 46
+
+Do not integrate external GC/Yahoo/CME/LMAX data into the active V4.5 execution algorithm. Experiments 45-46 are historical research evidence only.
+
+The Experiment-45 ~3-hour offset was a timestamp-label alignment issue, not a live market lead/lag claim. Even so, the active candidate now has a stricter deployability rule: every decision feature must be causally available from the same MT5/broker feed at trade time, must be replayable from archived MT5 fields, and must not require a second network/data-provider dependency. This avoids synchronization, feed-availability, licensing and latency failure modes that the current live design does not need.
+
+Candidate D remains provisional leader. Candidate H remains the strongest retained exit-management branch. Future experiments should improve entry/exit intelligence using MT5-native quote/tick/state information only unless the owner explicitly reopens external-feed research. Final20 remains sealed.
