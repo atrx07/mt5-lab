@@ -739,6 +739,9 @@ research/v4_5_tick_tape_field_audit.py
 docs/experiments/2026-09-26/45-v4-5-external-gc-correlation.md
 results/simulations/2026-09-26-v4_5-external-gc-correlation/
 research/v4_5_external_gc_correlation.py
+docs/experiments/2026-09-26/46-v4-5-external-gc-overlay-simulation.md
+results/simulations/2026-09-26-v4_5-external-gc-overlay-simulation/
+research/v4_5_external_gc_overlay_simulation.py
 ```
 
 If the latest experiment number/version changes later, follow the indexes rather than assuming the paths above remain the newest.
