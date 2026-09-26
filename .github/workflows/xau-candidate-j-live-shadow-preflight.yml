@@ -1,0 +1,65 @@
+name: XAU Candidate J Live Shadow Preflight
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/xau-candidate-j-live-shadow-preflight.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install replay runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas numba
+      - name: Run archived parity preflight
+        working-directory: xau-lab
+        env:
+          PYTHONUNBUFFERED: "1"
+          NUMBA_CACHE_DIR: "/tmp/numba-cache"
+        run: |
+          set -euo pipefail
+          python -m py_compile scripts/live_shadow_candidate_j.py
+          python scripts/live_shadow_candidate_j.py             --preflight data/raw/xau_ticks_recent_24h_2026-09-24.csv.gz             --preflight-out results/simulations/2026-09-26-v4_5-candidate-j-live-shadow-preflight/preflight.json
+      - name: Assert no execution call in runner
+        working-directory: xau-lab
+        run: |
+          python - <<'PY'
+          import ast
+          from pathlib import Path
+          p=Path("scripts/live_shadow_candidate_j.py")
+          tree=ast.parse(p.read_text(encoding="utf-8"))
+          bad=[]
+          for n in ast.walk(tree):
+              if isinstance(n,ast.Call) and isinstance(n.func,ast.Attribute):
+                  if n.func.attr.lower()=="order_send":
+                      bad.append((n.lineno,n.func.attr))
+          if bad:
+              raise SystemExit(f"forbidden trade calls: {bad}")
+          print("read-only safety AST check: PASS")
+          PY
+      - name: Commit preflight evidence
+        working-directory: xau-lab
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/simulations/2026-09-26-v4_5-candidate-j-live-shadow-preflight/
+          if git diff --cached --quiet; then
+            echo "No new evidence."
+          else
+            git commit -m "Store Candidate J live-shadow preflight evidence"
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
+          fi
