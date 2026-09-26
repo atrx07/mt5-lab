@@ -20,6 +20,7 @@ Plans are historical specifications once their corresponding experiment line mov
 - [V4.5 Candidate H flow-confirmed ghost exit](V4_5_CANDIDATE_H_FLOW_CONFIRMED_GHOST_EXIT.md) — frozen Experiment 43 signal-aware exit specification.
 - [V4.5 MT5 tick-tape field audit](V4_5_TICK_TAPE_FIELD_AUDIT.md) — frozen Experiment 44 representation audit.
 - [V4.5 external GC futures correlation](V4_5_EXTERNAL_GC_CORRELATION.md) — frozen Experiment 45 cross-market alignment specification.
-- [V4.5 external GC overlay simulation](V4_5_EXTERNAL_GC_OVERLAY_SIMULATION.md) — frozen Experiment 46 same-timeline strategy overlay specification. — frozen path-preserving profit-retention specification for Experiment 41.
+- [V4.5 external GC overlay simulation](V4_5_EXTERNAL_GC_OVERLAY_SIMULATION.md) — frozen Experiment 46 same-timeline strategy overlay specification.
+- [V4.5 MT5-only live-practicality gate](V4_5_MT5_ONLY_LIVE_PRACTICALITY_GATE.md) — active owner decision excluding external feeds from the runtime algorithm. — frozen path-preserving profit-retention specification for Experiment 41.
 
 Current strategy status and next actions belong in `../../agents.md`, the experiment index, and the current algorithm document rather than in this plans index.
