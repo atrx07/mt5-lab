@@ -97,7 +97,7 @@ def prepare_gc(raw: pd.DataFrame) -> pd.DataFrame:
 class GCSensor:
     def __init__(self, bars: pd.DataFrame):
         self.df = bars.copy()
-        self.ts = self.df["timestamp_utc"].astype("int64").to_numpy() / 1e9
+        self.ts = self.df["timestamp_utc"].map(lambda x: pd.Timestamp(x).timestamp()).to_numpy(dtype=float)
 
     def state(self, mt5_reported_ts: float, side: int, mt5_mid: float) -> Dict[str, float]:
         true_ts = float(mt5_reported_ts) + CLOCK_CORRECTION_SEC
