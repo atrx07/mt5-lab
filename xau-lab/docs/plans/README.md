@@ -24,6 +24,7 @@ Plans are historical specifications once their corresponding experiment line mov
 - [V4.5 MT5-only live-practicality gate](V4_5_MT5_ONLY_LIVE_PRACTICALITY_GATE.md) — active owner decision excluding external feeds from the runtime algorithm.
 - [V4.5 quote-flow phase controller](V4_5_QUOTE_FLOW_PHASE_CONTROLLER.md) — frozen Experiment 47 MT5-native entry/exit controller specification.
 - [V4.5 Candidate J multi-seed random audit](V4_5_CANDIDATE_J_MULTISEED_RANDOM_AUDIT.md) — frozen known-data robustness audit across three additional seeds.
-- [V4.5 Candidate J fresh validation](V4_5_CANDIDATE_J_FRESH_VALIDATION.md) — frozen Experiment 48 prospective MT5-only validation contract. — frozen path-preserving profit-retention specification for Experiment 41.
+- [V4.5 Candidate J fresh validation](V4_5_CANDIDATE_J_FRESH_VALIDATION.md) — frozen Experiment 48 prospective MT5-only validation contract.
+- [V4.5 Candidate J live-shadow preflight](V4_5_CANDIDATE_J_LIVE_SHADOW_PREFLIGHT.md) — read-only D/H/J shadow infrastructure prepared before market reopen. — frozen path-preserving profit-retention specification for Experiment 41.
 
 Current strategy status and next actions belong in `../../agents.md`, the experiment index, and the current algorithm document rather than in this plans index.
