@@ -76,7 +76,8 @@
     "docs/experiments/2026-09-25/41-v4-5-candidate-g-ghost-ratchet.md",
     "docs/experiments/2026-09-26/42-v4-5-signal-fingerprint-entry-quality.md",
     "docs/experiments/2026-09-26/43-v4-5-candidate-h-flow-confirmed-ghost-exit.md",
-    "docs/experiments/2026-09-26/44-v4-5-tick-tape-field-audit.md"
+    "docs/experiments/2026-09-26/44-v4-5-tick-tape-field-audit.md",
+    "docs/experiments/2026-09-26/45-v4-5-external-gc-correlation.md"
   ],
   "notes": [
     "The raw CSV is intentionally excluded from Git because it is approximately 220 MB.",
