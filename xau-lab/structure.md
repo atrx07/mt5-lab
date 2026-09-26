@@ -742,6 +742,7 @@ research/v4_5_external_gc_correlation.py
 docs/experiments/2026-09-26/46-v4-5-external-gc-overlay-simulation.md
 results/simulations/2026-09-26-v4_5-external-gc-overlay-simulation/
 research/v4_5_external_gc_overlay_simulation.py
+docs/plans/V4_5_MT5_ONLY_LIVE_PRACTICALITY_GATE.md
 ```
 
 If the latest experiment number/version changes later, follow the indexes rather than assuming the paths above remain the newest.
