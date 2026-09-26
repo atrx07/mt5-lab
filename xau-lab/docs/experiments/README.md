@@ -61,3 +61,4 @@ Experiments are grouped by date so each session can grow independently without t
 - [43 — V4.5 Candidate H flow-confirmed ghost exit](2026-09-26/43-v4-5-candidate-h-flow-confirmed-ghost-exit.md)
 - [44 — V4.5 MT5 tick-tape field audit](2026-09-26/44-v4-5-tick-tape-field-audit.md)
 - [45 — V4.5 external GC futures correlation bridge](2026-09-26/45-v4-5-external-gc-correlation.md)
+- [46 — V4.5 same-timeline external GC overlay simulation](2026-09-26/46-v4-5-external-gc-overlay-simulation.md)
