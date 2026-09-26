@@ -24,6 +24,7 @@ def main() -> None:
     parser.add_argument("--symbol", default="XAUUSD")
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--manifest", type=Path, required=True)
+    parser.add_argument("--used-by", action="append", default=[], help="Experiment/document path to record in manifest used_by; may be repeated")
     args = parser.parse_args()
     if not 0 < args.hours <= 48:
         parser.error("--hours must be in (0, 48]")
@@ -92,7 +93,7 @@ def main() -> None:
                 "deterministic_header": {"mtime": 0, "filename": ""},
                 "status": "pending",
             },
-            "used_by": ["docs/experiments/2026-09-24/22-recent-micro-long-validation.md"],
+            "used_by": args.used_by or ["docs/experiments/2026-09-24/22-recent-micro-long-validation.md"],
             "notes": [
                 "This frozen snapshot is an offline replay input, not an order or live trading log.",
                 "MT5 tick time appears about three hours ahead of host UTC; no silent clock shift was applied.",
