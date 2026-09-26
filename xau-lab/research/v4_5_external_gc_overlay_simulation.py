@@ -769,7 +769,7 @@ def main():
                 "I_entry_skips":im["external_entry_skips"],"I_flow_exits":im["primary_flow_exits"],
             }
             rr.append(row); random_rows_all.append(row)
-        random_summary={v:random_summary(rr,v) for v in ("D","H","I")}
+        random_stats={v:random_summary(rr,v) for v in ("D","H","I")}
 
         costs=[]
         for slip in SLIPPAGE_STRESS_USD_PER_SIDE:
@@ -786,7 +786,7 @@ def main():
             "canonical_first80":{v:sums[v] for v in VARIANTS},
             "recent24h_whole":{v:compact(recent[v]) for v in VARIANTS},
             "recent24h_split":splits,
-            "random_real_windows":random_summary,
+            "random_real_windows":random_stats,
             "cost_stress":costs,
         }
 
