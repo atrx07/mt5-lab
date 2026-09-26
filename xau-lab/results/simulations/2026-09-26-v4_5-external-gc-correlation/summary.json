@@ -1,0 +1,90 @@
+{
+  "schema": "xau-external-gc-correlation-v1",
+  "strategy_changed": false,
+  "outcome_labels_used": false,
+  "selection_performed": false,
+  "external_symbol": "GC=F",
+  "external_interval": "5m",
+  "lag_scan_minutes": {
+    "min": -240,
+    "max": 240,
+    "step": 5
+  },
+  "recent_recorded_mt5_minus_host_sec": 10797.910989,
+  "windows": {
+    "historical_first80": {
+      "mt5_reported_start_utc": "2026-09-16T14:56:19.104000+00:00",
+      "mt5_reported_end_utc": "2026-09-22T14:38:42.915000+00:00",
+      "mt5_raw_rows": 1869979,
+      "gc_5m_rows_near_window": 1218,
+      "raw_timestamp_alignment": {
+        "matched_returns": 992,
+        "pearson_return": -0.021020677439401437,
+        "spearman_return": 0.0029533713976560225,
+        "direction_agreement": 0.4889112903225806,
+        "price_level_pearson": 0.6698515318307945,
+        "basis_median_usd": 37.33240234374989,
+        "basis_std_usd": 24.018229241646008
+      },
+      "best_lag_alignment": {
+        "window": "historical_first80",
+        "gc_shift_minutes_to_match_mt5": 180,
+        "matched_returns": 1050,
+        "pearson_return": 0.9920765955068005,
+        "spearman_return": 0.9890323850120158,
+        "direction_agreement": 0.9504761904761905,
+        "price_level_pearson": 0.9990969554028633,
+        "basis_median_usd": 38.33735351562473,
+        "basis_std_usd": 1.2962754382518478
+      },
+      "fixed_clock_correction_sec": -10797.910989,
+      "fixed_clock_correction_alignment": {
+        "matched_returns": 1054,
+        "pearson_return": 0.9882249092100651,
+        "spearman_return": 0.9832293900169436,
+        "direction_agreement": 0.9421252371916509,
+        "price_level_pearson": 0.999064332590822,
+        "basis_median_usd": 38.340048828124964,
+        "basis_std_usd": 1.320891041410274
+      }
+    },
+    "recent24h": {
+      "mt5_reported_start_utc": "2026-09-23T18:58:46.459000+00:00",
+      "mt5_reported_end_utc": "2026-09-24T18:58:45.860000+00:00",
+      "mt5_raw_rows": 476535,
+      "gc_5m_rows_near_window": 385,
+      "raw_timestamp_alignment": {
+        "matched_returns": 253,
+        "pearson_return": -0.09603480490211691,
+        "spearman_return": -0.09639355049564427,
+        "direction_agreement": 0.466403162055336,
+        "price_level_pearson": 0.47796185804484886,
+        "basis_median_usd": 33.210000000000036,
+        "basis_std_usd": 13.645548351199793
+      },
+      "best_lag_alignment": {
+        "window": "recent24h",
+        "gc_shift_minutes_to_match_mt5": 180,
+        "matched_returns": 264,
+        "pearson_return": 0.9914570698049521,
+        "spearman_return": 0.9911355459136484,
+        "direction_agreement": 0.9583333333333334,
+        "price_level_pearson": 0.9989813904863288,
+        "basis_median_usd": 34.8325488281248,
+        "basis_std_usd": 0.671980224206828
+      },
+      "fixed_clock_correction_sec": -10797.910989,
+      "fixed_clock_correction_alignment": {
+        "matched_returns": 265,
+        "pearson_return": 0.9859110972688355,
+        "spearman_return": 0.98585660379765,
+        "direction_agreement": 0.9471698113207547,
+        "price_level_pearson": 0.9988816341727167,
+        "basis_median_usd": 34.840000000000146,
+        "basis_std_usd": 0.6936606223716407
+      }
+    }
+  },
+  "final20_opened": false,
+  "decision": "Correlation/alignment evidence only. Do not promote a trading rule from this result."
+}
