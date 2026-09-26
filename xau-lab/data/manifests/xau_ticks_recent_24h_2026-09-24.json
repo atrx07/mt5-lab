@@ -66,7 +66,8 @@
     "docs/experiments/2026-09-26/44-v4-5-tick-tape-field-audit.md",
     "docs/experiments/2026-09-26/45-v4-5-external-gc-correlation.md",
     "docs/experiments/2026-09-26/46-v4-5-external-gc-overlay-simulation.md",
-    "docs/experiments/2026-09-26/47-v4-5-quote-flow-phase-controller.md"
+    "docs/experiments/2026-09-26/47-v4-5-quote-flow-phase-controller.md",
+    "docs/experiments/2026-09-26/47R-v4-5-candidate-j-multiseed-random-audit.md"
   ],
   "notes": [
     "This frozen snapshot is an offline replay input, not an order or live trading log.",
