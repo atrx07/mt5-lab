@@ -160,7 +160,7 @@ def correlation_stats(mt5: pd.DataFrame, gc: pd.DataFrame, *, gc_shift_min: int 
             "basis_std_usd": math.nan,
         }
     pr = float(joined.mt5_return.corr(joined.gc_return, method="pearson"))
-    sr = float(joined.mt5_return.corr(joined.gc_return, method="spearman"))
+    sr = float(joined.mt5_return.rank(method="average").corr(joined.gc_return.rank(method="average")))
     direction = float(np.mean(np.sign(joined.mt5_return) == np.sign(joined.gc_return)))
     level = float(joined.mt5_price.corr(joined.gc_price, method="pearson"))
     basis = joined.gc_price - joined.mt5_price
