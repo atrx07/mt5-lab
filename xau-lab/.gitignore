@@ -18,3 +18,6 @@ Thumbs.db
 
 # Read-only live-shadow sessions stay local until explicitly frozen.
 data/live_shadow/
+
+# Fresh prospective 4-hour blocks stay local until explicitly frozen.
+data/prospective_4h/
