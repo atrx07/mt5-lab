@@ -141,6 +141,7 @@ def manifest_payload(
     score_max_gap_sec: float,
     score_gap_count_5s: int,
     host_runtime_sec: float,
+    hash_files: bool,
 ) -> Dict:
     score_start_broker = datetime.fromtimestamp(score_start_msc / 1000.0, timezone.utc)
     latest_score_tick = (
@@ -179,13 +180,13 @@ def manifest_payload(
         "warmup": {
             "path": str(warmup_path),
             "rows": warmup_rows,
-            "sha256": sha256_file(warmup_path) if warmup_path.exists() else None,
+            "sha256": sha256_file(warmup_path) if hash_files and warmup_path.exists() else None,
             "columns": RAW_COLUMNS,
         },
         "score": {
             "path": str(score_path),
             "rows": score_rows,
-            "sha256": sha256_file(score_path) if score_path.exists() else None,
+            "sha256": sha256_file(score_path) if hash_files and score_path.exists() else None,
             "columns": RAW_COLUMNS,
         },
         "safety": safety_scan_source(),
@@ -344,6 +345,7 @@ def main() -> None:
                     score_max_gap_sec=max_tick_gap_sec(score_rows_all),
                     score_gap_count_5s=gap_count(score_rows_all, 5.0),
                     host_runtime_sec=elapsed,
+                    hash_files=False,
                 )
                 atomic_json(manifest_path, payload)
                 last_manifest = now_mono
@@ -386,6 +388,7 @@ def main() -> None:
             score_max_gap_sec=max_tick_gap_sec(score_rows_all),
             score_gap_count_5s=gap_count(score_rows_all, 5.0),
             host_runtime_sec=runtime,
+            hash_files=True,
         )
         atomic_json(manifest_path, payload)
         mt5.shutdown()
