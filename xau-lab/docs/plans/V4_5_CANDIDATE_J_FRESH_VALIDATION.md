@@ -2,7 +2,7 @@
 
 Date: 2026-09-26
 
-Status: **frozen before fresh-data capture**
+Status: **amended before the first scored prospective block; staged 4-hour capture replaces continuous 48-hour requirement**
 
 ## Objective
 
@@ -24,36 +24,50 @@ Candidate J logic is frozen at:
 
 No phase rule, wait horizon, engine scope, exit confirmation, threshold, sizing, spread rule or lifecycle rule may be changed before or during this validation.
 
-## Fresh snapshot contract
+## Fresh staged-capture contract
 
-Capture a new **48-hour MT5 XAUUSD tick snapshot** only after at least 48 live market hours have elapsed after the weekend reopen.
+The original continuous 48-hour requirement is superseded **before the first scored prospective block** because the owner's laptop cannot reasonably remain powered and internet-connected continuously for two days.
 
-Use:
-`tools/capture_recent_xau_ticks.py --hours 48`
+The scientific constraint is preserved by using predeclared independent fresh blocks rather than one uninterrupted file.
+
+### Stage 1
+
+Capture **six fresh 4-hour scored blocks** using the same MT5/broker XAUUSD feed.
 
 Requirements:
 
-- source: same MT5 terminal/broker feed used by the strategy;
-- all raw fields retained: timestamp_utc, bid, ask, last, volume, flags, volume_real, spread, mid;
-- immutable CSV + manifest + SHA-256;
-- timestamp range must not overlap the existing recent24h snapshot ending 2026-09-24;
+- each block is started deliberately before viewing Candidate-J outcomes;
+- each block has **90 minutes of causal MT5 history available before score start**;
+- the 90-minute history may be fetched immediately from MT5 tick history at launch and is context only, not scored;
+- the scored block begins at launch and lasts exactly four wall-clock hours;
+- no block may overlap another scored block;
+- collect the six blocks across at least **three different market days** and, where practical, different times of day;
+- all raw fields are retained: timestamp_utc, bid, ask, last, volume, flags, volume_real, spread, mid;
+- raw data + manifest + SHA-256 are frozen per block;
 - final20 remains sealed;
 - no external market data.
 
-The manifest must reference:
-`docs/experiments/2026-09-26/48-v4-5-candidate-j-fresh-validation.md`
+Default capture tool:
+`scripts/capture_candidate_j_4h_block.py`
+
+### Stage 2
+
+If Stage 1 passes the frozen gate below, collect **six additional fresh 4-hour blocks** under the same unchanged Candidate-J implementation and the same capture/evaluation contract.
+
+Do not tune Candidate J between Stage 1 and Stage 2.
 
 ## Evaluation
 
-Run both 500 ms and 1 s grids.
+Run Candidate D, Candidate H and frozen Candidate J on both 500 ms and 1 s for each scored block.
 
-For each candidate:
+The 90-minute prehistory exists only to provide causal feature/history context. Performance accounting begins at the declared score-start boundary.
 
-- whole-snapshot terminal-equity P&L;
+For every block/candidate report:
+
+- terminal-equity P&L;
 - profit factor;
 - trades / wins / win rate;
-- max drawdown;
-- trade count and engine attribution where available.
+- max drawdown.
 
 For Candidate J additionally:
 
@@ -62,45 +76,46 @@ For Candidate J additionally:
 - baseline-shadow parity;
 - action/phase counts.
 
-### Non-overlapping variable windows
+Across the six blocks report per grid:
 
-Partition each continuity session into deterministic **non-overlapping four-hour blocks**.
-
-Do not randomly resample the fresh snapshot.
-
-Report per grid:
-
-- mean four-hour terminal-equity P&L;
-- median;
+- mean and median block P&L;
 - p05 / p95;
 - positive-block fraction;
-- aggregate trades / wins.
+- aggregate trades / wins;
+- Candidate-J vs Candidate-D block wins.
 
 ### Cost stress
 
-Whole fresh window only:
+Re-evaluate each scored block with:
 
 - $0.00;
 - $0.05;
 - $0.10;
 - $0.20 adverse slippage per side.
 
-## Predeclared prospective pass gate
+## Predeclared Stage-1 prospective pass gate
 
-Candidate J passes Experiment 48 only if **all** of the following hold on the fresh snapshot:
+Candidate J passes Stage 1 only if **all** of the following hold across the six fresh blocks:
 
-1. whole-window terminal-equity P&L > 0 on both 500 ms and 1 s;
-2. whole-window Candidate-J P&L >= Candidate D on both grids;
-3. non-overlapping four-hour mean P&L > 0 on both grids;
-4. at least 50% of non-overlapping four-hour blocks are positive on both grids;
-5. +$0.10 per-side stress remains >= 0 on both grids;
-6. baseline-shadow opportunity path parity passes.
+1. pooled Candidate-J P&L > 0 on both 500 ms and 1 s;
+2. pooled Candidate-J P&L >= pooled Candidate-D P&L on both grids;
+3. mean 4-hour Candidate-J P&L > 0 on both grids;
+4. at least 3 of 6 blocks are positive for Candidate J on both grids;
+5. Candidate J beats or equals Candidate D in at least 4 of 6 blocks on both grids;
+6. pooled Candidate-J P&L under +$0.10 per-side stress remains >= 0 on both grids;
+7. baseline-shadow opportunity parity passes for every block.
 
-These criteria are frozen before data capture.
+These criteria are frozen before the first scored four-hour block.
 
-A pass does not automatically authorize live money. It only justifies advancing Candidate J to the next validation stage.
+A Stage-1 pass advances the **unchanged** Candidate J to Stage 2. It does not authorize live-money execution.
 
-A fail rejects this frozen Candidate J on prospective data. Do not tune Candidate J against the failed fresh snapshot and call it unseen again.
+A Stage-1 fail rejects this frozen Candidate J prospectively. Do not tune against these six blocks and relabel the tuned version as unseen.
+
+## Predeclared Stage-2 confirmation
+
+Stage 2 uses six additional fresh blocks and repeats the same seven pass conditions independently.
+
+Only a clean Stage-2 pass may advance Candidate J to the final confirmation decision.
 
 ## Next step after a pass
 
