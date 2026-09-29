@@ -1,0 +1,32 @@
+name: XAU 4H Recovery Preflight
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/xau-4h-recovery-preflight.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas numba
+      - name: Compile and self-test capture/recovery
+        working-directory: xau-lab
+        run: |
+          set -euo pipefail
+          python -m py_compile scripts/live_shadow_candidate_j.py scripts/capture_candidate_j_4h_block.py scripts/recover_candidate_j_4h_block.py
+          python scripts/capture_candidate_j_4h_block.py --self-test
+          python scripts/recover_candidate_j_4h_block.py dummy --self-test
