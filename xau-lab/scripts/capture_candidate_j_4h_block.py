@@ -432,6 +432,7 @@ def main() -> None:
             score_start_host=score_start_host,
             score_start_msc=score_start_msc,
             score_end_target_host=score_end_target_host,
+            score_end_target_msc=score_end_target_msc,
             complete=complete,
             stop_host=stop_host,
             warmup_rows=len(warmup),
