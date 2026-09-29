@@ -289,7 +289,8 @@ def main() -> None:
 
     # Seed overlap-dedup state from the boundary millisecond.
     boundary_rows = [x for x in warmup_all if int(x["_time_msc"]) == score_start_msc]
-    last_signature_counts = Counter(x["_signature"] for x in boundary_rows)
+    boundary_signature_counts = Counter(x["_signature"] for x in boundary_rows)
+    last_signature_counts = Counter(boundary_signature_counts)
     last_time_msc = score_start_msc
 
     duration_sec = args.duration_hours * 3600.0
@@ -327,7 +328,7 @@ def main() -> None:
                     args.symbol,
                     score_start_msc,
                     score_end_target_msc,
-                    last_signature_counts,
+                    boundary_signature_counts,
                 )
                 if recovered:
                     write_rows_tmp = score_path.with_suffix(".csv.tmp")
