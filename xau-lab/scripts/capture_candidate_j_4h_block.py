@@ -97,6 +97,25 @@ def public_rows(rows: List[Dict]) -> List[Dict]:
     return [shadow.public_row(x) for x in rows]
 
 
+def reconstruct_exact_score_window(mt5, symbol: str, start_msc: int, end_msc: int, boundary_counts: Counter):
+    """Re-read the frozen score interval from MT5 history before finalizing.
+
+    This makes laptop suspend harmless: the score boundary never moves and any
+    locally missed ticks are recovered from the same broker archive.
+    """
+    start_dt = datetime.fromtimestamp(start_msc / 1000.0, timezone.utc)
+    end_dt = datetime.fromtimestamp(end_msc / 1000.0, timezone.utc)
+    ticks = mt5.copy_ticks_range(
+        symbol,
+        start_dt,
+        end_dt + timedelta(milliseconds=2),
+        mt5.COPY_TICKS_ALL,
+    )
+    fetched = shadow.structured_ticks_to_rows(ticks)
+    rows, _, _ = shadow.select_new_rows(fetched, start_msc, boundary_counts)
+    return [x for x in rows if start_msc <= int(x["_time_msc"]) <= end_msc]
+
+
 def trailing_continuity_minutes(rows: List[Dict]) -> float:
     if len(rows) < 2:
         return 0.0
@@ -132,6 +151,7 @@ def manifest_payload(
     score_start_host: datetime,
     score_start_msc: int,
     score_end_target_host: datetime,
+    score_end_target_msc: int,
     complete: bool,
     stop_host: datetime | None,
     warmup_rows: int,
@@ -144,6 +164,7 @@ def manifest_payload(
     hash_files: bool,
 ) -> Dict:
     score_start_broker = datetime.fromtimestamp(score_start_msc / 1000.0, timezone.utc)
+    score_end_target_broker = datetime.fromtimestamp(score_end_target_msc / 1000.0, timezone.utc)
     latest_score_tick = (
         datetime.fromtimestamp(latest_score_tick_msc / 1000.0, timezone.utc).isoformat()
         if latest_score_tick_msc is not None
@@ -165,10 +186,16 @@ def manifest_payload(
             "score_start_host_utc": score_start_host.isoformat(),
             "score_start_mt5_reported_utc": score_start_broker.isoformat(),
             "score_end_target_host_utc": score_end_target_host.isoformat(),
+            "score_end_target_mt5_reported_utc": score_end_target_broker.isoformat(),
             "score_stop_host_utc": stop_host.isoformat() if stop_host else None,
             "host_runtime_sec": host_runtime_sec,
             "complete": bool(complete),
-            "valid_for_stage1": bool(complete and warmup_continuity_min >= args.warmup_minutes),
+            "valid_for_stage1": bool(
+                complete
+                and warmup_continuity_min >= args.warmup_minutes
+                and latest_score_tick_msc is not None
+                and (score_end_target_msc - latest_score_tick_msc) / 1000.0 <= 5.0
+            ),
         },
         "capture_quality": {
             "score_rows": score_rows,
@@ -269,6 +296,7 @@ def main() -> None:
     start_mono = time.monotonic()
     end_mono = start_mono + duration_sec
     score_end_target_host = score_start_host + timedelta(seconds=duration_sec)
+    score_end_target_msc = score_start_msc + int(duration_sec * 1000.0)
 
     score_rows_all: List[Dict] = []
     score_rows = 0
@@ -292,7 +320,30 @@ def main() -> None:
         while True:
             now_mono = time.monotonic()
             if now_mono >= end_mono:
-                complete = True
+                # Finalize from the exact frozen MT5 interval before declaring
+                # success. This recovers ticks missed while Windows was asleep.
+                recovered = reconstruct_exact_score_window(
+                    mt5,
+                    args.symbol,
+                    score_start_msc,
+                    score_end_target_msc,
+                    last_signature_counts,
+                )
+                if recovered:
+                    write_rows_tmp = score_path.with_suffix(".csv.tmp")
+                    with write_rows_tmp.open("w", newline="", encoding="utf-8") as fh:
+                        w = csv.DictWriter(fh, fieldnames=RAW_COLUMNS)
+                        w.writeheader()
+                        for row in public_rows(recovered):
+                            w.writerow({k: row[k] for k in RAW_COLUMNS})
+                    os.replace(write_rows_tmp, score_path)
+                    score_rows_all = recovered
+                    score_rows = len(recovered)
+                    latest_score_tick_msc = max(int(x["_time_msc"]) for x in recovered)
+                complete = bool(
+                    latest_score_tick_msc is not None
+                    and (score_end_target_msc - latest_score_tick_msc) / 1000.0 <= 5.0
+                )
                 break
 
             latest = mt5.symbol_info_tick(args.symbol)
@@ -336,6 +387,7 @@ def main() -> None:
                     score_start_host=score_start_host,
                     score_start_msc=score_start_msc,
                     score_end_target_host=score_end_target_host,
+                    score_end_target_msc=score_end_target_msc,
                     complete=False,
                     stop_host=None,
                     warmup_rows=len(warmup),
