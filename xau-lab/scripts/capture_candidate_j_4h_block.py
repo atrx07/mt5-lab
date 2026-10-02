@@ -41,6 +41,7 @@ import live_shadow_candidate_j as shadow
 
 SYMBOL = "XAUUSD"
 DEFAULT_OUTPUT = ROOT / "data" / "prospective_4h"
+DEFAULT_DIAG_OUTPUT = ROOT / "data" / "continuity_diagnostics"
 EXPERIMENT_REF = "docs/experiments/2026-09-26/48-v4-5-candidate-j-fresh-validation.md"
 
 RAW_COLUMNS = shadow.RAW_COLUMNS
@@ -125,6 +126,110 @@ def trailing_continuity_minutes(rows: List[Dict]) -> float:
         if times[i] - times[i - 1] > 5000:
             last_gap_idx = i
     return max(0.0, (times[-1] - times[last_gap_idx]) / 60000.0)
+
+
+def continuity_gap_rows(rows: List[Dict], threshold_sec: float = 5.0) -> List[Dict]:
+    """Return every raw tick gap strictly larger than threshold_sec."""
+    if len(rows) < 2:
+        return []
+    out: List[Dict] = []
+    latest_msc = int(rows[-1]["_time_msc"])
+    prev = rows[0]
+    for row in rows[1:]:
+        a = int(prev["_time_msc"])
+        b = int(row["_time_msc"])
+        gap_sec = max(0.0, (b - a) / 1000.0)
+        if gap_sec > threshold_sec:
+            out.append({
+                "gap_start_utc": datetime.fromtimestamp(a / 1000.0, timezone.utc).isoformat(),
+                "gap_end_utc": datetime.fromtimestamp(b / 1000.0, timezone.utc).isoformat(),
+                "gap_sec": gap_sec,
+                "minutes_before_latest": max(0.0, (latest_msc - b) / 60000.0),
+                "classification": "SESSION_OR_OUTAGE" if gap_sec >= 60.0 else "CONTINUITY_RESET",
+            })
+        prev = row
+    return out
+
+
+def write_continuity_diagnostics(
+    rows: List[Dict],
+    *,
+    output_root: Path,
+    symbol: str,
+    threshold_sec: float,
+    required_minutes: float,
+) -> Dict:
+    """Persist an outcome-blind MT5 quote-continuity diagnostic."""
+    output_root.mkdir(parents=True, exist_ok=True)
+    latest_msc = int(rows[-1]["_time_msc"]) if rows else 0
+    gaps = continuity_gap_rows(rows, threshold_sec)
+    continuity_min = trailing_continuity_minutes(rows)
+    remaining_min = max(0.0, required_minutes - continuity_min)
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    csv_path = output_root / f"{symbol}_{stamp}_gaps.csv"
+    json_path = output_root / f"{symbol}_{stamp}_summary.json"
+
+    fields = [
+        "gap_start_utc", "gap_end_utc", "gap_sec",
+        "minutes_before_latest", "classification",
+    ]
+    with csv_path.open("w", newline="", encoding="utf-8") as fh:
+        w = csv.DictWriter(fh, fieldnames=fields)
+        w.writeheader()
+        w.writerows(gaps)
+
+    last_gap = gaps[-1] if gaps else None
+    summary = {
+        "schema": "xau-continuity-diagnostic-v1",
+        "symbol": symbol,
+        "threshold_sec": threshold_sec,
+        "required_continuity_minutes": required_minutes,
+        "current_continuity_minutes": continuity_min,
+        "remaining_minutes": remaining_min,
+        "latest_tick_utc": (
+            datetime.fromtimestamp(latest_msc / 1000.0, timezone.utc).isoformat()
+            if latest_msc else None
+        ),
+        "rows_examined": len(rows),
+        "gap_count": len(gaps),
+        "last_gap": last_gap,
+        "gaps_csv": str(csv_path),
+    }
+    atomic_json(json_path, summary)
+    return {**summary, "summary_json": str(json_path), "gaps": gaps}
+
+
+def print_continuity_diagnostics(diag: Dict, *, max_recent: int = 10) -> None:
+    print()
+    print("==========================================================")
+    print(" XAUUSD QUOTE-CONTINUITY DIAGNOSTIC")
+    print("==========================================================")
+    print(f"Current continuity : {diag['current_continuity_minutes']:.2f} min")
+    print(f"Still required     : {diag['remaining_minutes']:.2f} min")
+    print(f">5s gaps examined  : {diag['gap_count']}")
+    if diag.get("last_gap"):
+        g = diag["last_gap"]
+        print(
+            f"Last >5s gap       : {g['gap_sec']:.3f}s "
+            f"({g['minutes_before_latest']:.2f} min before latest tick)"
+        )
+        print(f"Gap interval       : {g['gap_start_utc']} -> {g['gap_end_utc']}")
+        print(f"Gap class          : {g['classification']}")
+    else:
+        print("Last >5s gap       : none in diagnostic lookback")
+
+    gaps = diag.get("gaps") or []
+    if gaps:
+        print()
+        print(f"Recent >5s gaps (latest {min(max_recent, len(gaps))}):")
+        for g in gaps[-max_recent:]:
+            print(
+                f"  {g['gap_sec']:8.3f}s | {g['gap_end_utc']} | "
+                f"{g['minutes_before_latest']:.2f} min ago | {g['classification']}"
+            )
+    print()
+    print("All gaps CSV       :", diag["gaps_csv"])
+    print("Summary JSON       :", diag["summary_json"])
 
 
 def max_tick_gap_sec(rows: List[Dict]) -> float:
@@ -231,6 +336,9 @@ def main() -> None:
     ap.add_argument("--manifest-sec", type=float, default=60.0)
     ap.add_argument("--print-sec", type=float, default=10.0)
     ap.add_argument("--output-root", type=Path, default=DEFAULT_OUTPUT)
+    ap.add_argument("--diagnostic-output-root", type=Path, default=DEFAULT_DIAG_OUTPUT)
+    ap.add_argument("--diagnostic-hours", type=float, default=24.0)
+    ap.add_argument("--continuity-gap-sec", type=float, default=5.0)
     ap.add_argument("--session-id")
     ap.add_argument("--self-test", action="store_true")
     args = ap.parse_args()
@@ -245,6 +353,10 @@ def main() -> None:
         raise SystemExit("--duration-hours must be > 0")
     if args.poll_sec <= 0:
         raise SystemExit("--poll-sec must be > 0")
+    if args.diagnostic_hours <= 0:
+        raise SystemExit("--diagnostic-hours must be > 0")
+    if args.continuity_gap_sec <= 0:
+        raise SystemExit("--continuity-gap-sec must be > 0")
 
     safety_scan_source()
     mt5 = shadow.live_import_mt5()
@@ -276,10 +388,30 @@ def main() -> None:
 
     trailing_min = trailing_continuity_minutes(warmup_all)
     if trailing_min + 1e-9 < args.warmup_minutes:
+        # Pull a longer, outcome-blind history window so the user can see
+        # exactly which >5s quote gaps reset the warmup clock.
+        diag_start = broker_latest - timedelta(hours=args.diagnostic_hours)
+        diag_ticks = mt5.copy_ticks_range(
+            args.symbol,
+            diag_start,
+            request_end,
+            mt5.COPY_TICKS_ALL,
+        )
+        diag_rows = shadow.structured_ticks_to_rows(diag_ticks)
+        diag = write_continuity_diagnostics(
+            diag_rows,
+            output_root=args.diagnostic_output_root,
+            symbol=args.symbol,
+            threshold_sec=args.continuity_gap_sec,
+            required_minutes=args.warmup_minutes,
+        )
+        print_continuity_diagnostics(diag)
         mt5.shutdown()
         raise RuntimeError(
             f"Warmup continuity insufficient: {trailing_min:.2f} min available, "
-            f"{args.warmup_minutes:.2f} min required. Do not score this block yet."
+            f"{args.warmup_minutes:.2f} min required. "
+            f"Need about {max(0.0, args.warmup_minutes - trailing_min):.2f} more "
+            f"uninterrupted minutes. See continuity diagnostic above."
         )
 
     score_start_msc = int(warmup_all[-1]["_time_msc"])
