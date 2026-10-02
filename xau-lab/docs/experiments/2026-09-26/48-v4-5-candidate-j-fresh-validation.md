@@ -41,3 +41,17 @@ The capture tool backfills its own 90-minute MT5 context, so it does not depend 
 The Stage-1 pass gate is frozen in the plan before the first scored block.
 
 Final20 remains sealed.
+
+
+## Block-duration amendment
+
+After Stage-1 Block #3 crossed a broker no-tick maintenance interval, and before any staged-block Candidate D/H/J outcomes were evaluated, the score-duration rule was amended outcome-blind:
+
+- preserve the originally frozen block start;
+- accumulate four **market-active** hours;
+- pause the scored clock across MT5 no-tick gaps >=60 seconds;
+- determine the end mechanically from timestamps only;
+- use the same MT5/broker history for reconstruction;
+- do not inspect candidate P&L when determining or repairing the endpoint.
+
+Blocks without such a gap are unchanged. This amendment prevents scheduled broker downtime from shortening effective market exposure while keeping the laptop runtime practical.
