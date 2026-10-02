@@ -30,6 +30,25 @@ The original continuous 48-hour requirement is superseded **before the first sco
 
 The scientific constraint is preserved by using predeclared independent fresh blocks rather than one uninterrupted file.
 
+### Outcome-blind market-hours amendment
+
+Added after Block #3 encountered a broker no-tick maintenance interval and **before any Candidate-D/H/J outcomes from the staged prospective blocks were evaluated**.
+
+The four-hour block duration is now defined as **four market-active hours from the originally frozen start timestamp**.
+
+Mechanically:
+
+- the score start timestamp never moves;
+- tick-to-tick no-quote gaps **>= 60 seconds** pause the block clock;
+- those paused seconds do not count toward the four scored hours;
+- scoring resumes on the first later MT5 tick;
+- the score end is the first tick where cumulative market-active time reaches four hours;
+- the rule uses timestamps only and is independent of candidate P&L or decisions;
+- recovery must use the same MT5/broker history;
+- blocks without >=60 s gaps are unchanged from the original wall-clock definition.
+
+This amendment exists so a scheduled broker maintenance halt does not turn a nominal four-hour block into a materially shorter market-exposure sample. The laptop still only needs to run for about four wall-clock hours; if a maintenance gap occurs, the missing market-active tail may be reconstructed later from broker history.
+
 ### Stage 1
 
 Capture **six fresh 4-hour scored blocks** using the same MT5/broker XAUUSD feed.
@@ -39,7 +58,7 @@ Requirements:
 - each block is started deliberately before viewing Candidate-J outcomes;
 - each block has **90 minutes of causal MT5 history available before score start**;
 - the 90-minute history may be fetched immediately from MT5 tick history at launch and is context only, not scored;
-- the scored block begins at launch and lasts exactly four wall-clock hours;
+- the scored block begins at launch and targets four **market-active** hours; no-tick gaps >=60 s pause the scored clock;
 - no block may overlap another scored block;
 - collect the six blocks across at least **three different market days** and, where practical, different times of day;
 - all raw fields are retained: timestamp_utc, bid, ask, last, volume, flags, volume_real, spread, mid;
