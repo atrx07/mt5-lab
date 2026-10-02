@@ -21,3 +21,6 @@ data/live_shadow/
 
 # Fresh prospective 4-hour blocks stay local until explicitly frozen.
 data/prospective_4h/
+
+# Local broker quote-gap diagnostics.
+data/continuity_diagnostics/
