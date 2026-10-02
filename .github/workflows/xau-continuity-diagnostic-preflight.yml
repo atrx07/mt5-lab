@@ -1,0 +1,47 @@
+name: XAU Continuity Diagnostic Preflight
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/xau-continuity-diagnostic-preflight.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas numba
+      - name: Compile and unit-check continuity logic
+        working-directory: xau-lab
+        run: |
+          set -euo pipefail
+          python -m py_compile scripts/live_shadow_candidate_j.py scripts/capture_candidate_j_4h_block.py
+          python - <<'PY'
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, str(Path("scripts").resolve()))
+          import capture_candidate_j_4h_block as c
+          rows=[
+              {"_time_msc":0},
+              {"_time_msc":1000},
+              {"_time_msc":7001},
+              {"_time_msc":8001},
+          ]
+          gaps=c.continuity_gap_rows(rows,5.0)
+          assert len(gaps)==1, gaps
+          assert abs(gaps[0]["gap_sec"]-6.001)<1e-9, gaps
+          assert abs(c.trailing_continuity_minutes(rows)-(1.0/60.0))<1e-9
+          print("continuity diagnostic pure logic: PASS")
+          PY
