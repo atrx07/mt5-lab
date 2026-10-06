@@ -1,0 +1,59 @@
+name: XAU Candidate O Acceptance Invalidation
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/xau-candidate-o-acceptance-invalidation.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install runtime
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas numba
+      - name: Restore archived evidence
+        working-directory: xau-lab
+        run: |
+          set -euo pipefail
+          python tools/restore_dataset.py data/manifests/xau_ticks_7d_2026-09-16_to_2026-09-23.json
+          rm -rf data/prospective_restored
+          mkdir -p data/prospective_restored
+          for archive in data/prospective_archives/candidate_j_stage1_*.tar.gz; do
+            tar -xzf "$archive" -C data/prospective_restored
+          done
+      - name: Run frozen Candidate O evaluation
+        working-directory: xau-lab
+        env:
+          PYTHONUNBUFFERED: "1"
+          NUMBA_CACHE_DIR: "/tmp/numba-cache"
+        run: |
+          set -euo pipefail
+          python -m py_compile research/v4_5_candidate_o_acceptance_invalidation.py research/v4_5_candidate_o_acceptance_invalidation_eval.py
+          python research/v4_5_candidate_o_acceptance_invalidation_eval.py
+      - name: Commit evidence
+        working-directory: xau-lab
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+atrx07@users.noreply.github.com"
+          git add results/simulations/2026-10-06-v4_5-candidate-o-acceptance-invalidation/
+          if git diff --cached --quiet; then
+            echo "No new evidence."
+          else
+            git commit -m "Store XAU Candidate O acceptance-invalidation evidence"
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
+          fi
