@@ -73,3 +73,4 @@ Experiments are grouped by date so each session can grow independently without t
 - [51 — V4.5 Candidate L normalized structural resumption](2026-10-06/51-v4-5-candidate-l-normalized-resumption.md)
 - [52 — V4.5 Candidate L structural failure autopsy](2026-10-06/52-v4-5-candidate-l-failure-autopsy.md)
 - [53 — V4.5 Candidate M pullback price acceptance](2026-10-06/53-v4-5-candidate-m-pullback-acceptance.md)
+- [54 — V4.5 Candidate M all-dataset comparison](2026-10-06/54-v4-5-candidate-m-all-dataset-comparison.md)
