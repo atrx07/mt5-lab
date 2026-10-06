@@ -1,0 +1,26 @@
+{
+  "schema": "xau-candidate-n-dual-acceptance-v1",
+  "base_pullback_path": "Candidate M unchanged",
+  "external_data_used": false,
+  "model_search": false,
+  "threshold_search": false,
+  "final20_opened": false,
+  "breakout_reference": "prior 30 clock-second same-session mid extreme, current row excluded",
+  "breakout_timeout_sec": 30.0,
+  "breakout_acceptance": "reference +/- frozen arm spread for 2.0 continuous clock seconds",
+  "breakout_cancel_on_pullback": true,
+  "entry_confirmation": "qacc>=1 AND raw dir_mid_move2>0 AND raw dir_event_imb2>0",
+  "max_spread_usd": 0.4,
+  "max_spread_fraction_range60": 0.2,
+  "risk_fraction": 0.03,
+  "stop_usd": 4.0,
+  "take_profit_usd": 12.0,
+  "max_hold_sec": 1800.0,
+  "flow_exit": {
+    "arm_mfe_usd": 4.0,
+    "min_giveback_usd": 4.0,
+    "check_sec": 5.0,
+    "negative_confirmations": 2,
+    "condition": "dir_mid_move2 < 0 AND dir_event_imb2 < 0"
+  }
+}
