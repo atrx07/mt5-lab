@@ -1,0 +1,229 @@
+{
+  "schema": "xau-candidate-l-failure-autopsy-v1",
+  "status": "outcome-known diagnostic after Candidate L rejection",
+  "strategy_changed": false,
+  "threshold_search": false,
+  "candidate_l_retuning_allowed": false,
+  "final20_opened": false,
+  "headline": {
+    "historical_first80": {
+      "500ms": {
+        "source": "historical_first80",
+        "interval": "500ms",
+        "scope": "all",
+        "exit_reason": "ALL",
+        "trades": 258,
+        "wins": 82,
+        "win_rate": 0.3178294573643411,
+        "pnl_sum": -170.5189031205728,
+        "pnl_mean": -0.6609259810874915,
+        "pnl_median": -4.186459424466694,
+        "held_median_sec": 147.36000001430511,
+        "held_p90_sec": 467.25060002803804,
+        "mfe_median_usd": 1.3550000000000182,
+        "mfe_p75_usd": 3.6024999999997362,
+        "mfe_p90_usd": 8.053000000000067,
+        "exit_move_median_usd": -1.150000000000091,
+        "exit_le_30s_fraction": 0.10852713178294573,
+        "exit_le_60s_fraction": 0.2364341085271318,
+        "exit_le_120s_fraction": 0.41472868217054265,
+        "mfe_ge_1r_fraction": 0.2364341085271318,
+        "mfe_ge_2r_fraction": 0.10465116279069768,
+        "losers_that_reached_1r_fraction": 0.028409090909090908,
+        "losers_mfe_lt_0_5r_fraction": 0.8579545454545454
+      },
+      "1s": {
+        "source": "historical_first80",
+        "interval": "1s",
+        "scope": "all",
+        "exit_reason": "ALL",
+        "trades": 226,
+        "wins": 73,
+        "win_rate": 0.3230088495575221,
+        "pnl_sum": -183.08411926519472,
+        "pnl_mean": -0.810106722412366,
+        "pnl_median": -4.101255387007469,
+        "held_median_sec": 163.59500014781952,
+        "held_p90_sec": 441.5160001516342,
+        "mfe_median_usd": 1.3350000000000364,
+        "mfe_p75_usd": 3.5799999999999272,
+        "mfe_p90_usd": 7.864999999999782,
+        "exit_move_median_usd": -1.0899999999996908,
+        "exit_le_30s_fraction": 0.09292035398230089,
+        "exit_le_60s_fraction": 0.2079646017699115,
+        "exit_le_120s_fraction": 0.37610619469026546,
+        "mfe_ge_1r_fraction": 0.2345132743362832,
+        "mfe_ge_2r_fraction": 0.09734513274336283,
+        "losers_that_reached_1r_fraction": 0.006578947368421052,
+        "losers_mfe_lt_0_5r_fraction": 0.8618421052631579
+      }
+    },
+    "current7d": {
+      "500ms": {
+        "source": "current7d",
+        "interval": "500ms",
+        "scope": "all",
+        "exit_reason": "ALL",
+        "trades": 333,
+        "wins": 89,
+        "win_rate": 0.2672672672672673,
+        "pnl_sum": -406.8804391174317,
+        "pnl_mean": -1.221863180532828,
+        "pnl_median": -1.753017177273403,
+        "held_median_sec": 186.0,
+        "held_p90_sec": 455.3426000595093,
+        "mfe_median_usd": 1.1400000000003274,
+        "mfe_p75_usd": 3.449999999999818,
+        "mfe_p90_usd": 6.016000000000352,
+        "exit_move_median_usd": -1.230000000000473,
+        "exit_le_30s_fraction": 0.08408408408408409,
+        "exit_le_60s_fraction": 0.19519519519519518,
+        "exit_le_120s_fraction": 0.35735735735735735,
+        "mfe_ge_1r_fraction": 0.1921921921921922,
+        "mfe_ge_2r_fraction": 0.06906906906906907,
+        "losers_that_reached_1r_fraction": 0.037037037037037035,
+        "losers_mfe_lt_0_5r_fraction": 0.8600823045267489
+      },
+      "1s": {
+        "source": "current7d",
+        "interval": "1s",
+        "scope": "all",
+        "exit_reason": "ALL",
+        "trades": 270,
+        "wins": 73,
+        "win_rate": 0.27037037037037037,
+        "pnl_sum": -390.7814819166357,
+        "pnl_mean": -1.4473388219134655,
+        "pnl_median": -2.013785025749685,
+        "held_median_sec": 200.4355000257492,
+        "held_p90_sec": 461.30299999713895,
+        "mfe_median_usd": 1.0300000000002,
+        "mfe_p75_usd": 3.5075000000001637,
+        "mfe_p90_usd": 6.029999999999836,
+        "exit_move_median_usd": -1.4099999999998545,
+        "exit_le_30s_fraction": 0.05555555555555555,
+        "exit_le_60s_fraction": 0.14814814814814814,
+        "exit_le_120s_fraction": 0.3037037037037037,
+        "mfe_ge_1r_fraction": 0.2037037037037037,
+        "mfe_ge_2r_fraction": 0.06296296296296296,
+        "losers_that_reached_1r_fraction": 0.04081632653061224,
+        "losers_mfe_lt_0_5r_fraction": 0.8520408163265306
+      }
+    },
+    "stage1_pooled": {
+      "500ms": {
+        "source": "stage1_pooled",
+        "interval": "500ms",
+        "scope": "all",
+        "exit_reason": "ALL",
+        "trades": 123,
+        "wins": 31,
+        "win_rate": 0.25203252032520324,
+        "pnl_sum": -360.20230207123495,
+        "pnl_mean": -2.928474000579146,
+        "pnl_median": -4.594349855688553,
+        "held_median_sec": 165.50200009346008,
+        "held_p90_sec": 454.71740002632146,
+        "mfe_median_usd": 0.8699999999998909,
+        "mfe_p75_usd": 3.1849999999999454,
+        "mfe_p90_usd": 6.022000000000298,
+        "exit_move_median_usd": -1.360000000000582,
+        "exit_le_30s_fraction": 0.12195121951219512,
+        "exit_le_60s_fraction": 0.25203252032520324,
+        "exit_le_120s_fraction": 0.35772357723577236,
+        "mfe_ge_1r_fraction": 0.21138211382113822,
+        "mfe_ge_2r_fraction": 0.06504065040650407,
+        "losers_that_reached_1r_fraction": 0.08695652173913043,
+        "losers_mfe_lt_0_5r_fraction": 0.8260869565217391
+      },
+      "1s": {
+        "source": "stage1_pooled",
+        "interval": "1s",
+        "scope": "all",
+        "exit_reason": "ALL",
+        "trades": 107,
+        "wins": 26,
+        "win_rate": 0.24299065420560748,
+        "pnl_sum": -290.630039215685,
+        "pnl_mean": -2.716168590800794,
+        "pnl_median": -5.325000000000273,
+        "held_median_sec": 170.2020001411438,
+        "held_p90_sec": 460.0677999973297,
+        "mfe_median_usd": 1.0300000000006548,
+        "mfe_p75_usd": 3.5100000000002183,
+        "mfe_p90_usd": 5.516000000000352,
+        "exit_move_median_usd": -1.550000000000182,
+        "exit_le_30s_fraction": 0.056074766355140186,
+        "exit_le_60s_fraction": 0.17757009345794392,
+        "exit_le_120s_fraction": 0.32710280373831774,
+        "mfe_ge_1r_fraction": 0.22429906542056074,
+        "mfe_ge_2r_fraction": 0.06542056074766354,
+        "losers_that_reached_1r_fraction": 0.1111111111111111,
+        "losers_mfe_lt_0_5r_fraction": 0.7777777777777778
+      }
+    }
+  },
+  "current7d_by_exit_reason": {
+    "500ms": {
+      "FLOW_EXIT": {
+        "trades": 17,
+        "pnl_sum": 49.460594151613094,
+        "pnl_mean": 2.90944671480077,
+        "held_median_sec": 290.6070001125336,
+        "mfe_median_usd": 6.430000000000291
+      },
+      "M300_FAILURE": {
+        "trades": 278,
+        "pnl_sum": -411.0904073838084,
+        "pnl_mean": -1.4787424726036273,
+        "held_median_sec": 188.48149979114532,
+        "mfe_median_usd": 1.0350000000003092
+      },
+      "STOP": {
+        "trades": 29,
+        "pnl_sum": -208.8768385803363,
+        "pnl_mean": -7.202649606218493,
+        "held_median_sec": 54.45800018310547,
+        "mfe_median_usd": 0.0
+      },
+      "TP": {
+        "trades": 9,
+        "pnl_sum": 163.62621269509987,
+        "pnl_mean": 18.18069029945554,
+        "held_median_sec": 361.0039999485016,
+        "mfe_median_usd": 12.159999999999854
+      }
+    },
+    "1s": {
+      "FLOW_EXIT": {
+        "trades": 11,
+        "pnl_sum": 29.872914804215732,
+        "pnl_mean": 2.715719527655976,
+        "held_median_sec": 275.81700015068054,
+        "mfe_median_usd": 6.430000000000291
+      },
+      "M300_FAILURE": {
+        "trades": 226,
+        "pnl_sum": -378.0733984978804,
+        "pnl_mean": -1.672891143795931,
+        "held_median_sec": 209.89849996566772,
+        "mfe_median_usd": 1.0149999999998727
+      },
+      "STOP": {
+        "trades": 25,
+        "pnl_sum": -212.50021628362268,
+        "pnl_mean": -8.500008651344906,
+        "held_median_sec": 68.03000020980835,
+        "mfe_median_usd": 0.25
+      },
+      "TP": {
+        "trades": 8,
+        "pnl_sum": 169.9192180606517,
+        "pnl_mean": 21.239902257581463,
+        "held_median_sec": 455.99900019168854,
+        "mfe_median_usd": 12.355000000000473
+      }
+    }
+  },
+  "interpretation": "Separate false-entry/commitment failure from exit-management failure. Any next candidate must be structurally different and frozen before P&L evaluation."
+}
