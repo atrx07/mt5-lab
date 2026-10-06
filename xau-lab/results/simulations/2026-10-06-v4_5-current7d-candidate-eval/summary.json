@@ -1,0 +1,200 @@
+{
+  "schema": "xau-v4-5-current7d-candidate-eval-v1",
+  "dataset": {
+    "dataset_id": "xauusd-mt5-current-7d-2026-09-29-to-2026-10-06",
+    "rows": 2346107,
+    "first_timestamp_utc": "2026-09-29T14:32:48.067000+00:00",
+    "last_timestamp_utc": "2026-10-06T14:32:47.865000+00:00",
+    "archive_sha256": "9283df8c65979e6d91c67c734c7b57af3d3a8ceb658b50b3c499ba913580e177",
+    "calendar_span_hours": 167.99994388884969,
+    "market_active_hours_gap_lt_60s": 109.99928194443385
+  },
+  "status": "outcome-known development diagnostic",
+  "candidates": [
+    "D",
+    "H",
+    "J"
+  ],
+  "final20_opened": false,
+  "external_data_used": false,
+  "threshold_search": false,
+  "intervals": {
+    "500ms": {
+      "sampled_rows": 626792,
+      "path_parity": {
+        "H_entries_equal_D": true,
+        "J_shadow_equal_D": true
+      },
+      "base": {
+        "D": {
+          "realized_pnl_inr": -216.15801063833612,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -216.15801063833612,
+          "profit_velocity_active_inr_per_hour": -1.9650856516275113,
+          "open_position_at_end": false,
+          "profit_factor": 0.7245106126758792,
+          "trades": 137,
+          "wins": 46,
+          "losses": 91,
+          "win_rate": 0.3357664233576642,
+          "max_drawdown_inr": 237.8855901988656
+        },
+        "H": {
+          "realized_pnl_inr": -180.9269930375778,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -180.9269930375778,
+          "profit_velocity_active_inr_per_hour": -1.6448015826955407,
+          "open_position_at_end": false,
+          "profit_factor": 0.742848730758469,
+          "trades": 137,
+          "wins": 48,
+          "losses": 89,
+          "win_rate": 0.35036496350364965,
+          "max_drawdown_inr": 218.05989222357175,
+          "primary_flow_exits": 19,
+          "ghost_releases": 19
+        },
+        "J": {
+          "realized_pnl_inr": -229.0449111459812,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -229.0449111459812,
+          "profit_velocity_active_inr_per_hour": -2.0822400573640403,
+          "open_position_at_end": false,
+          "profit_factor": 0.6406980798127156,
+          "trades": 121,
+          "wins": 38,
+          "losses": 83,
+          "win_rate": 0.3140495867768595,
+          "max_drawdown_inr": 249.78602229604687,
+          "shadow_opportunities": 137,
+          "immediate_entries": 119,
+          "delayed_entries": 2,
+          "skipped_entries": 16,
+          "busy_skips": 0,
+          "phase_exits": 10,
+          "protected_pullbacks": 11
+        }
+      },
+      "cost_stress_extra_slippage_usd_per_side": {
+        "0.05": {
+          "D_terminal_equity_pnl_inr": -218.7632550414899,
+          "H_terminal_equity_pnl_inr": -184.80439081240235,
+          "J_terminal_equity_pnl_inr": -231.08075603506938,
+          "D_trades": 136,
+          "H_trades": 136,
+          "J_trades": 120
+        },
+        "0.10": {
+          "D_terminal_equity_pnl_inr": -232.30827508692408,
+          "H_terminal_equity_pnl_inr": -198.58949002816848,
+          "J_terminal_equity_pnl_inr": -235.85223850435585,
+          "D_trades": 136,
+          "H_trades": 136,
+          "J_trades": 121
+        },
+        "0.20": {
+          "D_terminal_equity_pnl_inr": -297.68565573525825,
+          "H_terminal_equity_pnl_inr": -251.68174705143886,
+          "J_terminal_equity_pnl_inr": -287.7892709295047,
+          "D_trades": 137,
+          "H_trades": 137,
+          "J_trades": 121
+        }
+      },
+      "ranking_by_terminal_equity_pnl": [
+        "H",
+        "D",
+        "J"
+      ]
+    },
+    "1s": {
+      "sampled_rows": 359988,
+      "path_parity": {
+        "H_entries_equal_D": true,
+        "J_shadow_equal_D": true
+      },
+      "base": {
+        "D": {
+          "realized_pnl_inr": -229.1744592962699,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -229.1744592962699,
+          "profit_velocity_active_inr_per_hour": -2.083417775509093,
+          "open_position_at_end": false,
+          "profit_factor": 0.6853831260695131,
+          "trades": 123,
+          "wins": 40,
+          "losses": 83,
+          "win_rate": 0.3252032520325203,
+          "max_drawdown_inr": 235.0400839372619
+        },
+        "H": {
+          "realized_pnl_inr": -194.96479018295344,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -194.96479018295344,
+          "profit_velocity_active_inr_per_hour": -1.7724187534373173,
+          "open_position_at_end": false,
+          "profit_factor": 0.705705665430073,
+          "trades": 123,
+          "wins": 42,
+          "losses": 81,
+          "win_rate": 0.34146341463414637,
+          "max_drawdown_inr": 201.57133858464334,
+          "primary_flow_exits": 18,
+          "ghost_releases": 18
+        },
+        "J": {
+          "realized_pnl_inr": -209.38789270484511,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -209.38789270484511,
+          "profit_velocity_active_inr_per_hour": -1.9035387231947336,
+          "open_position_at_end": false,
+          "profit_factor": 0.6204535976557146,
+          "trades": 104,
+          "wins": 33,
+          "losses": 71,
+          "win_rate": 0.3173076923076923,
+          "max_drawdown_inr": 226.78249652311462,
+          "shadow_opportunities": 123,
+          "immediate_entries": 103,
+          "delayed_entries": 1,
+          "skipped_entries": 19,
+          "busy_skips": 0,
+          "phase_exits": 12,
+          "protected_pullbacks": 4
+        }
+      },
+      "cost_stress_extra_slippage_usd_per_side": {
+        "0.05": {
+          "D_terminal_equity_pnl_inr": -251.65610229647507,
+          "H_terminal_equity_pnl_inr": -219.6093567161202,
+          "J_terminal_equity_pnl_inr": -222.45080555759682,
+          "D_trades": 120,
+          "H_trades": 120,
+          "J_trades": 100
+        },
+        "0.10": {
+          "D_terminal_equity_pnl_inr": -284.6695952020659,
+          "H_terminal_equity_pnl_inr": -257.8931486832781,
+          "J_terminal_equity_pnl_inr": -258.3113667308313,
+          "D_trades": 121,
+          "H_trades": 121,
+          "J_trades": 102
+        },
+        "0.20": {
+          "D_terminal_equity_pnl_inr": -320.5811710731528,
+          "H_terminal_equity_pnl_inr": -300.56436752210897,
+          "J_terminal_equity_pnl_inr": -275.99913917569097,
+          "D_trades": 123,
+          "H_trades": 123,
+          "J_trades": 101
+        }
+      },
+      "ranking_by_terminal_equity_pnl": [
+        "H",
+        "J",
+        "D"
+      ]
+    }
+  },
+  "overall_note": "This seven-day dataset was captured after Experiment 48 Stage-1 outcomes were known. These statistics are diagnostic/development evidence only and cannot promote a candidate."
+}
