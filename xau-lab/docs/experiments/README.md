@@ -35,7 +35,6 @@ Experiments are grouped by date so each session can grow independently without t
 - [21 — V4.5 autonomous multi-ticket horizon research](2026-09-24/21-v4-5-multi-ticket-horizon.md)
 - [22 — recent MT5 micro/long synthetic validation](2026-09-24/22-recent-micro-long-validation.md)
 
-
 ### 2026-09-25
 
 - [23 — V4.5 raw-event regime-normalization foundation](2026-09-25/23-v4-5-regime-normalization.md)
@@ -66,3 +65,7 @@ Experiments are grouped by date so each session can grow independently without t
 - [47R — V4.5 Candidate J multi-seed random-window robustness audit](2026-09-26/47R-v4-5-candidate-j-multiseed-random-audit.md)
 - [48 — V4.5 Candidate J fresh MT5-only prospective validation](2026-09-26/48-v4-5-candidate-j-fresh-validation.md)
 - [48P — V4.5 Candidate J live-shadow harness preflight](2026-09-26/48P-v4-5-candidate-j-live-shadow-preflight.md)
+
+### 2026-10-06
+
+- [49 — V4.5 current-regime seven-day D/H/J diagnostic](2026-10-06/49-v4-5-current-7d-d-h-j-diagnostic.md)
