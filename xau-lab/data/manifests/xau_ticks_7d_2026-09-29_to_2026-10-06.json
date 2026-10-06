@@ -36,7 +36,9 @@
       "mtime": 0,
       "filename": ""
     },
-    "status": "pending"
+    "status": "archived",
+    "bytes": 27309657,
+    "sha256": "9283df8c65979e6d91c67c734c7b57af3d3a8ceb658b50b3c499ba913580e177"
   },
   "used_by": [
     "docs/experiments/2026-09-26/48-v4-5-candidate-j-fresh-validation.md"
