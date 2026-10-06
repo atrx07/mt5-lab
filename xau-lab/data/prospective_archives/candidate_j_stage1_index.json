@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "experiment": "candidate-j-stage1-fresh-prospective-validation",
+  "status": "frozen-after-stage1-failure",
+  "stage1_block_count": 6,
+  "blocks": [
+    {
+      "block_id": "20260928T150531Z",
+      "archive": "candidate_j_stage1_20260928T150531Z.tar.gz",
+      "archive_bytes": 3558241,
+      "archive_sha256": "0da8bb768ce3127812b2eb83bbeef1faf246e8d7bc5a2e4803dd2add79abe224",
+      "files": [
+        {
+          "name": "block_manifest.json",
+          "bytes": 3489,
+          "sha256": "f69f6c89ae34538920824b41686c5517d6382c42edf66f46c8a35bc072a8751c",
+          "role": "block_manifest"
+        },
+        {
+          "name": "score_ticks.csv",
+          "bytes": 12630663,
+          "sha256": "d9bd5b08b2387f0a421c374a8a30208937144b44d1627ac1df05107c810d29b6",
+          "role": "authoritative_scored_stream"
+        },
+        {
+          "name": "score_ticks.pre_recovery.csv",
+          "bytes": 11051040,
+          "sha256": "bc8bed17759160712d444cef5791e1595a923fea38725a49ef0c68dc19ff3ac6",
+          "role": "recovery_provenance_only"
+        },
+        {
+          "name": "warmup_ticks.csv",
+          "bytes": 6261589,
+          "sha256": "f5ff939ee341874cb99308d376daa90c33444959f0c7b82154cc2f806c6f3f82",
+          "role": "warmup_context"
+        }
+      ]
+    },
+    {
+      "block_id": "20260929T132027Z",
+      "archive": "candidate_j_stage1_20260929T132027Z.tar.gz",
+      "archive_bytes": 2161423,
+      "archive_sha256": "58a7dd389b07a541369ff5a4f801f6a5eb5a7e8cf2b5f4c689367e979bb80756",
+      "files": [
+        {
+          "name": "block_manifest.json",
+          "bytes": 2266,
+          "sha256": "fe7cab0871d11239554034d808271e1b078f7b760aac5bd173bc7f42e3bba4fd",
+          "role": "block_manifest"
+        },
+        {
+          "name": "score_ticks.csv",
+          "bytes": 13901381,
+          "sha256": "d97864e2efda02996e72df6159319527cb929b090da6e1cbd1f812c6bedb8893",
+          "role": "authoritative_scored_stream"
+        },
+        {
+          "name": "warmup_ticks.csv",
+          "bytes": 4577215,
+          "sha256": "3ae6614411083254d8c9e57a24f9670f244ff94239eb347766875fdc0936276d",
+          "role": "warmup_context"
+        }
+      ]
+    },
+    {
+      "block_id": "20261001T171601Z",
+      "archive": "candidate_j_stage1_20261001T171601Z.tar.gz",
+      "archive_bytes": 2294553,
+      "archive_sha256": "c807fb2cdff50cd707fe82219a605a18ee3615c8db650988312115df9a4eb75c",
+      "files": [
+        {
+          "name": "block_manifest.json",
+          "bytes": 3940,
+          "sha256": "1d8bb5163af5a8b95c5439170e9e0c34c53c802fe1a96015182c631f622193df",
+          "role": "block_manifest"
+        },
+        {
+          "name": "score_ticks.csv",
+          "bytes": 7300758,
+          "sha256": "bfaa51f852d43f7efe1b4a43191011bc264abcf1deb84a05d6d5b616f172886e",
+          "role": "authoritative_scored_stream"
+        },
+        {
+          "name": "score_ticks.pre_recovery.csv",
+          "bytes": 6775638,
+          "sha256": "494dd40515524cadcffd61603b6577ff9a2968fba71934f68b9b0e5e80f89b51",
+          "role": "recovery_provenance_only"
+        },
+        {
+          "name": "warmup_ticks.csv",
+          "bytes": 4944491,
+          "sha256": "be7fb4c6b3f2fc4a1e3ac4f8ed17959cc7aaa5db7b81eaf68f86a5da6cecf40a",
+          "role": "warmup_context"
+        }
+      ]
+    },
+    {
+      "block_id": "20261002T071041Z",
+      "archive": "candidate_j_stage1_20261002T071041Z.tar.gz",
+      "archive_bytes": 1509022,
+      "archive_sha256": "dd91ba61c618d4adbdcf64b862817d2acc8a45d5910ff4e79d263bfea60c78ea",
+      "files": [
+        {
+          "name": "block_manifest.json",
+          "bytes": 2264,
+          "sha256": "1363cce54209a00f6dbba523bb2e07f1a4621600a309b605bb90e04f4caa28ad",
+          "role": "block_manifest"
+        },
+        {
+          "name": "score_ticks.csv",
+          "bytes": 9185858,
+          "sha256": "28c9b56f07f925e05583ba54f5bc22f415848c86a49d9f6c387537099b271912",
+          "role": "authoritative_scored_stream"
+        },
+        {
+          "name": "warmup_ticks.csv",
+          "bytes": 3056018,
+          "sha256": "62c5793016553c6fe00af042808ce259477f0e2720611e029f1569f05b0967b5",
+          "role": "warmup_context"
+        }
+      ]
+    },
+    {
+      "block_id": "20261002T132739Z",
+      "archive": "candidate_j_stage1_20261002T132739Z.tar.gz",
+      "archive_bytes": 2772329,
+      "archive_sha256": "aef29eb87315a47897ce283a0b2ab69e65d5c50f84e4fb258443aa86a594a939",
+      "files": [
+        {
+          "name": "block_manifest.json",
+          "bytes": 2255,
+          "sha256": "13f1a69ccf208924ed0f192efccf8f908d2a0f0fb179c5a2ade3e36da7884db4",
+          "role": "block_manifest"
+        },
+        {
+          "name": "score_ticks.csv",
+          "bytes": 15963447,
+          "sha256": "bbf830a3761f85fcde3b5d7ea5be187ba3bb7a3f1900174c1283e28900bfb6f5",
+          "role": "authoritative_scored_stream"
+        },
+        {
+          "name": "warmup_ticks.csv",
+          "bytes": 6206158,
+          "sha256": "dab3c53c84d93a251406e10d350a3d349afa4a9a41707759d5836a7d6cfa6aa1",
+          "role": "warmup_context"
+        }
+      ]
+    },
+    {
+      "block_id": "20261005T132049Z",
+      "archive": "candidate_j_stage1_20261005T132049Z.tar.gz",
+      "archive_bytes": 1658904,
+      "archive_sha256": "0eec15f997b9f3c8f78719859138795cbf14582a4ed369c83e27272bba713338",
+      "files": [
+        {
+          "name": "block_manifest.json",
+          "bytes": 2267,
+          "sha256": "e29d60e9619339052e8e17db2b7540bbe908e58e69f82bd5a9a76ac1cf1b2d0c",
+          "role": "block_manifest"
+        },
+        {
+          "name": "score_ticks.csv",
+          "bytes": 10454222,
+          "sha256": "d9014b15cea480fa418381ca10fb43dd8ef0ccf5caefc9d63292bd0e8e3ebc4d",
+          "role": "authoritative_scored_stream"
+        },
+        {
+          "name": "warmup_ticks.csv",
+          "bytes": 3100009,
+          "sha256": "4200cc37b542f0cb1458a8f4ff6f4d4fabf16435f11db8d713070cc3bcaee502",
+          "role": "warmup_context"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "score_ticks.csv is the authoritative scored stream for each block.",
+    "score_ticks.pre_recovery.csv, when present, is retained only as recovery provenance.",
+    "The six blocks became outcome-known diagnostic/development data after Stage 1 scoring.",
+    "They must not be relabeled as unseen evidence for any future candidate."
+  ]
+}
