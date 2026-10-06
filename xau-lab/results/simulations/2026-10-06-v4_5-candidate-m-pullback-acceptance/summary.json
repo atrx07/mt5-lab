@@ -1,0 +1,406 @@
+{
+  "schema": "xau-v4-5-candidate-m-eval-v1",
+  "config": {
+    "schema": "xau-candidate-m-pullback-acceptance-v1",
+    "base_context": "Candidate-L normalized trend state, not its entry rule",
+    "external_data_used": false,
+    "model_search": false,
+    "threshold_search": false,
+    "final20_opened": false,
+    "continuity_sec": 1800.0,
+    "trend_dominance_ratio": 0.5,
+    "arm_pullback": "direction-normalized current m10 <= -current spread",
+    "anchor": "mid - m10 at arm time (causal approx mid 10s earlier)",
+    "arm_timeout_sec": 60.0,
+    "acceptance_level": "anchor +/- frozen arm_spread",
+    "acceptance_clock_sec": 2.0,
+    "entry_confirmation": "qacc>=1 AND raw dir_mid_move2>0 AND raw dir_event_imb2>0",
+    "max_spread_usd": 0.4,
+    "max_spread_fraction_range60": 0.2,
+    "risk_fraction": 0.03,
+    "stop_usd": 4.0,
+    "take_profit_usd": 12.0,
+    "max_hold_sec": 1800.0,
+    "flow_exit": {
+      "arm_mfe_usd": 4.0,
+      "min_giveback_usd": 4.0,
+      "check_sec": 5.0,
+      "negative_confirmations": 2,
+      "condition": "dir_mid_move2 < 0 AND dir_event_imb2 < 0"
+    },
+    "random_seed": 51051,
+    "random_windows_per_grid": 80
+  },
+  "status": "known-data development/rejection evaluation",
+  "current_dataset_id": "xauusd-mt5-current-7d-2026-09-29-to-2026-10-06",
+  "final20_opened": false,
+  "external_data_used": false,
+  "intervals": {
+    "500ms": {
+      "historical_first80": {
+        "D": {
+          "compounded_pnl_inr": 1430.311133793068,
+          "trades": 163,
+          "wins": 81,
+          "win_rate": 0.49693251533742333,
+          "max_segment_drawdown_inr": 218.9381795572965,
+          "primary_entries": 74,
+          "primary_flow_exits": 0,
+          "ghost_releases": 0
+        },
+        "H": {
+          "compounded_pnl_inr": 1287.0890835318237,
+          "trades": 163,
+          "wins": 83,
+          "win_rate": 0.50920245398773,
+          "max_segment_drawdown_inr": 148.65905483517383,
+          "primary_entries": 74,
+          "primary_flow_exits": 18,
+          "ghost_releases": 18
+        },
+        "M": {
+          "compounded_pnl_inr": -0.8733954326883842,
+          "trades": 64,
+          "wins": 28,
+          "win_rate": 0.4375,
+          "max_segment_drawdown_inr": 67.53783693151104,
+          "arms": 744,
+          "arm_expiries": 1,
+          "arm_trend_cancels": 679,
+          "entries": 64,
+          "flow_exits": 6,
+          "trend_failure_exits": 50,
+          "stop_exits": 6,
+          "tp_exits": 2,
+          "time_exits": 0
+        }
+      },
+      "current7d": {
+        "D": {
+          "pnl_inr": -216.15801063833612,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -216.15801063833612,
+          "open_position_at_end": false,
+          "ghost_active_at_end": false,
+          "profit_factor": 0.7245106126758792,
+          "trades": 137,
+          "wins": 46,
+          "win_rate": 0.3357664233576642,
+          "max_drawdown_inr": 237.8855901988656,
+          "primary_entries": 84,
+          "primary_flow_exits": 0,
+          "ghost_releases": 0
+        },
+        "H": {
+          "pnl_inr": -180.9269930375778,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -180.9269930375778,
+          "open_position_at_end": false,
+          "ghost_active_at_end": false,
+          "profit_factor": 0.742848730758469,
+          "trades": 137,
+          "wins": 48,
+          "win_rate": 0.35036496350364965,
+          "max_drawdown_inr": 218.05989222357175,
+          "primary_entries": 84,
+          "primary_flow_exits": 19,
+          "ghost_releases": 19
+        },
+        "M": {
+          "pnl_inr": -78.32761782314861,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -78.32761782314861,
+          "open_position_at_end": false,
+          "profit_factor": 0.7623137919882036,
+          "trades": 63,
+          "wins": 22,
+          "win_rate": 0.3492063492063492,
+          "max_drawdown_inr": 99.09956898798669,
+          "arms": 871,
+          "arm_expiries": 0,
+          "arm_trend_cancels": 808,
+          "acceptance_timer_resets": 118,
+          "entries": 63,
+          "flow_exits": 6,
+          "trend_failure_exits": 46,
+          "stop_exits": 8,
+          "tp_exits": 3,
+          "time_exits": 0
+        }
+      },
+      "stage1_blocks": {
+        "pooled_pnl": {
+          "D": -165.31701569566403,
+          "H": -97.90961515037145,
+          "M": -95.11515192731815
+        },
+        "positive_M_blocks": 1,
+        "blocks": 6
+      },
+      "random_real_4h": {
+        "D": {
+          "windows": 80,
+          "mean_pnl_inr": -0.5342267779349807,
+          "median_pnl_inr": 4.0489226197175014,
+          "p05_pnl_inr": -65.9266338452231,
+          "p95_pnl_inr": 58.26032051264377,
+          "positive_fraction": 0.5125
+        },
+        "H": {
+          "windows": 80,
+          "mean_pnl_inr": -1.8910571280752833,
+          "median_pnl_inr": -2.1549110323063587,
+          "p05_pnl_inr": -65.23849325531607,
+          "p95_pnl_inr": 54.36943143388964,
+          "positive_fraction": 0.4875
+        },
+        "M": {
+          "windows": 80,
+          "mean_pnl_inr": -8.185354104971582,
+          "median_pnl_inr": -3.861789948541883,
+          "p05_pnl_inr": -45.35371280624882,
+          "p95_pnl_inr": 32.102832804919224,
+          "positive_fraction": 0.45
+        }
+      },
+      "cost_stress": {
+        "0.0": {
+          "interval": "500ms",
+          "slip": 0.0,
+          "D_current_pnl": -216.15801063833612,
+          "H_current_pnl": -180.9269930375778,
+          "M_current_pnl": -78.32761782314861,
+          "M_historical_compounded_pnl": -0.8733954326883842,
+          "M_current_trades": 63,
+          "M_historical_trades": 64
+        },
+        "0.05": {
+          "interval": "500ms",
+          "slip": 0.05,
+          "D_current_pnl": -218.7632550414899,
+          "H_current_pnl": -184.80439081240235,
+          "M_current_pnl": -92.51040093396193,
+          "M_historical_compounded_pnl": -20.80704275563977,
+          "M_current_trades": 63,
+          "M_historical_trades": 64
+        },
+        "0.1": {
+          "interval": "500ms",
+          "slip": 0.1,
+          "D_current_pnl": -232.30827508692408,
+          "H_current_pnl": -198.58949002816848,
+          "M_current_pnl": -115.28254284305058,
+          "M_historical_compounded_pnl": -42.51691082438275,
+          "M_current_trades": 63,
+          "M_historical_trades": 64
+        },
+        "0.2": {
+          "interval": "500ms",
+          "slip": 0.2,
+          "D_current_pnl": -297.68565573525825,
+          "H_current_pnl": -251.68174705143886,
+          "M_current_pnl": -156.28147435379606,
+          "M_historical_compounded_pnl": -78.28700215887918,
+          "M_current_trades": 63,
+          "M_historical_trades": 64
+        }
+      },
+      "development_survival_gates": {
+        "historical_positive": false,
+        "current_positive": false,
+        "historical_trades_ge_20": true,
+        "current_trades_ge_20": true,
+        "random_mean_positive": false,
+        "random_median_nonnegative": false,
+        "random_positive_fraction_ge_45pct": true,
+        "historical_plus_0_10_slip_positive": false,
+        "current_plus_0_10_slip_positive": false,
+        "comparator_parity": true
+      }
+    },
+    "1s": {
+      "historical_first80": {
+        "D": {
+          "compounded_pnl_inr": 385.2544619534224,
+          "trades": 156,
+          "wins": 71,
+          "win_rate": 0.4551282051282051,
+          "max_segment_drawdown_inr": 172.14469599809354,
+          "primary_entries": 69,
+          "primary_flow_exits": 0,
+          "ghost_releases": 0
+        },
+        "H": {
+          "compounded_pnl_inr": 360.79357527974355,
+          "trades": 156,
+          "wins": 75,
+          "win_rate": 0.4807692307692308,
+          "max_segment_drawdown_inr": 170.81692375289958,
+          "primary_entries": 69,
+          "primary_flow_exits": 17,
+          "ghost_releases": 16
+        },
+        "M": {
+          "compounded_pnl_inr": 59.60203209571713,
+          "trades": 57,
+          "wins": 30,
+          "win_rate": 0.5263157894736842,
+          "max_segment_drawdown_inr": 69.88171127381395,
+          "arms": 561,
+          "arm_expiries": 1,
+          "arm_trend_cancels": 503,
+          "entries": 57,
+          "flow_exits": 8,
+          "trend_failure_exits": 45,
+          "stop_exits": 3,
+          "tp_exits": 1,
+          "time_exits": 0
+        }
+      },
+      "current7d": {
+        "D": {
+          "pnl_inr": -229.1744592962699,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -229.1744592962699,
+          "open_position_at_end": false,
+          "ghost_active_at_end": false,
+          "profit_factor": 0.6853831260695131,
+          "trades": 123,
+          "wins": 40,
+          "win_rate": 0.3252032520325203,
+          "max_drawdown_inr": 235.0400839372619,
+          "primary_entries": 78,
+          "primary_flow_exits": 0,
+          "ghost_releases": 0
+        },
+        "H": {
+          "pnl_inr": -194.96479018295344,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -194.96479018295344,
+          "open_position_at_end": false,
+          "ghost_active_at_end": false,
+          "profit_factor": 0.705705665430073,
+          "trades": 123,
+          "wins": 42,
+          "win_rate": 0.34146341463414637,
+          "max_drawdown_inr": 201.57133858464334,
+          "primary_entries": 78,
+          "primary_flow_exits": 18,
+          "ghost_releases": 18
+        },
+        "M": {
+          "pnl_inr": -67.11594127568526,
+          "terminal_unrealized_inr": 0.0,
+          "terminal_equity_pnl_inr": -67.11594127568526,
+          "open_position_at_end": false,
+          "profit_factor": 0.765499699467562,
+          "trades": 59,
+          "wins": 21,
+          "win_rate": 0.3559322033898305,
+          "max_drawdown_inr": 102.34069808901808,
+          "arms": 687,
+          "arm_expiries": 0,
+          "arm_trend_cancels": 628,
+          "acceptance_timer_resets": 105,
+          "entries": 59,
+          "flow_exits": 7,
+          "trend_failure_exits": 41,
+          "stop_exits": 8,
+          "tp_exits": 3,
+          "time_exits": 0
+        }
+      },
+      "stage1_blocks": {
+        "pooled_pnl": {
+          "D": -130.26711793884755,
+          "H": -74.45786116462,
+          "M": -70.46879111404903
+        },
+        "positive_M_blocks": 1,
+        "blocks": 6
+      },
+      "random_real_4h": {
+        "D": {
+          "windows": 80,
+          "mean_pnl_inr": -1.590716570335132,
+          "median_pnl_inr": -8.419047217367995,
+          "p05_pnl_inr": -55.82768160825748,
+          "p95_pnl_inr": 91.45859349006012,
+          "positive_fraction": 0.45
+        },
+        "H": {
+          "windows": 80,
+          "mean_pnl_inr": 4.094385243006798,
+          "median_pnl_inr": -4.4255759278221944,
+          "p05_pnl_inr": -54.74268529558161,
+          "p95_pnl_inr": 93.50462779794047,
+          "positive_fraction": 0.45
+        },
+        "M": {
+          "windows": 80,
+          "mean_pnl_inr": -4.762716691722813,
+          "median_pnl_inr": -6.074999999999591,
+          "p05_pnl_inr": -40.59030164783553,
+          "p95_pnl_inr": 34.75589587430278,
+          "positive_fraction": 0.3125
+        }
+      },
+      "cost_stress": {
+        "0.0": {
+          "interval": "1s",
+          "slip": 0.0,
+          "D_current_pnl": -229.1744592962699,
+          "H_current_pnl": -194.96479018295344,
+          "M_current_pnl": -67.11594127568526,
+          "M_historical_compounded_pnl": 59.60203209571713,
+          "M_current_trades": 59,
+          "M_historical_trades": 57
+        },
+        "0.05": {
+          "interval": "1s",
+          "slip": 0.05,
+          "D_current_pnl": -251.65610229647507,
+          "H_current_pnl": -219.6093567161202,
+          "M_current_pnl": -95.20817683613569,
+          "M_historical_compounded_pnl": 37.50192760564208,
+          "M_current_trades": 59,
+          "M_historical_trades": 57
+        },
+        "0.1": {
+          "interval": "1s",
+          "slip": 0.1,
+          "D_current_pnl": -284.6695952020659,
+          "H_current_pnl": -257.8931486832781,
+          "M_current_pnl": -112.26281891985792,
+          "M_historical_compounded_pnl": 15.460567659327795,
+          "M_current_trades": 59,
+          "M_historical_trades": 57
+        },
+        "0.2": {
+          "interval": "1s",
+          "slip": 0.2,
+          "D_current_pnl": -320.5811710731528,
+          "H_current_pnl": -300.56436752210897,
+          "M_current_pnl": -151.3397631126977,
+          "M_historical_compounded_pnl": -32.35146343062634,
+          "M_current_trades": 59,
+          "M_historical_trades": 57
+        }
+      },
+      "development_survival_gates": {
+        "historical_positive": true,
+        "current_positive": false,
+        "historical_trades_ge_20": true,
+        "current_trades_ge_20": true,
+        "random_mean_positive": false,
+        "random_median_nonnegative": false,
+        "random_positive_fraction_ge_45pct": false,
+        "historical_plus_0_10_slip_positive": true,
+        "current_plus_0_10_slip_positive": false,
+        "comparator_parity": true
+      }
+    }
+  },
+  "development_survival_pass": false,
+  "decision": "FAIL development-survival screen; reject frozen Candidate M unchanged. Do not tune its numeric boundaries against these known outcomes."
+}
