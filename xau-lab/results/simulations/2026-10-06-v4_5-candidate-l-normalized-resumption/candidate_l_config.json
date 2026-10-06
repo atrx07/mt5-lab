@@ -1,0 +1,33 @@
+{
+  "schema": "xau-candidate-l-normalized-resumption-v1",
+  "external_data_used": false,
+  "model_search": false,
+  "threshold_search": false,
+  "final20_opened": false,
+  "continuity_sec": 1800.0,
+  "trend_horizons_sec": [
+    60,
+    300,
+    1800
+  ],
+  "trend_dominance_ratio": 0.5,
+  "pullback_min_magnitude": "one current spread via min/max m10 over prior 30s",
+  "resumption_m10_spread_multiple": 1.0,
+  "resumption_m30_spread_multiple": 2.0,
+  "qacc_min": 1.0,
+  "raw_entry_confirmation": "dir_mid_move2 > 0 AND dir_event_imb2 > 0",
+  "max_spread_usd": 0.4,
+  "max_spread_fraction_range60": 0.2,
+  "risk_fraction": 0.03,
+  "stop_usd": 4.0,
+  "take_profit_usd": 12.0,
+  "max_hold_sec": 1800.0,
+  "flow_exit": {
+    "arm_mfe_usd": 4.0,
+    "min_giveback_usd": 4.0,
+    "check_sec": 5.0,
+    "negative_confirmations": 2,
+    "condition": "dir_mid_move2 < 0 AND dir_event_imb2 < 0"
+  },
+  "reentry_policy": "same still-active pullback window cannot be consumed twice"
+}
