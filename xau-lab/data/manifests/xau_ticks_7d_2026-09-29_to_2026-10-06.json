@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "dataset_id": "xauusd-mt5-current-7d-2026-09-29-to-2026-10-06",
+  "instrument": "XAUUSD",
+  "source": {
+    "platform": "MetaTrader 5",
+    "exporter": "tools/export_xau_ticks.py",
+    "description": "Current-regime seven-day broker tick export captured after Experiment 48 Stage-1 prospective failure",
+    "requested_window_days": 7.0,
+    "capture_date": "2026-10-06"
+  },
+  "raw": {
+    "filename": "xau_ticks_7d_current_2026-10-06.csv",
+    "sha256": "48474cd212190389b4afafb19bc3186c369742ebe222c12fd08b8f6fe5d98901",
+    "bytes": 221399913,
+    "data_rows": 2346107,
+    "first_timestamp_utc": "2026-09-29T14:32:48.067000+00:00",
+    "last_timestamp_utc": "2026-10-06T14:32:47.865000+00:00",
+    "columns": [
+      "timestamp_utc",
+      "bid",
+      "ask",
+      "last",
+      "volume",
+      "flags",
+      "volume_real",
+      "spread",
+      "mid"
+    ]
+  },
+  "archive": {
+    "format": "gzip",
+    "relative_path": "data/raw/xau_ticks_7d_current_2026-10-06.csv.gz",
+    "compression_level": 9,
+    "deterministic_header": {
+      "mtime": 0,
+      "filename": ""
+    },
+    "status": "pending"
+  },
+  "used_by": [
+    "docs/experiments/2026-09-26/48-v4-5-candidate-j-fresh-validation.md"
+  ],
+  "role": "current-regime research/development dataset; not prospective validation data",
+  "notes": [
+    "Keep the earlier canonical seven-day dataset unchanged as the historical benchmark.",
+    "This dataset was captured after Experiment 48 Stage-1 outcomes were known and may be used for diagnosis and future-candidate research, but not as unseen validation evidence.",
+    "The sealed historical final20 remains unopened.",
+    "Raw CSV remains local; the deterministic gzip archive is the repository copy."
+  ]
+}
