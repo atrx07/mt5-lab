@@ -70,3 +70,4 @@ Experiments are grouped by date so each session can grow independently without t
 
 - [49 — V4.5 current-regime seven-day D/H/J diagnostic](2026-10-06/49-v4-5-current-7d-d-h-j-diagnostic.md)
 - [50 — V4.5 live-invariance foundation for Candidate L](2026-10-06/50-v4-5-live-invariance-foundation.md)
+- [51 — V4.5 Candidate L normalized structural resumption](2026-10-06/51-v4-5-candidate-l-normalized-resumption.md)
