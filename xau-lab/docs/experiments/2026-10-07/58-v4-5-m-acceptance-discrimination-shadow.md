@@ -8,16 +8,16 @@ Frozen plan:
 `docs/plans/V4_5_M_ACCEPTANCE_DISCRIMINATION_SHADOW.md`
 
 Capture tool:  
-`scripts/capture_m_acceptance_shadow_4h_block.py`
+`tools/capture_m_acceptance_shadow_4h_block.py`
 
 Windows launcher:  
-`scripts/start_m_acceptance_shadow_4h_block.ps1`
+`tools/start_m_acceptance_shadow_4h_block.ps1`
 
 Offline extractor:  
 `research/v4_5_m_acceptance_discrimination.py`
 
 Analysis launcher:  
-`scripts/analyze_m_acceptance_shadow_block.ps1`
+`tools/analyze_m_acceptance_shadow_block.ps1`
 
 ## Motivation
 
