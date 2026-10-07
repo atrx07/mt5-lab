@@ -74,3 +74,10 @@ Experiments are grouped by date so each session can grow independently without t
 - [52 — V4.5 Candidate L structural failure autopsy](2026-10-06/52-v4-5-candidate-l-failure-autopsy.md)
 - [53 — V4.5 Candidate M pullback price acceptance](2026-10-06/53-v4-5-candidate-m-pullback-acceptance.md)
 - [54 — V4.5 Candidate M all-dataset comparison](2026-10-06/54-v4-5-candidate-m-all-dataset-comparison.md)
+- [55 — V4.5 Candidate N dual price-acceptance continuation](2026-10-06/55-v4-5-candidate-n-dual-acceptance.md)
+- [56 — V4.5 Candidate O acceptance-thesis invalidation](2026-10-06/56-v4-5-candidate-o-acceptance-invalidation.md)
+- [57 — V4.5 Candidate P persistent price + flow acceptance](2026-10-06/57-v4-5-candidate-p-persistent-acceptance.md)
+
+### 2026-10-07
+
+- [58 — V4.5 Candidate M prospective acceptance-discrimination shadow](2026-10-07/58-v4-5-m-acceptance-discrimination-shadow.md)
