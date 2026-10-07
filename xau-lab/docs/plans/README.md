@@ -2,7 +2,7 @@
 
 Research proposals are recorded here **before** implementation so "what we planned" stays separate from "what we actually implemented and tested."
 
-Plans are historical specifications once their corresponding experiment line moves on; do not rewrite them after results arrive to make them look prescient.
+Plans are historical specifications once their corresponding experiment line moves on; do not rewrite them after results arrive to make the plan look prescient.
 
 ## Index
 
@@ -15,7 +15,7 @@ Plans are historical specifications once their corresponding experiment line mov
 - [V4.5 Decision Policy v1](V4_5_DECISION_POLICY_V1.md) — frozen entry-ownership and continuation-value diagnostic specification for Experiment 38.
 - [V4.5 Decision Policy v2](V4_5_DECISION_POLICY_V2.md) — frozen signal-episode timing and short-horizon continuation specification for Experiment 39.
 - [V4.5 Candidate F PRIMARY ratchet](V4_5_CANDIDATE_F_PRIMARY_RATCHET.md) — frozen full shared-slot Candidate F specification for Experiment 40.
-- [V4.5 Candidate G ghost ratchet](V4_5_CANDIDATE_G_GHOST_RATCHET.md)
+- [V4.5 Candidate G ghost ratchet](V4_5_CANDIDATE_G_GHOST_RATCHET.md) — frozen path-preserving profit-retention specification for Experiment 41.
 - [V4.5 signal-fingerprint entry quality](V4_5_SIGNAL_FINGERPRINT_ENTRY_QUALITY.md) — frozen Experiment 42 entry-intelligence specification.
 - [V4.5 Candidate H flow-confirmed ghost exit](V4_5_CANDIDATE_H_FLOW_CONFIRMED_GHOST_EXIT.md) — frozen Experiment 43 signal-aware exit specification.
 - [V4.5 MT5 tick-tape field audit](V4_5_TICK_TAPE_FIELD_AUDIT.md) — frozen Experiment 44 representation audit.
@@ -25,6 +25,12 @@ Plans are historical specifications once their corresponding experiment line mov
 - [V4.5 quote-flow phase controller](V4_5_QUOTE_FLOW_PHASE_CONTROLLER.md) — frozen Experiment 47 MT5-native entry/exit controller specification.
 - [V4.5 Candidate J multi-seed random audit](V4_5_CANDIDATE_J_MULTISEED_RANDOM_AUDIT.md) — frozen known-data robustness audit across three additional seeds.
 - [V4.5 Candidate J fresh validation](V4_5_CANDIDATE_J_FRESH_VALIDATION.md) — frozen Experiment 48 prospective MT5-only validation contract.
-- [V4.5 Candidate J live-shadow preflight](V4_5_CANDIDATE_J_LIVE_SHADOW_PREFLIGHT.md) — read-only D/H/J shadow infrastructure prepared before market reopen. — frozen path-preserving profit-retention specification for Experiment 41.
+- [V4.5 Candidate J live-shadow preflight](V4_5_CANDIDATE_J_LIVE_SHADOW_PREFLIGHT.md) — frozen read-only D/H/J shadow infrastructure specification.
+- [V4.5 Candidate L normalized resumption](V4_5_CANDIDATE_L_NORMALIZED_RESUMPTION.md) — frozen Experiment 51 normalized structural-resumption specification.
+- [V4.5 Candidate M pullback acceptance](V4_5_CANDIDATE_M_PULLBACK_ACCEPTANCE.md) — frozen Experiment 53 reclaim + price-acceptance specification.
+- [V4.5 Candidate N dual acceptance](V4_5_CANDIDATE_N_DUAL_ACCEPTANCE.md) — frozen Experiment 55 pullback-acceptance plus breakout-lane specification.
+- [V4.5 Candidate O acceptance invalidation](V4_5_CANDIDATE_O_ACCEPTANCE_INVALIDATION.md) — frozen Experiment 56 post-entry anchor-invalidation specification.
+- [V4.5 Candidate P persistent acceptance](V4_5_CANDIDATE_P_PERSISTENT_ACCEPTANCE.md) — frozen Experiment 57 second-confirmation persistence specification.
+- [V4.5 Candidate M acceptance-discrimination shadow](V4_5_M_ACCEPTANCE_DISCRIMINATION_SHADOW.md) — frozen Experiment 58 prospective discovery/shadow specification; does not define Candidate Q.
 
 Current strategy status and next actions belong in `../../agents.md`, the experiment index, and the current algorithm document rather than in this plans index.
