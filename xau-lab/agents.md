@@ -77,11 +77,11 @@ Experiment record:
 
 Read-only capture:
 
-`xau-lab/scripts/capture_m_acceptance_shadow_4h_block.py`
+`tools/capture_m_acceptance_shadow_4h_block.py`
 
 Windows capture launcher:
 
-`xau-lab/scripts/start_m_acceptance_shadow_4h_block.ps1`
+`tools/start_m_acceptance_shadow_4h_block.ps1`
 
 Offline extractor:
 
@@ -94,7 +94,7 @@ Supporting frozen feature/parity modules:
 
 Analysis launcher:
 
-`xau-lab/scripts/analyze_m_acceptance_shadow_block.ps1`
+`tools/analyze_m_acceptance_shadow_block.ps1`
 
 Default fresh data root:
 
@@ -246,7 +246,7 @@ For material experiments:
 2. create/freeze the plan first when the experiment changes architecture or prospective rules;
 3. create/update `docs/experiments/YYYY-MM-DD/NN-slug.md` before treating outcomes as canonical;
 4. state objective, baseline, allowed changes, data discipline and status;
-5. implement research logic under `research/` (or broker/data collection under the established tools/operational capture path);
+5. implement research logic under `research/` and broker/data utilities under `tools/`;
 6. write durable machine evidence under `results/simulations/YYYY-MM-DD-slug/`;
 7. preserve configs/metrics as JSON/CSV where applicable;
 8. record negative findings and parity caveats;
@@ -254,7 +254,7 @@ For material experiments:
 10. update current algorithm documentation only when architecture/leader/lock meaningfully changes;
 11. update this handoff when current state/next step changes.
 
-Do not scatter canonical evidence into arbitrary folders.
+Do not scatter canonical evidence into arbitrary folders. `scripts/` remains reserved for final paper-challenge executors; Experiment-58 capture/launcher utilities live under `tools/` and the discrimination logic lives under `research/`.
 
 ## Search and optimization rules
 
@@ -298,13 +298,13 @@ Before finishing a material research change, verify this file and `structure.md`
 From `xau-lab` on the Windows machine:
 
 ```powershell
-.\scripts\start_m_acceptance_shadow_4h_block.ps1
+.\tools\start_m_acceptance_shadow_4h_block.ps1
 ```
 
 After a valid block, if only the predeclared opportunity count is needed before the discovery tranche closes:
 
 ```powershell
-.\scripts\analyze_m_acceptance_shadow_block.ps1 -SessionId <SESSION_ID> -CountOnly
+.\tools\analyze_m_acceptance_shadow_block.ps1 -SessionId <SESSION_ID> -CountOnly
 ```
 
 Do **not** run full label extraction merely to decide whether another block should be collected. Complete the frozen 8-block tranche (or the predeclared 12-block extension if the count condition triggers), then open labels for the discovery analysis.
