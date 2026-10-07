@@ -31,11 +31,11 @@ Experiment-58 data are **prospective discovery/shadow evidence**, not promotion 
 
 Tool:
 
-`scripts/capture_m_acceptance_shadow_4h_block.py`
+`tools/capture_m_acceptance_shadow_4h_block.py`
 
 Launcher:
 
-`scripts/start_m_acceptance_shadow_4h_block.ps1`
+`tools/start_m_acceptance_shadow_4h_block.ps1`
 
 Each valid block:
 
