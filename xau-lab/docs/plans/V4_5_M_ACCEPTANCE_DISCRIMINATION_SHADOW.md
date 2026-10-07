@@ -2,7 +2,7 @@
 
 Date frozen: 2026-10-07
 
-Status: **frozen before the first Experiment-58 prospective block**
+Status: **frozen before the first Experiment-58 prospective block; capture warmup amended outcome-blind before any valid block**
 
 ## Purpose
 
@@ -39,13 +39,19 @@ Launcher:
 
 Each valid block:
 
-- backfills at least 90 minutes of uninterrupted causal XAUUSD MT5 tick context;
+- backfills at least 30 minutes of uninterrupted causal XAUUSD MT5 tick context under the same >5 s continuity-reset semantics used by Candidate M's sampled-session state;
 - freezes the score start at the latest broker tick;
 - captures four wall-clock hours of new raw ticks;
 - preserves real quote gaps and synthesizes no ticks;
 - reconstructs the exact frozen interval from MT5 history at completion, making local suspend/reconnect recoverable when broker history is available;
 - stores warmup and score SHA-256 hashes plus a manifest;
 - performs no strategy-P&L evaluation while capturing.
+
+### Pre-outcome warmup amendment — 2026-10-07
+
+The initial frozen draft inherited Candidate J's 90-minute uninterrupted warmup gate. The very first launch attempt failed that operational gate with **no scored block started and no Candidate-M outcome/P&L evaluated**. Inspection of the already-frozen Candidate-L/M implementation showed that Candidate M's actual structural continuity requirement is `CONTINUITY_SEC = 1800` seconds (30 minutes), with the existing >5-second sampled-session reset unchanged.
+
+Therefore, before any valid Experiment-58 block existed, the canonical launcher was amended from 90 minutes to **30 minutes**. This amendment removes an irrelevant J-era over-gate; it does not loosen Candidate M, alter the >5-second reset rule, inspect strategy outcomes, or change any feature/label definition. The failed pre-capture diagnostic remains operational evidence only and is not an Experiment-58 score block.
 
 Default storage:
 
