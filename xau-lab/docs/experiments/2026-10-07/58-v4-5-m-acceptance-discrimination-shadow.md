@@ -2,7 +2,7 @@
 
 Date opened: 2026-10-07
 
-Status: **IN PROGRESS — no valid fresh block captured yet**
+Status: **IN PROGRESS — Stage-A block 1 frozen, interrupted locally, exact-window recovery pending**
 
 Frozen/amended plan:  
 `docs/plans/V4_5_M_ACCEPTANCE_DISCRIMINATION_SHADOW.md`
@@ -12,6 +12,12 @@ Capture tool:
 
 Windows launcher:  
 `tools/start_m_acceptance_shadow_4h_block.ps1`
+
+Recovery tool:  
+`tools/recover_m_acceptance_shadow_block.py`
+
+Recovery launcher:  
+`tools/recover_m_acceptance_shadow_block.ps1`
 
 Offline extractor:  
 `research/v4_5_m_acceptance_discrimination.py`
@@ -92,9 +98,33 @@ Failed-attempt diagnostic:
 - last >5 s gap: **7.268 s** at `2026-10-07T08:32:41.223Z -> 08:32:48.491Z`;
 - block status: **not started / not counted / no outcomes exposed**.
 
+## Stage-A block 1 interruption — session `20261007T061312Z`
+
+The first real Stage-A capture froze session `20261007T061312Z` and progressed normally to approximately 2.71 hours / 57,840 locally written score ticks. The collector then stopped printing after `08:55:44Z`; manifest and CSV timestamps also stopped advancing. Windows process inspection showed the MT5 terminal process had restarted at approximately 14:26 local time, immediately after the collector stall, while the Python process remained blocked in a native MT5 call.
+
+The user sent one normal `Ctrl+C`; the collector escaped cleanly, executed its `finally` block and wrote:
+
+- `Block status: INCOMPLETE`;
+- warmup/score/manifest paths preserved under `data/prospective_m_acceptance_shadow/20261007T061312Z/`;
+- no Candidate-M labels/P&L were opened;
+- the frozen score start/end were not changed.
+
+This is treated as an **operational interruption, not a discarded research block**. Because the original score window was frozen before outcomes, Experiment 58 preserves it and reconstructs the same four-wall-clock-hour interval from the same MT5 broker history after the original endpoint passes.
+
+Recovery intentionally does **not** borrow Candidate J's market-active-hour extension rule. Real quote gaps remain in the data; the Experiment-58 frozen wall-clock end does not move.
+
+Recovery command after the frozen endpoint has passed in broker time:
+
+```powershell
+.\tools\recover_m_acceptance_shadow_block.ps1 -SessionId 20261007T061312Z
+```
+
+A successful recovery atomically replaces the partial `score_ticks.csv`, preserves `score_ticks.pre_recovery.csv`, recomputes hashes/gap metadata and marks `valid_for_experiment58=true` only if broker history covers the original endpoint within the frozen tolerance.
+
 ## Collection log
 
-No valid Experiment-58 block has been captured yet.
+- Stage-A block 1: `20261007T061312Z` — **frozen; local capture interrupted; exact-window recovery pending**.
+- Stage-A block 2: not started.
 
 ## Decision state
 
@@ -102,10 +132,10 @@ No Candidate Q exists yet. Candidate M remains the strongest reusable entry kern
 
 ## Immediate next action
 
-Capture Stage-A block 1 after pulling the latest main branch:
+Do **not** start a replacement Block 1. After the original four-hour endpoint for session `20261007T061312Z` has passed, recover that exact frozen block:
 
 ```powershell
-.\tools\start_m_acceptance_shadow_4h_block.ps1
+.\tools\recover_m_acceptance_shadow_block.ps1 -SessionId 20261007T061312Z
 ```
 
-Do not open full labels after block 1. After Stage-A blocks 1 and 2 are complete, perform the discovery analysis, freeze exactly one small Q hypothesis, and then begin the four untouched Stage-B blocks.
+If recovery passes, this becomes Stage-A block 1. Then capture Stage-A block 2 normally. Do not open full labels until both Stage-A discovery blocks are complete.
