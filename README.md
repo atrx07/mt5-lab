@@ -12,6 +12,13 @@ The XAUUSD paper-trading research track uses live MT5 bid/ask data. Its own docu
 
 The full chronology, raw run logs, algorithm notes and runnable scripts live inside [`xau-lab/`](./xau-lab).
 
+### [mcx-gold-lab](./mcx-gold-lab)
+
+The MCX gold-futures research track: the lawful, small-capital sibling of `xau-lab`.
+Same underlying (gold), SEBI-regulated Indian venue, Gold Petal (1 g) contracts
+with ~Rs 840 margin per lot. Own documentation, cost model (Experiment 0),
+tick-level harness, and phased research plan live inside [`mcx-gold-lab/`](./mcx-gold-lab).
+
 ## Research workflow
 
 ```text

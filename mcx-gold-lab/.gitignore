@@ -1,0 +1,22 @@
+# mcx-gold-lab ignores: local-only / generated / secrets
+__pycache__/
+*.pyc
+*.pyo
+.env
+.env.*
+!.env.example
+
+# raw tick captures stay out of git; curated .csv.gz archives are allowed
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/*.csv.gz
+
+# synthetic scratch
+data/raw/SYNTHETIC_*
+
+# editor / OS noise
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log

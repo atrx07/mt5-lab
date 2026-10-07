@@ -1,0 +1,94 @@
+# mcx-gold-lab agent instructions
+
+Status: **canonical project instructions for the MCX gold lab**
+
+This is an operational handoff, not an experiment log. Historical detail belongs
+in numbered experiment documents under `docs/experiments/`.
+
+## Read-first continuation protocol
+
+When resuming:
+
+1. work from `main`;
+2. read this file;
+3. read `structure.md`;
+4. read `docs/plans/00-lab-bootstrap.md` for the phased plan and gates;
+5. read `docs/experiments/README.md` and the latest experiment record;
+6. inspect matching result evidence when present;
+7. prefer repository evidence over remembered chat context.
+
+Do not restart the research line because a conversation ended.
+
+## Project objective
+
+Project: `mcx-gold-lab` inside `atrx07/mt5-lab`.
+
+Instrument: **MCX gold futures**, primary contract **GOLDPETAL (1 g)**,
+secondary **GOLDGUINEA (8 g)**.
+
+Goal: maximize expected **net** profit per rupee of deployed capital at low
+capital input (Rs 10k-50k accounts), subject to: full MCX cost schedule on every
+simulated order, bid/ask fills, margin enforcement, circuit bands, deterministic
+risk exits, and chronological validation discipline.
+
+Track: net P&L, gross P&L, total costs, cost ratio, P&L/trade, win rate, profit
+factor, max drawdown, breakeven expectancy vs model, regime behavior, and
+cost-stress (2x costs) survival.
+
+Trade count alone is never the optimization target. Neither is gross P&L.
+
+## Current canonical state — 2026-10-08
+
+- **Experiment 0 COMPLETE**: capital-efficiency model (`tools/mcx_cost_model.py`).
+  Key outputs (gold Rs 12,000/g): Petal RT cost Rs 10.56 (breakeven 10.6 ticks),
+  Guinea RT cost Rs 63.70, margin Rs 840 / Rs 6,720 per lot. Costs are NOT the
+  binding constraint on MCX; spread (Rs 2-3 at Rs 1 ticks) and edge existence are.
+- **Harness COMPLETE + smoke-tested** (`research/harness.py`): no-look-ahead
+  (t+1 execution), bid/ask fills, MCX cost accounting, margin + circuit
+  enforcement. 3/3 smoke tests pass on synthetic data.
+- **Baselines**: MA crossover (known-negative calibration) and grid prototype
+  run end-to-end on synthetic data. Their P&L is meaningless as evidence.
+- **No real tick data yet.** `tools/capture_ticks.py` is specified, not built.
+  No strategy conclusion may be drawn before real MCX ticks flow.
+- **No execution adapter.** Live orders require separate explicit authorization
+  plus SEBI-framework compliance (broker-approved algo, static IP, algo ID).
+
+## Dataset rules
+
+- Tick archives live under `data/raw/` as `.csv.gz` with a manifest in
+  `data/manifests/`. Raw uncurated captures stay out of git (see `.gitignore`).
+- Manifest records: schema version, instrument, contract, source, capture
+  window, row count, SHA-256, column list, provenance notes.
+- Synthetic data is ALWAYS labeled `SYNTHETIC_` and never mixed with real data.
+- xau-lab's MT5 tick data is a different instrument/venue/microstructure and is
+  NOT valid training or validation data here. Parameters don't transfer.
+
+## Experiment workflow
+
+1. Write the hypothesis BEFORE touching data (`docs/plans/` or experiment doc).
+2. Freeze the candidate (code + parameters) before evaluation.
+3. Evaluate on dev data -> record. Tune nothing after seeing dev results.
+4. Validate on untouched holdout -> record. One shot.
+5. Paper-trade the frozen candidate on live ticks before any live discussion.
+6. Reject loudly. Rejection is the normal outcome; promotion is rare.
+
+## Risk / execution discipline (paper AND future live)
+
+- Inventory caps are hard (`max_lots` in harness; broker RMS in live).
+- Margin is enforced in simulation exactly as a broker would enforce it.
+- Circuit bands (3%/6%/9%) are part of every simulation.
+- Kill switch: halt new entries at -10% session drawdown (paper rule; live rule
+  to be set with the broker's RMS).
+- API keys (when they exist): trade-only, no withdrawals, IP-whitelisted,
+  rotated quarterly, never committed.
+
+## Versioning
+
+- `v0` = lab bootstrap (this state). Strategy versions start at `v1` only when
+  the first real-data candidate is frozen. Never reuse a version number.
+
+## Git workflow
+
+- Canonical work lives on `main`. Push via batched commits.
+- Review `agents.md` and `structure.md` before every push; update them when the
+  canonical state changes.
