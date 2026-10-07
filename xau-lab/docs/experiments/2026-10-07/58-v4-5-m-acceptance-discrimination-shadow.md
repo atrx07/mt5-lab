@@ -66,6 +66,18 @@ Causal entry-time fields are prefixed `feature_*`. Future-path and realized-trad
 
 The complete schema is frozen in the plan before the first block.
 
+## Pre-capture continuity amendment — 2026-10-07
+
+The first launcher attempt did **not** start a scored block. The read-only diagnostic showed 25.37 minutes of trailing continuity and rejected launch because the initial harness had inherited Candidate J's 90-minute uninterrupted warmup requirement. No Candidate-M P&L, win/loss outcome or Experiment-58 labels were evaluated.
+
+Repository inspection then confirmed Candidate M inherits Candidate L's frozen `CONTINUITY_SEC = 1800` seconds. The >5-second sampled-session reset remains unchanged. The launcher was therefore amended outcome-blind to require **30 minutes** of uninterrupted causal continuity rather than 90 minutes. This changes capture readiness only; Candidate M and all Experiment-58 feature/label rules remain unchanged.
+
+Operational diagnostic from the failed attempt:
+
+- trailing continuity: **25.37 min**;
+- last >5 s gap: **7.268 s** at `2026-10-07T08:32:41.223Z -> 08:32:48.491Z`;
+- block status: **not started / not counted**.
+
 ## Collection log
 
 No valid Experiment-58 block has been captured yet.
@@ -74,4 +86,4 @@ No valid Experiment-58 block has been captured yet.
 
 No Candidate Q exists yet. Candidate M remains a rejected-but-useful architecture reference, not a live/paper promotion.
 
-Next action: run the first fresh Experiment-58 four-hour shadow block, preserve its manifest/hashes, and use count-only mode if inspecting opportunity count before the discovery tranche closes.
+Next action: run the first fresh Experiment-58 four-hour shadow block once the trailing >5-second-gap continuity reaches 30 minutes, preserve its manifest/hashes, and use count-only mode if inspecting opportunity count before the discovery tranche closes.
