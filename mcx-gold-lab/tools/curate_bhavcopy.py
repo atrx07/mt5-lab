@@ -2,7 +2,7 @@
 """Curate raw MCX bhavcopy JSON into the canonical lab CSV.
 
 Input : data/raw/bhavcopy_<SYMBOL>_<range>.json  (raw endpoint responses)
-Output: data/raw/gold_<symbol>_bhavcopy_<first>_<last>.csv.gz
+Output: data/raw/gold_<symbol>_bhavcopy_<first>_<last>.csv
         + data/manifests/gold_<symbol>_bhavcopy_<first>_<last>.json
 
 Canonical columns: date, contract, expiry, open, high, low, close,
@@ -57,8 +57,8 @@ def main() -> int:
             clean.append(r)
 
     first, last = clean[0]["date"], clean[-1]["date"]
-    out = f"data/raw/gold_{sym}_bhavcopy_{first}_{last}.csv.gz"
-    with gzip.open(out, "wt") as f:
+    out = f"data/raw/gold_{sym}_bhavcopy_{first}_{last}.csv"
+    with open(out, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(clean[0].keys()))
         w.writeheader()
         w.writerows(clean)
@@ -76,7 +76,7 @@ def main() -> int:
                    "intraday path. Valid for daily-bar experiments and pipeline "
                    "validation; NOT valid for tick-level strategy research.",
     )
-    mp = out.replace("data/raw/", "data/manifests/").replace(".csv.gz", ".json")
+    mp = out.replace("data/raw/", "data/manifests/").replace(".csv", ".json")
     json.dump(manifest, open(mp, "w"), indent=2)
     print(f"{sym}: {len(clean)} rows, {manifest['unique_dates']} dates, {first}..{last}")
     print(f"  -> {out}\n  -> {mp}")

@@ -6,10 +6,11 @@ __pycache__/
 .env.*
 !.env.example
 
-# raw tick captures stay out of git; curated .csv.gz archives are allowed
+# raw captures stay out of git; curated .csv archives are allowed
+# (plain CSV: the push path cannot carry binary, and daily files are KB-scale)
 data/raw/*
 !data/raw/.gitkeep
-!data/raw/*.csv.gz
+!data/raw/*.csv
 
 # synthetic scratch
 data/raw/SYNTHETIC_*

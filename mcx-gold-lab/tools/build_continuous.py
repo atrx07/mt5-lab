@@ -3,7 +3,7 @@
 
 Input : data/raw/gold_<contract>_bhavcopy_<range>.csv.gz  (one row per
         contract-day: date, contract, open, high, low, close, volume, oi)
-Output: data/raw/gold_<contract>_continuous_<range>.csv.gz
+Output: data/raw/gold_<contract>_continuous_<range>.csv
         (columns: date, open, high, low, close, volume, oi, contract, rolled,
          limit_day)
 
@@ -43,7 +43,7 @@ def main() -> int:
     src = sys.argv[1]
     rows = []
     opener = gzip.open if src.endswith(".gz") else open
-    with opener(src, "rt") as f:
+    with opener(src, "rt", newline="") as f:
         for r in csv.DictReader(f):
             rows.append(r)
     # normalize
@@ -90,8 +90,8 @@ def main() -> int:
     name = base.replace("_bhavcopy_", "_continuous_").replace(".csv.gz", ".csv")
     if "_bhavcopy_" not in base:
         name = base.replace(".csv.gz", "_continuous.csv").replace(".csv", "_continuous.csv")
-    out_path = os.path.join(os.path.dirname(src), name + ".gz")
-    with gzip.open(out_path, "wt") as f:
+    out_path = os.path.join(os.path.dirname(src), name)
+    with open(out_path, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(out_rows[0].keys()))
         w.writeheader()
         w.writerows(out_rows)
@@ -103,7 +103,7 @@ def main() -> int:
                     first=out_rows[0]["date"], last=out_rows[-1]["date"],
                     rolls=sum(r["rolled"] for r in out_rows),
                     limit_days=sum(r["limit_day"] for r in out_rows))
-    mp = out_path.replace("raw/", "manifests/").replace(".csv.gz", ".json")
+    mp = out_path.replace("raw/", "manifests/").replace(".csv", ".json")
     os.makedirs(os.path.dirname(mp), exist_ok=True)
     json.dump(manifest, open(mp, "w"), indent=2)
     print(f"continuous series: {len(out_rows)} bars, "

@@ -5,11 +5,12 @@
   "source": "MCX official bhavcopy endpoint (GET /market-data/bhavcopy/GetCommoditywiseBhavCopy), browser header profile (Akamai bypass)",
   "input": "data/raw/bhavcopy_GOLDPETAL_08102025_07102026.json",
   "input_rows": 834,
-  "output": "data/raw/gold_GOLDPETAL_bhavcopy_2025-10-08_2026-10-06.csv.gz",
+  "output": "data/raw/gold_GOLDPETAL_bhavcopy_2025-10-08_2026-10-06.csv",
   "output_rows": 834,
-  "sha256": "dbc3897041d9e53ab8358bc86ebdde121321750edeeb860f917182d02619cfaf",
+  "sha256": "70ec5bee275de72e6cc4acc14f17af43448a4cdb6417067dc16b3a2641d27112",
   "first": "2025-10-08",
   "last": "2026-10-06",
   "unique_dates": 257,
-  "provenance": "Public exchange data. Daily bars only \u2014 no bid/ask, no intraday path. Valid for daily-bar experiments and pipeline validation; NOT valid for tick-level strategy research."
+  "provenance": "Public exchange data. Daily bars only \u2014 no bid/ask, no intraday path. Valid for daily-bar experiments and pipeline validation; NOT valid for tick-level strategy research.",
+  "format_note": "plain CSV (push path cannot carry binary; files are KB-scale so gzip buys nothing)"
 }
