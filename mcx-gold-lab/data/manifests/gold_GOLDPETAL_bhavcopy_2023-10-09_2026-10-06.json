@@ -1,0 +1,15 @@
+{
+  "schema": "mcx-bhavcopy-v1",
+  "instrument": "GOLD",
+  "contract_symbol": "GOLDPETAL",
+  "source": "MCX official bhavcopy endpoint (GET /market-data/bhavcopy/GetCommoditywiseBhavCopy), browser header profile (Akamai bypass)",
+  "input": "data/raw/bhavcopy_GOLDPETAL_08102023_07102026.json",
+  "input_rows": 2246,
+  "output": "data/raw/gold_GOLDPETAL_bhavcopy_2023-10-09_2026-10-06.csv",
+  "output_rows": 2246,
+  "sha256": "b6e84d24f9c6a282524face3e9cc6ad38332a1a328e197daccb3b58f2a935433",
+  "first": "2023-10-09",
+  "last": "2026-10-06",
+  "unique_dates": 772,
+  "provenance": "Public exchange data. Daily bars only \u2014 no bid/ask, no intraday path. Valid for daily-bar experiments and pipeline validation; NOT valid for tick-level strategy research."
+}

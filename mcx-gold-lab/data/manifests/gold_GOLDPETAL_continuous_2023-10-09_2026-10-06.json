@@ -1,0 +1,13 @@
+{
+  "schema": "mcx-continuous-v1",
+  "instrument": "GOLD",
+  "source": "MCX bhavcopy curation",
+  "input": "data/raw/gold_GOLDPETAL_bhavcopy_2023-10-09_2026-10-06.csv",
+  "output": "data/raw/gold_GOLDPETAL_continuous_2023-10-09_2026-10-06.csv",
+  "sha256": "7a615811d817cd038b8a7644e9bb8be7213e7a49344176a904276aa99996db20",
+  "bars": 772,
+  "first": "2023-10-09",
+  "last": "2026-10-06",
+  "rolls": 25,
+  "limit_days": 1
+}

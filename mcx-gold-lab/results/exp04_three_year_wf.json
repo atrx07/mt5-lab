@@ -1,0 +1,32 @@
+{
+  "ungated_donchian_20": {
+    "n_windows": 12,
+    "total_oos_net": 6903.14,
+    "mean_oos_net": 575.26,
+    "positive_windows": 8,
+    "mean_oos_pf": 0.116,
+    "mean_oos_sharpe": 1.967,
+    "sharpe_degradation": -0.128,
+    "overfit_warning": false
+  },
+  "gated_donchian_20_eff30": {
+    "n_windows": 12,
+    "total_oos_net": 4227.96,
+    "mean_oos_net": 352.33,
+    "positive_windows": 7,
+    "mean_oos_pf": 0.505,
+    "mean_oos_sharpe": 1.488,
+    "sharpe_degradation": 0.165,
+    "overfit_warning": false
+  },
+  "trend_ma_10_30": {
+    "n_windows": 12,
+    "total_oos_net": 3204.41,
+    "mean_oos_net": 267.03,
+    "positive_windows": 9,
+    "mean_oos_pf": 0.0,
+    "mean_oos_sharpe": 1.823,
+    "sharpe_degradation": 0.079,
+    "overfit_warning": false
+  }
+}

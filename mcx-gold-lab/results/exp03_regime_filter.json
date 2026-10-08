@@ -1,0 +1,32 @@
+{
+  "ungated_donchian_20": {
+    "full_sample_net": 1855.04,
+    "full_sample_trades": 14,
+    "full_sample_pf": 1.531,
+    "walk_forward": {
+      "n_windows": 6,
+      "total_oos_net": 913.17,
+      "mean_oos_net": 152.19,
+      "positive_windows": 2,
+      "mean_oos_pf": 0.0,
+      "mean_oos_sharpe": 0.622,
+      "sharpe_degradation": 0.236,
+      "overfit_warning": false
+    }
+  },
+  "gated_donchian_20_eff30": {
+    "full_sample_net": 1855.04,
+    "full_sample_trades": 14,
+    "full_sample_pf": 1.531,
+    "walk_forward": {
+      "n_windows": 6,
+      "total_oos_net": 271.17,
+      "mean_oos_net": 45.19,
+      "positive_windows": 1,
+      "mean_oos_pf": 0.0,
+      "mean_oos_sharpe": -0.026,
+      "sharpe_degradation": 1.052,
+      "overfit_warning": true
+    }
+  }
+}

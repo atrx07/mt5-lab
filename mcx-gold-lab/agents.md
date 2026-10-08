@@ -61,11 +61,23 @@ Trade count alone is never the optimization target. Neither is gross P&L.
   manifests in `data/manifests/`). Pipeline: `tools/fetch_bhavcopy.py`
   (browser header profile defeats Akamai; date-wise endpoint dead) →
   `curate_bhavcopy.py` → `build_continuous.py` (front-month rule).
-- **Experiment 2 COMPLETE**: regime split on real daily data. Donchian(20)
-  made +Rs 5,729 in 6 trending months, lost −Rs 1,105 in 7 choppy months.
-  Both daily baselines UNDERPERFORMED buy-and-hold (+1,720/+1,855 vs +2,873)
-  in a +23.7% bull year — green ≠ edge. Verdict: no edge found; the research
-  target is now a causal regime filter (Experiment 03).
+- **Experiment 2 COMPLETE**: regime split — Donchian made +Rs 5,729 in 6
+  trending months, lost −Rs 1,105 in 7 choppy months; both daily baselines
+  underperformed buy-and-hold in a +23.7% bull year. Verdict: no edge found;
+  breakout is a regime bet (the Exp 03 hypothesis, since falsified).
+- **Experiment 3 COMPLETE**: causal regime filter on Donchian — HYPOTHESIS
+  FALSIFIED. Gated version WORSE out-of-sample (+Rs 271 vs +Rs 913, 1/6 vs
+  2/6 positive windows, Sharpe degradation 1.05 → overfit warning). Reason:
+  breakouts are themselves trend detectors; the gate is collinear with the
+  entry signal. Lesson: predicting regime *persistence* is the hard problem,
+  not classifying the recent past.
+- **Experiment 4 COMPLETE**: three-year walk-forward (772 bars, 12 windows).
+  Verdict: NO DAILY-BAR ALPHA — daily track closed as an alpha search.
+  Best strategy (Donchian) captured 82% of buy-and-hold's return with 84%
+  of its drawdown (DD/return 0.58 vs 0.56): beta-harvesting, not edge.
+  The +162% bull window was the most favorable possible regime and it
+  still couldn't beat passive. Further parameter variants would be
+  data-mining; the search moves to intraday/tick data.
 - **No tick data yet.** `tools/capture_ticks.py` is specified, not built.
   No strategy conclusion may be drawn before real MCX ticks flow.
 - **No execution adapter.** Live orders require separate explicit authorization
