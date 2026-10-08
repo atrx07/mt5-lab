@@ -49,7 +49,7 @@ Python runtime dependencies. Current: pandas, numpy. Add a dependency here when
 a committed script requires it. No hidden undeclared packages.
 
 ### `.gitignore`
-Raw tick captures (`data/raw/*` except curated `.csv.gz`), synthetic pickles,
+Raw captures (`data/raw/*` except curated `.csv`), synthetic pickles,
 `__pycache__`, `.env` (broker credentials must NEVER be committed).
 
 ## `data/` — canonical market-data storage
@@ -61,15 +61,15 @@ data/
 │   └── <dataset-manifest>.json
 └── raw/
     ├── .gitkeep
-    └── <curated-lossless-dataset>.csv.gz
+    └── <curated-lossless-dataset>.csv
 ```
 
 Manifest minimum fields: schema version, dataset ID, instrument, contract,
 source/platform/exporter, capture window, row count, first/last timestamp,
 column list, archive path, archive SHA-256, provenance/contamination notes.
 
-Naming: `<instrument>_<contract>_<kind>_<range>.csv.gz`, e.g.
-`gold_petal_ticks_2026-10-08.csv.gz`. Synthetic files are prefixed `SYNTHETIC_`.
+Naming: `<instrument>_<contract>_<kind>_<range>.csv`, e.g.
+`gold_petal_ticks_2026-10-08.csv`. Synthetic files are prefixed `SYNTHETIC_`.
 
 ## `docs/`
 

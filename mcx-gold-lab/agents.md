@@ -73,7 +73,7 @@ Trade count alone is never the optimization target. Neither is gross P&L.
 
 ## Dataset rules
 
-- Tick archives live under `data/raw/` as `.csv.gz` with a manifest in
+- Curated archives live under `data/raw/` as plain `.csv` with a manifest in
   `data/manifests/`. Raw uncurated captures stay out of git (see `.gitignore`).
 - Manifest records: schema version, instrument, contract, source, capture
   window, row count, SHA-256, column list, provenance notes.
