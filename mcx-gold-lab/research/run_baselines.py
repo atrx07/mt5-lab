@@ -30,7 +30,7 @@ def smoke_accounting(ticks, cfg, account):
     Flat prices => the round trip must lose EXACTLY the spread (buy@ask,
     sell@bid) plus the two order costs. This asserts spread accounting too.
     """
-    flat = [Tick(ts=t.ts, bid=12000.0, ask=12002.0) for t in ticks[:2000]]
+    flat = [Tick(ts=t.ts, bid=15125.0, ask=15127.0) for t in ticks[:2000]]
     h = Harness(flat, cfg, account, HoldAndClose(exit_at=1000))
     r = h.run()
     spread_loss = 2.0  # ask - bid, 1 lot

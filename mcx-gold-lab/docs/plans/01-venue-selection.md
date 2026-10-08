@@ -14,12 +14,12 @@ Exchange: MCX. Access: SEBI-registered Indian broker + API.
 | NSE equity intraday | DEFERRED | Lawful, liquid, good APIs — but our edge research is in gold microstructure. Different beast; no transfer assumed. |
 | Currency derivatives | REJECTED | Lawful but USDINR is too slow for tick-level engines; they would starve. |
 
-## Contract economics (gold Rs 12,000/g; model: `tools/mcx_cost_model.py`)
+## Contract economics (gold Rs 15,125/g, MCX bhavcopy 2026-10-06; model: `tools/mcx_cost_model.py`)
 
 | Contract | Notional/lot | Margin/lot | RT cost | Breakeven |
 |---|---|---|---|---|
-| GOLDPETAL (1 g) | Rs 12,000 | ~Rs 840 | Rs 10.56 | 10.6 ticks |
-| GOLDGUINEA (8 g) | Rs 96,000 | ~Rs 6,720 | Rs 63.70 | 63.7 ticks |
+| GOLDPETAL (1 g) | Rs 15,125 | ~Rs 1,059 | Rs 13.31 | 13.3 ticks |
+| GOLDGUINEA (8 g) | Rs 1,21,000 | ~Rs 8,470 | Rs 68.00 | 8.5 ticks |
 | GOLDM (100 g) | Rs 12,00,000 | ~Rs 84,000 | Rs 253.50 | 25.4 ticks |
 
 Petal: tradable from ~Rs 5-10k accounts. Guinea: efficiency sweet spot above

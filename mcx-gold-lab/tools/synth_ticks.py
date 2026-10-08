@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "research"))
 from harness import Tick
 
 
-def gen_ticks(n: int, start_price: float = 12000.0, spread: float = 2.0,
+def gen_ticks(n: int, start_price: float = 15125.0, spread: float = 2.0,
               daily_vol: float = 0.012, ticks_per_day: int = 55800,
               seed: int = 7, drift: float = 0.0) -> list[Tick]:
     """Generate n synthetic ticks, 1 tick/sec across a ~15.5h MCX session."""

@@ -1,5 +1,5 @@
 {
-  "gold_inr_per_gram": 12000.0,
+  "gold_inr_per_gram": 15125.0,
   "cost_schedule": "Zerodha MCX schedule, verified 2026-10-08",
   "margin_rule": "6% initial + 1% ELM (minimum; SPAN may exceed)",
   "risk_rule": "3% per trade, 100-tick reference stop",
@@ -8,136 +8,136 @@
       "grams_per_lot": 1,
       "tick_rs_per_lot": 1.0,
       "tick_note": "Rs 1 / 1 g lot  (MCX circular)",
-      "notional_per_lot": 12000.0,
-      "margin_per_lot": 840.0,
-      "roundtrip_cost": 10.56,
+      "notional_per_lot": 15125.0,
+      "margin_per_lot": 1058.75,
+      "roundtrip_cost": 13.31,
       "cost_breakdown": {
-        "buy": 4.8,
-        "sell": 5.76
+        "buy": 6.05,
+        "sell": 7.26
       },
       "cost_pct_of_notional": 0.088,
-      "breakeven_ticks": 10.6
+      "breakeven_ticks": 13.3
     },
     "GOLDGUINEA": {
       "grams_per_lot": 8,
       "tick_rs_per_lot": 1.0,
       "tick_note": "Rs 1 / 8 g lot  (VERIFY against live feed)",
-      "notional_per_lot": 96000.0,
-      "margin_per_lot": 6720.0,
-      "roundtrip_cost": 63.7,
+      "notional_per_lot": 121000.0,
+      "margin_per_lot": 8470.0,
+      "roundtrip_cost": 68.0,
       "cost_breakdown": {
-        "buy": 28.01,
-        "sell": 35.69
+        "buy": 29.16,
+        "sell": 38.84
       },
-      "cost_pct_of_notional": 0.0664,
-      "breakeven_ticks": 63.7
+      "cost_pct_of_notional": 0.0562,
+      "breakeven_ticks": 68.0
     },
     "GOLDM": {
       "grams_per_lot": 100,
       "tick_rs_per_lot": 10.0,
       "tick_note": "Rs 1 / 10 g  => Rs 10 / 100 g lot (scale-up ref)",
-      "notional_per_lot": 1200000.0,
-      "margin_per_lot": 84000.0,
-      "roundtrip_cost": 253.5,
+      "notional_per_lot": 1512500.0,
+      "margin_per_lot": 105875.0,
+      "roundtrip_cost": 307.23,
       "cost_breakdown": {
-        "buy": 78.75,
-        "sell": 174.75
+        "buy": 93.11,
+        "sell": 214.11
       },
-      "cost_pct_of_notional": 0.0211,
-      "breakeven_ticks": 25.4
+      "cost_pct_of_notional": 0.0203,
+      "breakeven_ticks": 30.7
     }
   },
   "accounts": {
     "10000": {
       "GOLDPETAL": {
-        "lots_by_margin": 11,
+        "lots_by_margin": 9,
         "lots_by_risk": 3,
         "tradable_lots": 3,
-        "cost_drag_5rt_per_day_pct": 0.528,
-        "breakeven_expectancy_rs": 10.56
+        "cost_drag_5rt_per_day_pct": 0.665,
+        "breakeven_expectancy_rs": 13.31
       },
       "GOLDGUINEA": {
         "lots_by_margin": 1,
         "lots_by_risk": 3,
         "tradable_lots": 1,
-        "cost_drag_5rt_per_day_pct": 3.185,
-        "breakeven_expectancy_rs": 63.7
+        "cost_drag_5rt_per_day_pct": 3.4,
+        "breakeven_expectancy_rs": 68.0
       },
       "GOLDM": {
         "lots_by_margin": 0,
         "lots_by_risk": 0,
         "tradable_lots": 0,
-        "cost_drag_5rt_per_day_pct": 12.675,
-        "breakeven_expectancy_rs": 253.5
+        "cost_drag_5rt_per_day_pct": 15.361,
+        "breakeven_expectancy_rs": 307.23
       }
     },
     "25000": {
       "GOLDPETAL": {
-        "lots_by_margin": 29,
+        "lots_by_margin": 23,
         "lots_by_risk": 7,
         "tradable_lots": 7,
-        "cost_drag_5rt_per_day_pct": 0.211,
-        "breakeven_expectancy_rs": 10.56
+        "cost_drag_5rt_per_day_pct": 0.266,
+        "breakeven_expectancy_rs": 13.31
       },
       "GOLDGUINEA": {
-        "lots_by_margin": 3,
+        "lots_by_margin": 2,
         "lots_by_risk": 7,
-        "tradable_lots": 3,
-        "cost_drag_5rt_per_day_pct": 1.274,
-        "breakeven_expectancy_rs": 63.7
+        "tradable_lots": 2,
+        "cost_drag_5rt_per_day_pct": 1.36,
+        "breakeven_expectancy_rs": 68.0
       },
       "GOLDM": {
         "lots_by_margin": 0,
         "lots_by_risk": 0,
         "tradable_lots": 0,
-        "cost_drag_5rt_per_day_pct": 5.07,
-        "breakeven_expectancy_rs": 253.5
+        "cost_drag_5rt_per_day_pct": 6.145,
+        "breakeven_expectancy_rs": 307.23
       }
     },
     "50000": {
       "GOLDPETAL": {
-        "lots_by_margin": 59,
+        "lots_by_margin": 47,
         "lots_by_risk": 15,
         "tradable_lots": 15,
-        "cost_drag_5rt_per_day_pct": 0.106,
-        "breakeven_expectancy_rs": 10.56
+        "cost_drag_5rt_per_day_pct": 0.133,
+        "breakeven_expectancy_rs": 13.31
       },
       "GOLDGUINEA": {
-        "lots_by_margin": 7,
+        "lots_by_margin": 5,
         "lots_by_risk": 15,
-        "tradable_lots": 7,
-        "cost_drag_5rt_per_day_pct": 0.637,
-        "breakeven_expectancy_rs": 63.7
+        "tradable_lots": 5,
+        "cost_drag_5rt_per_day_pct": 0.68,
+        "breakeven_expectancy_rs": 68.0
       },
       "GOLDM": {
         "lots_by_margin": 0,
         "lots_by_risk": 1,
         "tradable_lots": 0,
-        "cost_drag_5rt_per_day_pct": 2.535,
-        "breakeven_expectancy_rs": 253.5
+        "cost_drag_5rt_per_day_pct": 3.072,
+        "breakeven_expectancy_rs": 307.23
       }
     },
     "100000": {
       "GOLDPETAL": {
-        "lots_by_margin": 119,
+        "lots_by_margin": 94,
         "lots_by_risk": 30,
         "tradable_lots": 30,
-        "cost_drag_5rt_per_day_pct": 0.053,
-        "breakeven_expectancy_rs": 10.56
+        "cost_drag_5rt_per_day_pct": 0.067,
+        "breakeven_expectancy_rs": 13.31
       },
       "GOLDGUINEA": {
-        "lots_by_margin": 14,
+        "lots_by_margin": 11,
         "lots_by_risk": 30,
-        "tradable_lots": 14,
-        "cost_drag_5rt_per_day_pct": 0.319,
-        "breakeven_expectancy_rs": 63.7
+        "tradable_lots": 11,
+        "cost_drag_5rt_per_day_pct": 0.34,
+        "breakeven_expectancy_rs": 68.0
       },
       "GOLDM": {
-        "lots_by_margin": 1,
+        "lots_by_margin": 0,
         "lots_by_risk": 3,
-        "tradable_lots": 1,
-        "cost_drag_5rt_per_day_pct": 1.268,
-        "breakeven_expectancy_rs": 253.5
+        "tradable_lots": 0,
+        "cost_drag_5rt_per_day_pct": 1.536,
+        "breakeven_expectancy_rs": 307.23
       }
     }
   }

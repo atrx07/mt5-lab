@@ -17,8 +17,8 @@ line from ever taking real money from an Indian resident:
    Rs 500 synthetic experiments non-executable live.
 2. Funding an offshore MT5 XAUUSD account from India breaches FEMA.
 
-MCX gold futures solve both: **Gold Petal (1 g)** needs ~Rs 840 margin per lot,
-costs ~Rs 10.56 per round trip, and trades on a SEBI-regulated Indian exchange
+MCX gold futures solve both: **Gold Petal (1 g)** needs ~Rs 1,059 margin per lot (at Rs 15,125/g, 2026-10-06),
+costs ~Rs 13.31 per round trip (at Rs 15,125/g), and trades on a SEBI-regulated Indian exchange
 through Indian brokers. Same underlying (gold), lawful venue, honest ticket size.
 
 ## What this lab is not

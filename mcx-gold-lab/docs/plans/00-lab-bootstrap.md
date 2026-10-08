@@ -49,7 +49,7 @@ questions:
    regime behavior vs 24h XAUUSD?
 
 Gate per candidate: frozen plan -> dev metrics (profit factor, expectancy vs
-the Rs 10.56/trade breakeven, max drawdown, cost ratio < 0.5, 2x-cost stress
+the Rs 13.31/trade breakeven, max drawdown, cost ratio < 0.5, 2x-cost stress
 still positive) -> ONE holdout shot -> paper trade >= 4 weeks.
 
 ## Phase 4 — Paper trading

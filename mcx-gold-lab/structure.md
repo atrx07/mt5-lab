@@ -85,9 +85,12 @@ Small files with clear ownership. No giant append-only research file.
 
 ## `research/`
 
-Harness (`harness.py`), baselines (`baselines.py`), smoke runner
+Harness (`harness.py` — tick-level), `daily_harness.py` (daily-bar adapter for
+bhavcopy data), baselines (`baselines.py` tick, `baselines_daily.py` daily:
+DailyTrendMA known-negative + circuit-aware DonchianBreakout prototype),
+`walkforward.py` (rolling train/test anti-overfitting gate), smoke runner
 (`run_baselines.py`), and intermediate experiment code. Nothing here places
-orders.
+orders. Synthetic-data results are harness evidence only.
 
 ## `results/`
 

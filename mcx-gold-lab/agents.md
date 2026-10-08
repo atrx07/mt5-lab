@@ -40,15 +40,33 @@ Trade count alone is never the optimization target. Neither is gross P&L.
 ## Current canonical state — 2026-10-08
 
 - **Experiment 0 COMPLETE**: capital-efficiency model (`tools/mcx_cost_model.py`).
-  Key outputs (gold Rs 12,000/g): Petal RT cost Rs 10.56 (breakeven 10.6 ticks),
-  Guinea RT cost Rs 63.70, margin Rs 840 / Rs 6,720 per lot. Costs are NOT the
+  Key outputs (gold Rs 15,125/g (observed 2026-10-06)): Petal RT cost Rs 13.31 (breakeven 13.3 ticks),
+  Guinea RT cost Rs 68.00, margin Rs 1,059 / Rs 8,470 per lot. Costs are NOT the
   binding constraint on MCX; spread (Rs 2-3 at Rs 1 ticks) and edge existence are.
 - **Harness COMPLETE + smoke-tested** (`research/harness.py`): no-look-ahead
   (t+1 execution), bid/ask fills, MCX cost accounting, margin + circuit
   enforcement. 3/3 smoke tests pass on synthetic data.
-- **Baselines**: MA crossover (known-negative calibration) and grid prototype
-  run end-to-end on synthetic data. Their P&L is meaningless as evidence.
-- **No real tick data yet.** `tools/capture_ticks.py` is specified, not built.
+- **Daily-bar adapter COMPLETE** (`research/daily_harness.py` +
+  `tools/build_continuous.py`): next-day-open execution, explicit rollover
+  costing, circuit-day flags, slippage parameter. Built for MCX bhavcopy data.
+- **Walk-forward gate COMPLETE** (`research/walkforward.py`): rolling
+  train/test with IS->OOS Sharpe degradation check (>30% = overfit warning).
+- **Baselines**: tick MA crossover + grid prototype (known-negative
+  calibration); daily DailyTrendMA + circuit-aware DonchianBreakout prototype.
+  Donchian had a real bug caught in review (current bar in its own lookback
+  made breakouts impossible) — fixed and re-verified. All baseline P&L on
+  synthetic data is meaningless as evidence.
+- **Experiment 1 COMPLETE**: first real data — 12 months MCX bhavcopy
+  (GOLDPETAL + GOLDGUINEA, 2025-10-08→2026-10-06, 257 trading days, 7-8 rolls,
+  manifests in `data/manifests/`). Pipeline: `tools/fetch_bhavcopy.py`
+  (browser header profile defeats Akamai; date-wise endpoint dead) →
+  `curate_bhavcopy.py` → `build_continuous.py` (front-month rule).
+- **Experiment 2 COMPLETE**: regime split on real daily data. Donchian(20)
+  made +Rs 5,729 in 6 trending months, lost −Rs 1,105 in 7 choppy months.
+  Both daily baselines UNDERPERFORMED buy-and-hold (+1,720/+1,855 vs +2,873)
+  in a +23.7% bull year — green ≠ edge. Verdict: no edge found; the research
+  target is now a causal regime filter (Experiment 03).
+- **No tick data yet.** `tools/capture_ticks.py` is specified, not built.
   No strategy conclusion may be drawn before real MCX ticks flow.
 - **No execution adapter.** Live orders require separate explicit authorization
   plus SEBI-framework compliance (broker-approved algo, static IP, algo ID).

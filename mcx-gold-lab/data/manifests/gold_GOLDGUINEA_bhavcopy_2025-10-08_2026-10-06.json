@@ -1,0 +1,15 @@
+{
+  "schema": "mcx-bhavcopy-v1",
+  "instrument": "GOLD",
+  "contract_symbol": "GOLDGUINEA",
+  "source": "MCX official bhavcopy endpoint (GET /market-data/bhavcopy/GetCommoditywiseBhavCopy), browser header profile (Akamai bypass)",
+  "input": "data/raw/bhavcopy_GOLDGUINEA_08102025_07102026.json",
+  "input_rows": 852,
+  "output": "data/raw/gold_GOLDGUINEA_bhavcopy_2025-10-08_2026-10-06.csv.gz",
+  "output_rows": 852,
+  "sha256": "c7febc9b1f7274dd6bd730edcbeeff895ec59bfa40111b4650d044d7ef6d14c7",
+  "first": "2025-10-08",
+  "last": "2026-10-06",
+  "unique_dates": 257,
+  "provenance": "Public exchange data. Daily bars only \u2014 no bid/ask, no intraday path. Valid for daily-bar experiments and pipeline validation; NOT valid for tick-level strategy research."
+}

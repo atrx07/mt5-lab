@@ -51,7 +51,7 @@ class HarnessConfig:
     grams_per_lot: float = 1.0
     tick_rs_per_lot: float = 1.0   # Rs P&L per Rs 1 price move per lot
     margin_pct: float = 0.07
-    gold_inr_per_gram: float = 12000.0
+    gold_inr_per_gram: float = 15125.0  # MCX bhavcopy close 2026-10-06
     circuit_band: float = 0.09     # widest MCX band; ticks beyond are untradable
     max_lots: int = 10             # hard inventory cap
 

@@ -25,7 +25,9 @@ Contract specs (MCX circulars; Gold Guinea tick marked VERIFY against live):
   GOLDM     100 g / lot,  tick Rs 10 per lot, margin 6% + 1% ELM  (scale-up reference)
 
 Usage:
-  python tools/mcx_cost_model.py [--gold-inr-per-gram 12000] [--save results/cost_model/exp0.json]
+  python tools/mcx_cost_model.py [--gold-inr-per-gram 15125] [--save results/cost_model/exp0.json]
+  (default 15125 = MCX GOLDPETAL bhavcopy close on 2026-10-06; pass a fresh
+  close to re-price the container as gold moves)
 """
 
 import argparse
@@ -190,7 +192,8 @@ def render_text(r: dict) -> str:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--gold-inr-per-gram", type=float, default=12000.0)
+    ap.add_argument("--gold-inr-per-gram", type=float, default=15125.0,
+                    help="default = MCX GOLDPETAL bhavcopy close 2026-10-06")
     ap.add_argument("--save", type=str, default="")
     a = ap.parse_args()
     r = analyze(a.gold_inr_per_gram)

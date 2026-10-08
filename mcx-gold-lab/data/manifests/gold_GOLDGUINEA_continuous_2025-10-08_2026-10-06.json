@@ -1,0 +1,13 @@
+{
+  "schema": "mcx-continuous-v1",
+  "instrument": "GOLD",
+  "source": "MCX bhavcopy curation",
+  "input": "data/raw/gold_GOLDGUINEA_bhavcopy_2025-10-08_2026-10-06.csv.gz",
+  "output": "data/raw/gold_GOLDGUINEA_continuous_2025-10-08_2026-10-06.csv.gz",
+  "sha256": "214713daa07e27ebd5975f33f0ff8c792b21813dc7e0ea87ced042c4dfaef1ce",
+  "bars": 257,
+  "first": "2025-10-08",
+  "last": "2026-10-06",
+  "rolls": 8,
+  "limit_days": 1
+}
